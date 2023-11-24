@@ -1,6 +1,6 @@
 .gradle
 .mcreator
-/run/
+**/run/
 **/build/
 !src/**/build/
 
