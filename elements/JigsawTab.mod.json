@@ -1,0 +1,11 @@
+{
+  "_fv": 55,
+  "_type": "tab",
+  "definition": {
+    "name": "Jigsaw II",
+    "icon": {
+      "value": "Items.FLOWER_POT"
+    },
+    "showSearch": false
+  }
+}
