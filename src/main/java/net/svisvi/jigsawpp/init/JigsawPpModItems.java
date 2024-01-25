@@ -4,6 +4,8 @@
  */
 package net.svisvi.jigsawpp.init;
 
+
+import net.svisvi.jigsawpp.item.CumshardItem;
 import net.svisvi.jigsawpp.item.ElephantPickaxeItem;
 import net.svisvi.jigsawpp.item.MossElephantPickaxeItem;
 import net.svisvi.jigsawpp.item.StrawberryElephantPickaxeItem;
@@ -28,6 +30,7 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> MOSS_ELEPHANT_PICKAXE = REGISTRY.register("moss_elephant_pickaxe", () -> new MossElephantPickaxeItem());
 	public static final RegistryObject<Item> STRAWBERRY_ELEPHANT_PICKAXE = REGISTRY.register("strawberry_elephant_pickaxe", () -> new StrawberryElephantPickaxeItem());
 
+	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
 
 	public static final RegistryObject<Item> COAL_FOSSIL = block(JigsawPpModBlocks.COAL_FOSSIL);
 
