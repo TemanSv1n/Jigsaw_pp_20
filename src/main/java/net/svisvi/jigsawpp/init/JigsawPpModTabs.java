@@ -25,6 +25,8 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
 				tabData.accept(JigsawPpModItems.COAL_FOSSIL.get());
 				tabData.accept(JigsawPpModItems.CUM_SHARD.get());
+				tabData.accept(JigsawPpModItems.RAW_CUM.get());
+				tabData.accept(JigsawPpModItems.DUST_OF_BABUSHKA.get());
 			})
 
 					.build());
