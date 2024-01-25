@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "block/sword_of_babulito_dust",
-		"particle": "block/sword_of_babulito_dust"
+		"0": "jigsaw_pp:item/sword_of_babushka_dust",
+		"particle": "jigsaw_pp:item/sword_of_babushka_dust"
 	},
 	"elements": [
 		{
@@ -79,8 +79,7 @@
 			"translation": [0, 2.5, 2.25]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, -0.75, 0],
-			"translation": [2.5, 1.75, 0]
+			"rotation": [0, 1, 0]
 		},
 		"firstperson_lefthand": {
 			"rotation": [0, 1, 0]
@@ -89,9 +88,9 @@
 			"translation": [1, 1.5, 1]
 		},
 		"gui": {
-			"rotation": [0, -69.75, 0],
-			"translation": [-0.25, -3.25, 0],
-			"scale": [1, 0.57422, 0.78711]
+			"rotation": [-60.97, -44.43, -68.78],
+			"translation": [-2.25, -2.5, 0],
+			"scale": [1, 0.80664, 0.78711]
 		},
 		"fixed": {
 			"rotation": [-180, 88.5, -180],
