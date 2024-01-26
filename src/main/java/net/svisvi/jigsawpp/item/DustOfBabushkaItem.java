@@ -19,6 +19,6 @@ public class DustOfBabushkaItem extends Item {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-        list.add(Component.translatable("item.jigsaw_pp.raw_cum.desc"));
+        list.add(Component.translatable("item.jigsaw_pp.dust_of_babushka.desc"));
     }
 }
