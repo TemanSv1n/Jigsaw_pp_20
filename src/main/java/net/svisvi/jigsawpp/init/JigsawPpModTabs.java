@@ -27,6 +27,7 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.CUM_SHARD.get());
 				tabData.accept(JigsawPpModItems.RAW_CUM.get());
 				tabData.accept(JigsawPpModItems.DUST_OF_BABUSHKA.get());
+				tabData.accept(JigsawPpModItems.PONOS_BUCKET.get());
 			})
 
 					.build());

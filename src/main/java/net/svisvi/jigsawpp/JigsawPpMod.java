@@ -13,6 +13,8 @@
  */
 package net.svisvi.jigsawpp;
 
+import net.svisvi.jigsawpp.fluid.ModFluid;
+import net.svisvi.jigsawpp.fluid.ModFluidTypes;
 import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -56,6 +58,10 @@ public class JigsawPpMod {
 		JigsawPpModBlocks.REGISTRY.register(bus);
 
 		JigsawPpModTabs.REGISTRY.register(bus);
+
+		ModFluidTypes.register(bus);
+
+		ModFluid.register(bus);
 
 	}
 
