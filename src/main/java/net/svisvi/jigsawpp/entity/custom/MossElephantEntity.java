@@ -1,8 +1,11 @@
 package net.svisvi.jigsawpp.entity.custom;
 
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
@@ -16,17 +19,34 @@ import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.ModEntities;
+import net.svisvi.jigsawpp.procedures.MossElephantFearProcedure;
 
 import javax.annotation.Nullable;
+import java.util.Set;
 
 public class MossElephantEntity extends Animal {
     public MossElephantEntity(EntityType<? extends Animal> pEntityType, Level pLevel){
         super(pEntityType, pLevel);
+
     }
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("beach"), new ResourceLocation("swamp"));
+
+    public static void init() {
+        SpawnPlacements.register(ModEntities.MOSS_ELEPHANT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
+    }
+
+
+
 
     @Override
     public void tick() {
@@ -76,6 +96,12 @@ public class MossElephantEntity extends Animal {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1000)
                 ;
     }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.UNDEFINED;
+    }
+
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherPartner){
@@ -145,6 +171,13 @@ public class MossElephantEntity extends Animal {
 
     @Override
     protected void pushEntities() {
+    }
+    // SCRIPTING AND EDGING
+    @Override
+    public void baseTick() {
+        super.baseTick();
+        //fear
+        MossElephantFearProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
     }
 
 
