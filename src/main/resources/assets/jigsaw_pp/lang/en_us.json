@@ -10,8 +10,9 @@
   "item.jigsaw_pp.strawberry_elephant_pickaxe": "§cStrawberry Elephant Pickaxe",
   "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Fossilises living",
 
-
-
+  "item.jigsaw_pp.raw_teapot": "Raw teapot",
+  "item.jigsaw_pp.teapot": "Teapot",
+  "item.jigsaw_pp.black_teapot": "Black teapot",
 
   "block.jigsaw_pp.coal_fossil": "Coal fossil"
 }
