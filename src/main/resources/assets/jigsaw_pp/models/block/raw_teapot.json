@@ -1,0 +1,9 @@
+{
+  "parent": "jigsaw_stupid:custom/teapot",
+  "textures": {
+    "all": "jigsaw_stupid:block/teapot_raw",
+    "particle": "jigsaw_stupid:block/teapot_raw",
+    "1": "jigsaw_stupid:block/teapot_raw"
+  },
+  "render_type": "solid"
+}

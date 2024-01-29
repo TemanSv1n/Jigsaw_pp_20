@@ -30,7 +30,7 @@ public class JigsawPpModItems {
 
 
 	public static final RegistryObject<Item> COAL_FOSSIL = block(JigsawPpModBlocks.COAL_FOSSIL);
-
+	public static final RegistryObject<Item> RAW_TEAPOT = block(JigsawPpModBlocks.RAW_TEAPOT);
 
 
 
