@@ -35,6 +35,9 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());
 	public static final RegistryObject<Item> DUST_OF_BABUSHKA = REGISTRY.register("dust_of_babushka", () -> new DustOfBabushkaItem());
 	public static final RegistryObject<Item> SWORD_OF_BABUSHKA_DUST = REGISTRY.register("sword_of_babushka_dust", () -> new SwordOfBabushkaDustItem());
+	public static final RegistryObject<Item> PICKAXE_DUST = REGISTRY.register("pickaxe_of_babushka_dust", () -> new PickaxeDustItem());
+	public static final RegistryObject<Item> DUST_NOTHING = REGISTRY.register("nothing_dust", () -> new DustNothing());
+
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 

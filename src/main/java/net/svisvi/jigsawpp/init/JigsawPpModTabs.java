@@ -29,6 +29,8 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.DUST_OF_BABUSHKA.get());
 				tabData.accept(JigsawPpModItems.SWORD_OF_BABUSHKA_DUST.get());
 				tabData.accept(JigsawPpModItems.SWEET_BREAD.get());
+				tabData.accept(JigsawPpModItems.PICKAXE_DUST.get());
+				tabData.accept(JigsawPpModItems.DUST_NOTHING.get());
 			})
 
 					.build());
