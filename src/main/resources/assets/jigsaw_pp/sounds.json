@@ -1,0 +1,11 @@
+{
+  "moss_elephant_proot": {
+    "subtitle": "subtitles.moss_elephant.proot",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:moss_elephant_proot",
+        "stream": false
+      }
+    ]
+  }
+}
