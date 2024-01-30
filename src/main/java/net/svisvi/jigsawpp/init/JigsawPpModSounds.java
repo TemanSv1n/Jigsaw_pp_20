@@ -10,4 +10,5 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 public class JigsawPpModSounds{
         public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, JigsawPpMod.MODID);
         public static final RegistryObject<SoundEvent> MOSS_ELEPHANT_PROOT = REGISTRY.register("moss_elephant_proot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "moss_elephant_proot")));
+        public static final RegistryObject<SoundEvent> MOSS_ELEPHANT_ANGRY_PROOT = REGISTRY.register("moss_elephant_angry_proot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "moss_elephant_angry_proot")));
 }

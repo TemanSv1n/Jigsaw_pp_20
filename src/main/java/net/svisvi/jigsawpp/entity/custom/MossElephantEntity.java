@@ -55,6 +55,7 @@ public class MossElephantEntity extends Animal {
 
     private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("beach"), new ResourceLocation("swamp"));
 
+    private int craftingCooldown = 0;
     public static void init() {
         SpawnPlacements.register(ModEntities.MOSS_ELEPHANT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
     }
@@ -192,8 +193,15 @@ public class MossElephantEntity extends Animal {
         super.baseTick();
         //fear
         MossElephantFearProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
-    }
+        if (craftingCooldown < 80) {
+            craftingCooldown += 1;
+//            if (this.level() instanceof ServerLevel _level) {
+//
+//            }
+        }
 
+    }
+    //right click
     @Override
     public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
         ItemStack itemstack = sourceentity.getItemInHand(hand);
@@ -205,20 +213,35 @@ public class MossElephantEntity extends Animal {
         Entity entity = this;
         Level world = this.level();
 
-
-        if (world instanceof ServerLevel _level && !_level.isClientSide()) {
-            ItemStack res = craftItem(itemstack);
-            ItemEntity entityToSpawn = new ItemEntity(_level, x, y + 2.8f, z, res);
-            entityToSpawn.setPickUpDelay(10);
-            _level.addFreshEntity(entityToSpawn);
-            _level.sendParticles(ParticleTypes.HAPPY_VILLAGER, x, y, z, 50, 2, 2, 2, 0);
-            itemstack.shrink(1);
-        }
-        if (world instanceof ServerLevel _level) {
-            if (!_level.isClientSide()) {
-                _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:moss_elephant_proot")), SoundSource.NEUTRAL, 1, -1);
+        if (craftingCooldown == 80) {
+            craftingCooldown = 0;
+            if (hasRecipe(itemstack)) {
+                if (world instanceof ServerLevel _level && !_level.isClientSide()) {
+                    ItemStack res = craftItem(itemstack);
+                    ItemEntity entityToSpawn = new ItemEntity(_level, x, y + 2.8f, z, res);
+                    entityToSpawn.setPickUpDelay(10);
+                    _level.addFreshEntity(entityToSpawn);
+                    _level.sendParticles(ParticleTypes.HAPPY_VILLAGER, x, y, z, 50, 2, 2, 2, 0);
+                    itemstack.shrink(1);
+                }
+                if (world instanceof ServerLevel _level) {
+                    if (!_level.isClientSide()) {
+                        _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:moss_elephant_proot")), SoundSource.NEUTRAL, 1, -1);
+                    } else {
+                        _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:moss_elephant_proot")), SoundSource.NEUTRAL, 1, -1, false);
+                    }
+                }
             } else {
-                _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:moss_elephant_proot")), SoundSource.NEUTRAL, 1, -1, false);
+                if (world instanceof ServerLevel _level && !_level.isClientSide()) {
+                    _level.sendParticles(ParticleTypes.ANGRY_VILLAGER, x, y, z, 50, 2, 2, 2, 0);
+                }
+                if (world instanceof ServerLevel _level) {
+                    if (!_level.isClientSide()) {
+                        _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:moss_elephant_angry_proot")), SoundSource.NEUTRAL, 1, -1);
+                    } else {
+                        _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:moss_elephant_angry_proot")), SoundSource.NEUTRAL, 1, -1, false);
+                    }
+                }
             }
         }
 
@@ -227,7 +250,7 @@ public class MossElephantEntity extends Animal {
 
         return retval;
     }
-
+    //recepting. elephant side
     private Optional<ElephantingRecipe> getCurrentRecipe(ItemStack itemStack) {
         SimpleContainer inventory = new SimpleContainer(2);
 //        for(int i = 0; i < itemHandler.getSlots(); i++) {
@@ -248,7 +271,16 @@ public class MossElephantEntity extends Animal {
 //        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
 //                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
+    private boolean hasRecipe(ItemStack itemStack) {
+        Optional<ElephantingRecipe> recipe = getCurrentRecipe(itemStack);
 
-
-
+        if(recipe.isEmpty()) {
+            return false;
+        }
+        return true;
     }
+
+
+
+
+}

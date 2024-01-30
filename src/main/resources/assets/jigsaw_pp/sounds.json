@@ -7,5 +7,14 @@
         "stream": false
       }
     ]
+  },
+  "moss_elephant_angry_proot": {
+    "subtitle": "subtitles.moss_elephant.angry_proot",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:moss_elephant_angry_proot",
+        "stream": false
+      }
+    ]
   }
 }
