@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.init;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
 
+import net.svisvi.jigsawpp.block.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -10,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.svisvi.jigsawpp.block.RawTeapotBlock;
+import net.svisvi.jigsawpp.block.TeapotBlock;
 
 public class JigsawPpModBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, JigsawPpMod.MODID);

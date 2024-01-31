@@ -29,6 +29,8 @@ public class JigsawPpModItems {
 
 	public static final RegistryObject<Item> COAL_FOSSIL = block(JigsawPpModBlocks.COAL_FOSSIL);
 	public static final RegistryObject<Item> RAW_TEAPOT = block(JigsawPpModBlocks.RAW_TEAPOT);
+	public static final RegistryObject<Item> TEAPOT = block(JigsawPpModBlocks.TEAPOT);
+	public static final RegistryObject<Item> BLACK_TEAPOT = block(JigsawPpModBlocks.BLACK_TEAPOT);
 
 	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
 	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());
