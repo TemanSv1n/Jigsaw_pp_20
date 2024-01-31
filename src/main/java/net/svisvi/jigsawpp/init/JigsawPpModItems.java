@@ -5,6 +5,8 @@
 package net.svisvi.jigsawpp.init;
 
 
+import net.minecraft.world.item.*;
+import net.svisvi.jigsawpp.fluid.ModFluid;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.entity.ModEntities;
 import net.svisvi.jigsawpp.item.*;
@@ -15,12 +17,9 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
 
-import net.minecraft.world.item.Item;
-
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.BlockItem;
 
 
 public class JigsawPpModItems {
@@ -43,7 +42,9 @@ public class JigsawPpModItems {
 					new Item.Properties()));
 
 
-
+	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
+			"ponos_bucket", () -> new BucketItem(ModFluid.SOURCE_PONOS_WATER,
+					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

@@ -24,6 +24,9 @@
   "item.jigsaw_pp.dust_of_babushka": "§7Dust of Babushka",
   "item.jigsaw_pp.dust_of_babushka.desc": "You can smell it",
 
+
+  "item.jigsaw_pp.ponos_bucket": "Ponos bucket",
+
   "item.jigsaw_pp.sword_of_babushka_dust": "§4Sword Of Babushka Dust",
   "item.jigsaw_pp.sword_of_babushka_dust.desc": "This sword is the strength of all babushka",
 
@@ -37,7 +40,7 @@
 
 
 
-  "block.jigsaw_pp.coal_fossil": "Coal fossil",
+  "block.jigsaw_pp.coal_fossil": "Coal fossil"
 
 
 
