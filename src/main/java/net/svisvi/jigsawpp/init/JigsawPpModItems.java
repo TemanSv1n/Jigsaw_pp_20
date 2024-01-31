@@ -42,6 +42,7 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));
+	public static final RegistryObject<Item> MOSS_ELEPHANT_THUMB = REGISTRY.register("moss_elephant_thumb", () -> new MossElephantThumbItem());
 
 
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
