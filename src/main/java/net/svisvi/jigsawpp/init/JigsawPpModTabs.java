@@ -4,6 +4,7 @@
  */
 package net.svisvi.jigsawpp.init;
 
+import io.netty.util.Attribute;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -24,6 +25,12 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
 				tabData.accept(JigsawPpModItems.COAL_FOSSIL.get());
 				tabData.accept(JigsawPpModItems.RAW_TEAPOT.get());
+				tabData.accept(JigsawPpModItems.CUM_SHARD.get());
+				tabData.accept(JigsawPpModItems.RAW_CUM.get());
+				tabData.accept(JigsawPpModItems.DUST_OF_BABUSHKA.get());
+				tabData.accept(JigsawPpModItems.SWORD_OF_BABUSHKA_DUST.get());
+				tabData.accept(JigsawPpModItems.SWEET_BREAD.get());
+
 			})
 
 					.build());

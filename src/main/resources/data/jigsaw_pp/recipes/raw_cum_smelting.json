@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "experience": 10,
+  "cookingtime": 300,
+  "ingredient": {
+    "item": "jigsaw_pp:raw_cum"
+  },
+  "result": {
+    "item": "jigsaw_pp:cum_shard",
+    "count": 1
+  }
+
+}
