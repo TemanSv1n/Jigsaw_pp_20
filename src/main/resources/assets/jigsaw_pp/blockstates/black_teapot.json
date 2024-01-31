@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jigsaw_pp:block/black_teapot"
+    },
+    "facing=east": {
+      "model": "jigsaw_pp:block/black_teapot",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/black_teapot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/black_teapot",
+      "y": 270
+    }
+  }
+}

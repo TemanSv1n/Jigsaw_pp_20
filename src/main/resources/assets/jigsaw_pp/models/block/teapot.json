@@ -1,8 +1,8 @@
 {
-	"credit": "Made with Blockbench",
+	"credit": "Made with Love",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "kettle"
+		"1": "jigsaw_pp:block/teapot"
 	},
 	"elements": [
 		{
