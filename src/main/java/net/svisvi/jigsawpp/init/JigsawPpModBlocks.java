@@ -5,6 +5,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
+import net.svisvi.jigsawpp.block.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.svisvi.jigsawpp.fluid.ModFluid;
 
 import net.svisvi.jigsawpp.block.RawTeapotBlock;
+import net.svisvi.jigsawpp.block.TeapotBlock;
 
 
 public class JigsawPpModBlocks {
