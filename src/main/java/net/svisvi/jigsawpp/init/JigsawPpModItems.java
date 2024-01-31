@@ -33,7 +33,6 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> RAW_TEAPOT = block(JigsawPpModBlocks.RAW_TEAPOT);
 
 
-
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}

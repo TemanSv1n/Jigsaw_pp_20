@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "jigsaw_stupid:block/raw_teapot"
+      "model": "jigsaw_pp:block/raw_teapot"
     }
   }
 }

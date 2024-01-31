@@ -1,5 +1,5 @@
 {
-  "parent": "jigsaw_stupid:block/raw_teapot",
+  "parent": "jigsaw_pp:block/raw_teapot",
   "display": {
     "thirdperson": {
       "rotation": [
