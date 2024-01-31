@@ -1,5 +1,5 @@
 {
-  "parent": "jigsaw_pp:custom/teapot",
+  "parent": "jigsaw_pp:block/teapot",
   "textures": {
     "all": "jigsaw_pp:block/teapot_raw",
     "particle": "jigsaw_pp:block/teapot_raw",
