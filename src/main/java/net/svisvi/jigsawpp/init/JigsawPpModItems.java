@@ -4,9 +4,8 @@
  */
 package net.svisvi.jigsawpp.init;
 
-import net.svisvi.jigsawpp.item.ElephantPickaxeItem;
-import net.svisvi.jigsawpp.item.MossElephantPickaxeItem;
-import net.svisvi.jigsawpp.item.StrawberryElephantPickaxeItem;
+
+import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
 
@@ -28,9 +27,18 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> MOSS_ELEPHANT_PICKAXE = REGISTRY.register("moss_elephant_pickaxe", () -> new MossElephantPickaxeItem());
 	public static final RegistryObject<Item> STRAWBERRY_ELEPHANT_PICKAXE = REGISTRY.register("strawberry_elephant_pickaxe", () -> new StrawberryElephantPickaxeItem());
 
-
 	public static final RegistryObject<Item> COAL_FOSSIL = block(JigsawPpModBlocks.COAL_FOSSIL);
 	public static final RegistryObject<Item> RAW_TEAPOT = block(JigsawPpModBlocks.RAW_TEAPOT);
+
+	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
+	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());
+	public static final RegistryObject<Item> DUST_OF_BABUSHKA = REGISTRY.register("dust_of_babushka", () -> new DustOfBabushkaItem());
+	public static final RegistryObject<Item> SWORD_OF_BABUSHKA_DUST = REGISTRY.register("sword_of_babushka_dust", () -> new SwordOfBabushkaDustItem());
+
+	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
+
+
+
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
