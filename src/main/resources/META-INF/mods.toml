@@ -6,9 +6,9 @@ license="Academic Free License v3.0"
 modId="jigsaw_pp"
 version="1.0.0"
 displayName="Jigsaw Things II"
-displayURL="https://mcreator.net"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
-authors="Admin, MCreator"
+displayURL="https://discord.gg/ufabWE3YvQ"
+credits="Created NOT using mod maker MCreator"
+authors="Tsyganistantsy"
 
 [[dependencies.jigsaw_pp]]
     modId="minecraft"
