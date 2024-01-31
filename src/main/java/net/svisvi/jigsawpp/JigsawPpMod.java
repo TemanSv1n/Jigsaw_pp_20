@@ -13,6 +13,9 @@
  */
 package net.svisvi.jigsawpp;
 
+
+import net.svisvi.jigsawpp.fluid.ModFluid;
+import net.svisvi.jigsawpp.fluid.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -22,6 +25,8 @@ import net.svisvi.jigsawpp.entity.client.ModModelLayers;
 import net.svisvi.jigsawpp.entity.client.MossElephantModel;
 import net.svisvi.jigsawpp.entity.client.MossElephantRenderer;
 import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
+import net.svisvi.jigsawpp.init.JigsawPpModSounds;
+import net.svisvi.jigsawpp.recipe.ModRecipes;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -65,7 +70,15 @@ public class JigsawPpMod {
 
 		JigsawPpModTabs.REGISTRY.register(bus);
 
+		ModFluidTypes.register(bus);
+
+		ModFluid.register(bus);
+
+		JigsawPpModSounds.REGISTRY.register(bus);
+
 		ModEntities.register(bus);
+
+		ModRecipes.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 
