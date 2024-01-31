@@ -30,8 +30,7 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> STRAWBERRY_ELEPHANT_PICKAXE = REGISTRY.register("strawberry_elephant_pickaxe", () -> new StrawberryElephantPickaxeItem());
 
 	public static final RegistryObject<Item> COAL_FOSSIL = block(JigsawPpModBlocks.COAL_FOSSIL);
-
-
+	public static final RegistryObject<Item> RAW_TEAPOT = block(JigsawPpModBlocks.RAW_TEAPOT);
 
 	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
 	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());
