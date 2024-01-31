@@ -40,7 +40,7 @@
 
 
 
-  "block.jigsaw_pp.coal_fossil": "Coal fossil"
+  "block.jigsaw_pp.coal_fossil": "Coal fossil",
 
 
 
@@ -48,5 +48,7 @@
 
 
   "subtitles.moss_elephant.proot": "Moss elephant proots",
-  "subtitles.moss_elephant.angry_proot": "Moss elephant proots with anger"
+  "subtitles.moss_elephant.angry_proot": "Moss elephant proots with anger",
+  "recipe.jigsaw_pp.elephanting": "Moss Elephanting",
+  "item.jigsaw_pp.moss_elephant_thumb": "Moss Elephant Thumb"
 }
