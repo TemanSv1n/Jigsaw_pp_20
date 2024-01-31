@@ -5,6 +5,8 @@
 package net.svisvi.jigsawpp.init;
 
 
+import net.minecraftforge.common.ForgeSpawnEggItem;
+import net.svisvi.jigsawpp.entity.ModEntities;
 import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
@@ -36,6 +38,9 @@ public class JigsawPpModItems {
 	public static final RegistryObject<Item> SWORD_OF_BABUSHKA_DUST = REGISTRY.register("sword_of_babushka_dust", () -> new SwordOfBabushkaDustItem());
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
+	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
+					new Item.Properties()));
 
 
 

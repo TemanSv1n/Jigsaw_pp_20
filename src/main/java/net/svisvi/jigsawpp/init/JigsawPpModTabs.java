@@ -30,6 +30,7 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.DUST_OF_BABUSHKA.get());
 				tabData.accept(JigsawPpModItems.SWORD_OF_BABUSHKA_DUST.get());
 				tabData.accept(JigsawPpModItems.SWEET_BREAD.get());
+				tabData.accept(JigsawPpModItems.MOSS_ELEPHANT_SPAWN_EGG.get());
 
 			})
 
