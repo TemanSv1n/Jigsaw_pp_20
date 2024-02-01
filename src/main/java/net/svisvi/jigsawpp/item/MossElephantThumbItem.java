@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.item;
 
 
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Rarity;
@@ -8,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.network.chat.Component;
+import net.svisvi.jigsawpp.procedures.ut.PoopProtectionConditions;
 
 import java.util.List;
 
@@ -20,6 +23,12 @@ public class MossElephantThumbItem extends Item {
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
         list.add(Component.translatable("item.jigsaw_pp.moss_elephant_thumb.desc"));
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext pContext) {
+        System.out.println(PoopProtectionConditions.isProtectedFromLiquid(pContext.getPlayer()));
+        return super.useOn(pContext);
     }
 }
 
