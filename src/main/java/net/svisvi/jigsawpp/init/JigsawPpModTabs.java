@@ -36,6 +36,11 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.SWEET_BREAD.get());
 				tabData.accept(JigsawPpModItems.MOSS_ELEPHANT_SPAWN_EGG.get());
 
+				tabData.accept(JigsawPpModItems.HAZMAT_BOOTS.get());
+				tabData.accept(JigsawPpModItems.HAZMAT_LEGGINGS.get());
+				tabData.accept(JigsawPpModItems.HAZMAT_CHESTPLATE.get());
+				tabData.accept(JigsawPpModItems.HAZMAT_HELMET.get());
+
  
 			})
 
