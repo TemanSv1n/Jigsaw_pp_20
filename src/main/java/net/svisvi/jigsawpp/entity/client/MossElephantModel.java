@@ -31,10 +31,12 @@ public class MossElephantModel<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition moss_elephant = partdefinition.addOrReplaceChild("moss_elephant", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition body = moss_elephant.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-14.0F, -42.0F, -18.0F, 28.0F, 21.0F, 36.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition body = moss_elephant.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-14.0F, -42.0F, -18.0F, 28.0F, 21.0F, 36.0F, new CubeDeformation(0.0F))
+				.texOffs(128, 0).addBox(-14.0F, -42.0F, -18.0F, 28.0F, 21.0F, 36.0F, new CubeDeformation(1.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(68, 57).addBox(-9.0F, -9.0F, -12.0F, 18.0F, 16.0F, 13.0F, new CubeDeformation(0.0F))
-		.texOffs(90, 114).addBox(-2.5F, 0.0F, -17.0F, 5.0F, 16.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -30.0F, -19.0F));
+				.texOffs(0, 57).addBox(-10.0F, -9.0F, -12.5F, 20.0F, 17.0F, 14.0F, new CubeDeformation(1.0F))
+				.texOffs(90, 114).addBox(-2.5F, 0.0F, -17.0F, 5.0F, 16.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -30.0F, -19.0F));
 
 		PartDefinition cube_r1 = head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(110, 114).addBox(-2.499F, 0.0F, -1.0F, 5.0F, 12.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 16.0F, -16.0F, 0.3491F, 0.0F, 0.0F));
 

@@ -40,6 +40,7 @@ public class JigsawPpModTabs {
 				tabData.accept(JigsawPpModItems.HAZMAT_LEGGINGS.get());
 				tabData.accept(JigsawPpModItems.HAZMAT_CHESTPLATE.get());
 				tabData.accept(JigsawPpModItems.HAZMAT_HELMET.get());
+				tabData.accept(JigsawPpModItems.GAS_MASK_HELMET.get());
 
  
 			})
