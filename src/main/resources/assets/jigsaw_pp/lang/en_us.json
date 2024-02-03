@@ -51,5 +51,12 @@
   "subtitles.moss_elephant.angry_proot": "Moss elephant proots with anger",
   "recipe.jigsaw_pp.elephanting": "Moss Elephanting",
   "item.jigsaw_pp.moss_elephant_thumb": "Moss Elephant Thumb",
-  "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result"
+  "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result",
+
+  "item.jigsaw_pp.hazmat_helmet": "Hazmat helmet",
+  "item.jigsaw_pp.hazmat_chestplate": "Hazmat chestplate",
+  "item.jigsaw_pp.hazmat_leggings": "Hazmat leggings",
+  "item.jigsaw_pp.hazmat_boots": "Hazmat boots",
+
+  "item.jigsaw_pp.gas_mask_helmet": "Gas Mask"
 }
