@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.network.chat.Component;
-import net.svisvi.jigsawpp.procedures.ut.PoopProtectionConditions;
+import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class MossElephantThumbItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
-        System.out.println(PoopProtectionConditions.isProtectedFromLiquid(pContext.getPlayer()));
+        System.out.println(PoopProtectionArmorConditions.isProtectedFromLiquid(pContext.getPlayer()));
         return super.useOn(pContext);
     }
 }

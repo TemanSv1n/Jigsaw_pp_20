@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PoopProtectionConditions {
+public class PoopProtectionArmorConditions {
     //Checks armor and does logic
     public static boolean isProtectedFromLiquid(Entity entity){
         List<EquipmentSlot> slotNames = new ArrayList<EquipmentSlot>(Arrays.asList(EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET));
