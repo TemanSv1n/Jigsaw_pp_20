@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.fluid;
+package net.svisvi.jigsawpp.fluid.init;
 
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
@@ -8,8 +8,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
-import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
-import net.svisvi.jigsawpp.init.JigsawPpModItems;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class ModFluid {
     public static final DeferredRegister<Fluid> FLUIDS =
@@ -20,7 +20,7 @@ public class ModFluid {
             () -> new ForgeFlowingFluid.Flowing(ModFluid.PONOS_WATER_FLUID_PROPERTIES));
 
     public static final ForgeFlowingFluid.Properties PONOS_WATER_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(
-            ModFluidTypes.PONOS_WATER_FLUID_TYPE, SOURCE_PONOS_WATER, FLOWING_PONOS_WATER).slopeFindDistance(2).levelDecreasePerBlock(1).block(JigsawPpModBlocks.PONOS_WATER_BLOCK).bucket(JigsawPpModItems.PONOS_BUCKET);
+            ModFluidTypes.PONOS_WATER_FLUID_TYPE, SOURCE_PONOS_WATER, FLOWING_PONOS_WATER).slopeFindDistance(2).levelDecreasePerBlock(1).block(ModBlocks.PONOS_WATER_BLOCK).bucket(ModItems.PONOS_BUCKET);
 
 
     public static void register(IEventBus bus) {

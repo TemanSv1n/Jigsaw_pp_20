@@ -3,9 +3,12 @@ package net.svisvi.jigsawpp.item;
 
 //import net.minecraft.client.Minecraft;
 //import net.minecraft.tags.TagKey;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.*;
 //import net.minecraftforge.common.extensions.IForgeBlockState;
-import net.svisvi.jigsawpp.procedures.ElephantPickaxeBlockDestroyedWithToolProcedure;
+import net.minecraft.world.level.LevelAccessor;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
@@ -20,6 +23,7 @@ import net.minecraft.tags.BlockTags;
 //import net.minecraft.core.BlockPos;
 
 import net.minecraft.world.item.ItemStack;
+import net.svisvi.jigsawpp.procedures.ut.IsBiomeHotProcedure;
 import org.jetbrains.annotations.NotNull;
 //import net.minecraft.world.item.ItemStack;
 
@@ -65,26 +69,13 @@ public class ElephantPickaxeItem extends PickaxeItem {
 
 	@Override
 	public boolean mineBlock(ItemStack itemstack, Level world, BlockState blockstate, BlockPos pos, LivingEntity entity) {
-		//System.out.println(blockstate.getBlock().get);
-		//Level world2 = blockstate.getLevel();
 		boolean retval = super.mineBlock(itemstack, world, blockstate, pos, entity);
-		ElephantPickaxeBlockDestroyedWithToolProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), itemstack);
+		this.blockDestroyed(world, pos.getX(), pos.getY(), pos.getZ(), itemstack);
 		return retval;
 	}
 
 	@Override
 	public float getDestroySpeed(ItemStack p_41004_, @NotNull BlockState p_41005_) {
-//		MinecraftServer minecraftServer = ServerLifecycleHooks.getCurrentServer();
-//		try {
-//			ServerLevel level = minecraftServer.getLevel(Level.OVERWORLD);
-//		} catch Exception
-
-		//Level world = Minecraft.getInstance().level;
-		//p_41005_.getBlo;
-		//IForgeBlockState ibs = p_41005_;
-
-		//BlockPos blockPos = p_41005_.getBlock().getId()
-		//Biome biome = world.getBiome(world.getBlockRandom().nextInt(world.getHeight() * 2 + 1));
 		double tagResult = p_41004_.getOrCreateTag().getDouble("DigSpeed");
 
 		if (tagResult <= 1.0D) {
@@ -98,5 +89,24 @@ public class ElephantPickaxeItem extends PickaxeItem {
 	public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
 		list.add(Component.translatable("item.jigsaw_pp.elephant_pickaxe.desc"));
+	}
+
+	public static void blockDestroyed(LevelAccessor world, double x, double y, double z, ItemStack itemstack) {
+		double temp = IsBiomeHotProcedure.execute(world, x, y, z);
+		itemstack.getOrCreateTag().putDouble("DigSpeed", temp);
+		if (temp >= 9){
+			ItemStack _ist = itemstack;
+			if (_ist.hurt(2, RandomSource.create(), null)) {
+				_ist.shrink(1);
+				_ist.setDamageValue(0);
+			}
+			if (world instanceof ServerLevel _level)
+				_level.sendParticles(ParticleTypes.FLAME, x, y, z, 5, 0.5, 0.5, 0.5, 0);
+
+		} else if (temp <= 1){
+			if (world instanceof ServerLevel _level)
+				_level.sendParticles(ParticleTypes.POOF, x, y, z, 5, 0.5, 0.5, 0.5, 0);
+		}
+
 	}
 }

@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.entity;
+package net.svisvi.jigsawpp.entity.init;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -7,7 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
-import net.svisvi.jigsawpp.entity.custom.MossElephantEntity;
+import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =

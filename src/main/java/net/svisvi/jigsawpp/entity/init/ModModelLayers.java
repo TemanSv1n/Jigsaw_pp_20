@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.entity.client;
+package net.svisvi.jigsawpp.entity.init;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;

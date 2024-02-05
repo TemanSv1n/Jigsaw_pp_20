@@ -2,13 +2,14 @@
 /*
  *    MCreator note: This file will be REGENERATED on each build.
  */
-package net.svisvi.jigsawpp.init;
+package net.svisvi.jigsawpp.item.init;
 
 
 import net.minecraft.world.item.*;
-import net.svisvi.jigsawpp.fluid.ModFluid;
 import net.minecraftforge.common.ForgeSpawnEggItem;
-import net.svisvi.jigsawpp.entity.ModEntities;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.fluid.init.ModFluid;
 import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
@@ -20,18 +21,20 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.svisvi.jigsawpp.item.armor.GasMaskItem;
+import net.svisvi.jigsawpp.item.armor.HazmatItem;
 
 
-public class JigsawPpModItems {
+public class ModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, JigsawPpMod.MODID);
 	public static final RegistryObject<Item> ELEPHANT_PICKAXE = REGISTRY.register("elephant_pickaxe", () -> new ElephantPickaxeItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_PICKAXE = REGISTRY.register("moss_elephant_pickaxe", () -> new MossElephantPickaxeItem());
 	public static final RegistryObject<Item> STRAWBERRY_ELEPHANT_PICKAXE = REGISTRY.register("strawberry_elephant_pickaxe", () -> new StrawberryElephantPickaxeItem());
 
-	public static final RegistryObject<Item> COAL_FOSSIL = block(JigsawPpModBlocks.COAL_FOSSIL);
-	public static final RegistryObject<Item> RAW_TEAPOT = block(JigsawPpModBlocks.RAW_TEAPOT);
-	public static final RegistryObject<Item> TEAPOT = block(JigsawPpModBlocks.TEAPOT);
-	public static final RegistryObject<Item> BLACK_TEAPOT = block(JigsawPpModBlocks.BLACK_TEAPOT);
+	public static final RegistryObject<Item> COAL_FOSSIL = block(ModBlocks.COAL_FOSSIL);
+	public static final RegistryObject<Item> RAW_TEAPOT = block(ModBlocks.RAW_TEAPOT);
+	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
+	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
 
 	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
 	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());

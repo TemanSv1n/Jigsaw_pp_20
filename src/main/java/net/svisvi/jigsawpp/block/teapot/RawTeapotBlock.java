@@ -1,5 +1,5 @@
 
-package net.svisvi.jigsawpp.block;
+package net.svisvi.jigsawpp.block.teapot;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;

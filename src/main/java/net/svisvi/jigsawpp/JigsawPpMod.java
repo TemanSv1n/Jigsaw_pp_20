@@ -14,46 +14,27 @@
 package net.svisvi.jigsawpp;
 
 
-import net.svisvi.jigsawpp.fluid.ModFluid;
-import net.svisvi.jigsawpp.fluid.ModFluidTypes;
+import net.svisvi.jigsawpp.fluid.init.ModFluid;
+import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.svisvi.jigsawpp.entity.ModEntities;
-import net.svisvi.jigsawpp.entity.client.ModModelLayers;
-import net.svisvi.jigsawpp.entity.client.MossElephantModel;
-import net.svisvi.jigsawpp.entity.client.MossElephantRenderer;
-import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
-import net.svisvi.jigsawpp.init.JigsawPpModSounds;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
+import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.svisvi.jigsawpp.init.JigsawPpModTabs;
-import net.svisvi.jigsawpp.init.JigsawPpModItems;
+import net.svisvi.jigsawpp.init.ModTabs;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
-import net.minecraftforge.network.simple.SimpleChannel;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.FriendlyByteBuf;
-
-import java.util.function.Supplier;
-import java.util.function.Function;
-import java.util.function.BiConsumer;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.List;
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.AbstractMap;
 
 @Mod("jigsaw_pp")
 public class JigsawPpMod {
@@ -64,17 +45,17 @@ public class JigsawPpMod {
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-		JigsawPpModItems.REGISTRY.register(bus);
+		ModItems.REGISTRY.register(bus);
 
-		JigsawPpModBlocks.REGISTRY.register(bus);
+		ModBlocks.REGISTRY.register(bus);
 
-		JigsawPpModTabs.REGISTRY.register(bus);
+		ModTabs.REGISTRY.register(bus);
 
 		ModFluidTypes.register(bus);
 
 		ModFluid.register(bus);
 
-		JigsawPpModSounds.REGISTRY.register(bus);
+		ModSounds.REGISTRY.register(bus);
 
 		ModEntities.register(bus);
 

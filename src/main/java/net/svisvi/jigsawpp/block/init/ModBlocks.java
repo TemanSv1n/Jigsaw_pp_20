@@ -1,11 +1,11 @@
-package net.svisvi.jigsawpp.init;
+package net.svisvi.jigsawpp.block.init;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
-import net.svisvi.jigsawpp.block.BlackTeapotBlock;
+import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -14,13 +14,12 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
-import net.svisvi.jigsawpp.fluid.ModFluid;
+import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
+import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
+import net.svisvi.jigsawpp.fluid.init.ModFluid;
 
-import net.svisvi.jigsawpp.block.RawTeapotBlock;
-import net.svisvi.jigsawpp.block.TeapotBlock;
 
-
-public class JigsawPpModBlocks {
+public class ModBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, JigsawPpMod.MODID);
     public static final RegistryObject<Block> COAL_FOSSIL = REGISTRY.register("coal_fossil", () -> new CoalFossilBlock());
 

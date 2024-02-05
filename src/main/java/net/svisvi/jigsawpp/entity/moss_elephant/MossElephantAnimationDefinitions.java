@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.entity.animations;
+package net.svisvi.jigsawpp.entity.moss_elephant;
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;

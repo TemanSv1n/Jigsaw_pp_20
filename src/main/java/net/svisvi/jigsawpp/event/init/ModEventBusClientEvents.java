@@ -1,13 +1,12 @@
-package net.svisvi.jigsawpp.event;
+package net.svisvi.jigsawpp.event.init;
 
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
-import net.svisvi.jigsawpp.entity.client.GasMaskModel;
-import net.svisvi.jigsawpp.entity.client.ModModelLayers;
-import net.svisvi.jigsawpp.entity.client.MossElephantModel;
+import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
+import net.svisvi.jigsawpp.entity.init.ModModelLayers;
+import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;
 
 @Mod.EventBusSubscriber(modid = JigsawPpMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusClientEvents {

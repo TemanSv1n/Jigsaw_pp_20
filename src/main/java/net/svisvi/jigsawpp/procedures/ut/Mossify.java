@@ -13,16 +13,15 @@ import net.minecraft.resources.ResourceLocation;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.level.block.Block;
 
 
 import net.minecraftforge.registries.ForgeRegistries;
-import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 
 
 public class Mossify {
     public static boolean execute(LevelAccessor world, double x, double y, double z, BlockState blockstate){ //that stuff replaces block with MOSS
-        if (!(blockstate.getBlock() == Blocks.MOSS_BLOCK) && blockstate.is(BlockTags.create(new ResourceLocation("minecraft:sculk_replaceable"))) | blockstate.getBlock() == JigsawPpModBlocks.COAL_FOSSIL.get()){
+        if (!(blockstate.getBlock() == Blocks.MOSS_BLOCK) && blockstate.is(BlockTags.create(new ResourceLocation("minecraft:sculk_replaceable"))) | blockstate.getBlock() == ModBlocks.COAL_FOSSIL.get()){
             //replacing
             //world.levelEvent(2001, BlockPos.containing(x, y, z), Block.getId(blockstate));
             world.setBlock(BlockPos.containing(x, y, z), Blocks.MOSS_BLOCK.defaultBlockState(), 3);
