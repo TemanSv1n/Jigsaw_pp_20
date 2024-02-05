@@ -16,8 +16,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 
-import net.svisvi.jigsawpp.init.JigsawPpModEntities;
-
 public class FloppaWashbowlRightclickedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
@@ -25,16 +23,16 @@ public class FloppaWashbowlRightclickedProcedure {
 		if (entity.isShiftKeyDown()) {
 			for (int index0 = 0; index0 < 8; index0++) {
 				if (world instanceof ServerLevel _level) {
-					Entity entityToSpawn = JigsawPpModEntities.FLOPPA_MISSILE.get().spawn(_level, BlockPos.containing(
-							entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX()
-									+ Mth.nextDouble(RandomSource.create(), -4, 4),
-							entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY() + 10,
-							entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()
-									+ Mth.nextDouble(RandomSource.create(), -4, 4)),
-							MobSpawnType.MOB_SUMMONED);
-					if (entityToSpawn != null) {
-						entityToSpawn.setDeltaMovement(0, 0, 0);
-					}
+//					Entity entityToSpawn = JigsawPpModEntities.FLOPPA_MISSILE.get().spawn(_level, BlockPos.containing(
+//							entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX()
+//									+ Mth.nextDouble(RandomSource.create(), -4, 4),
+//							entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY() + 10,
+//							entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(20)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()
+//									+ Mth.nextDouble(RandomSource.create(), -4, 4)),
+//							MobSpawnType.MOB_SUMMONED);
+//					if (entityToSpawn != null) {
+//						entityToSpawn.setDeltaMovement(0, 0, 0);
+//					}
 				}
 			}
 			if (entity instanceof Player _player)
