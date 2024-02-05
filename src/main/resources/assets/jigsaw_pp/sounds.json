@@ -16,5 +16,14 @@
         "stream": false
       }
     ]
+  },
+  "metal_pipe_fall": {
+    "subtitle": "subtitles.metal_pipe_fall",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:metal_pipe_fall",
+        "stream": false
+      }
+    ]
   }
 }
