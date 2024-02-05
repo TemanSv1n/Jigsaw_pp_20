@@ -5,23 +5,16 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.level.block.SoundType;
-import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
-
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Carbonise {
@@ -76,7 +69,7 @@ public class Carbonise {
             if (orgSounds.contains(blockstate.getSoundType())) {
                 //replacing
                 //world.levelEvent(2001, BlockPos.containing(x, y, z), Block.getId(blockstate));
-                world.setBlock(BlockPos.containing(x, y, z), JigsawPpModBlocks.COAL_FOSSIL.get().defaultBlockState(), 3);
+                world.setBlock(BlockPos.containing(x, y, z), ModBlocks.COAL_FOSSIL.get().defaultBlockState(), 3);
                 //decorative
                 if (world instanceof ServerLevel _level)
                     _level.sendParticles(ParticleTypes.SQUID_INK, x, y, z, 10, 0.5, 0.5, 0.5, 0);

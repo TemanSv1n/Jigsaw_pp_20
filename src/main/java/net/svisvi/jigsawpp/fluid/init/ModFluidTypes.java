@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.fluid; //java насильник, а я жертва по согласию. -© @hlnikniky
+package net.svisvi.jigsawpp.fluid.init; //java насильник, а я жертва по согласию. -© @hlnikniky
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.fluid.BaseFluidType;
 import org.joml.Vector3f;
 
 import java.rmi.registry.Registry;

@@ -1,9 +1,7 @@
-package net.svisvi.jigsawpp.entity.custom;
+package net.svisvi.jigsawpp.entity.moss_elephant;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -16,7 +14,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -25,22 +22,17 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.network.PlayMessages;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.svisvi.jigsawpp.entity.ModEntities;
-import net.svisvi.jigsawpp.init.JigsawPpModItems;
-import net.svisvi.jigsawpp.procedures.MossElephantFearProcedure;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
 import java.util.Set;
-import java.util.Comparator;
 
 public class MossElephantEntity extends Animal {
     public MossElephantEntity(EntityType<? extends Animal> pEntityType, Level pLevel){
@@ -192,7 +184,7 @@ public class MossElephantEntity extends Animal {
     public void baseTick() {
         super.baseTick();
         //fear
-        MossElephantFearProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
+        this.fear(this.level(), this.getX(), this.getY(), this.getZ(), this);
         if (craftingCooldown < 80) {
             craftingCooldown += 1;
 //            if (this.level() instanceof ServerLevel _level) {
@@ -200,6 +192,26 @@ public class MossElephantEntity extends Animal {
 //            }
         }
 
+    }
+    public static void fear(LevelAccessor world, double x, double y, double z, Entity entity) {
+        if (entity == null)
+            return;
+        if (entity.getDeltaMovement().x() > 0.0001 | entity.getDeltaMovement().z() > 0.0001) {
+            if (Math.random() <= 0.05) {
+                if (world instanceof Level _level && !_level.isClientSide()) {
+                    ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(ModItems.SWEET_BREAD.get()));
+                    entityToSpawn.setPickUpDelay(10);
+                    _level.addFreshEntity(entityToSpawn);
+                }
+                if (world instanceof Level _level) {
+                    if (!_level.isClientSide()) {
+                        _level.playSound(null, new BlockPos((int)x, (int)y, (int)z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.NEUTRAL, 1, 1);
+                    } else {
+                        _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.NEUTRAL, 1, 1, false);
+                    }
+                }
+            }
+        }
     }
     //right click
     @Override

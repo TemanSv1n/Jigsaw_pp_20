@@ -1,15 +1,13 @@
-package net.svisvi.jigsawpp.event;
+package net.svisvi.jigsawpp.event.init;
 
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
-import net.svisvi.jigsawpp.entity.ModEntities;
-import net.svisvi.jigsawpp.entity.custom.MossElephantEntity;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
 
 @Mod.EventBusSubscriber(modid = JigsawPpMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEvents {

@@ -1,19 +1,16 @@
-package net.svisvi.jigsawpp.entity.client;// Made with Blockbench 4.9.3
+package net.svisvi.jigsawpp.entity.moss_elephant;// Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.svisvi.jigsawpp.entity.animations.MossElephantAnimationDefinitions;
-import net.svisvi.jigsawpp.entity.custom.MossElephantEntity;
+import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantAnimationDefinitions;
+import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 
 public class MossElephantModel<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor

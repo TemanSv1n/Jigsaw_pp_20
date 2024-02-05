@@ -1,5 +1,5 @@
 
-package net.svisvi.jigsawpp.item;
+package net.svisvi.jigsawpp.item.armor;
 
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,8 +21,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.Minecraft;
-import net.svisvi.jigsawpp.entity.client.GasMaskModel;
-import net.svisvi.jigsawpp.entity.client.ModModelLayers;
+import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
+import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 
 import java.util.function.Consumer;
 import java.util.Map;

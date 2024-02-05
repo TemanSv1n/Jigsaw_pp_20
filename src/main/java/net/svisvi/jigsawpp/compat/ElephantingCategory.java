@@ -12,9 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.svisvi.jigsawpp.JigsawPpMod;
-import net.svisvi.jigsawpp.entity.ModEntities;
-import net.svisvi.jigsawpp.init.JigsawPpModBlocks;
-import net.svisvi.jigsawpp.init.JigsawPpModItems;
+import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
 
 public class ElephantingCategory implements IRecipeCategory<ElephantingRecipe> {
@@ -28,7 +26,7 @@ public class ElephantingCategory implements IRecipeCategory<ElephantingRecipe> {
 
     public ElephantingCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(JigsawPpModItems.MOSS_ELEPHANT_THUMB.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModItems.MOSS_ELEPHANT_THUMB.get()));
     }
 
     @Override

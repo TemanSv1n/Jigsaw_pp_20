@@ -1,6 +1,11 @@
 
-package net.svisvi.jigsawpp.block;
+package net.svisvi.jigsawpp.block.teapot;
 
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -12,12 +17,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
@@ -36,7 +35,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.svisvi.jigsawpp.procedures.TeapotUpdateTickProcedure;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.Collections;
@@ -134,7 +133,7 @@ public class TeapotBlock extends Block {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        TeapotUpdateTickProcedure.execute(world, x, y, z);
+        this.ticking(world, x, y, z);
         world.scheduleTick(pos, this, 5);
     }
 
@@ -156,6 +155,32 @@ public class TeapotBlock extends Block {
     @Override
     public boolean hasAnalogOutputSignal(BlockState state) {
         return true;
+    }
+
+    public static void ticking(LevelAccessor world, double x, double y, double z) {
+        double xRadius = 0;
+        double loop = 0;
+        double zRadius = 0;
+        double particleAmount = 0;
+        if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.CAMPFIRE || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.SOUL_CAMPFIRE) {
+            if (world instanceof Level _level) {
+                if (!_level.isClientSide()) {
+                    _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.horse.hurt")), SoundSource.BLOCKS, 1, 1);
+                } else {
+                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.horse.hurt")), SoundSource.BLOCKS, 1, 1, false);
+                }
+            }
+            if (world instanceof ServerLevel _level)
+                _level.sendParticles(ParticleTypes.CLOUD, x, y, z, 5, 1, 1, 1, 1);
+            loop = 0;
+            particleAmount = 128;
+            xRadius = 1.5;
+            zRadius = 1.5;
+            while (loop < particleAmount) {
+                world.addParticle(ParticleTypes.CLOUD, (x + Math.cos(((Math.PI * 2) / particleAmount) * loop) * xRadius), (y + 0.02), (z + Math.sin(((Math.PI * 2) / particleAmount) * loop) * zRadius), 0, 0.05, 0);
+                loop = loop + 1;
+            }
+        }
     }
 
 }
