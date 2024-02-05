@@ -14,6 +14,7 @@
 package net.svisvi.jigsawpp;
 
 
+import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.fluid.init.ModFluid;
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -60,6 +61,8 @@ public class JigsawPpMod {
 		ModEntities.register(bus);
 
 		ModRecipes.register(bus);
+
+		ModEffects.register(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 

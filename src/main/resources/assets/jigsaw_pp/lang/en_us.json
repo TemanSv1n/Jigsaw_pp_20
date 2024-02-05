@@ -59,5 +59,12 @@
   "item.jigsaw_pp.hazmat_leggings": "Hazmat leggings",
   "item.jigsaw_pp.hazmat_boots": "Hazmat boots",
 
-  "item.jigsaw_pp.gas_mask_helmet": "Gas Mask"
+  "item.jigsaw_pp.gas_mask_helmet": "Gas Mask",
+
+  "item.jigsaw_pp.slave_helmet": "Slave helmet",
+  "item.jigsaw_pp.slave_chestplate": "Slave chestplate",
+  "item.jigsaw_pp.slave_leggings": "Slave leggings",
+  "item.jigsaw_pp.slave_boots": "Slave boots",
+
+  "effect.jigsaw_pp.poop": "Poop on the screen"
 }
