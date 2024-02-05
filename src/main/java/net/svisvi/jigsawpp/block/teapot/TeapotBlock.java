@@ -165,9 +165,9 @@ public class TeapotBlock extends Block {
         if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.CAMPFIRE || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.SOUL_CAMPFIRE) {
             if (world instanceof Level _level) {
                 if (!_level.isClientSide()) {
-                    _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.horse.hurt")), SoundSource.BLOCKS, 1, 1);
+                    _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1);
                 } else {
-                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.horse.hurt")), SoundSource.BLOCKS, 1, 1, false);
+                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1, false);
                 }
             }
             if (world instanceof ServerLevel _level)
