@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.item;
+package net.svisvi.jigsawpp.item.sweet_bread;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
