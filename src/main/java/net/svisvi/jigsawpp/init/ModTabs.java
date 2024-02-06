@@ -41,6 +41,10 @@ public class ModTabs {
 				tabData.accept(ModItems.HAZMAT_CHESTPLATE.get());
 				tabData.accept(ModItems.HAZMAT_HELMET.get());
 				tabData.accept(ModItems.GAS_MASK_HELMET.get());
+				tabData.accept(ModItems.SLAVE_BOOTS.get());
+				tabData.accept(ModItems.SLAVE_LEGGINGS.get());
+				tabData.accept(ModItems.SLAVE_CHESTPLATE.get());
+				tabData.accept(ModItems.SLAVE_HELMET.get());
 
  
 			})
