@@ -5,9 +5,12 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraft.client.gui.Gui;
+import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 public class PoopEffect extends MobEffect {
     //reging
@@ -43,5 +46,49 @@ public class PoopEffect extends MobEffect {
 
 
     //scripting
+    //conditions
+    public static boolean poopAdditionConditionLiquidWay(Entity entity, MobEffectInstance mobEffectInstance){
+        boolean logic = true;
+        if (PoopProtectionArmorConditions.isProtectedFromLiquid(entity)){
+            logic = false;
+        }
+        return logic;
+    }
+    public static boolean poopAdditionConditionGasWay(Entity entity, MobEffectInstance mobEffectInstance){
+        boolean logic = true;
+        if (PoopProtectionArmorConditions.isProtectedFromGas(entity)){
+            logic = false;
+        }
+        return logic;
+    }
+    public static boolean poopAdditionConditionInnerWay(Entity entity, MobEffectInstance mobEffectInstance){
+        boolean logic = true;
+        return logic;
+    }
 
+    //effect adders
+    public static void addEffectLiquidWay(Entity entity, MobEffectInstance mobEffectInstance){
+        if (poopAdditionConditionLiquidWay(entity,mobEffectInstance)){
+            if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
+                _entity.addEffect(mobEffectInstance);
+            }
+
+        }
+    }
+    public static void addEffectGasWay(Entity entity, MobEffectInstance mobEffectInstance){
+        if (poopAdditionConditionGasWay(entity,mobEffectInstance)){
+            if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
+                _entity.addEffect(mobEffectInstance);
+            }
+
+        }
+    }
+    public static void addEffectInnerWay(Entity entity, MobEffectInstance mobEffectInstance){
+        if (poopAdditionConditionInnerWay(entity,mobEffectInstance)){
+            if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
+                _entity.addEffect(mobEffectInstance);
+            }
+
+        }
+    }
 }
