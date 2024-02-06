@@ -78,7 +78,6 @@ public class PoopProtectionArmorConditions {
                 //System.out.println(item.getItem().getClass().getSuperclass().getName());
                 if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
                     //System.out.println("ABAS here!");
-                    System.out.println(item.getItem().getClass().getSuperclass().getName());
                     return false;
                 }
             }
