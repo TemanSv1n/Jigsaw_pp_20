@@ -15,6 +15,7 @@ package net.svisvi.jigsawpp;
 
 
 import net.svisvi.jigsawpp.effect.init.ModEffects;
+import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
 import net.svisvi.jigsawpp.fluid.init.ModFluid;
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -76,6 +77,7 @@ public class JigsawPpMod {
 		public static void onClientSetup(FMLClientSetupEvent event) {
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
 		}
 	}
 }
