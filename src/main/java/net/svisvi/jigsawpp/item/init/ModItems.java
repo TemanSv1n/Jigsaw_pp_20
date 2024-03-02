@@ -61,7 +61,7 @@ public class ModItems {
 	public static final RegistryObject<Item> SLAVE_LEGGINGS = REGISTRY.register("slave_leggings", () -> new SlaveItem.Leggings());
 	public static final RegistryObject<Item> SLAVE_BOOTS = REGISTRY.register("slave_boots", () -> new SlaveItem.Boots());
 
-
+	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED_PLANT.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluid.SOURCE_PONOS_WATER,

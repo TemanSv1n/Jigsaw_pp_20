@@ -1,10 +1,12 @@
 package net.svisvi.jigsawpp.block.init;
 
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
+import net.svisvi.jigsawpp.block.crops.Beaweed;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
@@ -18,7 +20,6 @@ import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.fluid.init.ModFluid;
 
-
 public class ModBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, JigsawPpMod.MODID);
     public static final RegistryObject<Block> COAL_FOSSIL = REGISTRY.register("coal_fossil", () -> new CoalFossilBlock());
@@ -29,5 +30,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TEAPOT = REGISTRY.register("teapot", () -> new TeapotBlock());
     public static final RegistryObject<Block> BLACK_TEAPOT = REGISTRY.register("black_teapot", () -> new BlackTeapotBlock());
-
+    public static final RegistryObject<Block> BEAWEED_PLANT = REGISTRY.register("beaweed_plant",
+            () -> new Beaweed(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()
+            ));
 }
