@@ -1,7 +1,7 @@
 {
-  "parent": "ue:custom/dristbutton_model",
+  "parent": "jigsaw_pp:item/dristbutton_model",
   "textures": {
-    "0": "ue:block/dristbutton_texture",
-    "particle": "ue:item/dristbutton_texture"
+    "0": "jigsaw_pp:item/dristbutton_texture",
+    "particle": "jigsaw_pp:item/dristbutton_texture"
   }
 }

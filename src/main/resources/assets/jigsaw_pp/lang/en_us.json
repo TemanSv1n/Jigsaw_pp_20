@@ -36,7 +36,7 @@
 
   "item.jigsaw_pp.moss_elephant_spawn_egg": "§aMoss Elephant§r Spawn Egg",
 
-
+  "item.jigsaw_pp.drist_button": "Drist button",
 
 
 
@@ -65,6 +65,7 @@
   "item.jigsaw_pp.slave_chestplate": "Slave chestplate",
   "item.jigsaw_pp.slave_leggings": "Slave leggings",
   "item.jigsaw_pp.slave_boots": "Slave boots",
+
 
   "effect.jigsaw_pp.poop": "Poop on the screen"
 }
