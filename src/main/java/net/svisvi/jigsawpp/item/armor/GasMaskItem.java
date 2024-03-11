@@ -23,13 +23,14 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.Minecraft;
 import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
+import net.svisvi.jigsawpp.procedures.ut.IPoopProtective;
 
 import java.util.function.Consumer;
 import java.util.Map;
 import java.util.List;
 import java.util.Collections;
 
-public abstract class GasMaskItem extends ArmorItem {
+public abstract class GasMaskItem extends ArmorItem implements IPoopProtective {
     public GasMaskItem(ArmorItem.Type type, Item.Properties properties) {
         super(new ArmorMaterial() {
             @Override
@@ -74,7 +75,7 @@ public abstract class GasMaskItem extends ArmorItem {
         }, type, properties);
     }
 
-    public static class Helmet extends GasMaskItem {
+    public static class Helmet extends GasMaskItem implements IPoopProtective{
         public Helmet() {
             super(ArmorItem.Type.HELMET, new Item.Properties());
         }
@@ -105,6 +106,17 @@ public abstract class GasMaskItem extends ArmorItem {
         @Override
         public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
             return "jigsaw_pp:textures/models/armor/gas_mask.png";
+        }
+
+
+        @Override
+        public void onLiquid(ItemStack itemStack, Entity entity) {
+
+        }
+
+        @Override
+        public void onGas(ItemStack itemStack, Entity entity) {
+
         }
     }
 }
