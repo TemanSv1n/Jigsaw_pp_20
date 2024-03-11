@@ -21,8 +21,9 @@ public class PoopProtectionArmorConditions {
         //checking for single items
         for (int i = 0; i < 4; i++) {
 
-            if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("jigsaw_pp:poop_protective_liquid_one")))) {
-                //System.out.println("True bi du ba dubi");
+            if ((entity instanceof LivingEntity _entGetArmor ? temp = _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("jigsaw_pp:poop_protective_liquid_one")))) {
+                items.add(temp);
+                action(entity, items, "liquid");
                 return true;
             } else if ((entity instanceof LivingEntity _entGetArmor ? temp = _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("jigsaw_pp:poop_protective_liquid_full")))){
                 //counting not single items
@@ -36,15 +37,11 @@ public class PoopProtectionArmorConditions {
             return false;
         } else{
             for (ItemStack item : items) {
-                //System.out.println(item.getItem().getClass().getName());
-                //System.out.println(item.getItem().getClass().getSuperclass().getName());
                 if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
-                    //System.out.println("ABAS here!");
-                    System.out.println(item.getItem().getClass().getSuperclass().getName());
                     return false;
                 }
             }
-            //System.out.println("True here!");
+            action(entity, items, "liquid");
             return true;
         }
 
@@ -59,8 +56,9 @@ public class PoopProtectionArmorConditions {
         //checking for single items
         for (int i = 0; i < 4; i++) {
 
-            if ((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("jigsaw_pp:poop_protective_gas_one")))) {
-                //System.out.println("True bi du ba dubi");
+            if ((entity instanceof LivingEntity _entGetArmor ? temp = _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("jigsaw_pp:poop_protective_gas_one")))) {
+                items.add(temp);
+                action(entity, items, "gas");
                 return true;
             } else if ((entity instanceof LivingEntity _entGetArmor ? temp = _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("jigsaw_pp:poop_protective_gas_full")))){
                 //counting not single items
@@ -74,15 +72,37 @@ public class PoopProtectionArmorConditions {
             return false;
         } else{
             for (ItemStack item : items) {
-                //System.out.println(item.getItem().getClass().getName());
-                //System.out.println(item.getItem().getClass().getSuperclass().getName());
                 if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
-                    //System.out.println("ABAS here!");
                     return false;
                 }
             }
-            //System.out.println("True here!");
+            action(entity, items, "gas");
             return true;
         }
     }
+
+
+    public static void action(Entity entity, List<ItemStack> items, String type){ //type is for liquid/gas
+        for(ItemStack it : items) {
+                if (type.equals("liquid")) {
+                    if (it.getItem() instanceof IPoopProtective) {
+                        ((IPoopProtective) it.getItem()).onLiquid(it, entity);
+                    } else {
+                        defaultAction(entity, it, "liquid");
+                    }
+                } else if (type.equals("gas")) {
+                    if (it.getItem() instanceof IPoopProtective) {
+                        ((IPoopProtective) it.getItem()).onGas(it, entity);
+                    } else {
+                        defaultAction(entity, it, "gas");
+                    }
+                }
+        }
+
+    }
+
+    public static void defaultAction(Entity entity, ItemStack itemStack, String type){
+        //break for example ://
+    }
+
 }
