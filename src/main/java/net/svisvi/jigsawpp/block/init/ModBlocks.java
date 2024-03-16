@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
+import net.svisvi.jigsawpp.fluid.PonosFluidBlock;
 import net.svisvi.jigsawpp.fluid.init.ModFluid;
 
 
@@ -24,7 +25,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> COAL_FOSSIL = REGISTRY.register("coal_fossil", () -> new CoalFossilBlock());
 
     public static final RegistryObject<LiquidBlock> PONOS_WATER_BLOCK = REGISTRY.register("ponos_water_block",
-            () -> new LiquidBlock(ModFluid.SOURCE_PONOS_WATER, BlockBehaviour.Properties.copy(Blocks.WATER)));
+            () -> new PonosFluidBlock());
     public static final RegistryObject<Block> RAW_TEAPOT = REGISTRY.register("raw_teapot", () -> new RawTeapotBlock());
 
     public static final RegistryObject<Block> TEAPOT = REGISTRY.register("teapot", () -> new TeapotBlock());
