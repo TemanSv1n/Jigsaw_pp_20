@@ -1,1 +1,2 @@
 For adding PoopEffect use its own static methods instead of vanilla minecraft Entity.addEffect, because OUR method have a bunch of logic!
+This scheme is also for PurgativeEffect

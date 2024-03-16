@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.effect.PoopEffect;
+import net.svisvi.jigsawpp.effect.PurgativeEffect;
 
 public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS
@@ -15,6 +16,9 @@ public class ModEffects {
 
     public static final RegistryObject<MobEffect> POOP = MOB_EFFECTS.register("poop",
             () -> new PoopEffect(MobEffectCategory.HARMFUL, -12372212));
+
+    public static final RegistryObject<MobEffect> PURGATIVE = MOB_EFFECTS.register("purgative",
+            () -> new PurgativeEffect(MobEffectCategory.HARMFUL, -12372212));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
