@@ -4,6 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.common.SoundAction;
+import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,9 +25,11 @@ public class ModFluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, JigsawPpMod.MODID );
 
+    //HERE YOU PUT PROPERTIES, LIKE INVERSED FLOW
     public static final RegistryObject<FluidType> PONOS_WATER_FLUID_TYPE = register("ponos_fluid",
             FluidType.Properties.create().lightLevel(5).density(10).viscosity(10).sound(SoundAction.get("drink"),
-                    SoundEvents.ROOTED_DIRT_HIT));
+                    SoundEvents.ROOTED_DIRT_HIT).fallDistanceModifier(0F).canExtinguish(false).supportsBoating(true).canHydrate(true).motionScale(-0.014D).temperature(400).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                    .sound(SoundActions.BUCKET_EMPTY, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk"))).sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH));
 
     //Цвет
     private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
