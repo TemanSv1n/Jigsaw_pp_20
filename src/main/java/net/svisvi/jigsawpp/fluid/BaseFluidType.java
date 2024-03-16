@@ -45,6 +45,8 @@ public class BaseFluidType extends FluidType{
     private Vector3f getFogColor() {
         return  fogColor;
     }
+
+
     @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
         consumer.accept(new IClientFluidTypeExtensions() {
