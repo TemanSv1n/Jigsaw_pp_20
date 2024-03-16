@@ -46,7 +46,7 @@ public class ModTabs {
 				tabData.accept(ModItems.SLAVE_CHESTPLATE.get());
 				tabData.accept(ModItems.SLAVE_HELMET.get());
 
- 
+				tabData.accept(ModItems.DRIST_BUTTON.get());
 			})
 
 					.build());
