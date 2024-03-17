@@ -1,0 +1,7 @@
+{
+  "parent": "jigsaw_pp:item/dristbutton_model",
+  "textures": {
+    "0": "jigsaw_pp:item/dristbutton_texture",
+    "particle": "jigsaw_pp:item/dristbutton_texture"
+  }
+}

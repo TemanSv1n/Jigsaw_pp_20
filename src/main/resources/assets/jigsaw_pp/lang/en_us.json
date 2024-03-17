@@ -30,13 +30,13 @@
 
   "item.jigsaw_pp.sword_of_babushka_dust": "§4Sword Of Babushka Dust",
   "item.jigsaw_pp.sword_of_babushka_dust.desc": "This sword is the strength of all babushka",
-  "item.jigsaw_pp.beaweed_seeds": "Beaweed Seeds",
+
   "item.jigsaw_pp.sweet_bread": "Sweet Bread",
   "item.jigsaw_pp.sweet_bread.desc": "§7Produced by the §aMoss Elephant§7 in a moment of fear",
 
   "item.jigsaw_pp.moss_elephant_spawn_egg": "§aMoss Elephant§r Spawn Egg",
 
-
+  "item.jigsaw_pp.drist_button": "Drist button",
 
 
 
@@ -66,5 +66,6 @@
   "item.jigsaw_pp.slave_leggings": "Slave leggings",
   "item.jigsaw_pp.slave_boots": "Slave boots",
 
-  "effect.jigsaw_pp.poop": "Poop on the screen"
+  "effect.jigsaw_pp.poop": "Poop on the screen",
+  "effect.jigsaw_pp.purgative": "Strong purgative"
 }

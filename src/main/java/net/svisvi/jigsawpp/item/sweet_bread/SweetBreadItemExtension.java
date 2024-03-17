@@ -27,17 +27,6 @@ public class SweetBreadItemExtension {
                     p_123466_.setItem(new ItemStack(ModItems.SWEET_BREAD.get()));
                 });
             }
-//            public ItemStack execute(BlockSource blockSource, ItemStack stack) {
-//                ItemStack itemstack = stack.copy();
-//                Level world = blockSource.getLevel();
-//                Direction direction = blockSource.getBlockState().getValue(DispenserBlock.FACING);
-//                int x = blockSource.getPos().getX();
-//                int y = blockSource.getPos().getY();
-//                int z = blockSource.getPos().getZ();
-//
-//                itemstack.shrink(1);
-//                return itemstack;
-//            }
         }));
 
     }
