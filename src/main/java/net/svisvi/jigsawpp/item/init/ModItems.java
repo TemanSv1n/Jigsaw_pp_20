@@ -63,6 +63,8 @@ public class ModItems {
 
 	public static final RegistryObject<Item> DRIST_BUTTON = REGISTRY.register("drist_button", () -> new dristButtonItem());
 
+	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED.get(), new Item.Properties()));
+
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluid.SOURCE_PONOS_WATER,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));

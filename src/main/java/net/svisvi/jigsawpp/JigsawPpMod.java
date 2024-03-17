@@ -14,6 +14,8 @@
 package net.svisvi.jigsawpp;
 
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.fluid.init.ModFluid;
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
@@ -74,6 +76,7 @@ public class JigsawPpMod {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 		}
