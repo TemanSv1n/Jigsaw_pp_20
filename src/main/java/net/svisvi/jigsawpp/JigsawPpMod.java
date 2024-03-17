@@ -1,6 +1,21 @@
+/*
+ *    MCreator note:
+ *
+ *    If you lock base mod element files, you can edit this file and it won't get overwritten.
+ *    If you change your modid or package, you need to apply these changes to this file MANUALLY.
+ *
+ *    Settings in @Mod annotation WON'T be changed in case of the base mod element
+ *    files lock too, so you need to set them manually here in such case.
+ *
+ *    If you do not lock base mod element files in Workspace settings, this file
+ *    will be REGENERATED on each build.
+ *
+ */
 package net.svisvi.jigsawpp;
 
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.fluid.init.ModFluid;
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
@@ -61,6 +76,7 @@ public class JigsawPpMod {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 		}

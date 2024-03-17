@@ -1,5 +1,4 @@
 package net.svisvi.jigsawpp.block.crops;
-
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
@@ -20,7 +19,7 @@ public class Beaweed extends CropBlock {
         return ModItems.BEAWEED_SEEDS.get();
     }
     @Override
-    protected IntegerProperty getAgeProperty(){
+    public IntegerProperty getAgeProperty(){
         return AGE;
     }
     @Override
