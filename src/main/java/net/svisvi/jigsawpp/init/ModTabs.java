@@ -27,12 +27,8 @@ public class ModTabs {
 				tabData.accept(ModItems.RAW_TEAPOT.get());
 				tabData.accept(ModItems.TEAPOT.get());
 				tabData.accept(ModItems.BLACK_TEAPOT.get());
-				tabData.accept(ModItems.CUM_SHARD.get());
-				tabData.accept(ModItems.RAW_CUM.get());
-				tabData.accept(ModItems.DUST_OF_BABUSHKA.get());
  
 				tabData.accept(ModItems.PONOS_BUCKET.get());
-				tabData.accept(ModItems.SWORD_OF_BABUSHKA_DUST.get());
 				tabData.accept(ModItems.SWEET_BREAD.get());
 				tabData.accept(ModItems.MOSS_ELEPHANT_SPAWN_EGG.get());
 

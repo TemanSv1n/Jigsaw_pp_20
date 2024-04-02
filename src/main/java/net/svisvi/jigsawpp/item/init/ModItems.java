@@ -9,7 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
-import net.svisvi.jigsawpp.fluid.init.ModFluid;
+import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
@@ -38,11 +38,6 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
 	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
 
-	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
-	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());
-	public static final RegistryObject<Item> DUST_OF_BABUSHKA = REGISTRY.register("dust_of_babushka", () -> new DustOfBabushkaItem());
-	public static final RegistryObject<Item> SWORD_OF_BABUSHKA_DUST = REGISTRY.register("sword_of_babushka_dust", () -> new SwordOfBabushkaDustItem());
-
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
@@ -66,7 +61,7 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED.get(), new Item.Properties()));
 
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
-			"ponos_bucket", () -> new BucketItem(ModFluid.SOURCE_PONOS_WATER,
+			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 

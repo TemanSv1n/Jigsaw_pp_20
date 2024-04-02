@@ -137,7 +137,7 @@ public class PurgativeEffect extends MobEffect {
                     (level.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.CAVE_AIR |
                     (level.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.VOID_AIR) {
 
-                level.setBlock(BlockPos.containing(x,y,z), ModBlocks.PONOS_WATER_BLOCK.get().defaultBlockState(), 3);
+                level.setBlock(BlockPos.containing(x,y,z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
                 //pants "issue"
                 if (mobEffectInstance.getAmplifier() == 2) {
                     ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY);
