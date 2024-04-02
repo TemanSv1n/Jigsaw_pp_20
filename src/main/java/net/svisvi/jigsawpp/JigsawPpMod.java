@@ -17,7 +17,7 @@ package net.svisvi.jigsawpp;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
-import net.svisvi.jigsawpp.fluid.init.ModFluid;
+import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -55,9 +55,9 @@ public class JigsawPpMod {
 
 		ModTabs.REGISTRY.register(bus);
 
-		ModFluidTypes.register(bus);
+		ModFluidTypes.REGISTRY.register(bus);
 
-		ModFluid.register(bus);
+		ModFluids.REGISTRY.register(bus);
 
 		ModSounds.REGISTRY.register(bus);
 

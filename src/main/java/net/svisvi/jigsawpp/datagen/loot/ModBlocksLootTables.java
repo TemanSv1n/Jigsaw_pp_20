@@ -17,8 +17,8 @@ public class ModBlocksLootTables extends BlockLootSubProvider {
     protected void generate(){
 
         LootItemCondition.Builder lootitembuilder = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(ModBlocks.BEAWEED_PLANT.get())
+                .hasBlockStateProperties(ModBlocks.BEAWEED.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(Beaweed.AGE,5));
-        this.add(ModBlocks.BEAWEED_PLANT.get(),createCropDrops(ModBlocks.BEAWEED_PLANT.get(), ModItems.BEAWEED_SEEDS.get(),ModItems.BEAWEED_SEEDS.get(),lootitembuilder));
+        this.add(ModBlocks.BEAWEED.get(),createCropDrops(ModBlocks.BEAWEED.get(), ModItems.BEAWEED_SEEDS.get(),ModItems.BEAWEED_SEEDS.get(),lootitembuilder));
     }
 }
