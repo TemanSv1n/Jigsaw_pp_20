@@ -46,6 +46,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAWEED_SEEDS.get());
 						tabData.accept(ModItems.FORK.get());
 
+						tabData.accept(ModItems.EMPTY_PILULE.get());
 						tabData.accept(ModItems.BASIC_PURGEN_PILULE.get());
 						tabData.accept(ModItems.ADVANCED_PURGEN_PILULE.get());
 						tabData.accept(ModItems.CRYSTAL_PURGEN_PILULE.get());
