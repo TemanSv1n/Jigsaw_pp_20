@@ -54,5 +54,8 @@
   "item.jigsaw_pp.slave_boots": "Slave boots",
 
   "effect.jigsaw_pp.poop": "Poop on the screen",
-  "effect.jigsaw_pp.purgative": "Strong purgative"
+  "effect.jigsaw_pp.purgative": "Strong purgative",
+
+  "item.jigsaw_pp.pilule.duration" : "§7Effect duration: ",
+  "misc.jigsaw_pp.second": "§7s"
 }
