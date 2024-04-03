@@ -5,6 +5,7 @@
 package net.svisvi.jigsawpp.item.init;
 
 
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
