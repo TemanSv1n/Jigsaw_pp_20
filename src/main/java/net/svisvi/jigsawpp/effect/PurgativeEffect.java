@@ -119,7 +119,7 @@ public class PurgativeEffect extends MobEffect {
             if ((level instanceof ServerLevel _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.OVERWORLD | (level instanceof ServerLevel _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.NETHER) {
                 logic = true;
             }
-        } else {logic = true;}
+        } else if (mobEffectInstance.getAmplifier() == 2) {logic = true;}
         return logic;
     }
 

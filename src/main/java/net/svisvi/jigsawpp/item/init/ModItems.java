@@ -24,6 +24,10 @@ import net.minecraft.world.item.Item;
 import net.svisvi.jigsawpp.item.armor.GasMaskItem;
 import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
+import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 
 
@@ -59,10 +63,15 @@ public class ModItems {
 	public static final RegistryObject<Item> DRIST_BUTTON = REGISTRY.register("drist_button", () -> new dristButtonItem());
 
 	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED.get(), new Item.Properties()));
-
+	public static final RegistryObject<Item> FORK = REGISTRY.register("fork", () -> new ForkItem());
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+	public static final RegistryObject<Item> EMPTY_PILULE = REGISTRY.register("empty_pilule", () -> new EmptyPiluleItem());
+	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
+	public static final RegistryObject<Item> ADVANCED_PURGEN_PILULE = REGISTRY.register("advanced_purgen_pilule", () -> new AdvancedPurgenPiluleItem());
+	public static final RegistryObject<Item> CRYSTAL_PURGEN_PILULE = REGISTRY.register("crystal_purgen_pilule", () -> new CrystalPurgenPiluleItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
