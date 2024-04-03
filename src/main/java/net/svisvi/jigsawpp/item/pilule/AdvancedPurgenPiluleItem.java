@@ -6,6 +6,8 @@ import net.svisvi.jigsawpp.effect.init.ModEffects;
 public class AdvancedPurgenPiluleItem extends AbstractPiluleItem{
     static int duration = 400;
     int duration_buff = 0;
+    static int amplifier = 1;
+    MobEffectInstance secondary_effect;
 
     @Override
     public int duration(){return this.duration;}
@@ -13,11 +15,10 @@ public class AdvancedPurgenPiluleItem extends AbstractPiluleItem{
     public int duration_buff(){
         return this.duration_buff;
     }
+    public int amplifier(){return this.amplifier;}
+    public MobEffectInstance secondary_effect(){return this.secondary_effect;}
     public AdvancedPurgenPiluleItem(){
         super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 1));
     }
-    public AdvancedPurgenPiluleItem(int durationBuff){
-        super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 0));
-        duration_buff = durationBuff;
-    }
+
 }
