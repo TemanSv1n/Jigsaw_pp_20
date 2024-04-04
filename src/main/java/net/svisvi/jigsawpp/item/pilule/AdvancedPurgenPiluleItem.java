@@ -7,7 +7,7 @@ public class AdvancedPurgenPiluleItem extends AbstractPiluleItem{
     static int duration = 400;
     int duration_buff = 0;
     static int amplifier = 1;
-    MobEffectInstance secondary_effect;
+    static MobEffectInstance effect = new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, amplifier);
 
     @Override
     public int duration(){return this.duration;}
@@ -16,9 +16,9 @@ public class AdvancedPurgenPiluleItem extends AbstractPiluleItem{
         return this.duration_buff;
     }
     public int amplifier(){return this.amplifier;}
-    public MobEffectInstance secondary_effect(){return this.secondary_effect;}
+    public MobEffectInstance effect(){return this.effect;}
     public AdvancedPurgenPiluleItem(){
-        super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 1));
+        super(effect);
     }
 
 }

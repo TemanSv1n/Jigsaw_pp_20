@@ -32,23 +32,24 @@ public class AbstractPiluleItem extends Item {
     static int duration = 1000;
     int duration_buff = 0;
     static int amplifier = 0;
+    public static int EFFECTS_REVEAL = 70; //>= this value ---- effects are shown under pilule
 
-    MobEffectInstance secondary_effect;
+    MobEffectInstance effect;
 
 
-    public AbstractPiluleItem(MobEffectInstance effect) {
+    public AbstractPiluleItem(MobEffectInstance _effect) {
         super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON)
                 .food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().meat()
-                        .effect(effect, 1F).build()));
+                        .effect(_effect, 1F).build()));
     }
-    public AbstractPiluleItem(MobEffectInstance effect, MobEffectInstance second_effect) {
-        super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON)
-                .food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().meat()
-                        .effect(effect, 1F)
-                        .effect(second_effect, 1F)
-                        .build()));
-        secondary_effect = second_effect;
-    }
+//    public AbstractPiluleItem(MobEffectInstance effect, MobEffectInstance second_effect) {
+//        super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON)
+//                .food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().meat()
+//                        .effect(effect, 1F)
+//                        .effect(second_effect, 1F)
+//                        .build()));
+//        secondary_effect = second_effect;
+//    }
 
     @Override
     public int getUseDuration(ItemStack itemstack) {
@@ -66,18 +67,28 @@ public class AbstractPiluleItem extends Item {
                 .append(Component.literal("§7 + "))
                 .append(Component.literal(Integer.toString(itemstack.getOrCreateTag().getInt("duration_buff")/20)))
                 .append(Component.translatable("misc.jigsaw_pp.second")));
-        if (PotionUtils.getMobEffects(itemstack) != null) {
-            list.add(Component.translatable("item.jigsaw_pp.pilule.sec_effect"));
-            for(MobEffectInstance mobeffectinstance : PotionUtils.getMobEffects(itemstack)) {
-                list.add(Component.literal("§7")
-                        .append(Component.translatable(mobeffectinstance.getDescriptionId()))
-                        .append(Component.literal(" "))
-                        .append(Integer.toString(mobeffectinstance.getAmplifier() + 1))
-                        .append(Component.literal(" "))
-                        .append(Integer.toString(mobeffectinstance.getDuration() / 20))
-                        .append(Component.translatable("misc.jigsaw_pp.second")));
+
+        list.add(Component.translatable("item.jigsaw_pp.pilule.purity"));
+        list.add(Component.literal(Integer.toString(purity(itemstack)))
+                .append(Component.literal("%")));
+
+        if (purity(itemstack) >= EFFECTS_REVEAL) {
+            if (PotionUtils.getMobEffects(itemstack) != null) {
+                list.add(Component.translatable("item.jigsaw_pp.pilule.sec_effect"));
+                for (MobEffectInstance mobeffectinstance : PotionUtils.getMobEffects(itemstack)) {
+                    list.add(Component.literal("§7")
+                            .append(Component.translatable(mobeffectinstance.getDescriptionId()))
+                            .append(Component.literal(" "))
+                            .append(Integer.toString(mobeffectinstance.getAmplifier() + 1))
+                            .append(Component.literal(" "))
+                            .append(Integer.toString(mobeffectinstance.getDuration() / 20))
+                            .append(Component.translatable("misc.jigsaw_pp.second")));
+                }
+                //list.add(Component.literal());
             }
-            //list.add(Component.literal());
+        } else {
+            list.add(Component.translatable("item.jigsaw_pp.pilule.sec_effect"));
+            list.add(Component.translatable("item.jigsaw_pp.pilule.effects_hidden"));
         }
 
 
@@ -90,16 +101,22 @@ public class AbstractPiluleItem extends Item {
         return this.duration_buff;
     }
     public int amplifier(){return this.amplifier();}
-    public MobEffectInstance secondary_effect(){return this.secondary_effect;}
+    public MobEffectInstance effect(){return this.effect;}
+    public int purity(ItemStack itemStack){return itemStack.getOrCreateTag().getInt("purity");}
 
     public static void setDurationBuff(int durationBuff, ItemStack itemStack){
         itemStack.getOrCreateTag().putInt("duration_buff", durationBuff);
 
     }
+    public static void setPurity(int durationBuff, ItemStack itemStack){
+        itemStack.getOrCreateTag().putInt("purity", durationBuff);
+
+    }
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity entity) {
-        PurgativeEffect.addEffectInnerWay(entity, new MobEffectInstance(ModEffects.PURGATIVE.get(), this.duration()+this.duration_buff(), amplifier()));
+        PurgativeEffect.addEffectInnerWay(entity, new MobEffectInstance(this.effect().getEffect(), this.duration()+this.duration_buff(), amplifier()));
+        //probably do разводка for effects
 
 //        CompoundTag pCompoundTag = itemstack.getTag();
 //        List<MobEffectInstance> pEffectList = new ArrayList<MobEffectInstance>();

@@ -17,6 +17,7 @@ will grant effect, checking for gas mask and do some stuff to it, if coded enoug
 duration buff you grant to an itemstack through
 
 */item/pilule/AbstractPiluleItem#setDurationBuff()*
+*/item/pilule/AbstractPiluleItem#setPurity()*
 
 additional effect you grant through 
 
