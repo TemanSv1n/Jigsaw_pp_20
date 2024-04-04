@@ -58,5 +58,7 @@
 
   "item.jigsaw_pp.pilule.duration" : "§7Effect duration: ",
   "misc.jigsaw_pp.second": "§7s",
-  "item.jigsaw_pp.pilule.sec_effect" : "§7+Effect: "
+  "item.jigsaw_pp.pilule.sec_effect" : "§7+Effect: ",
+  "item.jigsaw_pp.pilule.purity" : "§7Purity: ",
+  "item.jigsaw_pp.pilule.effects_hidden" : "§kEffect: "
 }
