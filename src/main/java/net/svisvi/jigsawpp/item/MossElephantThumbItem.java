@@ -52,6 +52,7 @@ public class MossElephantThumbItem extends Item {
             ItemStack _setstack = new ItemStack(ModItems.BASIC_PURGEN_PILULE.get());
             _setstack.setCount(1);
             AbstractPiluleItem.setDurationBuff(200, _setstack);
+            AbstractPiluleItem.setPurity(84, _setstack);
             PotionUtils.setCustomEffects(_setstack, ar);
             ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 
