@@ -24,3 +24,7 @@ additional effect you grant through
 *PotionUtils#setCustomEffects*
 
 Actual documentation for pilules you can see in the MossElephantThumb class
+
+**Purgen bundle**
+get (and remove) first item from bundle
+PurgenBundleItem#useFirst()
