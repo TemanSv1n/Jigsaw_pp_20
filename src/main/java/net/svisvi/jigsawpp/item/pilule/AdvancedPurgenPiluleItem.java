@@ -4,7 +4,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 public class AdvancedPurgenPiluleItem extends AbstractPiluleItem{
-    static int duration = 400;
+    static int duration = 300;
     int duration_buff = 0;
     static int amplifier = 1;
     static MobEffectInstance effect = new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, amplifier);
