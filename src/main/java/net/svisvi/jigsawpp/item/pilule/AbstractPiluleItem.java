@@ -4,6 +4,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,6 +22,7 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.procedures.ut.PiluleStyles;
 import org.apache.commons.lang3.ObjectUtils;
 
 
@@ -32,7 +34,7 @@ public class AbstractPiluleItem extends Item {
     static int duration = 1000;
     int duration_buff = 0;
     static int amplifier = 0;
-    public static int EFFECTS_REVEAL = 70; //>= this value ---- effects are shown under pilule
+    public static int EFFECTS_REVEAL = 60; //>= this value ---- effects are shown under pilule
 
     MobEffectInstance effect;
 
@@ -69,7 +71,7 @@ public class AbstractPiluleItem extends Item {
                 .append(Component.translatable("misc.jigsaw_pp.second")));
 
         list.add(Component.translatable("item.jigsaw_pp.pilule.purity"));
-        list.add(Component.literal(Integer.toString(purity(itemstack)))
+        list.add(Component.literal(Integer.toString(purity(itemstack)))     .setStyle(PiluleStyles.purityLogic(purity(itemstack)))
                 .append(Component.literal("%")));
 
         if (purity(itemstack) >= EFFECTS_REVEAL) {
@@ -77,7 +79,7 @@ public class AbstractPiluleItem extends Item {
                 list.add(Component.translatable("item.jigsaw_pp.pilule.sec_effect"));
                 for (MobEffectInstance mobeffectinstance : PotionUtils.getMobEffects(itemstack)) {
                     list.add(Component.literal("§7")
-                            .append(Component.translatable(mobeffectinstance.getDescriptionId()))
+                            .append(Component.translatable(mobeffectinstance.getDescriptionId())    .setStyle(PiluleStyles.effectLogic(mobeffectinstance)))
                             .append(Component.literal(" "))
                             .append(Integer.toString(mobeffectinstance.getAmplifier() + 1))
                             .append(Component.literal(" "))
@@ -100,7 +102,7 @@ public class AbstractPiluleItem extends Item {
     public int duration_buff(){
         return this.duration_buff;
     }
-    public int amplifier(){return this.amplifier();}
+    public int amplifier(){return this.amplifier;}
     public MobEffectInstance effect(){return this.effect;}
     public int purity(ItemStack itemStack){return itemStack.getOrCreateTag().getInt("purity");}
 
@@ -118,20 +120,6 @@ public class AbstractPiluleItem extends Item {
         PurgativeEffect.addEffectInnerWay(entity, new MobEffectInstance(this.effect().getEffect(), this.duration()+this.duration_buff(), amplifier()));
         //probably do разводка for effects
 
-//        CompoundTag pCompoundTag = itemstack.getTag();
-//        List<MobEffectInstance> pEffectList = new ArrayList<MobEffectInstance>();
-//        if (pCompoundTag != null && pCompoundTag.contains("CustomPotionEffects", 9)) {
-//            ListTag listtag = pCompoundTag.getList("CustomPotionEffects", 10);
-//
-//            for(int i = 0; i < listtag.size(); ++i) {
-//                CompoundTag compoundtag = listtag.getCompound(i);
-//                MobEffectInstance mobeffectinstance = MobEffectInstance.load(compoundtag);
-//                if (mobeffectinstance != null) {
-//                    pEffectList.add(mobeffectinstance);
-//                }
-//            }
-//        }
-
         Player player = entity instanceof Player ? (Player)entity : null;
         if (player instanceof ServerPlayer) {
             CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer)player, itemstack);
@@ -140,7 +128,11 @@ public class AbstractPiluleItem extends Item {
         if (!world.isClientSide) {
             for(MobEffectInstance mobeffectinstance : PotionUtils.getMobEffects(itemstack)) {
                 if (mobeffectinstance.getEffect().isInstantenous()) {
-                    mobeffectinstance.getEffect().applyInstantenousEffect(player, player, entity, mobeffectinstance.getAmplifier(), 1.0D);
+                    if (mobeffectinstance.getEffect().equals(ModEffects.BAD_EFFECT.get())){
+                        mobeffectinstance.getEffect().applyInstantenousEffect(player, player, entity, mobeffectinstance.getAmplifier(), mobeffectinstance.getDuration());
+                    } else {
+                        mobeffectinstance.getEffect().applyInstantenousEffect(player, player, entity, mobeffectinstance.getAmplifier(), 1.0D);
+                    }
                 } else {
                     entity.addEffect(new MobEffectInstance(mobeffectinstance));
                 }

@@ -19,6 +19,7 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
@@ -46,12 +47,14 @@ public class MossElephantThumbItem extends Item {
         //System.out.println(PoopProtectionArmorConditions.isProtectedFromLiquid(pContext.getPlayer()));
         //new MobEffectInstance(MobEffects.JUMP, 60, 1, false, false)
         List<MobEffectInstance> ar = new ArrayList<MobEffectInstance>();
-        ar.add(new MobEffectInstance(MobEffects.JUMP, 800, 1, false, false));
-        ar.add(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1, false, false));
+//        ar.add(new MobEffectInstance(MobEffects.JUMP, 800, 1, false, false));
+//        ar.add(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1, false, false));
+        ar.add(new MobEffectInstance(ModEffects.BAD_EFFECT.get(), 60, 1, false, false));
+        ar.add(new MobEffectInstance(ModEffects.BAD_EFFECT.get(), 120, 1, false, false));
         if (pContext.getPlayer() instanceof ServerPlayer _player) {
             ItemStack _setstack = new ItemStack(ModItems.BASIC_PURGEN_PILULE.get());
             _setstack.setCount(1);
-            AbstractPiluleItem.setDurationBuff(200, _setstack);
+            AbstractPiluleItem.setDurationBuff(-300, _setstack);
             AbstractPiluleItem.setPurity(84, _setstack);
             PotionUtils.setCustomEffects(_setstack, ar);
             ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
