@@ -1,0 +1,6 @@
+{
+    "parent": "jigsaw_pp:item/purgen_bundle",
+    "textures": {
+        "layer0": "jigsaw_pp:item/purgen_bundle_filled"
+    }
+}
