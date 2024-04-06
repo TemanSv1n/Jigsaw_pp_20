@@ -120,6 +120,7 @@ public class AbstractPiluleItem extends Item {
         PurgativeEffect.addEffectInnerWay(entity, new MobEffectInstance(this.effect().getEffect(), this.duration()+this.duration_buff(), amplifier()));
         //probably do разводка for effects
 
+
         Player player = entity instanceof Player ? (Player)entity : null;
         if (player instanceof ServerPlayer) {
             CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer)player, itemstack);
