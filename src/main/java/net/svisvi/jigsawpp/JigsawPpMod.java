@@ -91,6 +91,7 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
+			EntityRenderers.register(ModEntities.PURGEN_PILULE_PROJECTILE.get(), ThrownItemRenderer::new);
 		}
 	}
 }
