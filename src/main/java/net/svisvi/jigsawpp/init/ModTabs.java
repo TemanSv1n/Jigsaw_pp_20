@@ -52,6 +52,12 @@ public class ModTabs {
 						tabData.accept(ModItems.CRYSTAL_PURGEN_PILULE.get());
 						tabData.accept(ModItems.EXTINGUISHER.get());
 
+						tabData.accept(ModItems.BEAWEED_SOUP.get());
+						tabData.accept(ModItems.SAWDUST_SOUP.get());
+						tabData.accept(ModItems.BEAWEED_SCUM.get());
+						tabData.accept(ModItems.BEAWEED_DUST.get());
+						tabData.accept(ModItems.BEAWEED_BLOCK.get());
+
 			})
 
 					.build());
