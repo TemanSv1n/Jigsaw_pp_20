@@ -69,7 +69,7 @@ public class PurgenGunItem extends Item {
 //    }
     public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule){
         if(!pLevel.isClientSide()) {
-            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 2.5f, 0f, purgenPilule);
+            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, 0f, purgenPilule);
         }
 
     }

@@ -28,3 +28,8 @@ Actual documentation for pilules you can see in the MossElephantThumb class
 **Purgen bundle**
 get (and remove) first item from bundle
 PurgenBundleItem#useFirst()
+
+
+
+! Purgen pilules should be added to dispenser manually
+pilule/PiluleItemExtensions
