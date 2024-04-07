@@ -24,6 +24,7 @@ import net.minecraft.world.item.Item;
 import net.svisvi.jigsawpp.item.armor.GasMaskItem;
 import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
+import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
@@ -72,7 +73,7 @@ public class ModItems {
 	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
 	public static final RegistryObject<Item> ADVANCED_PURGEN_PILULE = REGISTRY.register("advanced_purgen_pilule", () -> new AdvancedPurgenPiluleItem());
 	public static final RegistryObject<Item> CRYSTAL_PURGEN_PILULE = REGISTRY.register("crystal_purgen_pilule", () -> new CrystalPurgenPiluleItem());
-
+	public static final RegistryObject<Item> EXTINGUISHER = REGISTRY.register("extinguisher", () -> new ExtinguisherItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
