@@ -35,8 +35,9 @@ public class PurgenGunItem extends Item {
                 _ist.setDamageValue(0);
             }
             pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.COW_MILK, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+            pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.PISTON_EXTEND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
 
-            shoot(pLevel, pPlayer, purgen_pilule);
+            new_shoot(pLevel, pPlayer, purgen_pilule);
         } else {
             pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         }
@@ -45,25 +46,31 @@ public class PurgenGunItem extends Item {
         return super.use(pLevel, pPlayer, pUsedHand);
     }
 
-    public void shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule){
-
-
-        Entity _shootFrom = pPlayer;
-        Level projectileLevel = pLevel;
-        if(!projectileLevel.isClientSide()) {
-            Projectile _SpawnEntity = new Object(){
-                public Projectile getArrow(Level level, float damage, int knockback, ItemStack itemStack){
-                    PurgenPiluleProjectile SpawnEntity = new PurgenPiluleProjectile(ModEntities.PURGEN_PILULE_PROJECTILE.get(), level);
-                    SpawnEntity.setItem(itemStack);
-                    SpawnEntity.setBaseDamage(damage);
-                    SpawnEntity.setKnockback(knockback);
-                    SpawnEntity.setSilent(true);
-                    return SpawnEntity;
-                }
-            }.getArrow(projectileLevel, 0, 0, purgenPilule);
-            _SpawnEntity.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
-            _SpawnEntity.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 1, 0);
-            projectileLevel.addFreshEntity(_SpawnEntity);
+//    public void shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule){
+//
+//
+//        Entity _shootFrom = pPlayer;
+//        Level projectileLevel = pLevel;
+//        if(!projectileLevel.isClientSide()) {
+//            Projectile _SpawnEntity = new Object(){
+//                public Projectile getArrow(Level level, float damage, int knockback, ItemStack itemStack){
+//                    PurgenPiluleProjectile SpawnEntity = new PurgenPiluleProjectile(ModEntities.PURGEN_PILULE_PROJECTILE.get(), level);
+//                    SpawnEntity.setItem(itemStack);
+//                    SpawnEntity.setBaseDamage(damage);
+//                    SpawnEntity.setKnockback(knockback);
+//                    SpawnEntity.setSilent(true);
+//                    return SpawnEntity;
+//                }
+//            }.getArrow(projectileLevel, 0, 0, purgenPilule);
+//            _SpawnEntity.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
+//            _SpawnEntity.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 1, 0);
+//            projectileLevel.addFreshEntity(_SpawnEntity);
+//        }
+//    }
+    public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule){
+        if(!pLevel.isClientSide()) {
+            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 2.5f, 0f, purgenPilule);
         }
+
     }
 }

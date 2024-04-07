@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.procedures.ut;
+package net.svisvi.jigsawpp.procedures;
 
 import net.minecraft.util.thread.BlockableEventLoop;
 import net.minecraft.world.entity.Entity;
