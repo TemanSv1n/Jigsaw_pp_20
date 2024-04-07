@@ -64,4 +64,14 @@ public class ThrownSweetBreadProjectile extends ThrowableItemProjectile {
     protected Item getDefaultItem() {
         return ModItems.SWEET_BREAD.get();
     }
+
+    protected void onHit(HitResult pResult) {
+        super.onHit(pResult);
+        if (!this.level().isClientSide) {
+
+            this.level().broadcastEntityEvent(this, (byte)3);
+            this.discard();
+        }
+
+    }
 }
