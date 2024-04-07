@@ -5,11 +5,12 @@
 package net.svisvi.jigsawpp.item.init;
 
 
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
-import net.svisvi.jigsawpp.fluid.init.ModFluid;
+import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
@@ -24,6 +25,10 @@ import net.minecraft.world.item.Item;
 import net.svisvi.jigsawpp.item.armor.GasMaskItem;
 import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
+import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 
 
@@ -37,11 +42,6 @@ public class ModItems {
 	public static final RegistryObject<Item> RAW_TEAPOT = block(ModBlocks.RAW_TEAPOT);
 	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
 	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
-
-	public static final RegistryObject<Item> CUM_SHARD = REGISTRY.register("cum_shard", () -> new CumshardItem());
-	public static final RegistryObject<Item> RAW_CUM = REGISTRY.register("raw_cum", () -> new RawCumItem());
-	public static final RegistryObject<Item> DUST_OF_BABUSHKA = REGISTRY.register("dust_of_babushka", () -> new DustOfBabushkaItem());
-	public static final RegistryObject<Item> SWORD_OF_BABUSHKA_DUST = REGISTRY.register("sword_of_babushka_dust", () -> new SwordOfBabushkaDustItem());
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
@@ -61,11 +61,19 @@ public class ModItems {
 	public static final RegistryObject<Item> SLAVE_LEGGINGS = REGISTRY.register("slave_leggings", () -> new SlaveItem.Leggings());
 	public static final RegistryObject<Item> SLAVE_BOOTS = REGISTRY.register("slave_boots", () -> new SlaveItem.Boots());
 
+	public static final RegistryObject<Item> DRIST_BUTTON = REGISTRY.register("drist_button", () -> new dristButtonItem());
 
-
+	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED.get(), new Item.Properties()));
+	public static final RegistryObject<Item> FORK = REGISTRY.register("fork", () -> new ForkItem());
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
-			"ponos_bucket", () -> new BucketItem(ModFluid.SOURCE_PONOS_WATER,
+			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+	public static final RegistryObject<Item> EMPTY_PILULE = REGISTRY.register("empty_pilule", () -> new EmptyPiluleItem());
+	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
+	public static final RegistryObject<Item> ADVANCED_PURGEN_PILULE = REGISTRY.register("advanced_purgen_pilule", () -> new AdvancedPurgenPiluleItem());
+	public static final RegistryObject<Item> CRYSTAL_PURGEN_PILULE = REGISTRY.register("crystal_purgen_pilule", () -> new CrystalPurgenPiluleItem());
+	public static final RegistryObject<Item> PURGEN_BUNDLE = REGISTRY.register("purgen_bundle", () -> new PurgenBundleItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {"model": "jigsaw_pp:block/beaweed_1_stage"},
+    "age=1": {"model": "jigsaw_pp:block/beaweed_2_stage"},
+    "age=2": {"model": "jigsaw_pp:block/beaweed_3_stage"},
+    "age=3": {"model": "jigsaw_pp:block/beaweed_4_stage"},
+    "age=4": {"model": "jigsaw_pp:block/beaweed_4-5_stage"},
+    "age=5": {"model": "jigsaw_pp:block/beaweed_5_stage"}
+  }
+}
