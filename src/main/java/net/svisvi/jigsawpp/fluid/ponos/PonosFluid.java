@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.ParticleOptions;
 import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.particles.ModParticleTypes;
 
 public abstract class PonosFluid extends ForgeFlowingFluid {
     public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> ModFluidTypes.PONOS_TYPE.get(), () -> ModFluids.PONOS.get(), () -> ModFluids.FLOWING_PONOS.get())
@@ -30,7 +31,7 @@ public abstract class PonosFluid extends ForgeFlowingFluid {
 
     @Override
     public ParticleOptions getDripParticle() {
-        return ParticleTypes.CRIMSON_SPORE;
+        return ModParticleTypes.POOP.get();
     }
 
     protected boolean canConvertToSource(Level pLevel) {
@@ -43,7 +44,7 @@ public abstract class PonosFluid extends ForgeFlowingFluid {
                 pLevel.playLocalSound((double)pPos.getX() + 0.5D, (double)pPos.getY() + 0.5D, (double)pPos.getZ() + 0.5D, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, pRandom.nextFloat() * 0.25F + 0.75F, pRandom.nextFloat() + 0.5F, false);
             }
         } else if (pRandom.nextInt(10) == 0) {
-            pLevel.addParticle(ParticleTypes.CRIMSON_SPORE, (double)pPos.getX() + pRandom.nextDouble(), (double)pPos.getY() + pRandom.nextDouble(), (double)pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
+            pLevel.addParticle(ModParticleTypes.POOP_BUBBLE.get(), (double)pPos.getX() + pRandom.nextDouble(), (double)pPos.getY() + pRandom.nextDouble(), (double)pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
         }
 
     }

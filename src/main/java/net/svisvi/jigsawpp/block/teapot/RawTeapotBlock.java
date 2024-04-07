@@ -1,6 +1,8 @@
 
 package net.svisvi.jigsawpp.block.teapot;
 
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -80,6 +82,12 @@ public class RawTeapotBlock extends FallingBlock {
 
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
+    }
+    @Override
+    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+        if (player.getInventory().getSelected().getItem() instanceof ShovelItem tieredItem)
+            return tieredItem.getTier().getLevel() >= 1;
+        return false;
     }
 
     @Override

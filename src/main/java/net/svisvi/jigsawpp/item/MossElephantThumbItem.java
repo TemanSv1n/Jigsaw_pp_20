@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.item;
 
 
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -23,6 +25,7 @@ import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
+import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 import org.jetbrains.annotations.NotNull;
 
@@ -58,9 +61,10 @@ public class MossElephantThumbItem extends Item {
             AbstractPiluleItem.setPurity(84, _setstack);
             PotionUtils.setCustomEffects(_setstack, ar);
             ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-
-
+            if  (pContext.getLevel() instanceof ServerLevel _level){
+                _level.sendParticles((SimpleParticleType) (ModParticleTypes.POOP_BUBBLE.get()), pContext.getClickedPos().getX(),pContext.getClickedPos().getY(),pContext.getClickedPos().getZ(), 10, 6, 6, 6, 0.3);
         }
+    }
 
         return super.useOn(pContext);
     }
