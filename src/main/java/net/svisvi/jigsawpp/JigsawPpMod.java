@@ -14,9 +14,15 @@
 package net.svisvi.jigsawpp;
 
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
+
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
-import net.svisvi.jigsawpp.fluid.init.ModFluid;
+//import net.svisvi.jigsawpp.fluid.init.ModFluid;
+
+import net.svisvi.jigsawpp.fluid.init.ModFluids;
+
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -54,9 +60,9 @@ public class JigsawPpMod {
 
 		ModTabs.REGISTRY.register(bus);
 
-		ModFluidTypes.register(bus);
+		ModFluidTypes.REGISTRY.register(bus);
 
-		ModFluid.register(bus);
+		ModFluids.REGISTRY.register(bus);
 
 		ModSounds.REGISTRY.register(bus);
 
@@ -75,6 +81,7 @@ public class JigsawPpMod {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
