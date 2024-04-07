@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -12,22 +12,16 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.JigsawBlockEntity;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 //Procedures
 import net.svisvi.jigsawpp.procedures.ut.FireClear;
-import net.svisvi.jigsawpp.procedures.ut.ExtinguisherProjectileParticle;
+import net.svisvi.jigsawpp.procedures.ExtinguisherProjectileParticle;
 public class ExtinguisherProjectile extends AbstractArrow implements ItemSupplier {
 
     public static final ItemStack PROJECTILE_ITEM = new ItemStack(Blocks.FIRE);
@@ -73,12 +67,19 @@ public class ExtinguisherProjectile extends AbstractArrow implements ItemSupplie
     public void tick() {
         super.tick();
         ExtinguisherProjectileParticle.particleSpawn(this.level(), this.getX(), this.getY(),this.getZ());
+        if ((this.level().getBlockState(BlockPos.containing(this.getBlockX(), this.getBlockY(), this.getBlockZ()))).getBlock() == Blocks.FIRE) {
+            if (this.level() instanceof ServerLevel _level) {
+                FireClear.clearFire(this.level(), this.getBlockX(), this.getBlockY(), this.getBlockZ(), 3);
+                this.discard();
+            }
+        }
+
         if(this.inGround){this.discard();}
     }
     //extinguish fire
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
-        FireClear.clearFire(this.level(), pResult.getBlockPos().getX(), pResult.getBlockPos().getY(), pResult.getBlockPos().getZ(), 2);
+        FireClear.clearFire(this.level(), pResult.getBlockPos().getX(), pResult.getBlockPos().getY(), pResult.getBlockPos().getZ(), 3);
         this.setSoundEvent(SoundEvents.LAVA_EXTINGUISH);
         super.onHitBlock(pResult);
     }

@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.procedures.ut;
+package net.svisvi.jigsawpp.procedures;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.level.LevelAccessor;
