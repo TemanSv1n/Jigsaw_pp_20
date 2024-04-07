@@ -30,8 +30,6 @@ public class ModEntities {
             ENTITY_TYPES.register("exitnguisher_projectile", () -> EntityType.Builder.<ExtinguisherProjectile>of(ExtinguisherProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("extinguisher_projectile"));
 
-
-                    .sized(0.5f, 0.5f).build("sweet_bread"));
     public static final RegistryObject<EntityType<FloppaMissileEntity>> FLOPPA_MISSILE =
             ENTITY_TYPES.register("floppa_missile", () -> EntityType.Builder.<FloppaMissileEntity>of(FloppaMissileEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("floppa_misile"));
