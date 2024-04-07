@@ -77,7 +77,7 @@ public class PonosFluidType extends FluidType {
             @Override
             public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape) {
                 RenderSystem.setShaderFogStart(1f); //Это короче когда затемнение воды начинается нахой
-                RenderSystem.setShaderFogEnd(10f); //Это короче когда затемнение воды заканчивается нахой
+                RenderSystem.setShaderFogEnd(4f); //Это короче когда затемнение воды заканчивается нахой
             }
         });
     }
