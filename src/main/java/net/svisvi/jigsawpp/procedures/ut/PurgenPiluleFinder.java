@@ -15,7 +15,6 @@ public class PurgenPiluleFinder {
         ItemStack find = ItemStack.EMPTY;
         for (ItemStack it: pPlayer.getInventory().items){
             if (it.is(ItemTags.create(new ResourceLocation("jigsaw_pp:pilules")))){
-                System.out.println(it.toString());
                 find = it.copy();
                 ItemStack _stktoremove = new ItemStack(it.getItem());
                 pPlayer.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, pPlayer.inventoryMenu.getCraftSlots());
@@ -27,8 +26,6 @@ public class PurgenPiluleFinder {
             }
         }
 
-        System.out.println("FIND!");
-        System.out.println(find.toString());
         find.setCount(1);
         return find;
     }
