@@ -51,6 +51,9 @@ public class ModTabs {
 						tabData.accept(ModItems.ADVANCED_PURGEN_PILULE.get());
 						tabData.accept(ModItems.CRYSTAL_PURGEN_PILULE.get());
 
+						tabData.accept(ModItems.PURGEN_BUNDLE.get());
+						tabData.accept(ModItems.PURGEN_GUN.get());
+
 			})
 
 					.build());

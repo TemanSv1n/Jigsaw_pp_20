@@ -259,7 +259,7 @@ public class PurgenBundleItem extends BundleItem {
         }
     }
 
-    private static int getContentWeight(ItemStack pStack) {
+    public static int getContentWeight(ItemStack pStack) {
         return getContents(pStack).mapToInt((p_186356_) -> {
             return getWeight(p_186356_) * p_186356_.getCount();
         }).sum();
@@ -307,7 +307,7 @@ public class PurgenBundleItem extends BundleItem {
         }
     }
 
-    private static Stream<ItemStack> getContents(ItemStack pStack) {
+    public static Stream<ItemStack> getContents(ItemStack pStack) {
         CompoundTag compoundtag = pStack.getTag();
         if (compoundtag == null) {
             return Stream.empty();

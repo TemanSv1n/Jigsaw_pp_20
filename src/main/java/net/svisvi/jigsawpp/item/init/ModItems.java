@@ -29,6 +29,7 @@ import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
+import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 
 
@@ -74,6 +75,7 @@ public class ModItems {
 	public static final RegistryObject<Item> ADVANCED_PURGEN_PILULE = REGISTRY.register("advanced_purgen_pilule", () -> new AdvancedPurgenPiluleItem());
 	public static final RegistryObject<Item> CRYSTAL_PURGEN_PILULE = REGISTRY.register("crystal_purgen_pilule", () -> new CrystalPurgenPiluleItem());
 	public static final RegistryObject<Item> PURGEN_BUNDLE = REGISTRY.register("purgen_bundle", () -> new PurgenBundleItem());
+	public static final RegistryObject<Item> PURGEN_GUN = REGISTRY.register("purgen_gun", () -> new PurgenGunItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
