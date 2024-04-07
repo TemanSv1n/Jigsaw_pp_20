@@ -24,7 +24,7 @@ public class ModEntities {
                     .sized(0.5f, 0.5f).build("dice_projectile"));
 
     public static final RegistryObject<EntityType<ExtinguisherProjectile>> EXTINGUISHER_PROJECTILE =
-            ENTITY_TYPES.register("exitng", () -> EntityType.Builder.<ExtinguisherProjectile>of(ExtinguisherProjectile::new, MobCategory.MISC)
+            ENTITY_TYPES.register("exitnguisher_projectile", () -> EntityType.Builder.<ExtinguisherProjectile>of(ExtinguisherProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("extinguisher_projectile"));
 
     public static void register(IEventBus eventBus) {
