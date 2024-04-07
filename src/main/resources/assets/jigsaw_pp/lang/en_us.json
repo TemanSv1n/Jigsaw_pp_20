@@ -58,6 +58,12 @@
   "effect.jigsaw_pp.poop": "Poop on the screen",
   "effect.jigsaw_pp.purgative": "Strong purgative",
 
-  "item.jigsaw_pp.pilule.duration" : "§7Effect duration: ",
-  "misc.jigsaw_pp.second": "§7s"
+  "item.jigsaw_pp.pilule.duration" : "§7§oEffect duration: ",
+  "misc.jigsaw_pp.second": "§7s",
+  "item.jigsaw_pp.pilule.sec_effect" : "§7§o+Effect: ",
+  "item.jigsaw_pp.pilule.purity" : "§7§oPurity: ",
+  "item.jigsaw_pp.pilule.effects_hidden" : "§k§oEffect: ",
+
+  "effect.jigsaw_pp.random_bad_effect": "Bad Effect",
+  "effect.jigsaw_pp.random_good_effect": "Good Effect"
 }

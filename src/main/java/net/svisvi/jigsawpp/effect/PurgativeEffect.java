@@ -79,31 +79,37 @@ public class PurgativeEffect extends MobEffect {
     }
 
     //effect adders
-    public static void addEffectLiquidWay(Entity entity, MobEffectInstance mobEffectInstance) {
+    public static boolean addEffectLiquidWay(Entity entity, MobEffectInstance mobEffectInstance) {
         if (poopAdditionConditionLiquidWay(entity, mobEffectInstance)) {
             if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
                 _entity.addEffect(mobEffectInstance);
+                return true;
             }
 
         }
+        return false;
     }
 
-    public static void addEffectGasWay(Entity entity, MobEffectInstance mobEffectInstance) {
+    public static boolean addEffectGasWay(Entity entity, MobEffectInstance mobEffectInstance) {
         if (poopAdditionConditionGasWay(entity, mobEffectInstance)) {
             if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
                 _entity.addEffect(mobEffectInstance);
+                return true;
             }
 
         }
+        return false;
     }
 
-    public static void addEffectInnerWay(Entity entity, MobEffectInstance mobEffectInstance) {
+    public static boolean addEffectInnerWay(Entity entity, MobEffectInstance mobEffectInstance) {
         if (poopAdditionConditionInnerWay(entity, mobEffectInstance)) {
             if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
                 _entity.addEffect(mobEffectInstance);
+                return true;
             }
 
         }
+        return false;
     }
     //shitting actually
     public static boolean shitConditions(Entity entity, MobEffectInstance mobEffectInstance) {
@@ -137,7 +143,9 @@ public class PurgativeEffect extends MobEffect {
                     (level.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.CAVE_AIR |
                     (level.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.VOID_AIR) {
 
-                level.setBlock(BlockPos.containing(x,y,z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
+                if(!level.isClientSide()) {
+                    level.setBlock(BlockPos.containing(x, y, z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
+                }
                 //pants "issue"
                 if (mobEffectInstance.getAmplifier() == 2) {
                     ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY);
@@ -147,6 +155,9 @@ public class PurgativeEffect extends MobEffect {
                     }
 
                 }
+//                else if (mobEffectInstance.getAmplifier() == 1) {
+//                    entity.setSecondsOnFire(1);
+//                }
             }
 
         } else {

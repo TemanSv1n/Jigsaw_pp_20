@@ -7,8 +7,10 @@ import net.minecraft.world.item.Rarity;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 public class BasicPurgenPiluleItem extends AbstractPiluleItem{
-    static int duration = 300;
+    static int duration = 200;
     int duration_buff = 0;
+    static int amplifier = 0;
+    static MobEffectInstance effect = new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, amplifier);
 
     @Override
     public int duration(){return this.duration;}
@@ -16,11 +18,10 @@ public class BasicPurgenPiluleItem extends AbstractPiluleItem{
     public int duration_buff(){
         return this.duration_buff;
     }
+    public int amplifier(){return this.amplifier;}
+    public MobEffectInstance effect(){return this.effect;}
     public BasicPurgenPiluleItem(){
-        super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 0));
+        super(effect);
     }
-    public BasicPurgenPiluleItem(int durationBuff){
-        super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 0));
-        duration_buff = durationBuff;
-    }
+
 }
