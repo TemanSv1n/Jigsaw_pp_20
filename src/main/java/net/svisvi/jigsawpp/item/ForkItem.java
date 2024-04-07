@@ -24,7 +24,7 @@ public class ForkItem extends SwordItem {
             }
 
             public float getSpeed() {
-                return 6f;
+                return 4f;
             }
 
             public float getAttackDamageBonus() {

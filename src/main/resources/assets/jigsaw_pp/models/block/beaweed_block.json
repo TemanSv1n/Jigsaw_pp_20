@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jigsaw_pp:block/beaweed_block",
+    "particle": "jigsaw_pp:block/beaweed_block"
+  },
+  "render_type": "solid"
+}
