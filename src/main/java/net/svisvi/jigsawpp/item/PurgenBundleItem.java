@@ -35,7 +35,8 @@ public class PurgenBundleItem extends BundleItem {
     private static final String TAG_ITEMS = "jigsaw_pp:pilules";
     public static final int MAX_WEIGHT = 32;
     private static final int BUNDLE_IN_BUNDLE_WEIGHT = 4;
-    private static final int BAR_COLOR = Mth.color(0.4F, 0.4F, 1.0F);
+    //private static final int BAR_COLOR = Mth.color(0.4F, 0.4F, 1.0F);
+    private static final int BAR_COLOR = Mth.color(0.831F, 0.765F, 0.184F);
 
     public PurgenBundleItem() {
         super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)

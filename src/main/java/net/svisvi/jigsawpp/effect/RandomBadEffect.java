@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.client.extensions.common.IClientMobEffectExtensions;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class RandomBadEffect extends MobEffect {
         List<MobEffect> all_effects = ImmutableList.copyOf(ForgeRegistries.MOB_EFFECTS.getValues());
         Random rand = new Random();
         MobEffect ef = all_effects.get(rand.nextInt(all_effects.size()));
-        for(;ef.isBeneficial();){
+        for(;ef.isBeneficial() || ef.equals(ModEffects.PURGATIVE.get());){
             ef = all_effects.get(rand.nextInt(all_effects.size()));
         }
         entity.addEffect(new MobEffectInstance(ef, (int)health, amplifier));

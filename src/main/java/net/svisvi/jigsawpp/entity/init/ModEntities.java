@@ -26,7 +26,7 @@ public class ModEntities {
                     .sized(2.4f,2.7f).build("moss_elephant"));
     public static final RegistryObject<EntityType<ThrownSweetBreadProjectile>> SWEET_BREAD =
             ENTITY_TYPES.register("sweet_bread", () -> EntityType.Builder.<ThrownSweetBreadProjectile>of(ThrownSweetBreadProjectile::new, MobCategory.MISC)
-                    .sized(0.5f, 0.5f).build("dice_projectile"));
+                    .sized(0.5f, 0.5f).build("sweet_bread"));
 
     public static final RegistryObject<EntityType<ExtinguisherProjectile>> EXTINGUISHER_PROJECTILE =
             ENTITY_TYPES.register("exitnguisher_projectile", () -> EntityType.Builder.<ExtinguisherProjectile>of(ExtinguisherProjectile::new, MobCategory.MISC)
