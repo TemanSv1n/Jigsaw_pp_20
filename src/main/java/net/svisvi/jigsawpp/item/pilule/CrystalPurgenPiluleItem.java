@@ -4,8 +4,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 public class CrystalPurgenPiluleItem extends AbstractPiluleItem{
-    static int duration = 500;
+    static int duration = 400;
     int duration_buff = 0;
+    static int amplifier = 2;
+    static MobEffectInstance effect = new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, amplifier);
 
     @Override
     public int duration(){return this.duration;}
@@ -13,11 +15,10 @@ public class CrystalPurgenPiluleItem extends AbstractPiluleItem{
     public int duration_buff(){
         return this.duration_buff;
     }
+    public int amplifier(){return this.amplifier;}
+    public MobEffectInstance effect(){return this.effect;}
     public CrystalPurgenPiluleItem(){
-        super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 2));
+        super(effect);
     }
-    public CrystalPurgenPiluleItem(int durationBuff){
-        super(new MobEffectInstance(ModEffects.PURGATIVE.get(), duration, 0));
-        duration_buff = durationBuff;
-    }
+
 }

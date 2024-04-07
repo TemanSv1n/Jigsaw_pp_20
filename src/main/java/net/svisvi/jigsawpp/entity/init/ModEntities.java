@@ -12,6 +12,9 @@ import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.projectile.ThrownSweetBreadProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
 
+import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
+
+
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, JigsawPpMod.MODID);
@@ -26,6 +29,12 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ExtinguisherProjectile>> EXTINGUISHER_PROJECTILE =
             ENTITY_TYPES.register("exitnguisher_projectile", () -> EntityType.Builder.<ExtinguisherProjectile>of(ExtinguisherProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("extinguisher_projectile"));
+
+
+                    .sized(0.5f, 0.5f).build("sweet_bread"));
+    public static final RegistryObject<EntityType<FloppaMissileEntity>> FLOPPA_MISSILE =
+            ENTITY_TYPES.register("floppa_missile", () -> EntityType.Builder.<FloppaMissileEntity>of(FloppaMissileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("floppa_misile"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
