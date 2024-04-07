@@ -79,7 +79,7 @@ public class ExtinguisherProjectile extends AbstractArrow implements ItemSupplie
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         FireClear.clearFire(this.level(), pResult.getBlockPos().getX(), pResult.getBlockPos().getY(), pResult.getBlockPos().getZ(), 2);
-        this.setSoundEvent(SoundEvents.GRASS_HIT);
+        this.setSoundEvent(SoundEvents.LAVA_EXTINGUISH);
         super.onHitBlock(pResult);
     }
     //projectile properties
