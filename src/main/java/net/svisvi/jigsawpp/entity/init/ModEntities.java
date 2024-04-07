@@ -9,10 +9,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
+import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ThrownSweetBreadProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
+import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
 
 public class ModEntities {
@@ -34,6 +36,10 @@ public class ModEntities {
             ENTITY_TYPES.register("floppa_missile", () -> EntityType.Builder.<FloppaMissileEntity>of(FloppaMissileEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("floppa_misile"));
 
+    public static final RegistryObject<EntityType<PurgenPiluleProjectile>> PURGEN_PILULE_PROJECTILE =
+            ENTITY_TYPES.register("purgen_pilule_projectile", () -> EntityType.Builder.<PurgenPiluleProjectile>of(PurgenPiluleProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("purgen_pilule_projectile"));
+  
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
