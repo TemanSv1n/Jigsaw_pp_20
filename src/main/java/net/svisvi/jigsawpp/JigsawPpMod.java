@@ -31,6 +31,7 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.init.ModSounds;
+import net.svisvi.jigsawpp.item.init.ModItemProperties;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.particles.ModParticles;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
@@ -87,6 +88,9 @@ public class JigsawPpMod {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
+			//predicates)))
+			ModItemProperties.addCustomItemProperties();
+
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
