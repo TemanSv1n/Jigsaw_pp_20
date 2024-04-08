@@ -29,6 +29,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class PurgenBundleItem extends BundleItem {
@@ -43,7 +44,6 @@ public class PurgenBundleItem extends BundleItem {
                 .food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().meat()
                         .build()));
     }
-
 
     public static float getFullnessDisplay(ItemStack pStack) {
         return (float)getContentWeight(pStack) / MAX_WEIGHT;
