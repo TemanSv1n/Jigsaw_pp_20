@@ -1,5 +1,7 @@
 package net.svisvi.jigsawpp.item.purgen_gun;
 
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -15,9 +17,11 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
+import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
 import net.svisvi.jigsawpp.procedures.ut.PurgenPiluleFinder;
+import org.jetbrains.annotations.Nullable;
 
-public class PurgenGunItem extends Item {
+public class PurgenGunItem extends Item implements CustomArmPoseItem {
     public PurgenGunItem(){
         super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).durability(250));
     }
@@ -72,5 +76,14 @@ public class PurgenGunItem extends Item {
             PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, 0f, purgenPilule);
         }
 
+    }
+
+    @Override
+    @Nullable
+    public HumanoidModel.@Nullable ArmPose getArmPose(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {
+        if (!player.swinging) {
+            return HumanoidModel.ArmPose.SPYGLASS;
+        }
+        return null;
     }
 }
