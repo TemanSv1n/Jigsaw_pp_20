@@ -3,6 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = '1.0'
@@ -62,6 +63,14 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    //mixin))
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'jigsaw_pp.refmap.json'
+    config 'jigsaw_pp.mixins.json'
 }
 
 tasks.withType(JavaCompile).configureEach {
