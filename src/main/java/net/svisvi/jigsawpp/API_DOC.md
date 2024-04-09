@@ -33,3 +33,6 @@ PurgenBundleItem#useFirst()
 
 ! Purgen pilules should be added to dispenser manually
 pilule/PiluleItemExtensions
+
+**INTERFACE FOR ARM POSING**
+import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
