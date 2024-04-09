@@ -8,14 +8,17 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
@@ -76,6 +79,13 @@ public class ExtinguisherProjectile extends AbstractArrow implements ItemSupplie
 
         if(this.inGround){this.discard();}
     }
+
+    @Override
+    protected void onHitEntity(EntityHitResult pResult) {
+        kill();
+        super.onHitEntity(pResult);
+    }
+
     //extinguish fire
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
