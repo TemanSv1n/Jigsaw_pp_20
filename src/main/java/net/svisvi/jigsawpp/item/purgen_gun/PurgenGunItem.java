@@ -27,6 +27,13 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
     public PurgenGunItem(){
         super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).durability(250));
     }
+    public PurgenGunItem(int dur){
+        super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).durability(dur));
+    }
+    public static final int COOLDOWN = 40;
+    public int getCooldown(){return COOLDOWN;}
+    public static final int COOLDOWN_BREAK = 120;
+    public int getCooldownBreak(){return COOLDOWN_BREAK;}
 
     //@Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntity, int pTimeLeft) {
@@ -34,7 +41,7 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
         if (pEntity instanceof Player pPlayer) {
             purgen_pilule = PurgenPiluleFinder.findPilule(pPlayer);
             if (purgen_pilule != ItemStack.EMPTY) {
-                pPlayer.getCooldowns().addCooldown(this, 40);
+                pPlayer.getCooldowns().addCooldown(this, this.getCooldown());
                 //ExtinguisherUse.Useclick(pPlayer);
                 ItemStack _ist = pStack;
                 if (_ist.hurt(1, RandomSource.create(), null)) {
@@ -46,6 +53,7 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
 
                 new_shoot(pLevel, pPlayer, purgen_pilule);
             } else {
+                pPlayer.getCooldowns().addCooldown(this, this.getCooldownBreak());
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             }
         }

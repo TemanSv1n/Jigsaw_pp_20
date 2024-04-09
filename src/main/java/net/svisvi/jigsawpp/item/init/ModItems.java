@@ -31,6 +31,7 @@ import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
+import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 
 
@@ -81,6 +82,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PURGEN_BUNDLE = REGISTRY.register("purgen_bundle", () -> new PurgenBundleItem());
 
 	public static final RegistryObject<Item> PURGEN_GUN = REGISTRY.register("purgen_gun", () -> new PurgenGunItem());
+	public static final RegistryObject<Item> PURGEN_MACHINE_GUN = REGISTRY.register("purgen_machine_gun", () -> new PurgenMachineGunItem());
 
 	public static final RegistryObject<Item> BEAWEED_SOUP = REGISTRY.register("beaweed_soup", () -> new BeaweedSoupItem());
 	public static final RegistryObject<Item> SAWDUST_SOUP = REGISTRY.register("sawdust_soup", () -> new SawdustSoupItem());
