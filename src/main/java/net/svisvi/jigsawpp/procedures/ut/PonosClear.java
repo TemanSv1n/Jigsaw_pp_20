@@ -31,9 +31,9 @@ public class PonosClear {
                         world.addParticle(ParticleTypes.POOF, x + sx, y + sy, z + sz, 0, 0, 0);
                         if (world instanceof Level _level) {
                             if (!_level.isClientSide()) {
-                                _level.playSound(null, BlockPos.containing(x + sx, y + sy, z + sz), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ui.stonecutter.take_result")), SoundSource.BLOCKS, 1, 1);
+                                _level.playSound(null, BlockPos.containing(x + sx, y + sy, z + sz), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ui.stonecutter.take_result")), SoundSource.BLOCKS, 0.1f, 1);
                             } else {
-                                _level.playLocalSound(x + sx, y + sy, z + sz, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ui.stonecutter.take_result")), SoundSource.BLOCKS, 1, 1, false);
+                                _level.playLocalSound(x + sx, y + sy, z + sz, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ui.stonecutter.take_result")), SoundSource.BLOCKS, 0.1f, 1, false);
                             }
                         }
                     }
