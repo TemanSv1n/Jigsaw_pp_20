@@ -61,6 +61,8 @@ public class ModTabs {
 						tabData.accept(ModItems.PURGEN_BUNDLE.get());
 						tabData.accept(ModItems.PURGEN_GUN.get());
 
+						tabData.accept(ModItems.MARMOSET.get());
+
 			})
 
 					.build());

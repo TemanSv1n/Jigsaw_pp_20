@@ -37,7 +37,7 @@ import java.util.List;
 
 public class MossElephantThumbItem extends Item {
     public MossElephantThumbItem() {
-        super(new Item.Properties().stacksTo(14).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(-1).saturationMod(1f).alwaysEat().build()));
+        super(new Item.Properties().stacksTo(-1).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(-1).saturationMod(1f).alwaysEat().build()));
     }
 
     @Override
