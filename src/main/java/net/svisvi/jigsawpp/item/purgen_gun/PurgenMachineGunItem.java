@@ -28,6 +28,8 @@ public class PurgenMachineGunItem extends PurgenGunItem implements CustomArmPose
     public int getCooldown(){return COOLDOWN;}
     public static final int COOLDOWN_BREAK = 240;
     public int getCooldownBreak(){return COOLDOWN_BREAK;}
+    public static float SPREAD = 14f;
+    public float getSpread(){return SPREAD;}
 
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntity, int pTimeLeft) {}
@@ -40,6 +42,14 @@ public class PurgenMachineGunItem extends PurgenGunItem implements CustomArmPose
             double z = entity.getZ();
             super.releaseUsing(itemstack, world, entity, count);
         }
+    }
+
+    @Override
+    public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule, float inaccuracy){
+        if(!pLevel.isClientSide()) {
+            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule);
+        }
+
     }
 
 

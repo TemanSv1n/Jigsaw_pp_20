@@ -34,6 +34,8 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
     public int getCooldown(){return COOLDOWN;}
     public static final int COOLDOWN_BREAK = 120;
     public int getCooldownBreak(){return COOLDOWN_BREAK;}
+    public static float SPREAD = 0f;
+    public float getSpread(){return SPREAD;}
 
     //@Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntity, int pTimeLeft) {
@@ -51,7 +53,7 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.COW_MILK, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.PISTON_EXTEND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
 
-                new_shoot(pLevel, pPlayer, purgen_pilule);
+                this.new_shoot(pLevel, pPlayer, purgen_pilule, this.getSpread());
             } else {
                 pPlayer.getCooldowns().addCooldown(this, this.getCooldownBreak());
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -92,9 +94,9 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
 //            projectileLevel.addFreshEntity(_SpawnEntity);
 //        }
 //    }
-    public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule){
+    public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule, float inaccuracy){
         if(!pLevel.isClientSide()) {
-            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, 0f, purgenPilule);
+            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule);
         }
 
     }
