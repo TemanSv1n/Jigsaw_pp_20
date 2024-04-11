@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class PurgenMachineGunItem extends PurgenGunItem implements CustomArmPoseItem {
     public PurgenMachineGunItem(){
-        super(512);
+        super(1024);
     }
     public static final int COOLDOWN = 20;
     public int getCooldown(){return COOLDOWN;}
@@ -30,6 +30,8 @@ public class PurgenMachineGunItem extends PurgenGunItem implements CustomArmPose
     public int getCooldownBreak(){return COOLDOWN_BREAK;}
     public static float SPREAD = 14f;
     public float getSpread(){return SPREAD;}
+    public static float MISSFIRE = 0.00825f;
+    public float getMissfire(){return MISSFIRE;}
 
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntity, int pTimeLeft) {}
@@ -42,14 +44,6 @@ public class PurgenMachineGunItem extends PurgenGunItem implements CustomArmPose
             double z = entity.getZ();
             super.releaseUsing(itemstack, world, entity, count);
         }
-    }
-
-    @Override
-    public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule, float inaccuracy){
-        if(!pLevel.isClientSide()) {
-            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule);
-        }
-
     }
 
 

@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -17,11 +18,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.svisvi.jigsawpp.effect.PurgativeEffect;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
 import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
 import net.svisvi.jigsawpp.procedures.ut.PurgenPiluleFinder;
 import org.jetbrains.annotations.Nullable;
+import java.util.Random;
 
 public class PurgenGunItem extends Item implements CustomArmPoseItem {
     public PurgenGunItem(){
@@ -36,6 +40,9 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
     public int getCooldownBreak(){return COOLDOWN_BREAK;}
     public static float SPREAD = 0f;
     public float getSpread(){return SPREAD;}
+
+    public static float MISSFIRE = 0.03f;
+    public float getMissfire(){return MISSFIRE;}
 
     //@Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntity, int pTimeLeft) {
@@ -53,7 +60,7 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.COW_MILK, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.PISTON_EXTEND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
 
-                this.new_shoot(pLevel, pPlayer, purgen_pilule, this.getSpread());
+                this.new_shoot(pLevel, pPlayer, pStack, purgen_pilule, this.getSpread());
             } else {
                 pPlayer.getCooldowns().addCooldown(this, this.getCooldownBreak());
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -94,11 +101,27 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
 //            projectileLevel.addFreshEntity(_SpawnEntity);
 //        }
 //    }
-    public void new_shoot(Level pLevel, Player pPlayer, ItemStack purgenPilule, float inaccuracy){
+    public void new_shoot(Level pLevel, Player pPlayer, ItemStack thisStack, ItemStack purgenPilule, float inaccuracy){
         if(!pLevel.isClientSide()) {
-            PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule);
+            Random rand = new Random();
+            float randomValue = rand.nextFloat();
+
+            if (randomValue < getMissfire()){ //осечка
+                missfire(pLevel, pPlayer, thisStack, purgenPilule);
+            } else {
+
+                PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule);
+            }
         }
 
+    }
+
+    public void missfire(Level pLevel, Player pPlayer, ItemStack thisStack, ItemStack purgenPilule){
+        if (PurgativeEffect.poopAdditionConditionLiquidWay(pPlayer, new MobEffectInstance(ModEffects.PURGATIVE.get(), 21, 0))) {
+            purgenPilule.getItem().finishUsingItem(purgenPilule, pLevel, pPlayer);
+        }
+        pPlayer.getCooldowns().addCooldown(this, this.getCooldown());
+        pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.ZOMBIE_BREAK_WOODEN_DOOR, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
     }
 
     public int getUseDuration(ItemStack pStack) {
@@ -109,7 +132,7 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
      * Returns the action that specifies what animation to play when the item is being used.
      */
     public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.SPYGLASS;
+        return UseAnim.BOW;
     }
 
 
