@@ -56,6 +56,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAWEED_SCUM.get());
 						tabData.accept(ModItems.BEAWEED_DUST.get());
 						tabData.accept(ModItems.BEAWEED_BLOCK.get());
+						tabData.accept(ModItems.BEAWEED_NUT.get());
 
 			})
 
