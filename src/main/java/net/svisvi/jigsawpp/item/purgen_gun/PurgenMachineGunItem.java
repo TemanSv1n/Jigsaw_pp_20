@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class PurgenMachineGunItem extends PurgenGunItem implements CustomArmPoseItem {
     public PurgenMachineGunItem(){
-        super(1024);
+        super(1024 );
     }
     public static final int COOLDOWN = 20;
     public int getCooldown(){return COOLDOWN;}

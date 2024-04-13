@@ -63,6 +63,7 @@ public class ModTabs {
 						tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
 
 						tabData.accept(ModItems.MARMOSET.get());
+						tabData.accept(ModItems.FACTORY_HEATER.get());
 
 			})
 
