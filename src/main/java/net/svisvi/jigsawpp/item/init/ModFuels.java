@@ -1,6 +1,6 @@
 
 
-package net.svisvi.jigsawpp.init;
+package net.svisvi.jigsawpp.item.init;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 @Mod.EventBusSubscriber
-public class JigsawPpModFuels {
+public class ModFuels {
 	@SubscribeEvent
 	public static void furnaceFuelBurnTimeEvent(FurnaceFuelBurnTimeEvent event) {
 		ItemStack itemstack = event.getItemStack();

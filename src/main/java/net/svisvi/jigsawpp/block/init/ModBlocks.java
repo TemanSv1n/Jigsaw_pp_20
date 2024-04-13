@@ -7,6 +7,7 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.BeaweedBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
+import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
@@ -33,6 +34,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> TEAPOT = REGISTRY.register("teapot", () -> new TeapotBlock());
     public static final RegistryObject<Block> BEAWEED_BLOCK = REGISTRY.register("beaweed_block", () -> new BeaweedBlock());
     public static final RegistryObject<Block> BLACK_TEAPOT = REGISTRY.register("black_teapot", () -> new BlackTeapotBlock());
+    public static final RegistryObject<Block> FACTORY_HEATER = REGISTRY.register("factory_heater", () -> new FactoryHeaterBlock());
     public static final RegistryObject<Block> BEAWEED = REGISTRY.register("beaweed",
             () -> new Beaweed(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()
             ));
