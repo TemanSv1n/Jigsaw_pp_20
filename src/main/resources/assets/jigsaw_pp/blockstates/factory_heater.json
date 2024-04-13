@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "is_furnaced=0,facing=north": {
+      "model": "jigsaw_pp:block/factory_heater_default"
+    },
+    "is_furnaced=0,facing=east": {
+      "model": "jigsaw_pp:block/factory_heater_default",
+      "y": 90
+    },
+    "is_furnaced=0,facing=south": {
+      "model": "jigsaw_pp:block/factory_heater_default",
+      "y": 180
+    },
+    "is_furnaced=0,facing=west": {
+      "model": "jigsaw_pp:block/factory_heater_default",
+      "y": 270
+    },
+    "is_furnaced=1,facing=north": {
+      "model": "jigsaw_pp:block/factory_heater"
+    },
+    "is_furnaced=1,facing=east": {
+      "model": "jigsaw_pp:block/factory_heater",
+      "y": 90
+    },
+    "is_furnaced=1,facing=south": {
+      "model": "jigsaw_pp:block/factory_heater",
+      "y": 180
+    },
+    "is_furnaced=1,facing=west": {
+      "model": "jigsaw_pp:block/factory_heater",
+      "y": 270
+    }
+  }
+}

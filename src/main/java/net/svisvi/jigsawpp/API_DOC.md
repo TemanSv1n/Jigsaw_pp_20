@@ -36,3 +36,8 @@ pilule/PiluleItemExtensions
 
 **INTERFACE FOR ARM POSING**
 import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
+
+**ModDatas**
+This is a class for storing some arrays or dicts with objects, because im too lazy to use JSON here.
+Who wants - will add this thing
+You should add this by ModDatas.*add() in SetupEvent
