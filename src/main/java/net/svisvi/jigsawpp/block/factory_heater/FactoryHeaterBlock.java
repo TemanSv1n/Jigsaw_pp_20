@@ -172,7 +172,9 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
                 }
             }
             if (f > 0){
-                pLevel.addParticle(ParticleTypes.POOF, pPos.getX(), pPos.getY(), pPos.getZ(),0, 0.05, 0);
+                if (pLevel instanceof ServerLevel _level)
+                    _level.sendParticles(ParticleTypes.ELECTRIC_SPARK, pPos.getX() + 0.5, pPos.getY() + 1, pPos.getZ() + 0.5, 5, 0.1, 0.1, 0.1, 0);
+
             }
             return f;
         }
