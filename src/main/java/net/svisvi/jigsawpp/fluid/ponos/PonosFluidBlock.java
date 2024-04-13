@@ -1,7 +1,12 @@
 package net.svisvi.jigsawpp.fluid.ponos;
 
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.effect.PoopEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
@@ -40,7 +45,18 @@ public class PonosFluidBlock extends LiquidBlock {
     @Override
     public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
         super.entityInside(blockstate, world, pos, entity);
-        PoopEffect.addEffectLiquidWay(entity, new MobEffectInstance(ModEffects.POOP.get(), 10, 0, false, false, false));
+        if(PoopEffect.addEffectLiquidWay(entity, new MobEffectInstance(ModEffects.POOP.get(), 10, 0, false, false, false))){
+            if (entity instanceof Player) {
+                if (world instanceof ServerLevel _level) {
+                    if (!_level.isClientSide()) {
+                        _level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 1, 1);
+                    } else {
+                        _level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 1, 1, false);
+                    }
+                }
+            }
+
+        }
 
     }
 }

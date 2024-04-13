@@ -17,7 +17,12 @@ package net.svisvi.jigsawpp;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
+
+import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
+//import net.svisvi.jigsawpp.fluid.init.ModFluid;
+
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
+
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -26,6 +31,7 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.init.ModSounds;
+import net.svisvi.jigsawpp.item.init.ModItemProperties;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.particles.ModParticles;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
@@ -82,9 +88,15 @@ public class JigsawPpMod {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
+			//predicates)))
+			ModItemProperties.addCustomItemProperties();
+
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
+			EntityRenderers.register(ModEntities.PURGEN_PILULE_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.EXTINGUISHER_PROJECTILE.get(), ThrownItemRenderer::new);
 		}
 	}
 }

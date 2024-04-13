@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "priority": 1100,
+  "package": "net.svisvi.jigsawpp.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "jigsaw_pp.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "client.PlayerRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

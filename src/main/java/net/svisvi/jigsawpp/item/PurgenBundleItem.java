@@ -29,20 +29,21 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class PurgenBundleItem extends BundleItem {
     private static final String TAG_ITEMS = "jigsaw_pp:pilules";
     public static final int MAX_WEIGHT = 32;
     private static final int BUNDLE_IN_BUNDLE_WEIGHT = 4;
-    private static final int BAR_COLOR = Mth.color(0.4F, 0.4F, 1.0F);
+    //private static final int BAR_COLOR = Mth.color(0.4F, 0.4F, 1.0F);
+    private static final int BAR_COLOR = Mth.color(0.831F, 0.765F, 0.184F);
 
     public PurgenBundleItem() {
         super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)
                 .food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().meat()
                         .build()));
     }
-
 
     public static float getFullnessDisplay(ItemStack pStack) {
         return (float)getContentWeight(pStack) / MAX_WEIGHT;
@@ -259,7 +260,7 @@ public class PurgenBundleItem extends BundleItem {
         }
     }
 
-    private static int getContentWeight(ItemStack pStack) {
+    public static int getContentWeight(ItemStack pStack) {
         return getContents(pStack).mapToInt((p_186356_) -> {
             return getWeight(p_186356_) * p_186356_.getCount();
         }).sum();
@@ -307,7 +308,7 @@ public class PurgenBundleItem extends BundleItem {
         }
     }
 
-    private static Stream<ItemStack> getContents(ItemStack pStack) {
+    public static Stream<ItemStack> getContents(ItemStack pStack) {
         CompoundTag compoundtag = pStack.getTag();
         if (compoundtag == null) {
             return Stream.empty();
