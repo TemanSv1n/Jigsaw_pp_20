@@ -79,31 +79,37 @@ public class PurgativeEffect extends MobEffect {
     }
 
     //effect adders
-    public static void addEffectLiquidWay(Entity entity, MobEffectInstance mobEffectInstance) {
+    public static boolean addEffectLiquidWay(Entity entity, MobEffectInstance mobEffectInstance) {
         if (poopAdditionConditionLiquidWay(entity, mobEffectInstance)) {
             if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
                 _entity.addEffect(mobEffectInstance);
+                return true;
             }
 
         }
+        return false;
     }
 
-    public static void addEffectGasWay(Entity entity, MobEffectInstance mobEffectInstance) {
+    public static boolean addEffectGasWay(Entity entity, MobEffectInstance mobEffectInstance) {
         if (poopAdditionConditionGasWay(entity, mobEffectInstance)) {
             if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
                 _entity.addEffect(mobEffectInstance);
+                return true;
             }
 
         }
+        return false;
     }
 
-    public static void addEffectInnerWay(Entity entity, MobEffectInstance mobEffectInstance) {
+    public static boolean addEffectInnerWay(Entity entity, MobEffectInstance mobEffectInstance) {
         if (poopAdditionConditionInnerWay(entity, mobEffectInstance)) {
             if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
                 _entity.addEffect(mobEffectInstance);
+                return true;
             }
 
         }
+        return false;
     }
     //shitting actually
     public static boolean shitConditions(Entity entity, MobEffectInstance mobEffectInstance) {

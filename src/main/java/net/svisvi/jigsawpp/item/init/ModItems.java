@@ -25,10 +25,13 @@ import net.minecraft.world.item.Item;
 import net.svisvi.jigsawpp.item.armor.GasMaskItem;
 import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
+import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
+import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
+import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 
 
@@ -73,13 +76,23 @@ public class ModItems {
 	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
 	public static final RegistryObject<Item> ADVANCED_PURGEN_PILULE = REGISTRY.register("advanced_purgen_pilule", () -> new AdvancedPurgenPiluleItem());
 	public static final RegistryObject<Item> CRYSTAL_PURGEN_PILULE = REGISTRY.register("crystal_purgen_pilule", () -> new CrystalPurgenPiluleItem());
+
+	public static final RegistryObject<Item> EXTINGUISHER = REGISTRY.register("extinguisher", () -> new ExtinguisherItem());
+
 	public static final RegistryObject<Item> PURGEN_BUNDLE = REGISTRY.register("purgen_bundle", () -> new PurgenBundleItem());
+
+	public static final RegistryObject<Item> PURGEN_GUN = REGISTRY.register("purgen_gun", () -> new PurgenGunItem());
+	public static final RegistryObject<Item> PURGEN_MACHINE_GUN = REGISTRY.register("purgen_machine_gun", () -> new PurgenMachineGunItem());
+
 	public static final RegistryObject<Item> BEAWEED_SOUP = REGISTRY.register("beaweed_soup", () -> new BeaweedSoupItem());
 	public static final RegistryObject<Item> SAWDUST_SOUP = REGISTRY.register("sawdust_soup", () -> new SawdustSoupItem());
 	public static final RegistryObject<Item> BEAWEED_SCUM = REGISTRY.register("beaweed_scum", () -> new BeaweedScumItem());
 	public static final RegistryObject<Item> BEAWEED_DUST = REGISTRY.register("beaweed_dust", () -> new BeaweedDustItem());
 	public static final RegistryObject<Item> BEAWEED_NUT = REGISTRY.register("beaweed_nut", () -> new BeaweedNutItem());
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
+
+	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
+
 
 
 

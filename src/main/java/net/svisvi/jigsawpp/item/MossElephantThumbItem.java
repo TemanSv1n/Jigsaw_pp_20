@@ -37,7 +37,7 @@ import java.util.List;
 
 public class MossElephantThumbItem extends Item {
     public MossElephantThumbItem() {
-        super(new Item.Properties().stacksTo(14).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(-1).saturationMod(1f).alwaysEat().build()));
+        super(new Item.Properties().stacksTo(-1).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(-1).saturationMod(1f).alwaysEat().build()));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class MossElephantThumbItem extends Item {
         List<MobEffectInstance> ar = new ArrayList<MobEffectInstance>();
 //        ar.add(new MobEffectInstance(MobEffects.JUMP, 800, 1, false, false));
 //        ar.add(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1, false, false));
-        ar.add(new MobEffectInstance(ModEffects.BAD_EFFECT.get(), 60, 1, false, false));
+        ar.add(new MobEffectInstance(ModEffects.BAD_EFFECT.get(), 6000, 100, false, false));
         ar.add(new MobEffectInstance(ModEffects.BAD_EFFECT.get(), 120, 1, false, false));
         if (pContext.getPlayer() instanceof ServerPlayer _player) {
             ItemStack _setstack = new ItemStack(ModItems.BASIC_PURGEN_PILULE.get());

@@ -50,6 +50,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BASIC_PURGEN_PILULE.get());
 						tabData.accept(ModItems.ADVANCED_PURGEN_PILULE.get());
 						tabData.accept(ModItems.CRYSTAL_PURGEN_PILULE.get());
+						tabData.accept(ModItems.EXTINGUISHER.get());
 
 						tabData.accept(ModItems.BEAWEED_SOUP.get());
 						tabData.accept(ModItems.SAWDUST_SOUP.get());
@@ -57,6 +58,12 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAWEED_DUST.get());
 						tabData.accept(ModItems.BEAWEED_BLOCK.get());
 						tabData.accept(ModItems.BEAWEED_NUT.get());
+
+						tabData.accept(ModItems.PURGEN_BUNDLE.get());
+						tabData.accept(ModItems.PURGEN_GUN.get());
+						tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
+
+						tabData.accept(ModItems.MARMOSET.get());
 
 			})
 
