@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import java.util.List;
 
 public class BeaweedDustItem extends Item {
+
 	public BeaweedDustItem() {
 		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 	}

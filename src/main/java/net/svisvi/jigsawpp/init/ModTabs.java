@@ -27,6 +27,7 @@ public class ModTabs {
 						tabData.accept(ModItems.RAW_TEAPOT.get());
 						tabData.accept(ModItems.TEAPOT.get());
 						tabData.accept(ModItems.BLACK_TEAPOT.get());
+						tabData.accept(ModItems.SLAVIC.get());
 
 						tabData.accept(ModItems.PONOS_BUCKET.get());
 						tabData.accept(ModItems.SWEET_BREAD.get());

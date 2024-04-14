@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.Block;
 
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
+import net.svisvi.jigsawpp.block.totems.TotemHead;
+import net.svisvi.jigsawpp.block.totems.slavicTotemBlock;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluidBlock;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
@@ -36,4 +38,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEAWEED = REGISTRY.register("beaweed",
             () -> new Beaweed(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()
             ));
+    public static final RegistryObject<Block> SLAVIC = REGISTRY.register("slavic_totem_raw", () -> new slavicTotemBlock());
+    public static final RegistryObject<Block> SLAVICHEAD = REGISTRY.register("slavic_totem_raw_head", () -> new TotemHead());
 }

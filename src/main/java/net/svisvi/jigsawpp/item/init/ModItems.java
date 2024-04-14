@@ -65,6 +65,7 @@ public class ModItems {
 	public static final RegistryObject<Item> SLAVE_BOOTS = REGISTRY.register("slave_boots", () -> new SlaveItem.Boots());
 
 	public static final RegistryObject<Item> DRIST_BUTTON = REGISTRY.register("drist_button", () -> new dristButtonItem());
+	public static final RegistryObject<Item> SLAVIC = block(ModBlocks.SLAVIC);
 
 	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED.get(), new Item.Properties()));
 	public static final RegistryObject<Item> FORK = REGISTRY.register("fork", () -> new ForkItem());

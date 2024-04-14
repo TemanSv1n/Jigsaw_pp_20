@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jigsaw_pp:block/slavic_totem_raw"
+    },
+    "facing=east": {
+      "model": "jigsaw_pp:block/slavic_totem_raw",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/slavic_totem_raw",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/slavic_totem_raw",
+      "y": 270
+    }
+  }
+}
