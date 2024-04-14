@@ -64,6 +64,7 @@ public class ModTabs {
 
 						tabData.accept(ModItems.MARMOSET.get());
 						tabData.accept(ModItems.FACTORY_HEATER.get());
+						tabData.accept(ModItems.PURGEN_FACTORY.get());
 
 			})
 

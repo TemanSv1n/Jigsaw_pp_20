@@ -102,7 +102,8 @@ public class JigsawPpMod {
 			ModItemProperties.addCustomItemProperties();
 
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURGEN_FACTORY.get(), RenderType.cutout());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);

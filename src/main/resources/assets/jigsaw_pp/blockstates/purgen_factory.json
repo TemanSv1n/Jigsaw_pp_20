@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "jigsaw_pp:block/purgen_factory"
+    },
+    "facing=east": {
+      "model": "jigsaw_pp:block/purgen_factory",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/purgen_factory",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/purgen_factory",
+      "y": 270
+    }
+  }
+}
