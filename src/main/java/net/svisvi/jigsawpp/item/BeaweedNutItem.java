@@ -1,5 +1,7 @@
 package net.svisvi.jigsawpp.item;
 
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -27,14 +29,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.BlockPos;
 import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
+import org.jetbrains.annotations.Nullable;
 
 
 import java.util.List;
 
-public class BeaweedNutItem extends Item {
+public class BeaweedNutItem extends Item implements CustomArmPoseItem {
     public BeaweedNutItem() {
-        super(new Properties().durability(8).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().build()));
+        super(new Properties().durability(8).rarity(Rarity.COMMON));
     }
     @Override
     public int getUseDuration(ItemStack itemstack) {
@@ -43,6 +47,15 @@ public class BeaweedNutItem extends Item {
     public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.EAT;
     }
+    @Override
+    @Nullable
+    public HumanoidModel.@Nullable ArmPose getArmPose(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {
+        if (!player.swinging) {
+            return HumanoidModel.ArmPose.TOOT_HORN;
+        }
+        return null;
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         //ItemStack itemstack = pPlayer.getItemInHand(pHand);
