@@ -65,5 +65,7 @@
   "item.jigsaw_pp.pilule.effects_hidden" : "§k§oEffect: ",
 
   "effect.jigsaw_pp.random_bad_effect": "Bad Effect",
-  "effect.jigsaw_pp.random_good_effect": "Good Effect"
+  "effect.jigsaw_pp.random_good_effect": "Good Effect",
+
+  "subtitles.factory_heater": "Factory heater is working"
 }
