@@ -1,0 +1,185 @@
+{
+  "credit": "Made with Love",
+	"textures": {
+		"4": "jigsaw_pp:item/beaweed_nut",
+		"particle": "jigsaw_pp:item/beaweed_nut"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        8,
+        12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": "#4"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            16,
+            16
+          ],
+          "rotation": 180,
+          "texture": "#4"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            16,
+            16
+          ],
+          "texture": "#4"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            16,
+            16
+          ],
+          "texture": "#4"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            8,
+            16
+          ],
+          "texture": "#4"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            8,
+            16
+          ],
+          "texture": "#4"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        59.04,
+        19.02,
+        2.76
+      ],
+      "translation": [
+        -2,
+        5.5,
+        4
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        59.04,
+        19.02,
+        2.76
+      ],
+      "translation": [
+        -2,
+        5.5,
+        4
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        8.25,
+        25.73,
+        -5.51
+      ],
+      "translation": [
+        -1,
+        5.25,
+        0.5
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        8.25,
+        25.73,
+        -5.51
+      ],
+      "translation": [
+        -1,
+        5.25,
+        0.5
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        4.5,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -169.17,
+        30.68,
+        -178.43
+      ],
+      "translation": [
+        0,
+        3.25,
+        0
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        6.5,
+        0
+      ],
+      "scale": [
+        1.64,
+        1.64,
+        1.64
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        8,
+        0.5
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "group",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "children": [
+        0
+      ]
+    }
+  ]
+}
