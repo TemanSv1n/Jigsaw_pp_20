@@ -14,13 +14,19 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
+import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
+import net.svisvi.jigsawpp.networking.ModMessages;
+import net.svisvi.jigsawpp.networking.packet.FluidSyncS2CPacket;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,9 +35,40 @@ import java.util.List;
 public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(7);
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 78;
+
+    public final FluidTank FLUID_TANK = new FluidTank(8000){
+        @Override
+        protected void onContentsChanged() {
+            setChanged();
+            if(!level.isClientSide()) {
+                ModMessages.sendToClients(new FluidSyncS2CPacket(this.fluid, worldPosition));
+            }
+        }
+
+        @Override
+        public boolean isFluidValid(FluidStack stack) {
+            return super.isFluidValid(stack);
+        }
+    };
+
+    public void setFluid(FluidStack stack){
+        this.FLUID_TANK.setFluid(stack);
+    }
+    public FluidStack getFluidStack(){
+        return this.FLUID_TANK.getFluid();
+    }
+
+    public static void drainFluid(PurgenFactoryBlockEntity pEntity, int amount){
+
+    }
+
+//    public static void fillFluid(PurgenFactoryBlockEntity pEntity, int amount, FluidStack fluidStack){
+//        pEntity.FLUID_TANK.fill()
+//    }
 
 
     public PurgenFactoryBlockEntity(BlockPos pPos, BlockState pBlockState){
@@ -73,20 +110,32 @@ public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvide
         if(cap == ForgeCapabilities.ITEM_HANDLER) {
             return lazyItemHandler.cast();
         }
+        if (cap == ForgeCapabilities.FLUID_HANDLER) {
+            return lazyFluidHandler.cast();
+        }
 
         return super.getCapability(cap, side);
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+        ModMessages.sendToClients(new FluidSyncS2CPacket(this.getFluidStack(), worldPosition));
+        return new PurgenFactoryMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 
     @Override
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        lazyFluidHandler = LazyOptional.of(() -> FLUID_TANK);
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+        lazyFluidHandler.invalidate();
     }
 
     public void drops(){
@@ -102,17 +151,13 @@ public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvide
         return Component.translatable("block.jigsaw_pp.purgen_factory");
     }
 
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return null;
-    }
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("purgen_factory.progress", progress);
-        pTag.put("fluidTank", fluidTank.writeToNBT(new CompoundTag()));
+        pTag.put("fluidTank", FLUID_TANK.writeToNBT(new CompoundTag()));
+
 
         super.saveAdditional(pTag);
     }
@@ -123,17 +168,9 @@ public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvide
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         progress = pTag.getInt("purgen_factory.progress");
         if (pTag.get("fluidTank") instanceof CompoundTag compoundTag)
-            fluidTank.readFromNBT(compoundTag);
+            FLUID_TANK.readFromNBT(compoundTag);
+
 
     }
-
-    private final FluidTank fluidTank = new FluidTank(8000) {
-        @Override
-        protected void onContentsChanged() {
-            super.onContentsChanged();
-            setChanged();
-            level.sendBlockUpdated(worldPosition, level.getBlockState(worldPosition), level.getBlockState(worldPosition), 2);
-        }
-    };
 
 }

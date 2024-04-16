@@ -44,7 +44,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
     public static final IntegerProperty IS_FURNACED = IntegerProperty.create("is_furnaced", 0, 1);
 
     public FactoryHeaterBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2f, 10f).requiresCorrectToolForDrops());
+        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2f, 10f).noOcclusion().requiresCorrectToolForDrops());
 
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
         this.registerDefaultState(this.stateDefinition.any().setValue(IS_FURNACED, 0));
