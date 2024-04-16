@@ -1,9 +1,13 @@
 package net.svisvi.jigsawpp.block.purgen_factory;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -28,18 +32,24 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.network.NetworkHooks;
 import net.svisvi.jigsawpp.block.entity.PurgenFactoryBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Collections;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class PurgenFactoryBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public PurgenFactoryBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(4f, 1f).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK));
+        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(4f, 1f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -149,7 +159,35 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        if (!pLevel.isClientSide()) {
+            if (pPlayer.getItemInHand(pHand).getItem() instanceof BucketItem bucketItem) {
+                BlockEntity entity = pLevel.getBlockEntity(pPos);
+                if (entity instanceof PurgenFactoryBlockEntity pf){
+                    pf.FLUID_TANK.fill(new FluidStack(bucketItem.getFluid(), 1000), IFluidHandler.FluidAction.EXECUTE);
+                }
+
+                        if (!pPlayer.isCreative()) {
+                            pPlayer.getItemInHand(pHand).shrink(1);
+                            ItemStack _setstack = BucketItem.getEmptySuccessItem(pPlayer.getItemInHand(pHand), pPlayer);
+                            _setstack.setCount(1);
+                            ItemHandlerHelper.giveItemToPlayer(pPlayer, _setstack);
+                        }
+
+
+            } else {
+
+                BlockEntity entity = pLevel.getBlockEntity(pPos);
+                if (entity instanceof PurgenFactoryBlockEntity) {
+                    NetworkHooks.openScreen(((ServerPlayer) pPlayer), (PurgenFactoryBlockEntity) entity, pPos);
+                } else {
+                    throw new IllegalStateException("Our Container provider is missing!");
+                }
+            }
+        }
+
+
+
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
     @Nullable
