@@ -92,6 +92,8 @@ public class ModItems {
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
 	public static final RegistryObject<Item> PURGEN_FACTORY = block(ModBlocks.PURGEN_FACTORY);
 
+	public static final RegistryObject<Item> PURGEN_FACTORY_BIG_THUMB = REGISTRY.register("purgen_factory_big_thumb", () -> new Item(new Item.Properties()));
+
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
 
 

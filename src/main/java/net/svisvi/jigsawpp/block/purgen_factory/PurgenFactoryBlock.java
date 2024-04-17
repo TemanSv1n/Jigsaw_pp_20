@@ -1,7 +1,10 @@
 package net.svisvi.jigsawpp.block.purgen_factory;
 
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -37,6 +40,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.entity.PurgenFactoryBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -164,6 +168,12 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
                 BlockEntity entity = pLevel.getBlockEntity(pPos);
                 if (entity instanceof PurgenFactoryBlockEntity pf){
                     pf.FLUID_TANK.fill(new FluidStack(bucketItem.getFluid(), 1000), IFluidHandler.FluidAction.EXECUTE);
+
+                    if (!pLevel.isClientSide()) {
+                        pLevel.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bucket.empty")), SoundSource.BLOCKS, 0.7f, 1);
+                    } else {
+                        pLevel.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bucket.empty")), SoundSource.BLOCKS, 0.7f, 1, false);
+                    }
                 }
 
                         if (!pPlayer.isCreative()) {
