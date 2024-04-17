@@ -15,6 +15,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ElephantingRecipe>> ELEPHANTING_SERIALIZER =
             SERIALIZERS.register("elephanting", () -> ElephantingRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<PurgenCatalystRecipe>> PURGEN_CATALYST_SERIALIZER =
+            SERIALIZERS.register("purgen_catalyst", () -> PurgenCatalystRecipe.Serializer.INSTANCE);
+
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
     }

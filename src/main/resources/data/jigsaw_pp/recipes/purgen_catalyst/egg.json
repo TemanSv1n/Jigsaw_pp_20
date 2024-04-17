@@ -1,0 +1,12 @@
+{
+  "type": "jigsaw_pp:purgen_catalyst",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "result": {
+    "count": 0,
+    "item": "minecraft:bread"
+  }
+}
