@@ -17,6 +17,8 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<PurgenCatalystRecipe>> PURGEN_CATALYST_SERIALIZER =
             SERIALIZERS.register("purgen_catalyst", () -> PurgenCatalystRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<PurgenFactoryRecipe>> PURGEN_FACTORY_SERIALIZER =
+            SERIALIZERS.register("purgen_factory", () -> PurgenFactoryRecipe.Serializer.INSTANCE);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

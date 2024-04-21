@@ -11,11 +11,14 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
 import net.svisvi.jigsawpp.recipe.PurgenCatalystRecipe;
 
 public class PurgenCatalystCategory implements IRecipeCategory<PurgenCatalystRecipe> {
@@ -58,9 +61,33 @@ public class PurgenCatalystCategory implements IRecipeCategory<PurgenCatalystRec
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 26, 59).addItemStack(recipe.getResultItem(null));
 
+        builder.addSlot(RecipeIngredientRole.CATALYST, 134, 41).addItemStack(recipe.getPotionStack());
         builder
                 .addSlot(RecipeIngredientRole.RENDER_ONLY, 80, 96)
                 .addItemStack(new ItemStack(ModItems.PURGEN_FACTORY_BIG_THUMB.get()));
+
+        ItemStack additionalTimeStack = new ItemStack(ModItems.PURGEN_RECIPE_HELPER_CLOCK.get());
+        AbstractPurgenRecipeHelperItem.setToDisplay("float", additionalTimeStack);
+        AbstractPurgenRecipeHelperItem.setFloat(recipe.getAdditionalTimeK(null), additionalTimeStack);
+
+        ItemStack purityStack = new ItemStack(ModItems.PURGEN_RECIPE_HELPER_PURITY.get());
+        AbstractPurgenRecipeHelperItem.setToDisplay("float", purityStack);
+        AbstractPurgenRecipeHelperItem.setFloat(recipe.getPurityK(null), purityStack);
+
+        ItemStack tntStack = new ItemStack(ModItems.PURGEN_RECIPE_HELPER_TNT.get());
+        AbstractPurgenRecipeHelperItem.setToDisplay("float", tntStack);
+        AbstractPurgenRecipeHelperItem.setFloat(recipe.getMalChanceK(null), tntStack);
+
+        builder
+                .addSlot(RecipeIngredientRole.RENDER_ONLY, 152, 59)
+                .addItemStack(additionalTimeStack);
+        builder
+                .addSlot(RecipeIngredientRole.RENDER_ONLY, 152, 41)
+                .addItemStack(purityStack);
+        builder
+                .addSlot(RecipeIngredientRole.RENDER_ONLY, 152, 23)
+                .addItemStack(tntStack);
+
 
     }
 }
