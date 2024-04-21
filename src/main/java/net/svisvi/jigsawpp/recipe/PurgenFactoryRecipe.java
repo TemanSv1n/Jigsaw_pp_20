@@ -8,41 +8,40 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class PurgenCatalystRecipe implements Recipe<SimpleContainer> {
+public class PurgenFactoryRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private final ResourceLocation id;
-    private final float purityK; //K stands for K-oefficient
-    private final float additionalTimeK;
-    private final float malChanceK;
+    private final int purity; //K stands for K-oefficient
+    private final int additionalTime;
+    private final float malChance;
     private final ItemStack potionStack;
+    private final FluidStack fluidStack;
 
 
-    public PurgenCatalystRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id,
-                                float p_purityK, float p_additionalTimeK, float p_malChanceK, ItemStack p_potion) {
+    public PurgenFactoryRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id,
+                               int p_purity, int p_additionalTime, float p_malChance, ItemStack p_potion, FluidStack p_fluidStack) {
         this.inputItems = inputItems;
         this.output = output;
         this.id = id;
-        this.purityK = p_purityK;
-        this.additionalTimeK = p_additionalTimeK;
-        this.malChanceK = p_malChanceK;
+        this.purity = p_purity;
+        this.additionalTime = p_additionalTime;
+        this.malChance = p_malChance;
         this.potionStack = p_potion;
+        this.fluidStack = p_fluidStack;
     }
 
     @Override
@@ -50,7 +49,8 @@ public class PurgenCatalystRecipe implements Recipe<SimpleContainer> {
         if(pLevel.isClientSide()){
             return false;
         }
-        return inputItems.get(0).test(pContainer.getItem(0));
+        return inputItems.get(0).test(pContainer.getItem(0))
+                && inputItems.get(1).test(pContainer.getItem(1));
     }
 
     @Override
@@ -72,18 +72,21 @@ public class PurgenCatalystRecipe implements Recipe<SimpleContainer> {
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();
     }
-    public float getPurityK(RegistryAccess pRegistryAccess){
-        return purityK;
+    public int getPurity(RegistryAccess pRegistryAccess){
+        return purity;
     }
-    public float getAdditionalTimeK(RegistryAccess pRegistryAccess){
-        return additionalTimeK;
+    public int getAdditionalTime(RegistryAccess pRegistryAccess){
+        return additionalTime;
     }
-    public float getMalChanceK(RegistryAccess pRegistryAccess){
-        return malChanceK;
+    public float getMalChance(RegistryAccess pRegistryAccess){
+        return malChance;
     }
 
     public ItemStack getPotionStack() {
         return potionStack;
+    }
+    public FluidStack getFluidStack(){
+        return fluidStack;
     }
 
     public List<MobEffectInstance> getEffects(){
@@ -105,39 +108,42 @@ public class PurgenCatalystRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements RecipeType<PurgenCatalystRecipe> {
+    public static class Type implements RecipeType<PurgenFactoryRecipe> {
         public static final Type INSTANCE = new Type();
-        public static final String ID = "purgen_catalyst";
+        public static final String ID = "purgen_factory";
 
     }
-    public static class Serializer implements RecipeSerializer<PurgenCatalystRecipe> {
+    public static class Serializer implements RecipeSerializer<PurgenFactoryRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(JigsawPpMod.MODID, "purgen_catalyst");
+        public static final ResourceLocation ID = new ResourceLocation(JigsawPpMod.MODID, "purgen_factory");
 
         @Override
-        public PurgenCatalystRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+        public PurgenFactoryRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             //primitives
-            float purityK = pSerializedRecipe.get("purity").getAsFloat();
-            float additionalTimeK = pSerializedRecipe.get("additionalTime").getAsFloat();;
-            float malChanceK = pSerializedRecipe.get("malChance").getAsFloat();;
+            int purity = pSerializedRecipe.get("purity").getAsInt();
+            int additionalTime = pSerializedRecipe.get("additionalTime").getAsInt();;
+            float malChance = pSerializedRecipe.get("malChance").getAsFloat();;
 
 
 
 
 
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
+            JsonObject fluidObj = GsonHelper.getAsJsonObject(pSerializedRecipe, "fluid");
+            Fluid fluid = ForgeRegistries.FLUIDS.getValue(new ResourceLocation(fluidObj.get("fluid_name").getAsString())); //fluidObj.get("fluid_name").getAsString()
+            FluidStack fstack = new FluidStack(fluid, fluidObj.get("amount").getAsInt());
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
-            return new PurgenCatalystRecipe(inputs, output, pRecipeId, purityK, additionalTimeK, malChanceK, ParsePotion.parseFromJson(pSerializedRecipe));
+            return new PurgenFactoryRecipe(inputs, output, pRecipeId, purity, additionalTime, malChance, ParsePotion.parseFromJson(pSerializedRecipe), fstack);
         }
 
         @Override
-        public @Nullable PurgenCatalystRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+        public @Nullable PurgenFactoryRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
@@ -145,25 +151,28 @@ public class PurgenCatalystRecipe implements Recipe<SimpleContainer> {
             }
             ItemStack output = pBuffer.readItem();
 
-            float purityK = pBuffer.readFloat();
-            float additionalTimeK = pBuffer.readFloat();
-            float malChanceK = pBuffer.readFloat();
+            int purity = pBuffer.readInt();
+            int additionalTime = pBuffer.readInt();
+            float malChance = pBuffer.readFloat();
             ItemStack potion = pBuffer.readItem();
-            return new PurgenCatalystRecipe(inputs, output, pRecipeId, purityK, additionalTimeK, malChanceK, potion);
+            FluidStack fstack = pBuffer.readFluidStack();
+            return new PurgenFactoryRecipe(inputs, output, pRecipeId, purity, additionalTime, malChance, potion, fstack);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, PurgenCatalystRecipe pRecipe) {
+        public void toNetwork(FriendlyByteBuf pBuffer, PurgenFactoryRecipe pRecipe) {
             pBuffer.writeInt(pRecipe.inputItems.size());
 
             for(Ingredient ingredient : pRecipe.getIngredients()) {
                 ingredient.toNetwork(pBuffer);
             }
             pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
-            pBuffer.writeFloat(pRecipe.getPurityK(null));
-            pBuffer.writeFloat(pRecipe.getAdditionalTimeK(null));
-            pBuffer.writeFloat(pRecipe.getMalChanceK(null));
+            pBuffer.writeFloat(pRecipe.getPurity(null));
+            pBuffer.writeFloat(pRecipe.getAdditionalTime(null));
+            pBuffer.writeFloat(pRecipe.getMalChance(null));
             pBuffer.writeItemStack(pRecipe.getPotionStack(), false);
+            pBuffer.writeFluidStack(pRecipe.getFluidStack());
+
 
         }
     }

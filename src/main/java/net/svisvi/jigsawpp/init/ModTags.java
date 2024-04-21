@@ -23,6 +23,8 @@ public class ModTags {
 
         public static final TagKey<Item> POOP_PROTECTIVE_LIQUID_ONE = tag("poop_protective_liquid_one");
         public static final TagKey<Item> POOP_PROTECTIVE_GAS_ONE = tag("poop_protective_gas_one");
+        public static final TagKey<Item> PURGEN_CATALYSTS = tag("purgen_catalysts");
+        public static final TagKey<Item> PILULES = tag("pilules");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(JigsawPpMod.MODID, name));
         }
