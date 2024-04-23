@@ -37,6 +37,11 @@ public class AbstractPurgenRecipeHelperItem extends Item{
         itemStack.getOrCreateTag().putFloat("float", Floatt);
 
     }
+    public static float FloatAlt(ItemStack itemStack){return itemStack.getOrCreateTag().getFloat("float_alt");}
+    public static void setFloatAlt(float Floatt, ItemStack itemStack){
+        itemStack.getOrCreateTag().putFloat("float_alt", Floatt);
+
+    }
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
@@ -46,6 +51,8 @@ public class AbstractPurgenRecipeHelperItem extends Item{
             str = Integer.toString(Int(itemstack));
         } else if (toDisplay.equals("float")) {
             str = FloatToPercentsHelper.floatToStringPercent(Float(itemstack));
+        } else if (toDisplay.equals("float_alt")) {
+            str = FloatToPercentsHelper.floatToStringPercentAlt(FloatAlt(itemstack));
         }
 
 

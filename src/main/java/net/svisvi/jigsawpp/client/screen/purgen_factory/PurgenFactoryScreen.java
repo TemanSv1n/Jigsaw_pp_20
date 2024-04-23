@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.client.screen.purgen_factory;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -63,18 +64,21 @@ public class PurgenFactoryScreen extends AbstractContainerScreen<PurgenFactoryMe
 //        renderFluidAreaTooltips(pGuiGraphics, pMouseX, pMouseY, x, y);
     }
 
-//    private void renderFluidAreaTooltips(GuiGraphics pGuiGtaphics, int pMouseX, int pMouseY, int x, int y) {
-//        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 55, 15)) {
-//            renderTooltip(pGuiGtaphics, renderer.getTooltip(menu.getFluidStack(), TooltipFlag.Default.NORMAL),
-//                    Optional.empty(), pMouseX - x, pMouseY - y);
-//        }
-//    }
+    private void renderFluidAreaTooltips(GuiGraphics pGuiGtaphics, int pMouseX, int pMouseY, int x, int y) {
+        if(isMouseAboveArea(pMouseX, pMouseY, x, y, 55, 15)) {
+            pGuiGtaphics.renderTooltip(Minecraft.getInstance().font,renderer.getTooltip(menu.getFluidStack(), TooltipFlag.Default.NORMAL),
+                    Optional.empty(), pMouseX, pMouseY);
+        }
+    }
 
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         renderBackground(pGuiGraphics);
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
         renderTooltip(pGuiGraphics, pMouseX, pMouseY);
+        int x = (width - imageWidth)/2;
+        int y = (height - imageHeight)/2;
+        renderFluidAreaTooltips(pGuiGraphics, pMouseX, pMouseY, x, y);
     }
 
     private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY) {
