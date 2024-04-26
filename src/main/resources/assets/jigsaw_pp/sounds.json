@@ -25,5 +25,14 @@
         "stream": false
       }
     ]
+  },
+  "alpha_bomb": {
+    "subtitle": "subtitles.alpha_bomb",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:alpha_bomb",
+        "stream": false
+      }
+    ]
   }
 }
