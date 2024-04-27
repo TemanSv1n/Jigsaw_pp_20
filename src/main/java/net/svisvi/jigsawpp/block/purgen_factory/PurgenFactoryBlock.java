@@ -43,6 +43,7 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.entity.PurgenFactoryBlockEntity;
 import org.jetbrains.annotations.Nullable;
+import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
 
 import java.util.List;
 import java.util.Collections;
@@ -203,6 +204,8 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return super.getTicker(pLevel, pState, pBlockEntityType);
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.PURGEN_FACTORY_BE.get(),
+                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
     }
-}
+    }
+

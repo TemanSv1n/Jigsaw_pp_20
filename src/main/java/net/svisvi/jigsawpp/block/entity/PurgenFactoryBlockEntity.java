@@ -1,9 +1,14 @@
 package net.svisvi.jigsawpp.block.entity;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.ReloadableServerResources;
+import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -11,6 +16,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,14 +34,23 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
+import net.svisvi.jigsawpp.block.purgen_factory.PurgenPiluleBuilder;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
+import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.networking.packet.FluidSyncS2CPacket;
+import net.svisvi.jigsawpp.recipe.ModRecipes;
+import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(7);
@@ -39,6 +59,7 @@ public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvide
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 78;
+    private int partenSize = 4;
 
     public final FluidTank FLUID_TANK = new FluidTank(8000){
         @Override
@@ -100,9 +121,10 @@ public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvide
     }
 
     //slots 0-1-2-3 INGREDIENT INPUT
-    //slot 5 - CATALYST
-    //slot 6 PILULE INPUT
-    //slot 7 OUTPUT
+    //slot 4 - CATALYST
+    //slot 5 PILULE INPUT
+    //slot 6 OUTPUT
+    private static final int OUTPUT_SLOT = 6;
 
 
     @Override
@@ -171,6 +193,132 @@ public class PurgenFactoryBlockEntity extends BlockEntity implements MenuProvide
             FLUID_TANK.readFromNBT(compoundTag);
 
 
+    }
+
+    //RECIPES AND CRAFTING
+
+    public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
+        if(canCraft()) {
+            increaseCraftingProgress();
+            setChanged(pLevel, pPos, pState);
+
+            if(hasProgressFinished()) {
+                craftItem(pLevel, pPos, pState);
+                resetProgress();
+            }
+        } else {
+            resetProgress();
+        }
+    }
+
+    private void resetProgress() {
+        progress = 0;
+    }
+
+
+
+
+    private void craftItem(Level pLevel, BlockPos pPos, BlockState pState) {
+        Optional<PurgenFactoryRecipe> recipe = getCurrentRecipe();
+        ItemStack result = recipe.get().getResultItem(null);
+
+        ItemStack built_purgen = PurgenPiluleBuilder.build_main(recipe, itemHandler.getStackInSlot(2), itemHandler.getStackInSlot(3),
+                itemHandler.getStackInSlot(4), level, pPos, pState);
+        int pu_count = this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + built_purgen.getCount() * partenSize;
+
+        if (this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty()
+                || AbstractPiluleItem.comparePilules(built_purgen, this.itemHandler.getStackInSlot(OUTPUT_SLOT))
+
+        ){
+            this.itemHandler.extractItem(0, partenSize, false);
+            this.itemHandler.extractItem(1, partenSize, false);
+            this.itemHandler.extractItem(2, partenSize, false);
+            if (itemHandler.getStackInSlot(3) != ItemStack.EMPTY) {
+                this.itemHandler.extractItem(3, partenSize, false);
+            }
+            if (itemHandler.getStackInSlot(4) != ItemStack.EMPTY) {
+                this.itemHandler.extractItem(4, 1, false);
+            }
+            this.itemHandler.extractItem(5, partenSize, false);
+            this.FLUID_TANK.drain(recipe.get().getFluidStack().getAmount() * partenSize, IFluidHandler.FluidAction.EXECUTE);
+            this.itemHandler.setStackInSlot(OUTPUT_SLOT, built_purgen.copyWithCount(pu_count));
+        } else {
+            // KA BOOM
+        }
+
+        //REMOVE ITEMS FROM SLOTS & FLUID
+
+
+        //
+
+
+    }
+
+    public boolean canCraft(){
+        if (!hasRecipe()){
+            return false;
+        }
+        if (itemHandler.getStackInSlot(0).getCount() >= partenSize
+                //ingredients
+                && itemHandler.getStackInSlot(1).getCount() >= partenSize
+                //free ingredients
+                && itemHandler.getStackInSlot(2).getCount() >= partenSize
+                && itemHandler.getStackInSlot(2).getItem().isEdible()
+                //optional items
+                && ((itemHandler.getStackInSlot(3).getCount() >= partenSize
+                && itemHandler.getStackInSlot(3).getItem().isEdible())
+                || itemHandler.getStackInSlot(3) == ItemStack.EMPTY)
+                //pilules
+                && itemHandler.getStackInSlot(5).getCount() >= partenSize
+                && itemHandler.getStackInSlot(5).getItem() == ModItems.EMPTY_PILULE.get()){
+            return true;
+        }
+        return false;
+    }
+    private boolean hasRecipe() {
+        Optional<PurgenFactoryRecipe> recipe = getCurrentRecipe();
+
+        if(recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
+
+        return canInsertAmountIntoOutputSlot(result.getCount() * partenSize) && canInsertItemIntoOutputSlot(result.getItem());
+    }
+
+    private Optional<PurgenFactoryRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for(int i = 0; i < 2; i++) {
+            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
+        }
+        FluidStack fstack = getFluidStack();
+
+
+        return getRecipeFor(PurgenFactoryRecipe.Type.INSTANCE, inventory, level, fstack);
+    }
+
+
+    public static <C extends Container, T extends Recipe<C>> Optional<PurgenFactoryRecipe> getRecipeFor(RecipeType<PurgenFactoryRecipe> pRecipeType, SimpleContainer pInventory, Level pLevel, FluidStack fstack) {
+
+        return pLevel.getRecipeManager().getAllRecipesFor(pRecipeType).stream().filter((svo) -> {
+            return svo.match(pInventory, fstack, pLevel);
+        }).findFirst();
+    }
+
+    private boolean canInsertItemIntoOutputSlot(Item item) {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+    }
+
+    private boolean hasProgressFinished() {
+        return progress >= maxProgress;
+    }
+
+    private void increaseCraftingProgress() {
+        progress++;
     }
 
 }

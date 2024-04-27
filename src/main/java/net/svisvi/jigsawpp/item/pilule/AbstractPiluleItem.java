@@ -155,4 +155,21 @@ public class AbstractPiluleItem extends Item {
         }
     }
 
+    public static boolean comparePilules(ItemStack first, ItemStack second){
+        boolean logic = true;
+        if (first.getOrCreateTag().getInt("duration_buff") != second.getOrCreateTag().getInt("duration_buff")){
+            logic = false;
+            return logic;
+        }
+        if (first.getOrCreateTag().getInt("purity") != second.getOrCreateTag().getInt("purity")){
+            logic = false;
+            return logic;
+        }
+        if (!PotionUtils.getMobEffects(first).equals(PotionUtils.getMobEffects(second))){
+            logic = false;
+            return logic;
+        }
+        return logic;
+    }
+
 }
