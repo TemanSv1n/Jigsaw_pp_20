@@ -46,12 +46,18 @@ public class PurgenFactoryRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        return false;
+    }
+
+    public boolean match(SimpleContainer pContainer, FluidStack fluid, Level pLevel){
         if(pLevel.isClientSide()){
             return false;
         }
         return inputItems.get(0).test(pContainer.getItem(0))
-                && inputItems.get(1).test(pContainer.getItem(1));
+                && inputItems.get(1).test(pContainer.getItem(1))
+                && fluidStack.isFluidEqual(fluid) && fluidStack.getAmount() <= fluid.getAmount();
     }
+
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
