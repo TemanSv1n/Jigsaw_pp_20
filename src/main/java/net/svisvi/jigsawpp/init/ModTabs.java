@@ -66,6 +66,7 @@ public class ModTabs {
 						tabData.accept(ModItems.MARMOSET.get());
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.KEGA.get());
+						tabData.accept(ModItems.KEGA_NULL.get());
 
 			})
 
