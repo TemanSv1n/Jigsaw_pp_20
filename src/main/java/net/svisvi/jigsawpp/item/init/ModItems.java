@@ -91,11 +91,14 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAWEED_NUT = REGISTRY.register("beaweed_nut", () -> new BeaweedNutItem());
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
+
+	// #################
+	// Kega components
+	public static final RegistryObject<Item> FITTING = REGISTRY.register("fitting", () -> new FittingItem());
 	public static final RegistryObject<Item> KEGA = block(ModBlocks.KEGA);
 	public static final RegistryObject<Item> KEGA_NULL = block(ModBlocks.KEGA_NULL);
-
+	// #################
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
-
 
 
 
