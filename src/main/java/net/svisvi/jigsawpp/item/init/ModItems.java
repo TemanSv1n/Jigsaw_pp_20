@@ -5,7 +5,6 @@
 package net.svisvi.jigsawpp.item.init;
 
 
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
@@ -26,6 +25,7 @@ import net.svisvi.jigsawpp.item.armor.GasMaskItem;
 import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
+import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
 import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
