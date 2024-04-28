@@ -72,6 +72,8 @@ public class PurgenPiluleBuilder {
                 }
 
             }
+        } else {
+            purity *= 0.8;
         }
         AbstractPiluleItem.setDurationBuff((int) dur_buff, purgen_stack);
         AbstractPiluleItem.setPurity((int) purity, purgen_stack);
