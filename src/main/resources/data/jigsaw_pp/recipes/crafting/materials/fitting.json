@@ -1,25 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "materials",
   "category": "misc",
   "pattern": [
-    "abc",
-    " d ",
-    " e "
+    "aba",
+    " c ",
+    " d "
   ],
   "key": {
     "a": {
-      "item": "minecraft:logs"
+      "tag": "logs"
     },
     "b": {
       "item": "minecraft:stone"
     },
     "c": {
-      "item": "minecraft:logs"
-    },
-    "d": {
       "item": "minecraft:iron_ingot"
     },
-    "e": {
+    "d": {
       "item": "minecraft:copper_ingot"
     }
   },
