@@ -1,19 +1,26 @@
 // ########################################
 // ########################################
-// ## ЕБИТЕСТЬ ВСЕ С КОНЁМ
+// ## Made with HLNikNiky
 // ########################################
 // ########################################
 
 
 package net.svisvi.jigsawpp.block;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -27,14 +34,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.particles.ModParticleTypes;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 public class KegaBlock extends Block {
@@ -51,6 +60,9 @@ public class KegaBlock extends Block {
     // #####################################
     // ### Типо взрыв
     private static void replaceBlocksInSphere(ServerLevel world, BlockPos centerPos) {
+        Random random = new Random();
+
+        // Генерируем случайное число от 0 до 99
 
 
         JigsawPpMod.queueServerWork(490, () -> { // Очередь работы на сервере
@@ -58,7 +70,12 @@ public class KegaBlock extends Block {
             int chunkX = centerPos.getX() >> 4;
             int chunkZ = centerPos.getZ() >> 4;
             world.setBlockAndUpdate(centerPos, Blocks.AIR.defaultBlockState());
-            world.sendParticles(ParticleTypes.EXPLOSION, centerPos.getX() + 0.5, centerPos.getY() + 1, centerPos.getZ() + 0.5, 200, 50, 50, 50, 0);
+            final Vec3 _center = new Vec3(centerPos.getX(), centerPos.getY(), centerPos.getZ());
+            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(50 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+            for (Entity entityiterator : _entfound) {
+                entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.FALLING_ANVIL)), 100);
+            }
+
 
             for (int chunkXOffset = -chunkRadius; chunkXOffset <= chunkRadius; chunkXOffset++) {
                 for (int chunkZOffset = -chunkRadius; chunkZOffset <= chunkRadius; chunkZOffset++) {
@@ -70,7 +87,27 @@ public class KegaBlock extends Block {
                             for (int z = (chunkPosZ << 4); z < (chunkPosZ << 4) + 16; z++) {
                                 BlockPos mutablePos = new BlockPos(x, y, z);
                                 if (centerPos.distSqr(mutablePos) <= RADIUS * RADIUS) {
-                                    world.setBlockAndUpdate(mutablePos, Blocks.AIR.defaultBlockState()); // Заменяем блоки в сфере на воздух
+                                    if (world.getBlockState(mutablePos).getDestroySpeed(world, mutablePos) != -1) {
+                                        world.setBlockAndUpdate(mutablePos, Blocks.AIR.defaultBlockState());
+                                    }
+
+
+
+                                    if (random.nextInt(100) < 3) {
+                                        System.out.println("Part 1");
+                                        //world.sendParticles(ModParticleTypes.KEGA_BOOM.get(),  mutablePos.getX(), mutablePos.getY(), mutablePos.getZ(), 1, 1, 1, 1, 0);
+                                        int $$8 = 0;
+                                        Iterator var9 = world.players().iterator();
+
+                                        while(var9.hasNext()) {
+                                            ServerPlayer $$9 = (ServerPlayer)var9.next();
+                                            if (world.sendParticles($$9, ModParticleTypes.KEGA_BOOM.get(), true, mutablePos.getX(), mutablePos.getY(), mutablePos.getZ(), 1, 0, 0, 0, 0)) {
+                                                ++$$8;
+                                            }
+                                        }
+                                        //world.addParticle(ModParticleTypes.KEGA_BOOM.get(), mutablePos.getX(), mutablePos.getY(), mutablePos.getZ(), 0, 0, 0);
+                                        //System.out.println("Final");
+                                    }
                                 }
                             }
                         }
