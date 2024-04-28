@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.client.screen.purgen_factory;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -13,6 +15,7 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.svisvi.jigsawpp.block.entity.PurgenFactoryBlockEntity;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class PurgenFactoryMenu extends AbstractContainerMenu {
     private final PurgenFactoryBlockEntity blockEntity;
@@ -21,12 +24,12 @@ public class PurgenFactoryMenu extends AbstractContainerMenu {
     private FluidStack fluidStack;
 
     public PurgenFactoryMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData){
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(7));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(8));
     }
 
     public PurgenFactoryMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data){
         super(ModMenuTypes.PURGEN_FACTORY_MENU.get(), pContainerId);
-        checkContainerSize(inv, 7);
+        checkContainerSize(inv, 8);
         blockEntity = (PurgenFactoryBlockEntity) entity;
         this.level = inv.player.level();
         this.data = data;
@@ -40,9 +43,44 @@ public class PurgenFactoryMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(iItemHandler, 1, 26, 24));
             this.addSlot(new SlotItemHandler(iItemHandler, 2, 26, 42));
             this.addSlot(new SlotItemHandler(iItemHandler, 3, 26, 60));
-            this.addSlot(new SlotItemHandler(iItemHandler, 4, 134, 11));
-            this.addSlot(new SlotItemHandler(iItemHandler, 5, 152, 29));
-            this.addSlot(new SlotItemHandler(iItemHandler, 6, 152, 60));
+            this.addSlot(new SlotItemHandler(iItemHandler, 4, 134, 11)
+            {
+                private final int slot = 4;
+
+                @Override
+                public boolean mayPlace(ItemStack itemstack) {
+
+
+                    return itemstack.is(ItemTags.create(new ResourceLocation("jigsaw_pp:purgen_catalysts")));
+                }
+            });
+            this.addSlot(new SlotItemHandler(iItemHandler, 5, 152, 29)
+            {
+                private final int slot = 5;
+
+                @Override
+                public boolean mayPlace(ItemStack itemstack) {
+                    return itemstack.getItem() == ModItems.EMPTY_PILULE.get();
+                }
+            });
+            this.addSlot(new SlotItemHandler(iItemHandler, 6, 152, 60)
+            {
+                private final int slot = 6;
+
+                @Override
+                public boolean mayPlace(ItemStack itemstack) {
+                    return false;
+                }
+            });
+            this.addSlot(new SlotItemHandler(iItemHandler, 7, 134, 60)
+            {
+                private final int slot = 7;
+
+                @Override
+                public boolean mayPlace(ItemStack itemstack) {
+                    return itemstack.getItem() == ModItems.BATCH_SIZE_CARD.get();
+                }
+            });
         });
 
         addDataSlots(data);
@@ -79,7 +117,7 @@ public class PurgenFactoryMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 7;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 8;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
@@ -91,7 +129,27 @@ public class PurgenFactoryMenu extends AbstractContainerMenu {
         // Check if the slot clicked is one of the vanilla container slots
         if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
             // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
+            //specific items in specific slots
+            //EMPTY PILULE SLOT
+            if (sourceStack.getItem() == ModItems.EMPTY_PILULE.get()){
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT - 3, TE_INVENTORY_FIRST_SLOT_INDEX
+                        + TE_INVENTORY_SLOT_COUNT - 2, false)) {
+                    return ItemStack.EMPTY;  // EMPTY_ITEM
+                }
+                //CATALYSTS SLOT
+            } else if (sourceStack.is(ItemTags.create(new ResourceLocation("jigsaw_pp:purgen_catalysts")))){
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT - 4, TE_INVENTORY_FIRST_SLOT_INDEX
+                        + TE_INVENTORY_SLOT_COUNT - 3, false)) {
+                    return ItemStack.EMPTY;  // EMPTY_ITEM
+                }
+                //CARD SLOT
+            } else if (sourceStack.getItem() == ModItems.BATCH_SIZE_CARD.get()) {
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT - 1, TE_INVENTORY_FIRST_SLOT_INDEX
+                        + TE_INVENTORY_SLOT_COUNT, false)) {
+                    return ItemStack.EMPTY;  // EMPTY_ITEM
+                }
+            }
+            else if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
                     + TE_INVENTORY_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;  // EMPTY_ITEM
             }
@@ -113,6 +171,10 @@ public class PurgenFactoryMenu extends AbstractContainerMenu {
         sourceSlot.onTake(playerIn, sourceStack);
         return copyOfSourceStack;
     }
+
+    //don't takers
+
+
 
     @Override
     public boolean stillValid(Player pPlayer) {
