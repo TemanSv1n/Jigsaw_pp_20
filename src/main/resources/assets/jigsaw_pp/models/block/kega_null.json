@@ -4,7 +4,7 @@
 	"texture_size": [128, 128],
 	"textures": {
 		"10": "jigsaw_pp:block/kega_null",
-		"particle": "create:block/kega_null"
+		"particle": "jigsaw_pp:block/kega_null"
 	},
 	"render_type": "solid",
 	"elements": [
