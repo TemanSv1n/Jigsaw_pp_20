@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    " d ",
+    " e "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:logs"
+    },
+    "b": {
+      "item": "minecraft:stone"
+    },
+    "c": {
+      "item": "minecraft:logs"
+    },
+    "d": {
+      "item": "minecraft:iron_ingot"
+    },
+    "e": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:fitting",
+    "count": 1
+  }
+}

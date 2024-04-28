@@ -22,60 +22,62 @@ public class ModTabs {
 
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB = REGISTRY.register("jigsaw_tab",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
-						tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
-						tabData.accept(ModItems.MOSS_ELEPHANT_PICKAXE.get());
-						tabData.accept(ModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
-						tabData.accept(ModItems.COAL_FOSSIL.get());
-						tabData.accept(ModItems.RAW_TEAPOT.get());
-						tabData.accept(ModItems.TEAPOT.get());
-						tabData.accept(ModItems.BLACK_TEAPOT.get());
+				tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
+				tabData.accept(ModItems.MOSS_ELEPHANT_PICKAXE.get());
+				tabData.accept(ModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
+				tabData.accept(ModItems.COAL_FOSSIL.get());
+				tabData.accept(ModItems.RAW_TEAPOT.get());
+				tabData.accept(ModItems.TEAPOT.get());
+				tabData.accept(ModItems.BLACK_TEAPOT.get());
 
-						tabData.accept(ModItems.PONOS_BUCKET.get());
-						tabData.accept(ModItems.SWEET_BREAD.get());
-						tabData.accept(ModItems.MOSS_ELEPHANT_SPAWN_EGG.get());
+				tabData.accept(ModItems.PONOS_BUCKET.get());
+				tabData.accept(ModItems.SWEET_BREAD.get());
+				tabData.accept(ModItems.MOSS_ELEPHANT_SPAWN_EGG.get());
 
-						tabData.accept(ModItems.HAZMAT_BOOTS.get());
-						tabData.accept(ModItems.HAZMAT_LEGGINGS.get());
-						tabData.accept(ModItems.HAZMAT_CHESTPLATE.get());
-						tabData.accept(ModItems.HAZMAT_HELMET.get());
-						tabData.accept(ModItems.GAS_MASK_HELMET.get());
-						tabData.accept(ModItems.SLAVE_BOOTS.get());
-						tabData.accept(ModItems.SLAVE_LEGGINGS.get());
-						tabData.accept(ModItems.SLAVE_CHESTPLATE.get());
-						tabData.accept(ModItems.SLAVE_HELMET.get());
+				tabData.accept(ModItems.HAZMAT_BOOTS.get());
+				tabData.accept(ModItems.HAZMAT_LEGGINGS.get());
+				tabData.accept(ModItems.HAZMAT_CHESTPLATE.get());
+				tabData.accept(ModItems.HAZMAT_HELMET.get());
+				tabData.accept(ModItems.GAS_MASK_HELMET.get());
+				tabData.accept(ModItems.SLAVE_BOOTS.get());
+				tabData.accept(ModItems.SLAVE_LEGGINGS.get());
+				tabData.accept(ModItems.SLAVE_CHESTPLATE.get());
+				tabData.accept(ModItems.SLAVE_HELMET.get());
 
-						tabData.accept(ModItems.DRIST_BUTTON.get());
-						tabData.accept(ModItems.BEAWEED_SEEDS.get());
-						tabData.accept(ModItems.FORK.get());
+				tabData.accept(ModItems.DRIST_BUTTON.get());
+				tabData.accept(ModItems.BEAWEED_SEEDS.get());
+				tabData.accept(ModItems.FORK.get());
 
-						tabData.accept(ModItems.EMPTY_PILULE.get());
-						tabData.accept(ModItems.BASIC_PURGEN_PILULE.get());
-						tabData.accept(ModItems.ADVANCED_PURGEN_PILULE.get());
-						tabData.accept(ModItems.CRYSTAL_PURGEN_PILULE.get());
-						tabData.accept(ModItems.EXTINGUISHER.get());
+				tabData.accept(ModItems.EMPTY_PILULE.get());
+				tabData.accept(ModItems.BASIC_PURGEN_PILULE.get());
+				tabData.accept(ModItems.ADVANCED_PURGEN_PILULE.get());
+				tabData.accept(ModItems.CRYSTAL_PURGEN_PILULE.get());
+				tabData.accept(ModItems.EXTINGUISHER.get());
 
-						tabData.accept(ModItems.BEAWEED_SOUP.get());
-						tabData.accept(ModItems.SAWDUST_SOUP.get());
-						tabData.accept(ModItems.BEAWEED_SCUM.get());
-						tabData.accept(ModItems.BEAWEED_DUST.get());
-						tabData.accept(ModItems.BEAWEED_BLOCK.get());
-						tabData.accept(ModItems.BEAWEED_NUT.get());
+				tabData.accept(ModItems.BEAWEED_SOUP.get());
+				tabData.accept(ModItems.SAWDUST_SOUP.get());
+				tabData.accept(ModItems.BEAWEED_SCUM.get());
+				tabData.accept(ModItems.BEAWEED_DUST.get());
+				tabData.accept(ModItems.BEAWEED_BLOCK.get());
+				tabData.accept(ModItems.BEAWEED_NUT.get());
 
-						tabData.accept(ModItems.PURGEN_BUNDLE.get());
-						tabData.accept(ModItems.PURGEN_GUN.get());
-						tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
+				tabData.accept(ModItems.PURGEN_BUNDLE.get());
+				tabData.accept(ModItems.PURGEN_GUN.get());
+				tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
 
-						tabData.accept(ModItems.MARMOSET.get());
-						tabData.accept(ModItems.FACTORY_HEATER.get());
-						tabData.accept(ModItems.KEGA.get());
-						tabData.accept(ModItems.KEGA_NULL.get());
+				tabData.accept(ModItems.MARMOSET.get());
+				tabData.accept(ModItems.FACTORY_HEATER.get());
+				tabData.accept(ModItems.KEGA.get());
+				tabData.accept(ModItems.KEGA_NULL.get());
 
 			}).build());
 
 
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB_MATERIALS = REGISTRY.register("jigsaw_tab_materilas",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab_materials")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
-
-
+				tabData.accept(ModItems.FITTING.get());
+				tabData.accept(ModItems.BEAWEED_DUST.get());
+				tabData.accept(ModItems.BEAWEED_BLOCK.get());
+				tabData.accept(ModItems.COAL_FOSSIL.get());
 			}).build());
 }
