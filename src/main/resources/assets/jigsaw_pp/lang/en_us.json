@@ -3,6 +3,7 @@
   "item.jigsaw_pp.elephant_pickaxe.desc": "§6The hotter - the faster",
 
   "item_group.jigsaw_pp.jigsaw_tab": "Jigsaw II",
+  "item_group.jigsaw_pp.jigsaw_tab_materials": "Jigsaw II: Materials",
 
   "item.jigsaw_pp.moss_elephant_pickaxe": "§aMoss Elephant Pickaxe",
   "item.jigsaw_pp.moss_elephant_pickaxe.desc": "§2Brings life",
@@ -10,7 +11,9 @@
   "item.jigsaw_pp.strawberry_elephant_pickaxe": "§cStrawberry Elephant Pickaxe",
   "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Fossilises living",
 
-
+  "block.jigsaw_pp.kega_null": "Empty Fucking Kega",
+  "block.jigsaw_pp.kega": "Charged Fucking Kega",
+  "block.jigsaw_pp.kega.desc": "Atomic Boom-Boom",
   "block.jigsaw_pp.raw_teapot": "Raw teapot",
   "block.jigsaw_pp.teapot": "Teapot",
   "block.jigsaw_pp.black_teapot": "Black teapot",
@@ -36,7 +39,7 @@
 
 
 
-
+  "subtitles.alpha_bomb": "Alpha Bomb Activated Sound",
   "subtitles.moss_elephant.proot": "Moss elephant proots",
   "subtitles.moss_elephant.angry_proot": "Moss elephant proots with anger",
   "recipe.jigsaw_pp.elephanting": "Moss Elephanting",
