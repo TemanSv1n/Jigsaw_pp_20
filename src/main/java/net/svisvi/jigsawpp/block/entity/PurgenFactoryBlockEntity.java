@@ -360,7 +360,6 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
     @Override
     public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @Nullable Direction pDirection) {
-        System.out.println("PURGEN BLEAT");
         return this.canPlaceItem(pIndex, pItemStack) && IntStream.of(this.getSlotsForFace(pDirection)).anyMatch(x -> x == pIndex);
     }
 

@@ -111,6 +111,31 @@ public class PurgenPiluleBuilder {
     }
 
     public static ItemStack buildFromWorld_3(ItemStack purgen_stack, Level level, BlockPos pos){
+        double koeff = 1;
+        double q1 = 0;
+        if (level.getLevelData().isThundering()) {
+            q1 = 4;
+        } else {
+            q1 = 3;
+        }
+        koeff =
+                Math.abs(
+                        Math.sqrt((level.dayTime() % 3000) + 1 / 2000) *
+                 ((16 - level.getMaxLocalRawBrightness(pos)) / 10)
+                * (level.dimensionType().moonPhase(level.dayTime()) % q1 - level.dimensionType().moonPhase(level.dayTime()) % q1 == 0 ? -1 : 0.5 )
+                * Math.abs(level.getBiome(pos).value().getBaseTemperature() / 100f)
+                );
+
+        //System.out.println(koeff);
+
+        int purity = purgen_stack.getOrCreateTag().getInt("purity");
+
+        //System.out.println(purity);
+        koeff = (1 - koeff) + 0.2;
+        purity = (int) (purity * koeff);
+
+        //System.out.println(purity);
+        AbstractPiluleItem.setPurity(purity, purgen_stack);
         return purgen_stack;
     }
 
