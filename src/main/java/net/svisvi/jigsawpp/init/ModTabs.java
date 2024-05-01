@@ -18,6 +18,8 @@ import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class ModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, JigsawPpMod.MODID);
+
+
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB = REGISTRY.register("jigsaw_tab",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
 						tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
@@ -57,6 +59,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAWEED_SCUM.get());
 						tabData.accept(ModItems.BEAWEED_DUST.get());
 						tabData.accept(ModItems.BEAWEED_BLOCK.get());
+						tabData.accept(ModItems.BEAWEED_NUT.get());
 
 						tabData.accept(ModItems.PURGEN_BUNDLE.get());
 						tabData.accept(ModItems.PURGEN_GUN.get());
@@ -66,8 +69,15 @@ public class ModTabs {
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
+						tabData.accept(ModItems.KEGA.get());
+						tabData.accept(ModItems.KEGA_NULL.get());
 
-			})
+			}).build());
 
-					.build());
+
+	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB_MATERIALS = REGISTRY.register("jigsaw_tab_materilas",
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab_materials")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
+
+
+			}).build());
 }

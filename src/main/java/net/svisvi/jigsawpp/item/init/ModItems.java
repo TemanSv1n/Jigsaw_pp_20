@@ -89,11 +89,14 @@ public class ModItems {
 	public static final RegistryObject<Item> SAWDUST_SOUP = REGISTRY.register("sawdust_soup", () -> new SawdustSoupItem());
 	public static final RegistryObject<Item> BEAWEED_SCUM = REGISTRY.register("beaweed_scum", () -> new BeaweedScumItem());
 	public static final RegistryObject<Item> BEAWEED_DUST = REGISTRY.register("beaweed_dust", () -> new BeaweedDustItem());
+	public static final RegistryObject<Item> BEAWEED_NUT = REGISTRY.register("beaweed_nut", () -> new BeaweedNutItem());
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
 	public static final RegistryObject<Item> PURGEN_FACTORY = block(ModBlocks.PURGEN_FACTORY);
 
 	public static final RegistryObject<Item> PURGEN_FACTORY_BIG_THUMB = REGISTRY.register("purgen_factory_big_thumb", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> KEGA = block(ModBlocks.KEGA);
+	public static final RegistryObject<Item> KEGA_NULL = block(ModBlocks.KEGA_NULL);
 
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
 
