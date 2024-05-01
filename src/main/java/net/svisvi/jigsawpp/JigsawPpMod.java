@@ -14,6 +14,7 @@
 package net.svisvi.jigsawpp;
 
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.FriendlyByteBuf;
@@ -25,6 +26,8 @@ import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
+import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
+import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
@@ -42,6 +45,7 @@ import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.init.ModDatas;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItemProperties;
+import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.particles.ModParticles;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
@@ -100,6 +104,10 @@ public class JigsawPpMod {
 
 		ModBlockEntities.REGISTRY.register(bus);
 
+		ModMenuTypes.REGISTRY.register(bus);
+
+		ModMessages.register();
+
 		MinecraftForge.EVENT_BUS.register(this);
 
 
@@ -135,13 +143,16 @@ public class JigsawPpMod {
 			ModItemProperties.addCustomItemProperties();
 
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURGEN_FACTORY.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
 			EntityRenderers.register(ModEntities.PURGEN_PILULE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.EXTINGUISHER_PROJECTILE.get(), ThrownItemRenderer::new);
+
+			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}
 	}
 

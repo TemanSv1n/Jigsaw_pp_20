@@ -3,6 +3,8 @@ package net.svisvi.jigsawpp.block.factory_heater;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -30,6 +32,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.svisvi.jigsawpp.block.entity.FactoryHeaterBlockEntity;
 import net.svisvi.jigsawpp.init.ModDatas;
+import net.svisvi.jigsawpp.init.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -41,7 +44,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
     public static final IntegerProperty IS_FURNACED = IntegerProperty.create("is_furnaced", 0, 1);
 
     public FactoryHeaterBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2f, 10f).requiresCorrectToolForDrops());
+        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2f, 10f).noOcclusion().requiresCorrectToolForDrops());
 
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
         this.registerDefaultState(this.stateDefinition.any().setValue(IS_FURNACED, 0));
@@ -55,7 +58,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
             pLevel.setBlock(pPos, pState.setValue(IS_FURNACED, i), 3);
 
         }
-        System.out.println(getHeat(pState, pLevel, pPos));
+        getHeat(pState, pLevel, pPos);
         pLevel.scheduleTick(pPos, this, 10);
     }
 
@@ -174,6 +177,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
             if (f > 0){
                 if (pLevel instanceof ServerLevel _level)
                     _level.sendParticles(ParticleTypes.ELECTRIC_SPARK, pPos.getX() + 0.5, pPos.getY() + 1, pPos.getZ() + 0.5, 5, 0.1, 0.1, 0.1, 0);
+                    pLevel.playSound((Player) null, pPos.getX(), pPos.getY(), pPos.getZ(), ModSounds.FACTORY_HEATER.get(), SoundSource.BLOCKS, 1F, 1F);
 
             }
             return f;
