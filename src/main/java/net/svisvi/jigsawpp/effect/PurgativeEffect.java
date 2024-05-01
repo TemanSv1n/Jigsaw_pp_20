@@ -125,7 +125,8 @@ public class PurgativeEffect extends MobEffect {
             if ((level instanceof ServerLevel _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.OVERWORLD | (level instanceof ServerLevel _lvl ? _lvl.dimension() : Level.OVERWORLD) == Level.NETHER) {
                 logic = true;
             }
-        } else if (mobEffectInstance.getAmplifier() == 2) {logic = true;}
+        } else if (mobEffectInstance.getAmplifier() == 2) {logic = true;
+        } else if (mobEffectInstance.getAmplifier() == 3) {logic = true;}
         return logic;
     }
 
@@ -147,13 +148,16 @@ public class PurgativeEffect extends MobEffect {
                     level.setBlock(BlockPos.containing(x, y, z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
                 }
                 //pants "issue"
-                if (mobEffectInstance.getAmplifier() == 2) {
+                if (mobEffectInstance.getAmplifier() >= 2) {
                     ItemStack _ist = (entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY);
                     if (_ist.hurt(1, RandomSource.create(), null)) {
                         _ist.shrink(1);
                         _ist.setDamageValue(0);
                     }
 
+                }
+                if (mobEffectInstance.getAmplifier() == 3){
+                    //RAD-HANDLER
                 }
 //                else if (mobEffectInstance.getAmplifier() == 1) {
 //                    entity.setSecondsOnFire(1);

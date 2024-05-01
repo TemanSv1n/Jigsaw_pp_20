@@ -168,6 +168,7 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
             if (pPlayer.getItemInHand(pHand).getItem() instanceof BucketItem bucketItem) {
                 BlockEntity entity = pLevel.getBlockEntity(pPos);
                 if (entity instanceof PurgenFactoryBlockEntity pf){
+                    if ((pf.FLUID_TANK.getFluid().isFluidEqual(pPlayer.getItemInHand(pHand)) || pf.FLUID_TANK.getFluid().isEmpty()) && pf.FLUID_TANK.getFluidAmount() <= 7000){
                     pf.FLUID_TANK.fill(new FluidStack(bucketItem.getFluid(), 1000), IFluidHandler.FluidAction.EXECUTE);
 
                     if (!pLevel.isClientSide()) {
@@ -175,14 +176,16 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
                     } else {
                         pLevel.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bucket.empty")), SoundSource.BLOCKS, 0.7f, 1, false);
                     }
+                    if (!pPlayer.isCreative()) {
+                        pPlayer.getItemInHand(pHand).shrink(1);
+                        ItemStack _setstack = BucketItem.getEmptySuccessItem(pPlayer.getItemInHand(pHand), pPlayer);
+                        _setstack.setCount(1);
+                        ItemHandlerHelper.giveItemToPlayer(pPlayer, _setstack);
+                    }
+                    }
                 }
 
-                        if (!pPlayer.isCreative()) {
-                            pPlayer.getItemInHand(pHand).shrink(1);
-                            ItemStack _setstack = BucketItem.getEmptySuccessItem(pPlayer.getItemInHand(pHand), pPlayer);
-                            _setstack.setCount(1);
-                            ItemHandlerHelper.giveItemToPlayer(pPlayer, _setstack);
-                        }
+
 
 
             } else {

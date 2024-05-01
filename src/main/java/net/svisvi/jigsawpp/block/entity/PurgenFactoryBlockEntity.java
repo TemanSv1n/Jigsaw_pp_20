@@ -22,6 +22,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
@@ -52,8 +53,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
-public class PurgenFactoryBlockEntity extends RandomizableContainerBlockEntity implements MenuProvider, WorldlyContainer {
+public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer {
     private final ItemStackHandler itemHandler = new ItemStackHandler(8);
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
@@ -133,11 +135,18 @@ public class PurgenFactoryBlockEntity extends RandomizableContainerBlockEntity i
     //slot 6 OUTPUT
     private static final int OUTPUT_SLOT = 6;
 
-
+    net.minecraftforge.common.util.LazyOptional<? extends net.minecraftforge.items.IItemHandler>[] handlers =
+            net.minecraftforge.items.wrapper.SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
+        if(!this.remove && side != null && cap == ForgeCapabilities.ITEM_HANDLER) {
+            //return lazyItemHandler.cast();
+            if (side == Direction.UP)
+                return handlers[0].cast();
+            else if (side == Direction.DOWN)
+                return handlers[1].cast();
+            else
+                return handlers[2].cast();
         }
         if (cap == ForgeCapabilities.FLUID_HANDLER) {
             return lazyFluidHandler.cast();
@@ -170,6 +179,8 @@ public class PurgenFactoryBlockEntity extends RandomizableContainerBlockEntity i
         super.invalidateCaps();
         lazyItemHandler.invalidate();
         lazyFluidHandler.invalidate();
+        for (int x = 0; x < handlers.length; x++)
+            handlers[x].invalidate();
     }
 
     public void drops(){
@@ -349,7 +360,8 @@ public class PurgenFactoryBlockEntity extends RandomizableContainerBlockEntity i
 
     @Override
     public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @Nullable Direction pDirection) {
-        return this.canPlaceItem(pIndex, pItemStack);
+        System.out.println("PURGEN BLEAT");
+        return this.canPlaceItem(pIndex, pItemStack) && IntStream.of(this.getSlotsForFace(pDirection)).anyMatch(x -> x == pIndex);
     }
 
     @Override
@@ -361,37 +373,48 @@ public class PurgenFactoryBlockEntity extends RandomizableContainerBlockEntity i
 
     @Override
     public int getContainerSize() {
-        return 0;
+        return 8;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        for(int i = 0; i < this.getContainerSize(); i++) {
+            if (!this.itemHandler.getStackInSlot(i).isEmpty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public ItemStack getItem(int pSlot) {
-        return null;
+        return this.itemHandler.getStackInSlot(pSlot);
     }
 
     @Override
     public ItemStack removeItem(int pSlot, int pAmount) {
-        return null;
+        return this.itemHandler.extractItem(pSlot, pAmount, false);
     }
 
     @Override
     public ItemStack removeItemNoUpdate(int pSlot) {
-        return null;
+        return this.itemHandler.extractItem(pSlot, 1, false);
     }
 
     @Override
     public void setItem(int pSlot, ItemStack pStack) {
+        ItemStack itemstack = this.itemHandler.getStackInSlot(pSlot);
+        boolean flag = !pStack.isEmpty() && ItemStack.isSameItemSameTags(itemstack, pStack);
+        this.itemHandler.setStackInSlot(pSlot, pStack);
+        if (pStack.getCount() > this.getMaxStackSize()) {
+            pStack.setCount(this.getMaxStackSize());
+        }
 
     }
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return false;
+        return Container.stillValidBlockEntity(this, pPlayer);
     }
 
     //don't takers
@@ -411,16 +434,8 @@ public class PurgenFactoryBlockEntity extends RandomizableContainerBlockEntity i
 
     @Override
     public void clearContent() {
-
-    }
-
-    @Override
-    protected NonNullList<ItemStack> getItems() {
-        return null;
-    }
-
-    @Override
-    protected void setItems(NonNullList<ItemStack> pItemStacks) {
-
+        for (int i = 0; i < this.getContainerSize(); i++){
+            this.itemHandler.setStackInSlot(i, ItemStack.EMPTY);
+        }
     }
 }
