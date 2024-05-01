@@ -6,6 +6,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.BeaweedBlock;
+import net.svisvi.jigsawpp.block.KegaBlock;
+import net.svisvi.jigsawpp.block.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
@@ -40,4 +42,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEAWEED = REGISTRY.register("beaweed",
             () -> new Beaweed(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()
             ));
+    public static final RegistryObject<Block> KEGA = REGISTRY.register("kega", () -> new KegaBlock());
+    public static final RegistryObject<Block> KEGA_NULL = REGISTRY.register("kega_null", () -> new KegaNullBlock());
+
 }
