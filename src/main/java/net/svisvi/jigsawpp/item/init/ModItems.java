@@ -30,6 +30,7 @@ import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
+import net.svisvi.jigsawpp.item.ut.RadiationItem;
 
 
 public class ModItems {
@@ -97,6 +98,8 @@ public class ModItems {
 	public static final RegistryObject<Item> KEGA_NULL = block(ModBlocks.KEGA_NULL);
 	// #################
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
+
+	public static final RegistryObject<Item> GAY = REGISTRY.register("gay", () -> new RadiationItem(new Item.Properties().stacksTo(14), 0.001F));
 
 
 
