@@ -110,8 +110,8 @@ public class AbstractPiluleItem extends Item {
         itemStack.getOrCreateTag().putInt("duration_buff", durationBuff);
 
     }
-    public static void setPurity(int durationBuff, ItemStack itemStack){
-        itemStack.getOrCreateTag().putInt("purity", durationBuff);
+    public static void setPurity(int purity, ItemStack itemStack){
+        itemStack.getOrCreateTag().putInt("purity", purity);
 
     }
 
