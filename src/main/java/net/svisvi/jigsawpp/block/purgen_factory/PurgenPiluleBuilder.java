@@ -1,13 +1,19 @@
 package net.svisvi.jigsawpp.block.purgen_factory;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
+import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.recipe.PurgenCatalystRecipe;
 import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
@@ -15,8 +21,29 @@ import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 public class PurgenPiluleBuilder {
+
+    public static List <Item> PILULE_PROGRESSION = new ArrayList<Item>();
+    static {
+        PILULE_PROGRESSION.add(ModItems.BASIC_PURGEN_PILULE.get());
+        PILULE_PROGRESSION.add(ModItems.ADVANCED_PURGEN_PILULE.get());
+        PILULE_PROGRESSION.add(ModItems.CRYSTAL_PURGEN_PILULE.get());
+    }
+
+    public static List<MobEffect> mediumEffects = new ArrayList<MobEffect>();
+    static{
+        mediumEffects.add(MobEffects.BLINDNESS);
+        mediumEffects.add(MobEffects.CONFUSION);
+        mediumEffects.add(MobEffects.DARKNESS);
+        mediumEffects.add(MobEffects.DIG_SLOWDOWN);
+        mediumEffects.add(MobEffects.GLOWING);
+        mediumEffects.add(MobEffects.HUNGER);
+        mediumEffects.add(MobEffects.INVISIBILITY);
+        mediumEffects.add(MobEffects.MOVEMENT_SLOWDOWN);
+        mediumEffects.add(MobEffects.WEAKNESS);
+    }
     public static ItemStack build_main(Optional<PurgenFactoryRecipe> o_recipe, ItemStack food1, ItemStack food2, ItemStack catalyst, Level level, BlockPos pos, BlockState state){
         return buildFromPurity_5(buildFromRandom_4(buildFromWorld_3(
                 buildFromCatalyst_2(buildFromFood_1(buildFromRecipe_0(o_recipe),
@@ -112,29 +139,25 @@ public class PurgenPiluleBuilder {
 
     public static ItemStack buildFromWorld_3(ItemStack purgen_stack, Level level, BlockPos pos){
         double koeff = 1;
-        double q1 = 0;
-        if (level.getLevelData().isThundering()) {
-            q1 = 4;
-        } else {
-            q1 = 3;
-        }
+
         koeff =
                 Math.abs(
-                        Math.sqrt((level.dayTime() % 3000) + 1 / 2000) *
+                        dayTimeCalc(level)
+                         *
                  ((16 - level.getMaxLocalRawBrightness(pos)) / 10)
-                * (level.dimensionType().moonPhase(level.dayTime()) % q1 - level.dimensionType().moonPhase(level.dayTime()) % q1 == 0 ? -1 : 0.5 )
-                * Math.abs(level.getBiome(pos).value().getBaseTemperature() / 100f)
+                * moonCalc(level)
+                * temperatureCalc(level, pos)
                 );
 
-        //System.out.println(koeff);
+        System.out.println(koeff);
 
         int purity = purgen_stack.getOrCreateTag().getInt("purity");
 
-        //System.out.println(purity);
-        koeff = (1 - koeff) + 0.2;
+        System.out.println(purity);
+        //koeff = koeff + 0.2;
         purity = (int) (purity * koeff);
 
-        //System.out.println(purity);
+        System.out.println(purity);
         AbstractPiluleItem.setPurity(purity, purgen_stack);
         return purgen_stack;
     }
@@ -143,6 +166,92 @@ public class PurgenPiluleBuilder {
         return purgen_stack;
     }
     public static ItemStack buildFromPurity_5(ItemStack purgen_stack){
-        return purgen_stack;
+        Random random = new Random();
+        ItemStack retStack;
+        int purity = purgen_stack.getOrCreateTag().getInt("purity");
+        System.out.println(purity);
+        //upgraded pilule
+        if (purity > 100){
+            retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())+1), purgen_stack.getCount());
+            AbstractPiluleItem.setPurity(purity - 100, retStack);
+            AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff"), retStack);
+            PotionUtils.setCustomEffects(retStack, PotionUtils.getMobEffects(retStack));
+        } else {
+            retStack = purgen_stack.copy();
+        }
+
+        //simple recursion for very good purgen
+        if (retStack.getOrCreateTag().getInt("purity") < 100){
+            AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)(((purity%7) * (purity/10))*random.nextInt(purity/8)), retStack);
+            PotionUtils.setCustomEffects(retStack, effectsFromPurity(retStack.getOrCreateTag().getInt("purity")));
+            return retStack;
+        }
+
+
+        return buildFromPurity_5(retStack);
+
+    }
+
+    public static double dayTimeCalc(Level level){
+        return Math.sqrt((level.dayTime() % 3000) + 1 / 2000);
+    }
+    public static double moonCalc(Level level){
+        double q1 = 0;
+        if (level.getLevelData().isThundering()) {
+            q1 = 4;
+        } else {
+            q1 = 3;
+        }
+        return (level.dimensionType().moonPhase(level.dayTime()) % q1 - ((level.dimensionType().moonPhase(level.dayTime())) % q1 == 0 ? -1 : 0.5 ));
+    }
+    public static double temperatureCalc(Level level, BlockPos pos){
+        return Math.abs(level.getBiome(pos).value().getBaseTemperature() / 100f);
+    }
+
+    public static List<MobEffectInstance> effectsFromPurity(int purity){
+        List<MobEffectInstance> effects = new ArrayList<MobEffectInstance>();
+        List<MobEffect> all_effects = ImmutableList.copyOf(ForgeRegistries.MOB_EFFECTS.getValues());
+        Random random = new Random();
+        if (purity >= 0 && purity < 20){
+            for (int i = 0; i < Math.ceil((21 - purity)/4); i++){
+                MobEffectInstance mef = new MobEffectInstance(ModEffects.BAD_EFFECT.get(), random.nextInt(240000 / purity)+1, random.nextInt((int)Math.ceil((21 - purity)/4)));
+                effects.add(mef);
+            }
+
+        }else if (purity >= 20 && purity < 40){
+            for (int i = 0; i < Math.ceil((40 - purity)/4); i++){
+                MobEffect ef = all_effects.get(random.nextInt(all_effects.size()));
+                for(;ef.isBeneficial();){
+                    ef = all_effects.get(random.nextInt(all_effects.size()));
+                }
+
+                MobEffectInstance mef = new MobEffectInstance(ef, random.nextInt(120000 / purity)+1, random.nextInt((int)Math.ceil((40 - purity)/5)));
+                effects.add(mef);
+            }
+
+        }else if (purity >= 40 && purity < 60){
+            for (int i = 0; i < Math.ceil((60 - purity)/4); i++){
+                MobEffect ef = mediumEffects.get(random.nextInt(mediumEffects.size()));
+
+                MobEffectInstance mef = new MobEffectInstance(ef, random.nextInt(120000 / purity)+1, random.nextInt((int)Math.ceil((60 - purity)/5)));
+                effects.add(mef);
+            }
+
+        }else if (purity >= 60 && purity < 80){
+            //no effects
+        }else if (purity >= 80 && purity <= 100){
+            for (int i = 0; i < Math.ceil((purity - 80)/4); i++){
+
+
+                MobEffect ef = all_effects.get(random.nextInt(all_effects.size()));
+                for(;!ef.isBeneficial();){
+                    ef = all_effects.get(random.nextInt(all_effects.size()));
+                }
+
+                MobEffectInstance mef = new MobEffectInstance(ef, random.nextInt(60000 / purity)+1, random.nextInt(Math.abs((int)Math.ceil((101 - purity)/4))));
+                effects.add(mef);
+            }
+        }
+        return effects;
     }
 }

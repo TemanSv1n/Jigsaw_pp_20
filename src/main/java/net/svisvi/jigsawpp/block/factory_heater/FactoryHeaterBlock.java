@@ -58,7 +58,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
             pLevel.setBlock(pPos, pState.setValue(IS_FURNACED, i), 3);
 
         }
-        getHeat(pState, pLevel, pPos);
+        //getHeat(pState, pLevel, pPos);
         pLevel.scheduleTick(pPos, this, 10);
     }
 
