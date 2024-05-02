@@ -26,10 +26,7 @@ import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.materials.FittingItem;
-import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
-import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
-import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
-import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
+import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
@@ -91,6 +88,7 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAWEED_NUT = REGISTRY.register("beaweed_nut", () -> new BeaweedNutItem());
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
+	public static final RegistryObject<Item> NUCLEAR_PURGEN_PILULE = REGISTRY.register("nuclear_purgen_pilule", () -> new NuclearPurgenPiluleItem());
 
 	// #################
 	// Kega components
