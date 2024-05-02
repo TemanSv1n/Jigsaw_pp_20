@@ -2,6 +2,7 @@
   "values": [
     "jigsaw_pp:basic_purgen_pilule",
     "jigsaw_pp:advanced_purgen_pilule",
-    "jigsaw_pp:crystal_purgen_pilule"
+    "jigsaw_pp:crystal_purgen_pilule",
+    "jigsaw_pp:nuclear_purgen_pilule"
   ]
 }

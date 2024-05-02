@@ -79,5 +79,6 @@ public class ModTabs {
 				tabData.accept(ModItems.BEAWEED_DUST.get());
 				tabData.accept(ModItems.BEAWEED_BLOCK.get());
 				tabData.accept(ModItems.COAL_FOSSIL.get());
+				tabData.accept(ModItems.NUCLEAR_PURGEN_PILULE.get());
 			}).build());
 }

@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.block;
+package net.svisvi.jigsawpp.block.kega;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
