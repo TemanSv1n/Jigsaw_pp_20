@@ -46,6 +46,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeatProducer;
+import net.svisvi.jigsawpp.block.purgen_factory.PurgenCatalystRecipeReader;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenPiluleBuilder;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
@@ -60,10 +61,7 @@ import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer {
@@ -291,6 +289,8 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
     private boolean craftItem(Level pLevel, BlockPos pPos, BlockState pState) {
         Optional<PurgenFactoryRecipe> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().getResultItem(null);
+        float malChance = recipe.get().getMalChance(null);
+
 
         ItemStack built_purgen = PurgenPiluleBuilder.build_main(recipe, itemHandler.getStackInSlot(2), itemHandler.getStackInSlot(3),
                 itemHandler.getStackInSlot(4), level, pPos, pState);
@@ -306,12 +306,31 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
             if (itemHandler.getStackInSlot(3) != ItemStack.EMPTY) {
                 this.itemHandler.extractItem(3, partenSize(), false);
             }
-            if (itemHandler.getStackInSlot(4) != ItemStack.EMPTY) {
+            //catalyst
+            if (itemHandler.getStackInSlot(4) != ItemStack.EMPTY && itemHandler.getStackInSlot(4).is(ItemTags.create(new ResourceLocation("jigsaw_pp:purgen_catalysts")))) {
+                ItemStack catalyst = itemHandler.getStackInSlot(4).copy();
+                //malchance affecting
+                float mchmod = PurgenCatalystRecipeReader.getMalChanceK(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get());
+                malChance *= mchmod > 0 ? mchmod : 1;
                 this.itemHandler.extractItem(4, 1, false);
+                //guanization
+//                System.out.println("MAXSTACKSIZE");
+//                System.out.println(catalyst.getMaxStackSize());
+                if (catalyst.getMaxStackSize() == 1){
+                    System.out.println(PurgenCatalystRecipeReader.getOutput(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get()).toString());
+                    this.itemHandler.setStackInSlot(4, PurgenCatalystRecipeReader.getOutput(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get()));
+                }
+
+
             }
             this.itemHandler.extractItem(5, partenSize(), false);
             this.FLUID_TANK.drain(recipe.get().getFluidStack().getAmount() * partenSize(), IFluidHandler.FluidAction.EXECUTE);
             this.itemHandler.setStackInSlot(OUTPUT_SLOT, built_purgen.copyWithCount(pu_count));
+
+            Random random = new Random();
+            if (random.nextFloat() < malChance){
+                badEventHandler(pLevel, pPos);
+            }
             return true;
         } else {
             // KA BOOM
@@ -323,6 +342,13 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
         //
 
+
+    }
+
+    public void badEventHandler(Level world, BlockPos pPos){
+        //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
+        if (world instanceof ServerLevel _level && !_level.isClientSide())
+            _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
 
     }
 
