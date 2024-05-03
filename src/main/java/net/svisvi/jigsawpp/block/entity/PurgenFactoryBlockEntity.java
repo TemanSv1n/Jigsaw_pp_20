@@ -4,11 +4,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ReloadableServerResources;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,6 +26,9 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -38,21 +45,23 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
+import net.svisvi.jigsawpp.block.factory_heater.FactoryHeatProducer;
+import net.svisvi.jigsawpp.block.purgen_factory.PurgenCatalystRecipeReader;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenPiluleBuilder;
+import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
+import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.networking.packet.FluidSyncS2CPacket;
+import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implements MenuProvider, WorldlyContainer {
@@ -61,7 +70,9 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
     private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 78;
+    private int maxProgress = 780;
+
+    private int PROGRESS_ACCELERATOR = 5;
     public int partenSize(){
         int ret = 1;
         if (this.itemHandler.getStackInSlot(7) != ItemStack.EMPTY){
@@ -226,17 +237,46 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
     //RECIPES AND CRAFTING
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
-        if(canCraft()) {
-            increaseCraftingProgress();
-            setChanged(pLevel, pPos, pState);
+        BlockPos belowPos = pPos.below();
+        BlockState belowState = pLevel.getBlockState(belowPos);
+        if (belowState.getBlock() instanceof FactoryHeatProducer heater) {
+            float koeff = 1;
+            if ((koeff = heater.getHeat(belowState, pLevel, belowPos)) > 0) {
+                spawnHeatedIndicatedParticles(pLevel, pPos); //particles show that it's working
+                if (canCraft()) {
+                    teapot_ticking(pLevel, pPos.getX(), pPos.getY(), pPos.getZ()); //teapot script
+                    increaseCraftingProgress(koeff);
+                    setChanged(pLevel, pPos, pState);
 
-            if(hasProgressFinished()) {
-                craftItem(pLevel, pPos, pState);
-                resetProgress();
+                    if (hasProgressFinished()) {
+                        if (craftItem(pLevel, pPos, pState)){
+                            spawnFinishedParticles(pLevel, pPos);
+                        } else {
+
+                        }
+                        resetProgress();
+
+                    }
+                } else {
+                    resetProgress();
+                }
             }
-        } else {
-            resetProgress();
         }
+    }
+
+    public static void spawnHeatedIndicatedParticles(Level pLevel, BlockPos pPos){
+        if (pLevel instanceof ServerLevel _level)
+            _level.sendParticles(ParticleTypes.SMOKE, pPos.getX() + 0.5, pPos.getY() + 1.2, pPos.getZ() + 0.5, 5, 0.1, 0.2, 0.1, 0);
+    }
+    public static void spawnFinishedParticles(Level pLevel, BlockPos pPos){
+        if (pLevel instanceof ServerLevel _level)
+            _level.sendParticles(ParticleTypes.HAPPY_VILLAGER, pPos.getX() + 0.5, pPos.getY() + 1.2, pPos.getZ() + 0.5, 5, 0.1, 0.2, 0.1, 0);
+        pLevel.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.brewing_stand.brew")), SoundSource.BLOCKS, 1, 1);
+    }
+    public static void spawnCancelFinishedParticles(Level pLevel, BlockPos pPos){
+        if (pLevel instanceof ServerLevel _level)
+            _level.sendParticles(ParticleTypes.ANGRY_VILLAGER, pPos.getX() + 0.5, pPos.getY() + 1.2, pPos.getZ() + 0.5, 5, 0.1, 0.2, 0.1, 0);
+        pLevel.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.land")), SoundSource.BLOCKS, 1, 1);
     }
 
     private void resetProgress() {
@@ -246,9 +286,11 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
 
 
-    private void craftItem(Level pLevel, BlockPos pPos, BlockState pState) {
+    private boolean craftItem(Level pLevel, BlockPos pPos, BlockState pState) {
         Optional<PurgenFactoryRecipe> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().getResultItem(null);
+        float malChance = recipe.get().getMalChance(null);
+
 
         ItemStack built_purgen = PurgenPiluleBuilder.build_main(recipe, itemHandler.getStackInSlot(2), itemHandler.getStackInSlot(3),
                 itemHandler.getStackInSlot(4), level, pPos, pState);
@@ -264,21 +306,49 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
             if (itemHandler.getStackInSlot(3) != ItemStack.EMPTY) {
                 this.itemHandler.extractItem(3, partenSize(), false);
             }
-            if (itemHandler.getStackInSlot(4) != ItemStack.EMPTY) {
+            //catalyst
+            if (itemHandler.getStackInSlot(4) != ItemStack.EMPTY && itemHandler.getStackInSlot(4).is(ItemTags.create(new ResourceLocation("jigsaw_pp:purgen_catalysts")))) {
+                ItemStack catalyst = itemHandler.getStackInSlot(4).copy();
+                //malchance affecting
+                float mchmod = PurgenCatalystRecipeReader.getMalChanceK(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get());
+                malChance *= mchmod > 0 ? mchmod : 1;
                 this.itemHandler.extractItem(4, 1, false);
+                //guanization
+//                System.out.println("MAXSTACKSIZE");
+//                System.out.println(catalyst.getMaxStackSize());
+                if (catalyst.getMaxStackSize() == 1){
+                    System.out.println(PurgenCatalystRecipeReader.getOutput(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get()).toString());
+                    this.itemHandler.setStackInSlot(4, PurgenCatalystRecipeReader.getOutput(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get()));
+                }
+
+
             }
             this.itemHandler.extractItem(5, partenSize(), false);
             this.FLUID_TANK.drain(recipe.get().getFluidStack().getAmount() * partenSize(), IFluidHandler.FluidAction.EXECUTE);
             this.itemHandler.setStackInSlot(OUTPUT_SLOT, built_purgen.copyWithCount(pu_count));
+
+            Random random = new Random();
+            if (random.nextFloat() < malChance){
+                badEventHandler(pLevel, pPos);
+            }
+            return true;
         } else {
             // KA BOOM
         }
+        return false;
 
         //REMOVE ITEMS FROM SLOTS & FLUID
 
 
         //
 
+
+    }
+
+    public void badEventHandler(Level world, BlockPos pPos){
+        //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
+        if (world instanceof ServerLevel _level && !_level.isClientSide())
+            _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
 
     }
 
@@ -345,8 +415,8 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
         return progress >= maxProgress;
     }
 
-    private void increaseCraftingProgress() {
-        progress++;
+    private void increaseCraftingProgress(float increaser) {
+        progress += (int)(PROGRESS_ACCELERATOR * increaser);
     }
 
     @Override
@@ -354,19 +424,18 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
         if (pSide == Direction.DOWN) {
             return new int[]{6};
         } else {
-            return pSide == Direction.UP ? new int[]{4,5} : new int[]{0,1,2,3};
+            return pSide == Direction.UP ? new int[]{4,5} : new int[]{0,1,2,3,6};
         }
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @Nullable Direction pDirection) {
-        System.out.println("PURGEN BLEAT");
         return this.canPlaceItem(pIndex, pItemStack) && IntStream.of(this.getSlotsForFace(pDirection)).anyMatch(x -> x == pIndex);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int pIndex, ItemStack pStack, Direction pDirection) {
-        if (pDirection == Direction.DOWN && pIndex == 6){
+        if (pDirection != Direction.UP && pIndex == 6){
             return true;
         }return false;
     }
@@ -438,4 +507,28 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
             this.itemHandler.setStackInSlot(i, ItemStack.EMPTY);
         }
     }
+
+    public static void teapot_ticking(LevelAccessor world, double x, double y, double z) {
+        double xRadius = 0;
+        double loop = 0;
+        double zRadius = 0;
+        double particleAmount = 0;
+            if (world instanceof Level _level) {
+                if (!_level.isClientSide()) {
+                    _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 0.1f, 1);
+                } else {
+                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 0.1f, 1, false);
+                }
+            }
+            if (world instanceof ServerLevel _level)
+                _level.sendParticles(ModParticleTypes.POOP_BUBBLE.get(), x + 0.5,y + 0.5,z + 0.5, 5, 1, 1, 1, 0.5);
+            loop = 0;
+            particleAmount = 64;
+            xRadius = 0.5;
+            zRadius = 0.5;
+            while (loop < particleAmount) {
+                world.addParticle(ParticleTypes.SMOKE, (x + Math.cos(((Math.PI * 2) / particleAmount) * loop) * xRadius), (y + 0.02 + 0.5), (z + Math.sin(((Math.PI * 2) / particleAmount) * loop) * zRadius), 0, 0.01, 0);
+                loop = loop + 1;
+            }
+        }
 }
