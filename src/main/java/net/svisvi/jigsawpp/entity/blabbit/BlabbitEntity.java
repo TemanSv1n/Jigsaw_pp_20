@@ -21,6 +21,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.PanicGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
@@ -49,6 +51,10 @@ import java.util.Set;
 public class BlabbitEntity extends Animal {
     private static final EntityDataAccessor<Boolean> JUMPING =
             SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> FORCE_JUMP =
+            SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> FEAR =
+            SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
     public BlabbitEntity(EntityType<? extends Animal> pEntityType, Level pLevel){
         super(pEntityType, pLevel);
         this.moveControl = new BlabbitGoals.BlabbitMoveControl(this);
@@ -69,13 +75,37 @@ public class BlabbitEntity extends Animal {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(JUMPING, false);
+        this.entityData.define(FORCE_JUMP, false);
+        this.entityData.define(FEAR, false);
     }
 
     public void setJumping_1(boolean jumping){
         this.entityData.set(JUMPING, jumping);
     }
-    public boolean isJumping(){
+    public boolean isJumping_1(){
+//        System.out.println("JUMP DATA");
+//        System.out.println(this.entityData.get(JUMPING));
         return this.entityData.get(JUMPING);
+
+    }
+    public void setForceJump(boolean jumping){
+        this.entityData.set(FORCE_JUMP, jumping);
+    }
+    public boolean isForceJumping(){
+//        System.out.println("JUMP DATA");
+//        System.out.println(this.entityData.get(JUMPING));
+        return this.entityData.get(FORCE_JUMP);
+
+    }
+
+    public void setFear(boolean jumping){
+        this.entityData.set(FEAR, jumping);
+    }
+    public boolean isFear(){
+//        System.out.println("JUMP DATA");
+//        System.out.println(this.entityData.get(JUMPING));
+        return this.entityData.get(FEAR);
+
     }
     public static void init() {
         SpawnPlacements.register(ModEntities.BLABBIT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
@@ -91,34 +121,31 @@ public class BlabbitEntity extends Animal {
         if(this.level().isClientSide()) {
             setupAnimationStates();
         }
+        if (this.getHealth()/this.getMaxHealth() < 0.4){
+            this.setFear(true);
+        } else {
+            this.setFear(false);
+        }
 
     }
 
     private void setupAnimationStates(){
-        if(this.idleAnimationTimeout <= 0 && !this.isJumping()) {
+        if(this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         }else{
             --this.idleAnimationTimeout;
         }
 
-        if (this.isJumping() && jumpAnimationTimeout <= 0){
-            jumpAnimationTimeout = 10; //length in ticks
-            System.out.println("time to start");
-            idleAnimationState.stop();
-            jumpAnimationState.start(this.tickCount);
+        if (this.isJumping_1() && this.jumpAnimationTimeout <= 0){
+            this.jumpAnimationTimeout = 10; //length in ticks
+//            System.out.println("time to start");
+            //idleAnimationState.stop();
+            this.jumpAnimationState.start(this.tickCount);
         } else {
             --this.jumpAnimationTimeout;
         }
-
-        if (this.isJumping() && jumpAnimationSwitcher >= 10){
-            this.setJumping_1(false);
-            jumpAnimationSwitcher = 0;
-        } else {
-            ++this.jumpAnimationSwitcher;
-        }
-
-        if (!this.isJumping()){
+        if(!this.isJumping_1()) {
             jumpAnimationState.stop();
         }
     }
@@ -140,16 +167,81 @@ public class BlabbitEntity extends Animal {
 
         super.registerGoals();
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new BlabbitGoals.BlabbitAttackGoal(this));
-        this.goalSelector.addGoal(3, new BlabbitGoals.BlabbitRandomDirectionGoal(this));
+        this.goalSelector.addGoal(3, new BlabbitGoals.BlabbitAttackGoal(this){
+            @Override
+            public boolean canUse() {
+                Entity entity = BlabbitEntity.this;
+                if (entity instanceof BlabbitEntity entity_) {
+                    if (entity_.isFear()){
+                        return false;
+                    }
+                }
+                return super.canUse() && true;
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                Entity entity = BlabbitEntity.this;
+                if (entity instanceof BlabbitEntity entity_) {
+                    if (entity_.isFear()){
+                        return false;
+                    }
+                }
+                return super.canContinueToUse() && true;
+            }
+        });
+        this.goalSelector.addGoal(4, new BlabbitGoals.BlabbitRandomDirectionGoal(this));
         this.goalSelector.addGoal(5, new BlabbitGoals.BlabbitKeepOnJumpingGoal(this));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
-            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
-        })); //placeholder for beaver zomdbie
+//        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
+//            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
+//        })); //placeholder for beaver zomdbie
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this){
+            @Override
+            public boolean canUse() {
+                Entity entity = BlabbitEntity.this;
+                if (entity instanceof BlabbitEntity entity_) {
+                    if (entity_.isFear()){
+                        return false;
+                    }
+                }
+                return super.canUse() && true;
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                Entity entity = BlabbitEntity.this;
+                if (entity instanceof BlabbitEntity entity_) {
+                    if (entity_.isFear()){
+                        return false;
+                    }
+                }
+                return super.canContinueToUse() && true;
+            }
+        });
+        this.goalSelector.addGoal(1, new PanicGoal(this, 2.2){
+            @Override
+            public boolean canUse() {
+                Entity entity = BlabbitEntity.this;
+                if (entity instanceof BlabbitEntity entity_) {
+                    return super.canUse() && entity_.isFear();
+                }
+                return false;
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                Entity entity = BlabbitEntity.this;
+                if (entity instanceof BlabbitEntity entity_) {
+                    return super.canContinueToUse() && entity_.isFear();
+                }
+                return false;
+            }
+        });
+
     }
     //goaaaaaaaaaaaaaaaaals
     protected boolean isDealsDamage() {
-        return this.isEffectiveAi();
+        return true;
     }
     protected int getJumpDelay() {
         return this.random.nextInt(20) + 10;
@@ -166,21 +258,26 @@ public class BlabbitEntity extends Animal {
     }
     @Override
     protected void jumpFromGround() {
-        System.out.println("JUMPED");
+//        System.out.println("JUMPED");
         super.jumpFromGround();
         this.setJumping_1(true);
 
     }
 
-//    @Override
-//    public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
-//        setJumping_1(false);
-//        return super.causeFallDamage(pFallDistance, pMultiplier, pSource);
-//    }
+    @Override
+    public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
+        setJumping_1(false);
+        return super.causeFallDamage(pFallDistance, pMultiplier, pSource);
+    }
 
     @Override
     protected float getJumpPower() {
-        return 0.62F * this.getBlockJumpFactor() + this.getJumpBoostPower();
+        float k = 0.42f;
+        if (this.isFear()){k = 0.82f;}
+        else if (this.isForceJumping()){k = 0.72f;}
+        else if (this.isAggressive()){k = 0.62f;}
+
+        return k * this.getBlockJumpFactor() + this.getJumpBoostPower();
     }
 
 

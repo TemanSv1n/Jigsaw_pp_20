@@ -104,6 +104,9 @@ public class ModItems {
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_PURITY = REGISTRY.register("prh_purity", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_TNT = REGISTRY.register("prh_tnt", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> BATCH_SIZE_CARD = REGISTRY.register("batch_size_card", () -> new Item(new Item.Properties().stacksTo(8)));
+	public static final RegistryObject<Item> BLABBIT_SPAWN_EGG = REGISTRY.register("blabbit_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.BLABBIT, 0xf3f6f4, 0x8e7cc3,
+					new Item.Properties()));
 
 
 
