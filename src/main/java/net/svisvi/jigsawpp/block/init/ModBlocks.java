@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.BeaweedBlock;
-import net.svisvi.jigsawpp.block.KegaBlock;
-import net.svisvi.jigsawpp.block.KegaNullBlock;
+import net.svisvi.jigsawpp.block.kega.KegaBlock;
+import net.svisvi.jigsawpp.block.kega.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.Block;
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluidBlock;
-import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
 
 public class ModBlocks {

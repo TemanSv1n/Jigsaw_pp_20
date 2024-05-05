@@ -9,6 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.effect.PoopEffect;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
+import net.svisvi.jigsawpp.effect.RadiationEffect;
 import net.svisvi.jigsawpp.effect.RandomBadEffect;
 
 public class ModEffects {
@@ -20,6 +21,10 @@ public class ModEffects {
 
     public static final RegistryObject<MobEffect> PURGATIVE = MOB_EFFECTS.register("purgative",
             () -> new PurgativeEffect(MobEffectCategory.HARMFUL, -12372212));
+
+    public static final RegistryObject<MobEffect> RADIATION = MOB_EFFECTS.register("radiation",
+            () -> new RadiationEffect(MobEffectCategory.HARMFUL, -10040320));
+
 
     public static final RegistryObject<MobEffect> BAD_EFFECT = MOB_EFFECTS.register("random_bad_effect",
             () -> new RandomBadEffect(MobEffectCategory.HARMFUL));
