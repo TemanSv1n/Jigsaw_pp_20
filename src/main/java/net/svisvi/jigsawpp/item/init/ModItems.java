@@ -88,6 +88,7 @@ public class ModItems {
 	public static final RegistryObject<Item> SAWDUST_SOUP = REGISTRY.register("sawdust_soup", () -> new SawdustSoupItem());
 	public static final RegistryObject<Item> BEAWEED_SCUM = REGISTRY.register("beaweed_scum", () -> new BeaweedScumItem());
 	public static final RegistryObject<Item> BEAWEED_DUST = REGISTRY.register("beaweed_dust", () -> new BeaweedDustItem());
+	public static final RegistryObject<Item> NUTCRACKER = REGISTRY.register("nutcracker", () -> new NutcrackerItem());
 
 	public static final RegistryObject<Item> FRIED_BEAWEED_SEEDS = REGISTRY.register("fried_beaweed_seeds", () -> new FriedBeaweedSeedsItem());
 	public static final RegistryObject<Item> BEAWEED_NUT = REGISTRY.register("beaweed_nut", () -> new BeaweedNutItem());

@@ -10,37 +10,60 @@
 
   "item.jigsaw_pp.strawberry_elephant_pickaxe": "§cStrawberry Elephant Pickaxe",
   "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Fossilises living",
+  "block.jigsaw_pp.coal_fossil": "Coal fossil",
 
   "item.jigsaw_pp.fitting": "Fitting",
+  "item.jigsaw_pp.carrot_coil": "Carrot coil",
   "block.jigsaw_pp.kega_null": "Empty Fucking Kega",
   "block.jigsaw_pp.kega": "Charged Fucking Kega",
   "block.jigsaw_pp.kega.desc": "Atomic Boom-Boom",
+  "subtitles.alpha_bomb": "Alpha Bomb Activated Sound",
+
   "block.jigsaw_pp.raw_teapot": "Raw teapot",
   "block.jigsaw_pp.teapot": "Teapot",
   "block.jigsaw_pp.black_teapot": "Black teapot",
   "subtitles.whistle": "Whistle",
 
-  "item.jigsaw_pp.ponos_bucket": "Ponos bucket",
-
   "item.jigsaw_pp.sweet_bread": "Sweet Bread",
   "item.jigsaw_pp.sweet_bread.desc": "§7Produced by the §aMoss Elephant§7 in a moment of fear",
 
-  "item.jigsaw_pp.moss_elephant_spawn_egg": "§aMoss Elephant§r Spawn Egg",
-
   "item.jigsaw_pp.drist_button": "Drist button",
-
   "item.jigsaw_pp.extinguisher": "Extinguisher",
+  "item.jigsaw_pp.marmoset": "Marmoset",
+  "item.jigsaw_pp.nutcracker": "Nutcracker",
+
+  "item.jigsaw_pp.beaweed_seeds": "Beaweed seeds",
+  "item.jigsaw_pp.fried_beaweed_seeds": "Fried beaweed seeds",
+  "item.jigsaw_pp.beaweed_scum": "Beaweed scum",
+  "block.jigsaw_pp.beaweed_block": "Beaweed block",
+  "block.jigsaw_pp.beaweed_plate": "Beaweed plate",
+  "block.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
+  "item.jigsaw_pp.beaweed_soup": "Beaweed soup",
+  "item.jigsaw_pp.sawdust_soup": "Sawdust soup",
+  "item.jigsaw_pp.beaweed_dust": "Beaweed dust",
+  "item.jigsaw_pp.beaweed_nut": "Beaweed nut",
+
+  "item.jigsaw_pp.fork": "Fork",
+  "item.jigsaw_pp.ponos_bucket": "Ponos bucket",
+
+  "item.jigsaw_pp.batch_size_card": "Batch size expansion card",
+  "item.jigsaw_pp.purgen_gun": "Purgen gun",
+  "block.jigsaw_pp.purgen_factory": "Purgen factory",
+  "block.jigsaw_pp.factory_heater": "Factory heater",
+  "item.jigsaw_pp.purgen_bundle": "Purgen bundle",
+  "item.jigsaw_pp.purgen_machine_gun": "Purgen machine gun",
+  "item.jigsaw_pp.basic_purgen_pilule": "Basic purgen pilule",
+  "item.jigsaw_pp.nuclear_purgen_pilule": "Nuclear purgen pilule",
+  "item.jigsaw_pp.advanced_purgen_pilule": "Advanced purgen pilule",
+  "item.jigsaw_pp.crystal_purgen_pilule": "Crystal purgen pilule",
+  "item.jigsaw_pp.empty_pilule": "Pilule",
+
+  "item.jigsaw_pp.blabbit_spawn_egg": "Blabbit spawn egg",
+  "subtitles.blabbit_live": "Blabbit mumbles",
+  "entity.jigsaw_pp.blabbit": "Blabbit",
 
 
-
-
-  "block.jigsaw_pp.coal_fossil": "Coal fossil",
-
-
-
-
-
-  "subtitles.alpha_bomb": "Alpha Bomb Activated Sound",
+  "item.jigsaw_pp.moss_elephant_spawn_egg": "§aMoss Elephant§r Spawn Egg",
   "subtitles.moss_elephant.proot": "Moss elephant proots",
   "subtitles.moss_elephant.angry_proot": "Moss elephant proots with anger",
   "recipe.jigsaw_pp.elephanting": "Moss Elephanting",
