@@ -56,6 +56,7 @@ public class ModTabs {
 						tabData.accept(ModItems.SAWDUST_SOUP.get());
 						tabData.accept(ModItems.BEAWEED_SCUM.get());
 						tabData.accept(ModItems.BEAWEED_DUST.get());
+						tabData.accept(ModItems.FRIED_BEAWEED_SEEDS.get());
 						tabData.accept(ModItems.BEAWEED_BLOCK.get());
 
 						tabData.accept(ModItems.PURGEN_BUNDLE.get());
