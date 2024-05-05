@@ -26,11 +26,57 @@
       }
     ]
   },
+  "factory_heater": {
+    "subtitle": "subtitles.factory_heater",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:factory_heater",
+        "stream": true
+}
+]
+},
+
   "alpha_bomb": {
     "subtitle": "subtitles.alpha_bomb",
     "sounds": [
       {
         "name": "jigsaw_pp:alpha_bomb",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_0": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_0",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_1": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_1",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_2": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_2",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_3": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_3",
         "stream": false
       }
     ]

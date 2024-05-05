@@ -69,5 +69,12 @@
   "item.jigsaw_pp.pilule.effects_hidden" : "§k§oEffect: ",
 
   "effect.jigsaw_pp.random_bad_effect": "Bad Effect",
-  "effect.jigsaw_pp.random_good_effect": "Good Effect"
+  "effect.jigsaw_pp.random_good_effect": "Good Effect",
+
+  "subtitles.factory_heater": "Factory heater is working",
+  "recipe.jigsaw_pp.purgen_catalyst": "Purgen reaction catalyst",
+
+  "jigsaw_pp.tooltip.liquid.amount": "%s mB",
+  "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "jigsaw_pp.tooltip.liquid.mb": " mB"
 }

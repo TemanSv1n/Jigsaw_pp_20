@@ -89,7 +89,7 @@ public class PurgenPiluleProjectile extends ThrowableItemProjectile implements I
     public void tick() {
         super.tick();
         if (this.level() instanceof ServerLevel _level) {
-            _level.sendParticles(ParticleTypes.SMALL_FLAME, this.getX(), this.getY(), this.getZ(), 3, 0.2, 0.2, 0.2, 0);
+            _level.sendParticles(ParticleTypes.ASH, this.getX(), this.getY(), this.getZ(), 3, 0.2, 0.2, 0.2, 0);
         }
 
         if (this.getOwner() == null || this == null){

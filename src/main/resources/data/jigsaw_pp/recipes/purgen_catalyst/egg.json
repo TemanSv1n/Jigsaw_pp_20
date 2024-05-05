@@ -1,0 +1,23 @@
+{
+  "type": "jigsaw_pp:purgen_catalyst",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "result": {
+    "count": 0,
+    "item": "minecraft:bread"
+  },
+  "purity": 1.1,
+  "additionalTime": 1.2,
+  "malChance": 1.0,
+
+  "potionStats": [
+    {
+      "potion": "minecraft:strength",
+      "duration": 400,
+      "amplifier": 4
+    }
+  ]
+}
