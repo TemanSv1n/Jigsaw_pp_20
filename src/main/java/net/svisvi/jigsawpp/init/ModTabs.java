@@ -79,7 +79,10 @@ public class ModTabs {
 
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB_MATERIALS = REGISTRY.register("jigsaw_tab_materilas",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab_materials")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
-
-
+				tabData.accept(ModItems.FITTING.get());
+				tabData.accept(ModItems.BEAWEED_DUST.get());
+				tabData.accept(ModItems.BEAWEED_BLOCK.get());
+				tabData.accept(ModItems.COAL_FOSSIL.get());
+				tabData.accept(ModItems.NUCLEAR_PURGEN_PILULE.get());
 			}).build());
 }

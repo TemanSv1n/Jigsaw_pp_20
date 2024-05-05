@@ -26,14 +26,13 @@ import net.svisvi.jigsawpp.item.armor.GasMaskItem;
 import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
-import net.svisvi.jigsawpp.item.pilule.AdvancedPurgenPiluleItem;
-import net.svisvi.jigsawpp.item.pilule.BasicPurgenPiluleItem;
-import net.svisvi.jigsawpp.item.pilule.CrystalPurgenPiluleItem;
-import net.svisvi.jigsawpp.item.pilule.EmptyPiluleItem;
+import net.svisvi.jigsawpp.item.materials.FittingItem;
+import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
+import net.svisvi.jigsawpp.item.ut.RadiationItem;
 
 
 public class ModItems {
@@ -95,14 +94,20 @@ public class ModItems {
 
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
+	public static final RegistryObject<Item> NUCLEAR_PURGEN_PILULE = REGISTRY.register("nuclear_purgen_pilule", () -> new NuclearPurgenPiluleItem());
+
+	// #################
+	// Kega components
+	public static final RegistryObject<Item> FITTING = REGISTRY.register("fitting", () -> new FittingItem());
 	public static final RegistryObject<Item> PURGEN_FACTORY = block(ModBlocks.PURGEN_FACTORY);
 
 	public static final RegistryObject<Item> PURGEN_FACTORY_BIG_THUMB = REGISTRY.register("purgen_factory_big_thumb", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> KEGA = block(ModBlocks.KEGA);
 	public static final RegistryObject<Item> KEGA_NULL = block(ModBlocks.KEGA_NULL);
-
+	// #################
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
 
+	public static final RegistryObject<Item> GAY = REGISTRY.register("gay", () -> new RadiationItem(new Item.Properties().stacksTo(14), 0.001F));
 
 
 
