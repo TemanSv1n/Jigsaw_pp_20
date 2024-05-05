@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "DGC",
+    "DFC"
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:kega_null"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "G": {
+      "item": "jigsaw_pp:purgen_gun"
+    },
+    "C": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    },
+    "F": {
+      "item": "jigsaw_pp:purgen_bundle"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:purgen_machine_gun",
+    "count": 1
+  }
+}

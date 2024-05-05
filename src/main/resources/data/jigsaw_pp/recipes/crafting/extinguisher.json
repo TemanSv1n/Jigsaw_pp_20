@@ -1,25 +1,37 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "#DL",
-        "cCc",
-        "cCc"
+        "012",
+        "345",
+        "678"
     ],
     "key": {
-        "#": {
-            "item": "minecraft:snow_block"
+        "0": {
+            "item": "minecraft:redstone"
         },
-        "D": {
-            "item": "jigsaw_pp:beaweed_nut"
+        "1": {
+            "item": "minecraft:gold_ingot"
         },
-        "L": {
-            "item": "minecraft:lever"
+        "2": {
+            "item": "minecraft:redstone"
         },
-        "c": {
+        "3": {
             "item": "minecraft:copper_ingot"
         },
-        "C": {
-            "item": "minecraft:cut_copper"
+        "4": {
+            "item": "minecraft:snow_block"
+        },
+        "5": {
+            "item": "minecraft:copper_ingot"
+        },
+        "6": {
+            "item": "minecraft:copper_block"
+        },
+        "7": {
+            "item": "minecraft:snow_block"
+        },
+        "8": {
+            "item": "minecraft:copper_block"
         }
     },
     "result": {
