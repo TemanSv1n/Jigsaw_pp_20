@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "D D",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_nugget"
+        },
+        "D": {
+            "item": "minecraft:dried_kelp"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:empty_pilule",
+        "count": 1
+    }
+}

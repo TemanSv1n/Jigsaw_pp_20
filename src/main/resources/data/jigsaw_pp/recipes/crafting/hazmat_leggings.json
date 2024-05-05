@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#L#",
+        "iYi"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:dried_kelp"
+        },
+        "L": {
+            "item": "minecraft:leather_leggings"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:hazmat_leggings",
+        "count": 1
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#P#",
+        "cRc",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_bars"
+        },
+        "P": {
+            "item": "minecraft:iron_ingot"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:fork",
+        "count": 1
+    }
+}
