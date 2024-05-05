@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "jigsaw_pp:nut_cracker"
+        },
+        {
+            "item": "jigsaw_pp:beaweed_block"
+        }
+    ],
+    "result": {
+        "item": "jigsaw_pp:beaweed_plate",
+        "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#D#",
+        "#I#"
+    ],
+    "key": {
+        "#": {
+            "item": "jigsaw_pp:smart_beaweed_plate"
+        },
+        "D": {
+            "item": "jigsaw_pp:beaweed_nut"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:drist_button",
+        "count": 1
+    }
+}
