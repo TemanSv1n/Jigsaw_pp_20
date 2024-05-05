@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#DL",
+        "cCc",
+        "cCc"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:snow_block"
+        },
+        "D": {
+            "item": "jigsaw_pp:beaweed_nut"
+        },
+        "L": {
+            "item": "minecraft:lever"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "C": {
+            "item": "minecraft:cut_copper"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:extinguisher",
+        "count": 1
+    }
+}
