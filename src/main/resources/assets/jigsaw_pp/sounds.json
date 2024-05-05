@@ -44,5 +44,41 @@
         "stream": false
       }
     ]
+  },
+  "blabbit_live_0": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_0",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_1": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_1",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_2": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_2",
+        "stream": false
+      }
+    ]
+  },
+  "blabbit_live_3": {
+    "subtitle": "subtitles.blabbit_live",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:blabbit_live_3",
+        "stream": false
+      }
+    ]
   }
 }
