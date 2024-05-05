@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.client.gui.PoopOverlay;
 import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
+import net.svisvi.jigsawpp.entity.blabbit.BlabbitModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileModel;
@@ -17,6 +18,7 @@ public class ModEventBusClientEvents {
     @SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.MOSS_ELEPHANT_LAYER, MossElephantModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BLABBIT_LAYER, BlabbitModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
