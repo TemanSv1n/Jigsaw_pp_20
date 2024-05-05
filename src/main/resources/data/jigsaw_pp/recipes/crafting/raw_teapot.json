@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#C#",
+        "#PL",
+        "#C#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:clay_ball"
+        },
+        "C": {
+            "item": "minecraft:clay"
+        },
+        "P": {
+            "item": "jigsaw_pp:beaweed_nut"
+        },
+        "L": {
+            "item": "minecraft:lever"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:raw_teapot",
+        "count": 1
+    }
+}

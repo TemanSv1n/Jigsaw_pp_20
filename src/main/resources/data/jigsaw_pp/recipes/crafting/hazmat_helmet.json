@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iYi",
+        "DLD"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        },
+        "D": {
+            "item": "minecraft:dried_kelp"
+        },
+        "L": {
+            "item": "minecraft:leather_helmet"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:hazmat_helmet",
+        "count": 1
+    }
+}
