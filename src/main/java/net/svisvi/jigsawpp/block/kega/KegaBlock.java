@@ -20,6 +20,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -41,6 +42,8 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.effect.RadiationEffect;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 
 import java.util.*;
@@ -73,7 +76,8 @@ public class KegaBlock extends Block {
             final Vec3 _center = new Vec3(centerPos.getX(), centerPos.getY(), centerPos.getZ());
             List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(50 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
             for (Entity entityiterator : _entfound) {
-                entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.FALLING_ANVIL)), 100);
+                entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION)), 100);
+                RadiationEffect.addEffectLiquidWay(entityiterator, new MobEffectInstance(ModEffects.RADIATION.get(), 14400));
             }
 
 
