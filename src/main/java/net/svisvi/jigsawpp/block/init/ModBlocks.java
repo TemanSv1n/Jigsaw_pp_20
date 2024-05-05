@@ -6,8 +6,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.BeaweedBlock;
+import net.svisvi.jigsawpp.block.KegaBlock;
+import net.svisvi.jigsawpp.block.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
+import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
@@ -35,7 +38,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEAWEED_BLOCK = REGISTRY.register("beaweed_block", () -> new BeaweedBlock());
     public static final RegistryObject<Block> BLACK_TEAPOT = REGISTRY.register("black_teapot", () -> new BlackTeapotBlock());
     public static final RegistryObject<Block> FACTORY_HEATER = REGISTRY.register("factory_heater", () -> new FactoryHeaterBlock());
+    public static final RegistryObject<Block> PURGEN_FACTORY = REGISTRY.register("purgen_factory", () -> new PurgenFactoryBlock());
     public static final RegistryObject<Block> BEAWEED = REGISTRY.register("beaweed",
             () -> new Beaweed(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()
             ));
+    public static final RegistryObject<Block> KEGA = REGISTRY.register("kega", () -> new KegaBlock());
+    public static final RegistryObject<Block> KEGA_NULL = REGISTRY.register("kega_null", () -> new KegaNullBlock());
+
 }
