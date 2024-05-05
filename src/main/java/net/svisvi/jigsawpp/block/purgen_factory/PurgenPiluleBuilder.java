@@ -151,15 +151,15 @@ public class PurgenPiluleBuilder {
                 * temperatureCalc(level, pos)
                 );
 
-        System.out.println(koeff);
+        //System.out.println(koeff);
 
         int purity = purgen_stack.getOrCreateTag().getInt("purity");
 
-        System.out.println(purity);
+        //System.out.println(purity);
         //koeff = koeff + 0.2;
         purity = (int) (purity * koeff);
 
-        System.out.println(purity);
+        //System.out.println(purity);
         AbstractPiluleItem.setPurity(purity, purgen_stack);
         return purgen_stack;
     }
@@ -174,10 +174,15 @@ public class PurgenPiluleBuilder {
         if (purity == 0){
             purity = 1;
         }
-        System.out.println(purity);
+        //System.out.println(purity);
         //upgraded pilule
         if (purity > 100){
-            retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())+1), purgen_stack.getCount());
+            if (PILULE_PROGRESSION.indexOf(purgen_stack.getItem())+1 > PILULE_PROGRESSION.size()){
+                retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())), purgen_stack.getCount());
+            } else {
+                retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem()) + 1), purgen_stack.getCount());
+                purity = 200;
+            }
             AbstractPiluleItem.setPurity(purity - 100, retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff"), retStack);
             PotionUtils.setCustomEffects(retStack, PotionUtils.getMobEffects(retStack));

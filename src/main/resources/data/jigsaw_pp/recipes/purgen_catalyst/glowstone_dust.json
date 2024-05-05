@@ -2,21 +2,21 @@
   "type": "jigsaw_pp:purgen_catalyst",
   "ingredients": [
     {
-      "item": "minecraft:egg"
+      "item": "minecraft:glowstone_dust"
     }
   ],
   "result": {
     "count": 0,
     "item": "minecraft:bread"
   },
-  "purity": 1.1,
-  "additionalTime": 1.05,
-  "malChance": 1.05,
+  "purity": 1.3,
+  "additionalTime": 0.1,
+  "malChance": 0.7,
 
   "potionStats": [
     {
-      "potion": "minecraft:water",
-      "duration": 10,
+      "potion": "minecraft:glowing",
+      "duration": 12000,
       "amplifier": 0
     }
   ]
