@@ -12,6 +12,8 @@
   "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Иссушает все живое",
   "block.jigsaw_pp.coal_fossil": "Угольные отложения",
 
+  "item.jigsaw_pp.radiation_catalyst_non_activated": "Неактивированный ядерный катализатор",
+  "item.jigsaw_pp.radiation_catalyst_activated": "Активированный ядерный катализатор",
   "item.jigsaw_pp.fitting": "Трубочка",
   "item.jigsaw_pp.carrot_coil": "Морковная катушка",
   "block.jigsaw_pp.kega_null": "Пустая блядская кега",
@@ -96,6 +98,7 @@
 
   "subtitles.factory_heater": "Факторный нагреватель шпарит",
   "recipe.jigsaw_pp.purgen_catalyst": "Катализатор пургенового синтеза",
+  "recipe.jigsaw_pp.purgen_factory": "Пургеновый завод",
 
   "jigsaw_pp.tooltip.liquid.amount": "%s mB",
   "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
