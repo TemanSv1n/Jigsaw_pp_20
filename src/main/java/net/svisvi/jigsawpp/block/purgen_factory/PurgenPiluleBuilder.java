@@ -177,11 +177,18 @@ public class PurgenPiluleBuilder {
         //System.out.println(purity);
         //upgraded pilule
         if (purity > 100){
-            if (PILULE_PROGRESSION.indexOf(purgen_stack.getItem())+1 > PILULE_PROGRESSION.size()){
-                retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())), purgen_stack.getCount());
+            if (PILULE_PROGRESSION.contains(purgen_stack.getItem())) {
+                if (PILULE_PROGRESSION.indexOf(purgen_stack.getItem()) + 1 > PILULE_PROGRESSION.size()) {
+                    retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())), purgen_stack.getCount());
+                    purity = 200;
+                } else {
+                    retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem()) + 1), purgen_stack.getCount());
+
+                }
             } else {
-                retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem()) + 1), purgen_stack.getCount());
+                retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())), purgen_stack.getCount());
                 purity = 200;
+
             }
             AbstractPiluleItem.setPurity(purity - 100, retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff"), retStack);
