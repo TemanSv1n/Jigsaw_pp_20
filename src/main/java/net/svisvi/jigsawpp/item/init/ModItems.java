@@ -118,6 +118,9 @@ public class ModItems {
 	public static final RegistryObject<Item> BLABBIT_SPAWN_EGG = REGISTRY.register("blabbit_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.BLABBIT, 0xf3f6f4, 0x8e7cc3,
 					new Item.Properties()));
+	public static final RegistryObject<Item> BEAWEED_PLATE = REGISTRY.register("beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> SMART_BEAWEED_PLATE = REGISTRY.register("smart_beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> CARROT_COIL = REGISTRY.register("carrot_coil", () -> new Item(new Item.Properties().stacksTo(64)));
 
 
 
