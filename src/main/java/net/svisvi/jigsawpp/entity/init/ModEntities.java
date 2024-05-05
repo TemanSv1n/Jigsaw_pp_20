@@ -41,7 +41,7 @@ public class ModEntities {
             ENTITY_TYPES.register("purgen_pilule_projectile", () -> EntityType.Builder.<PurgenPiluleProjectile>of(PurgenPiluleProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("purgen_pilule_projectile"));
     public static final RegistryObject<EntityType<BlabbitEntity>> BLABBIT =
-            ENTITY_TYPES.register("blabbit",() -> EntityType.Builder.of(BlabbitEntity::new, MobCategory.CREATURE)
+            ENTITY_TYPES.register("blabbit",() -> EntityType.Builder.of(BlabbitEntity::new, MobCategory.MONSTER)
                     .sized(1f,1.8f).build("blabbit"));
   
     public static void register(IEventBus eventBus) {

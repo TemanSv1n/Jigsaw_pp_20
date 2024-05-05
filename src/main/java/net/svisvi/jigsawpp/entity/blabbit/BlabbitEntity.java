@@ -29,6 +29,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -39,6 +40,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
@@ -49,14 +51,14 @@ import org.checkerframework.checker.units.qual.A;
 import javax.annotation.Nullable;
 import java.util.*;
 
-public class BlabbitEntity extends Animal {
+public class BlabbitEntity extends Monster {
     private static final EntityDataAccessor<Boolean> JUMPING =
             SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> FORCE_JUMP =
             SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> FEAR =
             SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
-    public BlabbitEntity(EntityType<? extends Animal> pEntityType, Level pLevel){
+    public BlabbitEntity(EntityType<? extends Monster> pEntityType, Level pLevel){
         super(pEntityType, pLevel);
         this.moveControl = new BlabbitGoals.BlabbitMoveControl(this);
 
@@ -70,7 +72,7 @@ public class BlabbitEntity extends Animal {
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(2);
 
-    private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("beach"), new ResourceLocation("swamp"));
+    //private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("beach"), new ResourceLocation("swamp"));
 
     @Override
     protected void defineSynchedData() {
@@ -109,7 +111,16 @@ public class BlabbitEntity extends Animal {
 
     }
     public static void init() {
-        SpawnPlacements.register(ModEntities.BLABBIT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
+        SpawnPlacements.register(ModEntities.BLABBIT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
+            int x = pos.getX();
+            if (x <= 40) {
+                return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
+            }
+            return false;
+
+    });
+        DungeonHooks.addDungeonMob(ModEntities.BLABBIT.get(), 180);
+
     }
 
 
@@ -273,7 +284,7 @@ public class BlabbitEntity extends Animal {
             forceJumpDamage(this.level(), this.position());
         }
         Random random = new Random();
-        if (random.nextInt() > 0.8){
+        if (random.nextInt() > 0.9 && (this.isAggressive() || this.lastHurtByPlayerTime > 0)){
             setForceJump(true);
         }
         return super.causeFallDamage(pFallDistance, pMultiplier, pSource);
@@ -285,8 +296,8 @@ public class BlabbitEntity extends Animal {
         if (this.isFear()){k = 0.82f;}
         else if (this.isForceJumping()){k = 0.72f;}
         else if (this.lastHurtByPlayerTime > 0){k = 0.62f;}
-        System.out.println(k);
-        System.out.println(this.lastHurtByPlayerTime);
+//        System.out.println(k);
+//        System.out.println(this.lastHurtByPlayerTime);
 
         return k * this.getBlockJumpFactor() + this.getJumpBoostPower();
     }
@@ -321,7 +332,7 @@ public class BlabbitEntity extends Animal {
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes()
                 .add(Attributes.FOLLOW_RANGE, 20D)
-                .add(Attributes.MAX_HEALTH, 40)
+                .add(Attributes.MAX_HEALTH, 200)
                 .add(Attributes.MOVEMENT_SPEED, 0.32D)
                 .add(Attributes.ARMOR_TOUGHNESS, 0.1f)
                 .add(Attributes.ATTACK_KNOCKBACK,2f)
@@ -335,22 +346,33 @@ public class BlabbitEntity extends Animal {
         return MobType.UNDEFINED;
     }
 
-    @Nullable
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherPartner){
-        return null;
-    }
+//    @Nullable
+//    @Override
+//    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherPartner){
+//        return null;
+//    }
 
 
     //decorative stuff
     @Override
     public SoundEvent getHurtSound(DamageSource ds) {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.moss.place"));
+        return getRandomSound();
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.moss.break"));
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:blabbit_live_2"));
+    }
+    @Override
+    public SoundEvent getAmbientSound() {
+        return getRandomSound();
+    }
+
+
+    public SoundEvent getRandomSound(){
+        Random random = new Random();
+        int rand = random.nextInt(4);
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:blabbit_live_" + Integer.toString(rand)));
     }
 
     @Override
