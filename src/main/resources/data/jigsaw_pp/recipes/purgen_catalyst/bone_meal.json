@@ -2,7 +2,7 @@
   "type": "jigsaw_pp:purgen_catalyst",
   "ingredients": [
     {
-      "item": "minecraft:egg"
+      "item": "minecraft:bone_meal"
     }
   ],
   "result": {
@@ -10,8 +10,8 @@
     "item": "minecraft:bread"
   },
   "purity": 1.1,
-  "additionalTime": 1.05,
-  "malChance": 1.05,
+  "additionalTime": 0.6,
+  "malChance": 0.9,
 
   "potionStats": [
     {

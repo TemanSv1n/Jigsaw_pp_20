@@ -2,7 +2,7 @@
   "type": "jigsaw_pp:purgen_factory",
   "ingredients": [
     {
-      "item": "minecraft:egg"
+      "item": "jigsaw_pp:sweet_bread"
     },
     {
       "item": "jigsaw_pp:beaweed_block"
@@ -13,18 +13,18 @@
     "item": "jigsaw_pp:basic_purgen_pilule"
   },
   "fluid" : {
-    "fluid_name": "minecraft:water",
+    "fluid_name": "jigsaw_pp:ponos",
     "amount": 1000
   },
-  "purity": 70,
-  "additionalTime": 40,
-  "malChance": 0.2,
+  "purity": 10,
+  "additionalTime": 0,
+  "malChance": 0.3,
 
   "potionStats": [
     {
-      "potion": "minecraft:strength",
-      "duration": 400,
-      "amplifier": 4
+      "potion": "minecraft:water",
+      "duration": 10,
+      "amplifier": 0
     }
   ]
 }

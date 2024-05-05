@@ -2,16 +2,16 @@
   "type": "jigsaw_pp:purgen_catalyst",
   "ingredients": [
     {
-      "item": "minecraft:egg"
+      "item": "minecraft:chorus_fruit"
     }
   ],
   "result": {
     "count": 0,
     "item": "minecraft:bread"
   },
-  "purity": 1.1,
-  "additionalTime": 1.05,
-  "malChance": 1.05,
+  "purity": 1.2,
+  "additionalTime": 1.2,
+  "malChance": 1.7,
 
   "potionStats": [
     {
