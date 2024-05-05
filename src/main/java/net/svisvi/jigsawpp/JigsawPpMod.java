@@ -70,6 +70,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import net.svisvi.jigsawpp.entity.blabbit.BlabbitRenderer;
 
 @Mod("jigsaw_pp")
 public class JigsawPpMod {
@@ -151,6 +152,7 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
 			EntityRenderers.register(ModEntities.PURGEN_PILULE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.EXTINGUISHER_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.BLABBIT.get(), BlabbitRenderer::new);
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}

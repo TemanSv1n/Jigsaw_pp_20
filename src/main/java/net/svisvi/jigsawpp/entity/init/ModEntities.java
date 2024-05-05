@@ -12,6 +12,7 @@ import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ThrownSweetBreadProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
+import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
@@ -39,6 +40,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PurgenPiluleProjectile>> PURGEN_PILULE_PROJECTILE =
             ENTITY_TYPES.register("purgen_pilule_projectile", () -> EntityType.Builder.<PurgenPiluleProjectile>of(PurgenPiluleProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("purgen_pilule_projectile"));
+    public static final RegistryObject<EntityType<BlabbitEntity>> BLABBIT =
+            ENTITY_TYPES.register("blabbit",() -> EntityType.Builder.of(BlabbitEntity::new, MobCategory.CREATURE)
+                    .sized(1f,1.8f).build("blabbit"));
   
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

@@ -72,6 +72,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
 						tabData.accept(ModItems.KEGA.get());
 						tabData.accept(ModItems.KEGA_NULL.get());
+						tabData.accept(ModItems.BLABBIT_SPAWN_EGG.get());
 
 			}).build());
 

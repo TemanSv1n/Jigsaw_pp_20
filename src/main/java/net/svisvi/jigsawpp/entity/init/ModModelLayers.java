@@ -12,4 +12,7 @@ public class ModModelLayers {
             new ResourceLocation(JigsawPpMod.MODID, "gas_mask_model"), "main");
     public static final ModelLayerLocation FLOPPA_MISSILE_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "floppa_missile_model"), "main");
+
+    public static final ModelLayerLocation BLABBIT_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "blabbit"), "main");
 }
