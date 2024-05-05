@@ -1,0 +1,23 @@
+{
+  "type": "jigsaw_pp:purgen_catalyst",
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:slime_ball"
+  },
+  "purity": 2.0,
+  "additionalTime": 1.4,
+  "malChance": 0.5,
+
+  "potionStats": [
+    {
+      "potion": "minecraft:water",
+      "duration": 400,
+      "amplifier": 4
+    }
+  ]
+}

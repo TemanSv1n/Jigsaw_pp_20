@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "jigsaw_stupid:raw_teapot"
+    "jigsaw_pp:raw_teapot",
+    "jigsaw_pp:coal_fossil",
+    "jigsaw_pp:beaweed_block"
   ]
 }

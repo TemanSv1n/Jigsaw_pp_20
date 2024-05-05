@@ -2,7 +2,8 @@
 	"credit": "Made with Love",
 	"texture_size": [64, 64],
 	"textures": {
-		"13": "jigsaw_pp:block/factory_heater"
+		"13": "jigsaw_pp:block/factory_heater",
+		"particle": "jigsaw_pp:block/andesite_casing"
 	},
 	"elements": [
 		{

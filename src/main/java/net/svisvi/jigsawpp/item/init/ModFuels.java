@@ -15,6 +15,7 @@ public class ModFuels {
 	public static void furnaceFuelBurnTimeEvent(FurnaceFuelBurnTimeEvent event) {
 		ItemStack itemstack = event.getItemStack();
 		if (itemstack.getItem() == ModItems.BEAWEED_DUST.get()) event.setBurnTime(10);
-		if (itemstack.getItem() == ModItems.COAL_FOSSIL.get()) event.setBurnTime(5);
+		if (itemstack.getItem() == ModItems.COAL_FOSSIL.get()) event.setBurnTime(1);
+		if (itemstack.getItem() == ModItems.BEAWEED_BLOCK.get()) event.setBurnTime(100);
 	}
 }
