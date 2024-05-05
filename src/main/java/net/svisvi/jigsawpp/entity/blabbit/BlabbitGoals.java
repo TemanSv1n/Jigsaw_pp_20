@@ -1,35 +1,57 @@
 package net.svisvi.jigsawpp.entity.blabbit;
 
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.monster.Slime;
 
 import java.util.EnumSet;
 
 public class BlabbitGoals {
-    static class BlabbitAttackGoal extends Goal {
+    static class BlabbitAttackGoal extends MeleeAttackGoal {
         private final BlabbitEntity blabbit;
+        private int attackDelay = 10;
+        private int ticksUntilNextAttack = 10;
+        private boolean shouldCountTillNextAttack = false;
         private int growTiredTimer;
 
-        public BlabbitAttackGoal(BlabbitEntity pBlabbit) {
-            this.blabbit = pBlabbit;
+        public BlabbitAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
+            super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
+            this.blabbit = (BlabbitEntity) pMob;
             this.setFlags(EnumSet.of(Goal.Flag.LOOK));
         }
+
+        @Override
+        protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
+            System.out.println("BIT CABYNY!");
+            double d0 = this.getAttackReachSqr(pEnemy);
+            if (pDistToEnemySqr <= d0) {
+                this.resetAttackCooldown();
+                this.mob.doHurtTarget(pEnemy);
+            }
+        }
+
+
+
+
 
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
         public boolean canUse() {
-            LivingEntity livingentity = this.blabbit.getTarget();
-            if (livingentity == null) {
-                return false;
-            } else {
-                return !this.blabbit.canAttack(livingentity) ? false : this.blabbit.getMoveControl() instanceof BlabbitGoals.BlabbitMoveControl;
-            }
+//            LivingEntity livingentity = this.blabbit.getTarget();
+//            if (livingentity == null) {
+//                return false;
+//            } else {
+//                return !this.blabbit.canAttack(livingentity) ? false : this.blabbit.getMoveControl() instanceof BlabbitGoals.BlabbitMoveControl;
+//            }
+            return super.canUse();
         }
 
         /**
@@ -37,6 +59,9 @@ public class BlabbitGoals {
          */
         public void start() {
             this.growTiredTimer = reducedTickDelay(300);
+            attackDelay = 40;
+            ticksUntilNextAttack = 40;
+            this.mob.setAggressive(true);
             super.start();
         }
 
@@ -44,14 +69,15 @@ public class BlabbitGoals {
          * Returns whether an in-progress EntityAIBase should continue executing
          */
         public boolean canContinueToUse() {
-            LivingEntity livingentity = this.blabbit.getTarget();
-            if (livingentity == null) {
-                return false;
-            } else if (!this.blabbit.canAttack(livingentity)) {
-                return false;
-            } else {
-                return --this.growTiredTimer > 0;
-            }
+//            LivingEntity livingentity = this.blabbit.getTarget();
+//            if (livingentity == null) {
+//                return false;
+//            } else if (!this.blabbit.canAttack(livingentity)) {
+//                return false;
+//            } else {
+//                return --this.growTiredTimer > 0;
+//            }
+            return super.canContinueToUse();
         }
 
         public boolean requiresUpdateEveryTick() {
@@ -71,8 +97,18 @@ public class BlabbitGoals {
             if (movecontrol instanceof BlabbitGoals.BlabbitMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setDirection(this.blabbit.getYRot(), this.blabbit.isDealsDamage());
             }
+            if(shouldCountTillNextAttack) {
+                this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
+            }
+            double d0 = this.mob.getPerceivedTargetDistanceSquareForMeleeAttack(livingentity);
+            checkAndPerformAttack(livingentity, d0);
 
         }
+        @Override
+        protected double getAttackReachSqr(LivingEntity entity) {
+            return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
+        }
+
     }
 
     static class BlabbitMoveControl extends MoveControl {
