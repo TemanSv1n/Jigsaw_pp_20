@@ -171,6 +171,9 @@ public class PurgenPiluleBuilder {
         Random random = new Random();
         ItemStack retStack;
         int purity = purgen_stack.getOrCreateTag().getInt("purity");
+        if (purity == 0){
+            purity = 1;
+        }
         System.out.println(purity);
         //upgraded pilule
         if (purity > 100){
