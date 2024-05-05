@@ -10,6 +10,7 @@
     "minecraft:gunpowder",
     "minecraft:bone_meal",
     "minecraft:chorus_fruit",
-    "minecraft:poisonous_potato"
+    "minecraft:poisonous_potato",
+    "radiation_catalyst_non_activated"
   ]
 }
