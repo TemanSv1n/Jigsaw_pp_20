@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#I#",
+    "CBC",
+    " K "
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "C": {
+      "item": "minecraft:copper_block"
+    },
+    "B": {
+      "item": "jigsaw_pp:black_teapot"
+    },
+    "K": {
+      "item": "jigsaw_pp:carrot_coil"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:purgen_factory",
+    "count": 1
+  }
+}

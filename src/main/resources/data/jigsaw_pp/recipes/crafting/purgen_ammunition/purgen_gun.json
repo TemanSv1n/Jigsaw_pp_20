@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ##",
+    "DSB",
+    "EC "
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:carrot_coil"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "S": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    },
+    "E": {
+      "item": "jigsaw_pp:purgen_bundle"
+    },
+    "C": {
+      "item": "minecraft:crossbow"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:purgen_gun",
+    "count": 1
+  }
+}

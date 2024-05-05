@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "#C#",
-        "#PL",
+        "# L",
         "#C#"
     ],
     "key": {
@@ -11,9 +11,6 @@
         },
         "C": {
             "item": "minecraft:clay"
-        },
-        "P": {
-            "item": "jigsaw_pp:beaweed_nut"
         },
         "L": {
             "item": "minecraft:lever"
