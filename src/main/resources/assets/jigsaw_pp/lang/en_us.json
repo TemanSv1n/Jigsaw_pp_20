@@ -11,6 +11,8 @@
   "item.jigsaw_pp.strawberry_elephant_pickaxe": "§cStrawberry Elephant Pickaxe",
   "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Fossilises living",
 
+  "item.jigsaw_pp.radiation_catalyst_non_activated": "Non-Activated Radiation Catalyst",
+  "item.jigsaw_pp.radiation_catalyst_activated": "Activated Radiation Catalyst",
   "item.jigsaw_pp.fitting": "Fitting",
   "block.jigsaw_pp.kega_null": "Empty Fucking Kega",
   "block.jigsaw_pp.kega": "Charged Fucking Kega",
