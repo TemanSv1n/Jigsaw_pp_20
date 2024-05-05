@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.entity.blabbit;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -10,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
@@ -35,6 +37,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -44,9 +47,7 @@ import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
 import org.checkerframework.checker.units.qual.A;
 
 import javax.annotation.Nullable;
-import java.util.EnumSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class BlabbitEntity extends Animal {
     private static final EntityDataAccessor<Boolean> JUMPING =
@@ -167,7 +168,7 @@ public class BlabbitEntity extends Animal {
 
         super.registerGoals();
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(3, new BlabbitGoals.BlabbitAttackGoal(this){
+        this.goalSelector.addGoal(2, new BlabbitGoals.BlabbitAttackGoal(this, 1.3D, true){
             @Override
             public boolean canUse() {
                 Entity entity = BlabbitEntity.this;
@@ -195,7 +196,7 @@ public class BlabbitEntity extends Animal {
 //        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
 //            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
 //        })); //placeholder for beaver zomdbie
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this){
+        this.targetSelector.addGoal(3, new HurtByTargetGoal(this){
             @Override
             public boolean canUse() {
                 Entity entity = BlabbitEntity.this;
@@ -267,6 +268,14 @@ public class BlabbitEntity extends Animal {
     @Override
     public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
         setJumping_1(false);
+        if (isForceJumping()){
+            setForceJump(false);
+            forceJumpDamage(this.level(), this.position());
+        }
+        Random random = new Random();
+        if (random.nextInt() > 0.8){
+            setForceJump(true);
+        }
         return super.causeFallDamage(pFallDistance, pMultiplier, pSource);
     }
 
@@ -275,9 +284,37 @@ public class BlabbitEntity extends Animal {
         float k = 0.42f;
         if (this.isFear()){k = 0.82f;}
         else if (this.isForceJumping()){k = 0.72f;}
-        else if (this.isAggressive()){k = 0.62f;}
+        else if (this.lastHurtByPlayerTime > 0){k = 0.62f;}
+        System.out.println(k);
+        System.out.println(this.lastHurtByPlayerTime);
 
         return k * this.getBlockJumpFactor() + this.getJumpBoostPower();
+    }
+
+    public void forceJumpDamage(LevelAccessor world, Vec3 vec3){
+        BlockPos pPos = BlockPos.containing(vec3.x, vec3.y, vec3.z);
+        if (world instanceof Level _level) {
+            if (!_level.isClientSide()) {
+                _level.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.husk.converted_to_zombie")), SoundSource.HOSTILE, 1, 1);
+            } else {
+                _level.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.husk.converted_to_zombie")), SoundSource.HOSTILE, 1, 1, false);
+            }
+        }
+        if (world instanceof ServerLevel _level)
+            _level.sendParticles(ParticleTypes.BUBBLE_POP, pPos.getX(), pPos.getY(), pPos.getZ(), 40, 1.5, 0.2, 1.5, 0.2);
+        {
+            final Vec3 _center = vec3;
+            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+            for (Entity entityiterator : _entfound) {
+                if (entityiterator != this)
+                entityiterator.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.MOB_ATTACK), this), 8);
+            }
+        }
+
+    }
+    @Override
+    public boolean canAttack(LivingEntity pTarget) {
+        return pTarget instanceof Player && this.level().getDifficulty() == Difficulty.PEACEFUL ? false : pTarget.canBeSeenAsEnemy();
     }
 
 
