@@ -28,7 +28,7 @@ public class BlabbitGoals {
 
         @Override
         protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-            System.out.println("BIT CABYNY!");
+//            System.out.println("BIT CABYNY!");
             double d0 = this.getAttackReachSqr(pEnemy);
             if (pDistToEnemySqr <= d0) {
                 this.resetAttackCooldown();
