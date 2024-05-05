@@ -57,6 +57,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:24.0.0'
+    //implementation 'org.jetbrains:annotations:24.0.0'
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
