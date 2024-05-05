@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "121",
+    "345",
+    "676"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:lever"
+    },
+    "2": {
+      "item": "minecraft:piston"
+    },
+    "3": {
+      "item": "minecraft:stonecutter"
+    },
+    "4": {
+      "item": "jigsaw_pp:beaweed_nut"
+    },
+    "5": {
+      "item": "minecraft:grindstone"
+    },
+    "6": {
+      "item": "minecraft:lightning_rod"
+    },
+    "7": {
+      "item": "minecraft:composter"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:nutcracker",
+    "count": 1
+  }
+}

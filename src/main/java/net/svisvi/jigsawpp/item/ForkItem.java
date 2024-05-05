@@ -20,15 +20,15 @@ public class ForkItem extends SwordItem {
     public ForkItem() {
         super(new Tier() {
             public int getUses() {
-                return 2048;
+                return 1488;
             }
 
             public float getSpeed() {
-                return 4f;
+                return 3f;
             }
 
             public float getAttackDamageBonus() {
-                return 2f;
+                return 1f;
             }
 
             public int getLevel() {
