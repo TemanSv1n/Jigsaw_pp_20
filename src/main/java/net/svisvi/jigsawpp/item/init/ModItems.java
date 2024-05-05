@@ -27,6 +27,8 @@ import net.svisvi.jigsawpp.item.armor.HazmatItem;
 import net.svisvi.jigsawpp.item.armor.SlaveItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.materials.FittingItem;
+import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
+import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
@@ -105,6 +107,8 @@ public class ModItems {
 	public static final RegistryObject<Item> PURGEN_FACTORY_BIG_THUMB = REGISTRY.register("purgen_factory_big_thumb", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> KEGA = block(ModBlocks.KEGA);
 	public static final RegistryObject<Item> KEGA_NULL = block(ModBlocks.KEGA_NULL);
+	public static final RegistryObject<Item> RADIATION_CATALYST_NON_ACTIVATED = REGISTRY.register("radiation_catalyst_non_activated", () -> new RadiationCatalystNonActivatedItem());
+	public static final RegistryObject<Item> RADIATION_CATALYST_ACTIVATED = REGISTRY.register("radiation_catalyst_activated", () -> new RadiationCatalystActivatedItem());
 	// #################################################################
 	// #################################################################
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());

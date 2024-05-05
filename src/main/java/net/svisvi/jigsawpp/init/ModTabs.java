@@ -93,6 +93,8 @@ public class ModTabs {
 				tabData.accept(ModItems.CARROT_COIL.get());
 				tabData.accept(ModItems.BEAWEED_PLATE.get());
 				tabData.accept(ModItems.SMART_BEAWEED_PLATE.get());
+				tabData.accept(ModItems.RADIATION_CATALYST_ACTIVATED.get());
+				tabData.accept(ModItems.RADIATION_CATALYST_NON_ACTIVATED.get());
 
 			}).build());
 }
