@@ -94,7 +94,7 @@ public class BeaweedNutItem extends Item implements CustomArmPoseItem {
                 _level.sendParticles((SimpleParticleType) (ModParticleTypes.POOP.get()), x, (y + 1), z, 20, 0.5, 0.5, 0.5, 1);
             if (pPlayer instanceof ServerPlayer _player) {
                 ItemStack _setstack = new ItemStack(ModItems.BEAWEED_SEEDS.get());
-                _setstack.setCount((int) Mth.nextDouble(RandomSource.create(), 1, 3));
+                _setstack.setCount((int) Mth.nextDouble(RandomSource.create(), 2, 5));
                 ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
             }
             if (pLevel instanceof ServerLevel _level) {
