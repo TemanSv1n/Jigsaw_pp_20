@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -46,6 +47,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeatProducer;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenCatalystRecipeReader;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenPiluleBuilder;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
@@ -347,10 +349,15 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
     public void badEventHandler(Level world, BlockPos pPos){
         //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
-        if (world instanceof ServerLevel _level && !_level.isClientSide())
+        if (world instanceof ServerLevel _level && !_level.isClientSide()) {
             _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
+            ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.PURGEN_FACTORY.get()));
+            entityToSpawn.setPickUpDelay(10);
+            _level.addFreshEntity(entityToSpawn);
+        }
 
-    }
+
+        }
 
     public boolean canCraft(){
         if (!hasRecipe()){

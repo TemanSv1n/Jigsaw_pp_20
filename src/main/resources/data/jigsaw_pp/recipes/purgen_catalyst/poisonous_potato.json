@@ -2,22 +2,22 @@
   "type": "jigsaw_pp:purgen_catalyst",
   "ingredients": [
     {
-      "item": "minecraft:diamond"
+      "item": "minecraft:poisonous_potato"
     }
   ],
   "result": {
     "count": 0,
     "item": "minecraft:bread"
   },
-  "purity": 2.0,
-  "additionalTime": 2.0,
+  "purity": 0.5,
+  "additionalTime": 0.6,
   "malChance": 0.2,
 
   "potionStats": [
     {
-      "potion": "minecraft:water",
-      "duration": 10,
-      "amplifier": 0
+      "potion": "minecraft:poison",
+      "duration": 800,
+      "amplifier": 1
     }
   ]
 }

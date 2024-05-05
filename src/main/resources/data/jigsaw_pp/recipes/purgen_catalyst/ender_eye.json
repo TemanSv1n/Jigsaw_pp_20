@@ -2,21 +2,21 @@
   "type": "jigsaw_pp:purgen_catalyst",
   "ingredients": [
     {
-      "item": "minecraft:egg"
+      "item": "minecraft:ender_eye"
     }
   ],
   "result": {
     "count": 0,
     "item": "minecraft:bread"
   },
-  "purity": 1.1,
-  "additionalTime": 1.05,
-  "malChance": 1.05,
+  "purity": 1.8,
+  "additionalTime": 2.5,
+  "malChance": 0.8,
 
   "potionStats": [
     {
-      "potion": "minecraft:water",
-      "duration": 10,
+      "potion": "minecraft:night_vision",
+      "duration": 200,
       "amplifier": 0
     }
   ]
