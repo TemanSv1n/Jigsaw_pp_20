@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "jigsaw_pp:nut_cracker"
+            "item": "jigsaw_pp:nutcracker"
         },
         {
             "item": "jigsaw_pp:beaweed_block"
