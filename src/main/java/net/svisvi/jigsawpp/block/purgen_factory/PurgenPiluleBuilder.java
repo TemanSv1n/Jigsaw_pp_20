@@ -191,6 +191,9 @@ public class PurgenPiluleBuilder {
 
             }
             AbstractPiluleItem.setPurity(purity - 100, retStack);
+            if (purity == 0){
+                purity = 1;
+            }
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff"), retStack);
             PotionUtils.setCustomEffects(retStack, PotionUtils.getMobEffects(retStack));
         } else {
