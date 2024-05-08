@@ -117,6 +117,7 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
         return Collections.singletonList(new ItemStack(this, 1));
     }
 
+
     @Override
     public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
@@ -210,5 +211,6 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
         return createTickerHelper(pBlockEntityType, ModBlockEntities.PURGEN_FACTORY_BE.get(),
                 (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
     }
+
     }
 
