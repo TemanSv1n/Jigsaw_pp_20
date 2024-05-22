@@ -124,6 +124,8 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAWEED_PLATE = REGISTRY.register("beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> SMART_BEAWEED_PLATE = REGISTRY.register("smart_beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> CARROT_COIL = REGISTRY.register("carrot_coil", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> BLABBALL = REGISTRY.register("blabball", () -> new BlabballItem());
+	public static final RegistryObject<Item> BLABEGG = REGISTRY.register("blabegg", () -> new BlabEggItem());
 
 
 

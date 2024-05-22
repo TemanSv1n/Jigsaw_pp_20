@@ -143,7 +143,7 @@ public class JigsawPpMod {
 			//predicates)))
 			ModItemProperties.addCustomItemProperties();
 
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURGEN_FACTORY.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
