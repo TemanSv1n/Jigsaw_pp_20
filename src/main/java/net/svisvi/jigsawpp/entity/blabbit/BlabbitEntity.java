@@ -29,12 +29,15 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -112,8 +115,8 @@ public class BlabbitEntity extends Monster {
     }
     public static void init() {
         SpawnPlacements.register(ModEntities.BLABBIT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-            int x = pos.getX();
-            if (x <= 40) {
+            int y = pos.getY();
+            if (y <= 40) {
                 return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
             }
             return false;
@@ -293,7 +296,8 @@ public class BlabbitEntity extends Monster {
     @Override
     protected float getJumpPower() {
         float k = 0.42f;
-        if (this.isFear()){k = 0.82f;}
+        if (this.isLeashed()){k = 0.32f;}
+        else if (this.isFear()){k = 1.02f;}
         else if (this.isForceJumping()){k = 0.72f;}
         else if (this.lastHurtByPlayerTime > 0){k = 0.62f;}
 //        System.out.println(k);
@@ -415,6 +419,27 @@ public class BlabbitEntity extends Monster {
         super.baseTick();
         //fear
 
+    }
+
+    @Override
+    public boolean canBeLeashed(Player pPlayer) {
+        return !this.isLeashed() && this.isFear();
+    }
+    public Vec3 getLeashOffset() {
+        return new Vec3(0.0, (double)(0.6F * this.getEyeHeight()-0.35D), (double)(this.getBbWidth() * 0.4F)-0.2D);
+    }
+    @Override
+    protected double followLeashSpeed() {
+        return 1.5D;
+    }
+
+    public static final Set<Item> FOODS = new HashSet<Item>();
+    static {
+        FOODS.add(Items.CARROT);
+        FOODS.add(Items.GOLDEN_CARROT);
+    }
+    public boolean isFood(ItemStack pStack) {
+        return FOODS.contains(pStack.getItem());
     }
 
 
