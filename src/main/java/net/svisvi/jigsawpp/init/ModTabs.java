@@ -82,6 +82,8 @@ public class ModTabs {
 						tabData.accept(ModItems.FITTING.get());
 						tabData.accept(ModItems.BLABBALL.get());
 						tabData.accept(ModItems.BLABEGG.get());
+						tabData.accept(ModItems.USELESS_PIE.get());
+						tabData.accept(ModItems.YOBA.get());
 
 			}).build());
 

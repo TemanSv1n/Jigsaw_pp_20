@@ -111,5 +111,9 @@
 
   "item.jigsaw_pp.blabball.desc": "§7Shear a leashed §dBlabbit",
   "item.jigsaw_pp.blabball": "Blabball",
-  "item.jigsaw_pp.blabegg": "Blabbit Egg"
+  "item.jigsaw_pp.blabegg": "Blabbit Egg",
+
+  "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a useless pie",
+  "item.jigsaw_pp.useless_pie": "Useless pie",
+  "block.jigsaw_pp.yoba": "Yoba"
 }
