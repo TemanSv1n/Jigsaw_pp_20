@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.Block;
 
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
+import net.svisvi.jigsawpp.block.yoba.YobaBlock;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluidBlock;
 
 
@@ -43,5 +44,5 @@ public class ModBlocks {
             ));
     public static final RegistryObject<Block> KEGA = REGISTRY.register("kega", () -> new KegaBlock());
     public static final RegistryObject<Block> KEGA_NULL = REGISTRY.register("kega_null", () -> new KegaNullBlock());
-
+    public static final RegistryObject<Block> YOBA = REGISTRY.register("yoba", () -> new YobaBlock());
 }

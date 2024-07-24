@@ -18,3 +18,5 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+.idea/compiler.xml
+.idea/modules/Jigsaw_pp_20.main.iml

@@ -1,5 +1,5 @@
 
-package net.svisvi.jigsawpp.init;
+package net.svisvi.jigsawpp.item;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.TooltipFlag;
