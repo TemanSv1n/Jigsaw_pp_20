@@ -3,6 +3,8 @@ package net.svisvi.jigsawpp.block.init;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.BeaweedBlock;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.block.Block;
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.block.yoba.YobaBlock;
+import net.svisvi.jigsawpp.block.yoba.YobaPoopBlock;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluidBlock;
 
 
@@ -45,4 +48,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> KEGA = REGISTRY.register("kega", () -> new KegaBlock());
     public static final RegistryObject<Block> KEGA_NULL = REGISTRY.register("kega_null", () -> new KegaNullBlock());
     public static final RegistryObject<Block> YOBA = REGISTRY.register("yoba", () -> new YobaBlock());
+    public static final RegistryObject<Block> YOBA_POOP = REGISTRY.register("yoba_poop", () -> new YobaPoopBlock());
+    public static final RegistryObject<Block> POOPED_BRICKS = REGISTRY.register("pooped_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
 }

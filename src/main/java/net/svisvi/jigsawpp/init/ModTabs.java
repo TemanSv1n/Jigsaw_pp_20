@@ -84,6 +84,8 @@ public class ModTabs {
 						tabData.accept(ModItems.BLABEGG.get());
 						tabData.accept(ModItems.USELESS_PIE.get());
 						tabData.accept(ModItems.YOBA.get());
+						tabData.accept(ModItems.YOBA_POOP.get());
+						tabData.accept(ModItems.POOPED_BRICKS.get());
 
 			}).build());
 

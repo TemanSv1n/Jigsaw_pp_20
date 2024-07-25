@@ -4,6 +4,9 @@
     "jigsaw_pp:factory_heater",
     "jigsaw_pp:teapot",
     "jigsaw_pp:black_teapot",
-    "jigsaw_pp:purgen_factory"
+    "jigsaw_pp:purgen_factory",
+    "jigsaw_pp:pooped_bricks",
+    "jigsaw_pp:yoba",
+    "jigsaw_pp:yoba_poop"
   ]
 }
