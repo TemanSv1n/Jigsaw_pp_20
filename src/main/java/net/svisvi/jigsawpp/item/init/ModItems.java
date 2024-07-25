@@ -48,6 +48,8 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
 	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
 	public static final RegistryObject<Item> YOBA = block(ModBlocks.YOBA);
+	public static final RegistryObject<Item> YOBA_POOP = block(ModBlocks.YOBA_POOP);
+	public static final RegistryObject<Item> POOPED_BRICKS = block(ModBlocks.POOPED_BRICKS);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",

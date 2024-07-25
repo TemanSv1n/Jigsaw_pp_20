@@ -3,7 +3,11 @@ package net.svisvi.jigsawpp.block.yoba;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -11,6 +15,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -28,6 +33,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 
 import java.lang.reflect.Array;
@@ -38,6 +44,9 @@ public class YobaBlock extends Block implements Equipable {
     public static final BooleanProperty UPSIDE = BooleanProperty.create("upside");
     public static final IntegerProperty ROTATED = IntegerProperty.create("rotated", 0, 4);
     public static final DirectionProperty REAL_FACING = DirectionProperty.create("real_facing");
+    public String MOVE_SOUND(){
+        return "block.mud.place";
+    }
 
     public YobaBlock() {
         super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.GUITAR).sound(SoundType.STEM).strength(10f, 0f));
@@ -83,7 +92,7 @@ public class YobaBlock extends Block implements Equipable {
         }
     }
 
-    public static Block getTrace(){
+    public Block getTrace(){
         return Blocks.AIR;
     }
 
@@ -130,8 +139,18 @@ public class YobaBlock extends Block implements Equipable {
     @Override
     public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
         super.entityInside(blockstate, world, pos, entity);
+        if (entity instanceof Fox){
+            world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+            if (!world.isClientSide()) {
+                world.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.fox.eat")), SoundSource.HOSTILE, 1, 1);
+            } else {
+                world.playLocalSound(pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.fox.eat")), SoundSource.HOSTILE, 1, 1, false);
+            }
+        } else {
         entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.CRAMMING)), 20);
+        }
     }
+
 
 
     @Override
@@ -193,6 +212,11 @@ public class YobaBlock extends Block implements Equipable {
     public void moveForward(BlockState pState, Level pLevel, BlockPos pPos){
         pLevel.setBlock(pPos.relative(pState.getValue(REAL_FACING), 1), roll(pState, pLevel, pState.getValue(REAL_FACING)), 3);
         pLevel.setBlock(pPos, getTrace().defaultBlockState(), 3);
+            if (!pLevel.isClientSide()) {
+                pLevel.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(MOVE_SOUND())), SoundSource.BLOCKS, 1, 1);
+            } else {
+                pLevel.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(MOVE_SOUND())), SoundSource.BLOCKS, 1, 1, false);
+            }
     }
     public void moveUpForward(BlockState pState, Level pLevel, BlockPos pPos){
         pLevel.setBlock(pPos.above().relative(pState.getValue(REAL_FACING), 1), roll(pState, pLevel, pState.getValue(REAL_FACING)), 3);
@@ -204,13 +228,13 @@ public class YobaBlock extends Block implements Equipable {
     }
 
     public void move(BlockState pState, Level pLevel, BlockPos pPos, RandomSource random){
-        if (!pLevel.getBlockState(pPos.below()).canBeReplaced()) {
-            if (getBlockStateForward(pState, pPos, pLevel).canBeReplaced()) {
+        if (!canReplaceBlock(pLevel.getBlockState(pPos.below()))) {
+            if (canReplaceBlock(getBlockStateForward(pState, pPos, pLevel))) {
                 if (random.nextFloat() < 0.1F){
                     rotate(pState, pLevel, pPos, random);
                 }
                 moveForward(pState, pLevel, pPos);
-            } else if (getBlockStateForward(pState, pPos.above(), pLevel).canBeReplaced()){
+            } else if (canReplaceBlock(getBlockStateForward(pState, pPos.above(), pLevel))){
                 moveUpForward(pState, pLevel, pPos);
             } else {
                 rotate(pState, pLevel, pPos, random);
@@ -226,6 +250,19 @@ public class YobaBlock extends Block implements Equipable {
 
     public BlockState getBlockStateForward(BlockState pState, BlockPos pPos, Level pLevel){
         return pLevel.getBlockState(getPosForward(pState, pPos));
+    }
+
+    public static HashSet<TagKey<Block>> replaceableTags = new HashSet<TagKey<Block>>();
+    static {
+        replaceableTags.add(BlockTags.TALL_FLOWERS);
+        replaceableTags.add(BlockTags.FLOWERS);
+        replaceableTags.add(BlockTags.UNDERWATER_BONEMEALS);
+        replaceableTags.add(BlockTags.CROPS);
+        replaceableTags.add(BlockTags.REPLACEABLE);
+    }
+
+    public static boolean canReplaceBlock(BlockState pState){
+        return (pState.canBeReplaced() | replaceableTags.stream().anyMatch(pState::is));
     }
 
     @Override
