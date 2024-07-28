@@ -104,6 +104,7 @@
   "subtitles.factory_heater": "Factory heater is working",
   "recipe.jigsaw_pp.purgen_catalyst": "Purgen reaction catalyst",
   "recipe.jigsaw_pp.purgen_factory": "Purgen factory",
+  "item.jigsaw_pp.slon_gun":  "Slon gun",
 
   "jigsaw_pp.tooltip.liquid.amount": "%s mB",
   "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
