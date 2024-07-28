@@ -351,7 +351,7 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
         //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
         if (world instanceof ServerLevel _level && !_level.isClientSide()) {
             _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
-            ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.PURGEN_FACTORY.get()));
+            ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.FACTORY_HEATER.get()));
             entityToSpawn.setPickUpDelay(10);
             _level.addFreshEntity(entityToSpawn);
         }

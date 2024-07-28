@@ -3,6 +3,7 @@ package net.svisvi.jigsawpp.entity.blabbit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -28,30 +29,41 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Evoker;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.DungeonHooks;
+import net.minecraftforge.common.IForgeShearable;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
 import org.checkerframework.checker.units.qual.A;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
-public class BlabbitEntity extends Monster {
+public class BlabbitEntity extends Monster implements IForgeShearable, Shearable {
     private static final EntityDataAccessor<Boolean> JUMPING =
             SynchedEntityData.defineId(BlabbitEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> FORCE_JUMP =
@@ -112,8 +124,8 @@ public class BlabbitEntity extends Monster {
     }
     public static void init() {
         SpawnPlacements.register(ModEntities.BLABBIT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-            int x = pos.getX();
-            if (x <= 40) {
+            int y = pos.getY();
+            if (y <= 40) {
                 return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
             }
             return false;
@@ -293,7 +305,8 @@ public class BlabbitEntity extends Monster {
     @Override
     protected float getJumpPower() {
         float k = 0.42f;
-        if (this.isFear()){k = 0.82f;}
+        if (this.isLeashed()){k = 0.32f;}
+        else if (this.isFear()){k = 1.02f;}
         else if (this.isForceJumping()){k = 0.72f;}
         else if (this.lastHurtByPlayerTime > 0){k = 0.62f;}
 //        System.out.println(k);
@@ -417,8 +430,108 @@ public class BlabbitEntity extends Monster {
 
     }
 
+    @Override
+    public boolean canBeLeashed(Player pPlayer) {
+        return !this.isLeashed() && this.isFear();
+    }
+    public Vec3 getLeashOffset() {
+        return new Vec3(0.0, (double)(0.6F * this.getEyeHeight()-0.35D), (double)(this.getBbWidth() * 0.4F)-0.2D);
+    }
+    @Override
+    protected double followLeashSpeed() {
+        return 1.5D;
+    }
+
+    public static final Set<Item> FOODS = new HashSet<Item>();
+    static {
+        FOODS.add(Items.CARROT);
+        FOODS.add(Items.GOLDEN_CARROT);
+    }
+    public boolean isFood(ItemStack pStack) {
+        return FOODS.contains(pStack.getItem());
+    }
 
 
 
+    //NO BALLS ?
+    public boolean isShearable(@NotNull ItemStack item, Level level, BlockPos pos) {
+        return this.isLeashed();
+    }
 
+    public @NotNull List<ItemStack> onSheared(@Nullable Player player, @NotNull ItemStack item, Level level, BlockPos pos, int fortune) {
+        ArrayList<ItemStack> list = new ArrayList<ItemStack>();
+        list.add(new ItemStack(ModItems.BLABBALL.get(), 2));
+
+        if (!level.isClientSide()) {
+            level.playSound(null, pos, SoundEvents.SHEEP_SHEAR, SoundSource.NEUTRAL, 1, 1);
+            level.playSound(null, pos, SoundEvents.ZOMBIE_CONVERTED_TO_DROWNED, SoundSource.NEUTRAL, 1, 1);
+        } else {
+            level.playLocalSound(pos, SoundEvents.SHEEP_SHEAR, SoundSource.NEUTRAL, 1, 1, false);
+            level.playLocalSound(pos, SoundEvents.ZOMBIE_CONVERTED_TO_DROWNED, SoundSource.NEUTRAL, 1, 1, false);
+        }
+        if (level instanceof ServerLevel _level)
+            _level.sendParticles(ParticleTypes.EXPLOSION, pos.getX(), pos.getY(), pos.getZ(), 5, 0.5, 0.5, 0.5, 0);
+
+        Rabbit rabbit = (Rabbit) EntityType.RABBIT.create(level);
+        rabbit.moveTo(pos, 0.0F, 0.0F);
+        rabbit.finalizeSpawn((ServerLevelAccessor) level, level.getCurrentDifficultyAt(this.getOnPos()), MobSpawnType.CONVERSION, (SpawnGroupData)null, (CompoundTag)null);
+        level.addFreshEntity(rabbit);
+        this.discard();
+        return list;
+    }
+    
+    @Override
+    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+        pPlayer.getItemInHand(pHand);
+        return super.mobInteract(pPlayer, pHand);
+    }
+    @Override //spizzeno s Mob.java, but edited
+    public final InteractionResult interact(Player pPlayer, InteractionHand pHand){
+        if (!this.isAlive()) {
+            return InteractionResult.PASS;
+        } else if (this.getLeashHolder() == pPlayer && pPlayer.getItemInHand(pHand).isEmpty()) {
+            this.dropLeash(true, !pPlayer.getAbilities().instabuild);
+            this.gameEvent(GameEvent.ENTITY_INTERACT, pPlayer);
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        } else {
+            InteractionResult interactionresult = this.checkAndHandleImportantInteractions(pPlayer, pHand);
+            if (interactionresult.consumesAction()) {
+                this.gameEvent(GameEvent.ENTITY_INTERACT, pPlayer);
+                return interactionresult;
+            } else {
+                interactionresult = this.mobInteract(pPlayer, pHand);
+                if (interactionresult.consumesAction()) {
+                    this.gameEvent(GameEvent.ENTITY_INTERACT, pPlayer);
+                    return interactionresult;
+                } else {
+                    return InteractionResult.PASS;
+                }
+            }
+        }
+    }
+    @Override
+    public void shear(SoundSource pCategory) {
+        this.level().playSound((Player)null, this, SoundEvents.SHEEP_SHEAR, pCategory, 1.0F, 1.0F);
+        int i = 2;
+
+        for(int j = 0; j < i; ++j) {
+            ItemEntity itementity = this.spawnAtLocation((ItemLike)ModItems.BLABBALL.get(), 1);
+            if (itementity != null) {
+                itementity.setDeltaMovement(itementity.getDeltaMovement().add((double)((this.random.nextFloat() - this.random.nextFloat()) * 0.1F), (double)(this.random.nextFloat() * 0.05F), (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.1F)));
+            }
+        }
+        Rabbit rabbit = (Rabbit) EntityType.RABBIT.create(this.level());
+        rabbit.moveTo(rabbit.getOnPos(), 0.0F, 0.0F);
+        rabbit.finalizeSpawn((ServerLevelAccessor) this.level(), this.level().getCurrentDifficultyAt(this.getOnPos()), MobSpawnType.CONVERSION, (SpawnGroupData)null, (CompoundTag)null);
+        this.level().addFreshEntity(rabbit);
+        this.discard();
+
+    }
+
+    @Override
+    public boolean readyForShearing() {
+        return true;
+    }
 }
+
+

@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "rotated=1": {
+      "model": "jigsaw_pp:block/yoba_rotated_poop",
+      "y": 270
+    },
+    "rotated=2": {
+      "model": "jigsaw_pp:block/yoba_rotated_poop",
+      "y": 90
+    },
+    "rotated=3": {
+      "model": "jigsaw_pp:block/yoba_upside_rotated_poop",
+      "y": 270
+    },
+    "rotated=4": {
+      "model": "jigsaw_pp:block/yoba_upside_rotated_poop",
+      "y": 90
+    },
+    "facing=down,upside=false,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_poop",
+      "x": 90
+    },
+    "facing=down,upside=true,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_upside_poop",
+      "x": 90
+    },
+    "facing=east,upside=false,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_poop",
+      "y": 90
+    },
+    "facing=east,upside=true,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_upside_poop",
+      "y": 90
+    },
+    "facing=north,upside=false,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_poop"
+    },
+    "facing=north,upside=true,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_upside_poop"
+    },
+    "facing=south,upside=false,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_poop",
+      "y": 180
+    },
+    "facing=south,upside=true,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_upside_poop",
+      "y": 180
+    },
+    "facing=up,upside=false,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_poop",
+      "x": 270
+    },
+    "facing=up,upside=true,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_upside_poop",
+      "x": 270
+    },
+    "facing=west,upside=false,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_poop",
+      "y": 270
+    },
+    "facing=west,upside=true,rotated=0": {
+      "model": "jigsaw_pp:block/yoba_upside_poop",
+      "y": 270
+    }
+  }
+}
