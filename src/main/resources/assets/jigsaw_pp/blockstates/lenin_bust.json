@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,honey_level=0": {
+      "model": "jigsaw_pp:block/lenin_bust_0",
+      "y": 90
+    },
+    "facing=east,honey_level=1": {
+      "model": "jigsaw_pp:block/lenin_bust_1",
+      "y": 90
+    },
+    "facing=east,honey_level=2": {
+      "model": "jigsaw_pp:block/lenin_bust_2",
+      "y": 90
+    },
+    "facing=east,honey_level=3": {
+      "model": "jigsaw_pp:block/lenin_bust_3",
+      "y": 90
+    },
+    "facing=north,honey_level=0": {
+      "model": "jigsaw_pp:block/lenin_bust_0"
+    },
+    "facing=north,honey_level=1": {
+      "model": "jigsaw_pp:block/lenin_bust_1"
+    },
+    "facing=north,honey_level=2": {
+      "model": "jigsaw_pp:block/lenin_bust_2"
+    },
+    "facing=north,honey_level=3": {
+      "model": "jigsaw_pp:block/lenin_bust_3"
+    },
+    "facing=south,honey_level=0": {
+      "model": "jigsaw_pp:block/lenin_bust_0",
+      "y": 180
+    },
+    "facing=south,honey_level=1": {
+      "model": "jigsaw_pp:block/lenin_bust_1",
+      "y": 180
+    },
+    "facing=south,honey_level=2": {
+      "model": "jigsaw_pp:block/lenin_bust_2",
+      "y": 180
+    },
+    "facing=south,honey_level=3": {
+      "model": "jigsaw_pp:block/lenin_bust_3",
+      "y": 180
+    },
+    "facing=west,honey_level=0": {
+      "model": "jigsaw_pp:block/lenin_bust_0",
+      "y": 270
+    },
+    "facing=west,honey_level=1": {
+      "model": "jigsaw_pp:block/lenin_bust_1",
+      "y": 270
+    },
+    "facing=west,honey_level=2": {
+      "model": "jigsaw_pp:block/lenin_bust_2",
+      "y": 270
+    },
+    "facing=west,honey_level=3": {
+      "model": "jigsaw_pp:block/lenin_bust_3",
+      "y": 270
+    }
+  }
+}
