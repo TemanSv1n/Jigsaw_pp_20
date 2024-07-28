@@ -1,6 +1,5 @@
 package net.svisvi.jigsawpp.item.slon_gun;
 
-import net.minecraft.advancements.critereon.ItemDurabilityTrigger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -8,10 +7,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
@@ -25,18 +21,17 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.entity.IEntityAdditionalSpawnData;
-import net.svisvi.jigsawpp.entity.init.ModEntities;
-import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
+import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
 
-public class SlonGunItem extends Item {
+public class SlonGunGreenItem extends Item {
 
     private Fluid content;
 
 
 
-    public SlonGunItem() {super(
+    public SlonGunGreenItem() {super(
             new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).durability(1001)
     );
     };
@@ -58,7 +53,7 @@ public class SlonGunItem extends Item {
                 BlockPos pos1 = pos.relative(direction);
                 BlockState state = pLevel.getBlockState(pos1);
                 Block block = state.getBlock();
-                if(block == Blocks.WATER){
+                if(block == ModBlocks.PONOS_FLUID_BLOCK.get()){
                     if(damage > 0) {
                         chleen(pos1, pLevel);
                         pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.DROWNED_HURT_WATER, SoundSource.PLAYERS, 0.5f, 2f);
@@ -77,12 +72,12 @@ public class SlonGunItem extends Item {
                     itemuse.shrink(0);
                     itemuse.setDamageValue(-10);
                 }
-               SlonProjectile.shoot(pLevel, pPlayer, 2, 0);
+
+                SlonGunGreenProjectile.shoot(pLevel, pPlayer, 2, 0);
                 //buse(pPlayer);
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 0.5f, 2f);
                 pPlayer.getCooldowns().addCooldown(this, 10);
             }
         }
         return interact;
-    }
-}
+    }}
