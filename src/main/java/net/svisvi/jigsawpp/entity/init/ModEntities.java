@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
+import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ThrownSweetBreadProjectile;
 import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
@@ -43,6 +44,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<BlabbitEntity>> BLABBIT =
             ENTITY_TYPES.register("blabbit",() -> EntityType.Builder.of(BlabbitEntity::new, MobCategory.MONSTER)
                     .sized(1f,1.8f).build("blabbit"));
+
+    public static final RegistryObject<EntityType<SlonProjectile>> SLONGUN_PROJECTILE =
+            ENTITY_TYPES.register("slon_gun_projectile", () -> EntityType.Builder.<SlonProjectile>of(SlonProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("slon_gun_projectile"));
   
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

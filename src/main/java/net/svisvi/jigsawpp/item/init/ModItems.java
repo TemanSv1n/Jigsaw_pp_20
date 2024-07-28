@@ -33,6 +33,7 @@ import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
+import net.svisvi.jigsawpp.item.slon_gun.SlonGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 import net.svisvi.jigsawpp.item.ut.RadiationItem;
 
@@ -60,6 +61,8 @@ public class ModItems {
 	public static final RegistryObject<Item> HAZMAT_BOOTS = REGISTRY.register("hazmat_boots", () -> new HazmatItem.Boots());
 
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
+
+	public static final RegistryObject<Item> SLON_GUN = REGISTRY.register("slon_gun", () -> new SlonGunItem());
 
 	public static final RegistryObject<Item> SLAVE_HELMET = REGISTRY.register("slave_helmet", () -> new SlaveItem.Helmet());
 	public static final RegistryObject<Item> SLAVE_CHESTPLATE = REGISTRY.register("slave_chestplate", () -> new SlaveItem.Chestplate());
@@ -125,7 +128,7 @@ public class ModItems {
 	public static final RegistryObject<Item> SMART_BEAWEED_PLATE = REGISTRY.register("smart_beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> CARROT_COIL = REGISTRY.register("carrot_coil", () -> new Item(new Item.Properties().stacksTo(64)));
 
-
+	public static final RegistryObject<Item> SLONGUN_COSTIL =REGISTRY.register("slongun_costil", () -> new Item(new Item.Properties().stacksTo(64)));
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
