@@ -104,6 +104,8 @@
   "recipe.jigsaw_pp.purgen_catalyst": "Катализатор пургенового синтеза",
   "recipe.jigsaw_pp.purgen_factory": "Пургеновый завод",
 
+  "item.jigsaw_pp.slon_gun":  "Слон пистолет",
+
   "jigsaw_pp.tooltip.liquid.amount": "%s mB",
   "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "jigsaw_pp.tooltip.liquid.mb": " mB"
