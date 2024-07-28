@@ -60,7 +60,12 @@
   "item.jigsaw_pp.crystal_purgen_pilule": "Crystal purgen pilule",
   "item.jigsaw_pp.empty_pilule": "Pilule",
 
+
   "item.jigsaw_pp.blabbit_spawn_egg": "§dBlabbit§r spawn egg",
+  "item.jigsaw_pp.prh_tnt": "Explosion chance",
+  "item.jigsaw_pp.prh_clock": "Longevity",
+  "item.jigsaw_pp.prh_purity": "Purity",
+
   "subtitles.blabbit_live": "Blabbit mumbles",
   "entity.jigsaw_pp.blabbit": "Blabbit",
 
@@ -100,6 +105,7 @@
   "subtitles.factory_heater": "Factory heater is working",
   "recipe.jigsaw_pp.purgen_catalyst": "Purgen reaction catalyst",
   "recipe.jigsaw_pp.purgen_factory": "Purgen factory",
+  "item.jigsaw_pp.slon_gun":  "Slon gun",
 
   "jigsaw_pp.tooltip.liquid.amount": "%s mB",
   "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
