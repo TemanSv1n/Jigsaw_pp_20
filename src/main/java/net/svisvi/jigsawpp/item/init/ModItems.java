@@ -33,6 +33,8 @@ import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
+import net.svisvi.jigsawpp.item.slon_gun.SlonGunGreenItem;
+import net.svisvi.jigsawpp.item.slon_gun.SlonGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 import net.svisvi.jigsawpp.item.ut.RadiationItem;
 
@@ -64,12 +66,14 @@ public class ModItems {
 
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
 
+	public static final RegistryObject<Item> SLON_GUN = REGISTRY.register("slon_gun", () -> new SlonGunItem());
+
 	public static final RegistryObject<Item> SLAVE_HELMET = REGISTRY.register("slave_helmet", () -> new SlaveItem.Helmet());
 	public static final RegistryObject<Item> SLAVE_CHESTPLATE = REGISTRY.register("slave_chestplate", () -> new SlaveItem.Chestplate());
 	public static final RegistryObject<Item> SLAVE_LEGGINGS = REGISTRY.register("slave_leggings", () -> new SlaveItem.Leggings());
 	public static final RegistryObject<Item> SLAVE_BOOTS = REGISTRY.register("slave_boots", () -> new SlaveItem.Boots());
 
-	public static final RegistryObject<Item> DRIST_BUTTON = REGISTRY.register("drist_button", () -> new dristButtonItem());
+	public static final RegistryObject<Item> DRIST_BUTTON = REGISTRY.register("drist_button", () -> new DristButtonItem());
 
 	public static final RegistryObject<Item> BEAWEED_SEEDS = REGISTRY.register("beaweed_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAWEED.get(), new Item.Properties()));
 	public static final RegistryObject<Item> FORK = REGISTRY.register("fork", () -> new ForkItem());
@@ -131,8 +135,8 @@ public class ModItems {
 	public static final RegistryObject<Item> BLABEGG = REGISTRY.register("blabegg", () -> new BlabEggItem());
 	public static final RegistryObject<Item> USELESS_PIE = REGISTRY.register("useless_pie", () -> new UselessPieItem());
 
-
-
+	public static final RegistryObject<Item> SLONGUN_COSTIL =REGISTRY.register("slongun_costil", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> SLONGUN_GREEN = REGISTRY.register("slon_gun_green", () -> new SlonGunGreenItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
