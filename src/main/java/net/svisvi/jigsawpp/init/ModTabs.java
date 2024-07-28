@@ -80,23 +80,29 @@ public class ModTabs {
 						tabData.accept(ModItems.SMART_BEAWEED_PLATE.get());
 						tabData.accept(ModItems.NUCLEAR_PURGEN_PILULE.get());
 						tabData.accept(ModItems.FITTING.get());
+						tabData.accept(ModItems.BLABBALL.get());
+						tabData.accept(ModItems.BLABEGG.get());
+						tabData.accept(ModItems.USELESS_PIE.get());
+						tabData.accept(ModItems.YOBA.get());
+						tabData.accept(ModItems.YOBA_POOP.get());
+						tabData.accept(ModItems.POOPED_BRICKS.get());
 						tabData.accept(ModItems.SLON_GUN.get());
 						tabData.accept(ModItems.SLONGUN_GREEN.get());
 
 			}).build());
 
 
-	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB_MATERIALS = REGISTRY.register("jigsaw_tab_materilas",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab_materials")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
-				tabData.accept(ModItems.FITTING.get());
-				tabData.accept(ModItems.BEAWEED_DUST.get());
-				tabData.accept(ModItems.BEAWEED_BLOCK.get());
-				tabData.accept(ModItems.COAL_FOSSIL.get());
-				tabData.accept(ModItems.CARROT_COIL.get());
-				tabData.accept(ModItems.BEAWEED_PLATE.get());
-				tabData.accept(ModItems.SMART_BEAWEED_PLATE.get());
-				tabData.accept(ModItems.RADIATION_CATALYST_ACTIVATED.get());
-				tabData.accept(ModItems.RADIATION_CATALYST_NON_ACTIVATED.get());
-
-			}).build());
+//	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB_MATERIALS = REGISTRY.register("jigsaw_tab_materilas",
+//			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab_materials")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
+//				tabData.accept(ModItems.FITTING.get());
+//				tabData.accept(ModItems.BEAWEED_DUST.get());
+//				tabData.accept(ModItems.BEAWEED_BLOCK.get());
+//				tabData.accept(ModItems.COAL_FOSSIL.get());
+//				tabData.accept(ModItems.CARROT_COIL.get());
+//				tabData.accept(ModItems.BEAWEED_PLATE.get());
+//				tabData.accept(ModItems.SMART_BEAWEED_PLATE.get());
+//				tabData.accept(ModItems.RADIATION_CATALYST_ACTIVATED.get());
+//				tabData.accept(ModItems.RADIATION_CATALYST_NON_ACTIVATED.get());
+//
+//			}).build());
 }

@@ -10,7 +10,7 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
-import net.svisvi.jigsawpp.init.FriedBeaweedSeedsItem;
+import net.svisvi.jigsawpp.item.FriedBeaweedSeedsItem;
 import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
@@ -49,6 +49,9 @@ public class ModItems {
 	public static final RegistryObject<Item> RAW_TEAPOT = block(ModBlocks.RAW_TEAPOT);
 	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
 	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
+	public static final RegistryObject<Item> YOBA = block(ModBlocks.YOBA);
+	public static final RegistryObject<Item> YOBA_POOP = block(ModBlocks.YOBA_POOP);
+	public static final RegistryObject<Item> POOPED_BRICKS = block(ModBlocks.POOPED_BRICKS);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
@@ -128,6 +131,9 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAWEED_PLATE = REGISTRY.register("beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> SMART_BEAWEED_PLATE = REGISTRY.register("smart_beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> CARROT_COIL = REGISTRY.register("carrot_coil", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> BLABBALL = REGISTRY.register("blabball", () -> new BlabballItem());
+	public static final RegistryObject<Item> BLABEGG = REGISTRY.register("blabegg", () -> new BlabEggItem());
+	public static final RegistryObject<Item> USELESS_PIE = REGISTRY.register("useless_pie", () -> new UselessPieItem());
 
 	public static final RegistryObject<Item> SLONGUN_COSTIL =REGISTRY.register("slongun_costil", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> SLONGUN_GREEN = REGISTRY.register("slon_gun_green", () -> new SlonGunGreenItem());

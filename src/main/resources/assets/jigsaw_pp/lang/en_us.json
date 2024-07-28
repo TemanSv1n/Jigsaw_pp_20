@@ -60,11 +60,12 @@
   "item.jigsaw_pp.crystal_purgen_pilule": "Crystal purgen pilule",
   "item.jigsaw_pp.empty_pilule": "Pilule",
 
+
+  "item.jigsaw_pp.blabbit_spawn_egg": "§dBlabbit§r spawn egg",
   "item.jigsaw_pp.prh_tnt": "Explosion chance",
   "item.jigsaw_pp.prh_clock": "Longevity",
   "item.jigsaw_pp.prh_purity": "Purity",
 
-  "item.jigsaw_pp.blabbit_spawn_egg": "Blabbit spawn egg",
   "subtitles.blabbit_live": "Blabbit mumbles",
   "entity.jigsaw_pp.blabbit": "Blabbit",
 
@@ -108,5 +109,20 @@
 
   "jigsaw_pp.tooltip.liquid.amount": "%s mB",
   "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
-  "jigsaw_pp.tooltip.liquid.mb": " mB"
+  "jigsaw_pp.tooltip.liquid.mb": " mB",
+
+
+  "jigsaw_pp.divider_of_localisation_version": "ALL THAT ADDED AFTER THIS IS NOT RU-LOCALISED UNTIL RELEASE! PLEASE DO NOT ADD LOCALES ABOVE THIS LINE. ONLY UNDER",
+
+
+  "item.jigsaw_pp.blabball.desc": "§7Shear a leashed §dBlabbit",
+  "item.jigsaw_pp.blabball": "Blabball",
+  "item.jigsaw_pp.blabegg": "Blabbit Egg",
+
+  "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a useless pie",
+  "item.jigsaw_pp.useless_pie": "Useless pie",
+  "block.jigsaw_pp.yoba": "Yoba",
+  "block.jigsaw_pp.yoba_poop": "Diarrhea Yoba",
+  "block.jigsaw_pp.pooped_bricks": "Pooped Bricks",
+  "block.jigsaw_pp.lenin_bust": "Lenin bust"
 }

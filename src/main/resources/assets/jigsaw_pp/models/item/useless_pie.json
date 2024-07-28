@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "jigsaw_pp:item/useless_pie"
+  }
+}
