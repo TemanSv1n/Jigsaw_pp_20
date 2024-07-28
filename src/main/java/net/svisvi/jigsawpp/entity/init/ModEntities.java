@@ -16,6 +16,7 @@ import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
+import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
 
@@ -48,6 +49,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<SlonProjectile>> SLONGUN_PROJECTILE =
             ENTITY_TYPES.register("slon_gun_projectile", () -> EntityType.Builder.<SlonProjectile>of(SlonProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("slon_gun_projectile"));
+
+    public static final RegistryObject<EntityType<SlonGunGreenProjectile>> SLONGUN_GREEN_PROJECTILE =
+            ENTITY_TYPES.register("slon_gun_green_projectile", () -> EntityType.Builder.<SlonGunGreenProjectile>of(SlonGunGreenProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("slon_gun_green_projectile"));
   
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

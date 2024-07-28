@@ -8,9 +8,9 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 
 
-public class dristButtonItem extends Item {
+public class DristButtonItem extends Item {
 
-    public dristButtonItem() {
+    public DristButtonItem() {
         super(new Properties().stacksTo(1).rarity(Rarity.RARE));
     }
 
