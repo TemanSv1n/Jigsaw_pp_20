@@ -30,6 +30,7 @@ import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
+import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
 //import net.svisvi.jigsawpp.fluid.init.ModFluid;
 
@@ -153,6 +154,8 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.PURGEN_PILULE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.EXTINGUISHER_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BLABBIT.get(), BlabbitRenderer::new);
+			EntityRenderers.register(ModEntities.SLONGUN_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.SLONGUN_GREEN_PROJECTILE.get(), ThrownItemRenderer::new);
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}

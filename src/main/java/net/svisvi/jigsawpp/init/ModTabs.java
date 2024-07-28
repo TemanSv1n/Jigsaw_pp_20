@@ -80,6 +80,8 @@ public class ModTabs {
 						tabData.accept(ModItems.SMART_BEAWEED_PLATE.get());
 						tabData.accept(ModItems.NUCLEAR_PURGEN_PILULE.get());
 						tabData.accept(ModItems.FITTING.get());
+						tabData.accept(ModItems.SLON_GUN.get());
+						tabData.accept(ModItems.SLONGUN_GREEN.get());
 
 			}).build());
 
