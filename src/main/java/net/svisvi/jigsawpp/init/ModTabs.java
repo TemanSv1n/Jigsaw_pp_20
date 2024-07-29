@@ -21,7 +21,7 @@ public class ModTabs {
 
 
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB = REGISTRY.register("jigsaw_tab",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(ModItems.TEAPOT.get())).displayItems((parameters, tabData) -> {
 						tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.MOSS_ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
