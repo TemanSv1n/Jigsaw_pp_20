@@ -7,10 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
-import net.svisvi.jigsawpp.effect.PoopEffect;
-import net.svisvi.jigsawpp.effect.PurgativeEffect;
-import net.svisvi.jigsawpp.effect.RadiationEffect;
-import net.svisvi.jigsawpp.effect.RandomBadEffect;
+import net.svisvi.jigsawpp.effect.*;
 
 public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS
@@ -30,6 +27,8 @@ public class ModEffects {
             () -> new RandomBadEffect(MobEffectCategory.HARMFUL));
     public static final RegistryObject<MobEffect> GOOD_EFFECT = MOB_EFFECTS.register("random_good_effect",
             () -> new RandomBadEffect(MobEffectCategory.HARMFUL));
+    public static final RegistryObject<MobEffect> BVSOD = MOB_EFFECTS.register("bvsod",
+            () -> new BeaverSODeffect());
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

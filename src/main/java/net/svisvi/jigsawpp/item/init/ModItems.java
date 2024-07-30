@@ -54,6 +54,7 @@ public class ModItems {
 	public static final RegistryObject<Item> POOPED_BRICKS = block(ModBlocks.POOPED_BRICKS);
 	public static final RegistryObject<Item> LENIN_BUST = block(ModBlocks.LENIN_BUST);
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
+	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
@@ -140,6 +141,7 @@ public class ModItems {
 	public static final RegistryObject<Item> SLONGUN_COSTIL =REGISTRY.register("slongun_costil", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> SLONGUN_GREEN = REGISTRY.register("slon_gun_green", () -> new SlonGunGreenItem());
 	public static final RegistryObject<Item> MOLD = REGISTRY.register("mold", () -> new MoldItem());
+	public static final RegistryObject<Item> BEAVER_KNIFE = REGISTRY.register("beaver_knife", () -> new BeaverKnifeItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
