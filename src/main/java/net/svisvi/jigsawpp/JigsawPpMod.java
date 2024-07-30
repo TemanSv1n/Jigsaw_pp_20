@@ -49,6 +49,7 @@ import net.svisvi.jigsawpp.item.init.ModItemProperties;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.particles.ModParticles;
+import net.svisvi.jigsawpp.poi_types.ModPoiTypes;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -108,6 +109,8 @@ public class JigsawPpMod {
 
 		ModMenuTypes.REGISTRY.register(bus);
 
+		ModPoiTypes.POI_TYPES.register(bus);
+
 		ModMessages.register();
 
 		MinecraftForge.EVENT_BUS.register(this);
@@ -146,6 +149,7 @@ public class JigsawPpMod {
 
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEAWEED.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.LENIN_BUST.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURGEN_FACTORY.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
@@ -166,6 +170,8 @@ public class JigsawPpMod {
 		@SubscribeEvent
 		public static void onServerSetup(FMLDedicatedServerSetupEvent event) {
 			//ModDatas.addFactoryHeaterFurnaceModeList(ModBlocks.TEAPOT.get());
+
+
 		}
 	}
 
