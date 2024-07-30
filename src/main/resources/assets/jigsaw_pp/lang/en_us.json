@@ -128,5 +128,6 @@
   "block.jigsaw_pp.mold_block": "Mold block",
   "item.jigsaw_pp.mold": "Mold",
   "block.jigsaw_pp.beaver_computer": "Beaverhost",
-  "effect.jigsaw.beaver_so_deffect": "Brown screen of Death"
+  "effect.jigsaw.beaver_so_deffect": "Brown screen of Death",
+  "item.jigsaw_pp.beaver_knife": "Beaver knife"
 }
