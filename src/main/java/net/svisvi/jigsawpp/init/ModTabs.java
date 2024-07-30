@@ -92,6 +92,8 @@ public class ModTabs {
 						tabData.accept(ModItems.MOLD.get());
 						tabData.accept(ModItems.MOLD_BLOCK.get());
 						tabData.accept(ModItems.LENIN_BUST.get());
+						tabData.accept(ModItems.BEAVER_COMPUTER.get());
+						tabData.accept(ModItems.BEAVER_KNIFE.get());
 
 			}).build());
 
