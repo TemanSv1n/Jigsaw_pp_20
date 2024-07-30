@@ -95,6 +95,9 @@ public class YobaBlock extends Block implements Equipable {
     public Block getTrace(){
         return Blocks.AIR;
     }
+    public Block getDied(){
+        return Blocks.HAY_BLOCK;
+    }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(new Property[]{FACING, UPSIDE, ROTATED, REAL_FACING});
@@ -228,20 +231,26 @@ public class YobaBlock extends Block implements Equipable {
     }
 
     public void move(BlockState pState, Level pLevel, BlockPos pPos, RandomSource random){
-        if (!canReplaceBlock(pLevel.getBlockState(pPos.below()))) {
-            if (canReplaceBlock(getBlockStateForward(pState, pPos, pLevel))) {
-                if (random.nextFloat() < 0.1F){
+            if (!canReplaceBlock(pLevel.getBlockState(pPos.below()))) {
+                if (canReplaceBlock(getBlockStateForward(pState, pPos, pLevel))) {
+                    if (random.nextFloat() < 0.1F) {
+                        rotate(pState, pLevel, pPos, random);
+                    }
+                    moveForward(pState, pLevel, pPos);
+                } else if (canReplaceBlock(getBlockStateForward(pState, pPos.above(), pLevel))) {
+                    moveUpForward(pState, pLevel, pPos);
+                } else {
                     rotate(pState, pLevel, pPos, random);
                 }
-                moveForward(pState, pLevel, pPos);
-            } else if (canReplaceBlock(getBlockStateForward(pState, pPos.above(), pLevel))){
-                moveUpForward(pState, pLevel, pPos);
             } else {
-                rotate(pState, pLevel, pPos, random);
+                moveDownwards(pState, pLevel, pPos);
             }
-        } else{
-            moveDownwards(pState, pLevel, pPos);
-        }
+
+
+    }
+
+    public void die(BlockState pState, Level pLevel, BlockPos pPos){
+        pLevel.setBlock(pPos, getDied().defaultBlockState(), 3);
     }
 
     public BlockPos getPosForward(BlockState pState, BlockPos pPos){
