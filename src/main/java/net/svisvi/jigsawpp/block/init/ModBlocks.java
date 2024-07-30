@@ -2,16 +2,19 @@ package net.svisvi.jigsawpp.block.init;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.BeaweedBlock;
+import net.svisvi.jigsawpp.block.MoldBlock;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
 import net.svisvi.jigsawpp.block.kega.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
+import net.svisvi.jigsawpp.block.lenin_bust.LeninBustBlock;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
 import net.svisvi.jigsawpp.block.CoalFossilBlock;
@@ -50,4 +53,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> YOBA = REGISTRY.register("yoba", () -> new YobaBlock());
     public static final RegistryObject<Block> YOBA_POOP = REGISTRY.register("yoba_poop", () -> new YobaPoopBlock());
     public static final RegistryObject<Block> POOPED_BRICKS = REGISTRY.register("pooped_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
+    public static final RegistryObject<Block> LENIN_BUST = REGISTRY.register("lenin_bust", () -> new LeninBustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASS).strength(0.6F).noOcclusion().sound(SoundType.STONE).ignitedByLava()));
+    public static final RegistryObject<Block> MOLD_BLOCK = REGISTRY.register("mold_block", () -> new MoldBlock());
 }

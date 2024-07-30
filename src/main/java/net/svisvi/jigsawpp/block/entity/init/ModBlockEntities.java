@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.block.entity.FactoryHeaterBlockEntity;
+import net.svisvi.jigsawpp.block.entity.LeninBustBlockEntity;
 import net.svisvi.jigsawpp.block.entity.PurgenFactoryBlockEntity;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 
@@ -20,6 +21,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<PurgenFactoryBlockEntity>> PURGEN_FACTORY_BE = REGISTRY.register("purgen_factory_be", () ->
             BlockEntityType.Builder.of(PurgenFactoryBlockEntity::new,
                     ModBlocks.PURGEN_FACTORY.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<LeninBustBlockEntity>> LENIN_BUST_BE = REGISTRY.register("lenin_bust_be", () ->
+            BlockEntityType.Builder.of(LeninBustBlockEntity::new,
+                    ModBlocks.LENIN_BUST.get()).build(null));
 
 
     public static void register(IEventBus eventBus){
