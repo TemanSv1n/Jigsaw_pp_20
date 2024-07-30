@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:mold_block"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_pp:mold",
+    "count": 9
+  }
+}

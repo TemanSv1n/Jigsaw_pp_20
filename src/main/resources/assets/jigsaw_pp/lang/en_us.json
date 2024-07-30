@@ -121,8 +121,10 @@
 
   "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a useless pie",
   "item.jigsaw_pp.useless_pie": "Useless pie",
-  "block.jigsaw_pp.yoba": "Yoba",
-  "block.jigsaw_pp.yoba_poop": "Diarrhea Yoba",
+  "block.jigsaw_pp.yoba": "Snide dough ball",
+  "block.jigsaw_pp.yoba_poop": "Malicious dough ball",
   "block.jigsaw_pp.pooped_bricks": "Pooped Bricks",
-  "block.jigsaw_pp.lenin_bust": "Lenin bust"
+  "block.jigsaw_pp.lenin_bust": "Lenin bust",
+  "block.jigsaw_pp.mold_block": "Mold block",
+  "item.jigsaw_pp.mold": "Mold"
 }

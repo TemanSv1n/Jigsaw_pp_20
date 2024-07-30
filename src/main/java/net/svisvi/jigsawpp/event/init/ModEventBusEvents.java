@@ -16,4 +16,6 @@ public class ModEventBusEvents {
         event.put(ModEntities.MOSS_ELEPHANT.get(), MossElephantEntity.createAttributes().build());
         event.put(ModEntities.BLABBIT.get(), BlabbitEntity.createAttributes().build());
     }
+
+
 }

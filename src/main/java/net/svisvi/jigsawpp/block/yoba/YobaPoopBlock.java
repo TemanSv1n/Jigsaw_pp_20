@@ -28,6 +28,9 @@ public class YobaPoopBlock extends YobaBlock{
     public Block getTrace(){
         return ModBlocks.PONOS_FLUID_BLOCK.get();
     }
+    public Block getDied(){
+        return ModBlocks.MOLD_BLOCK.get();
+    }
 
     @Override
     public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {

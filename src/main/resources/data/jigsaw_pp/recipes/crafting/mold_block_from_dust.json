@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:mold"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:mold_block",
+    "count": 1
+  }
+}

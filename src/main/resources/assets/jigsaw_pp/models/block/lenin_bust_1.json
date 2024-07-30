@@ -4,5 +4,6 @@
     "1": "jigsaw_pp:block/lenin_torso_1",
     "2": "jigsaw_pp:block/lenin_head_r_1",
     "particle": "jigsaw_pp:block/lenin_torso_1"
-  }
+  },
+  "render_type": "cutout"
 }

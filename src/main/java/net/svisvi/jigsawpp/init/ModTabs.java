@@ -71,7 +71,7 @@ public class ModTabs {
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
-						tabData.accept(ModItems.KEGA.get());
+				//		tabData.accept(ModItems.KEGA.get());
 						tabData.accept(ModItems.KEGA_NULL.get());
 						tabData.accept(ModItems.BLABBIT_SPAWN_EGG.get());
 
@@ -88,6 +88,10 @@ public class ModTabs {
 						tabData.accept(ModItems.POOPED_BRICKS.get());
 						tabData.accept(ModItems.SLON_GUN.get());
 						tabData.accept(ModItems.SLONGUN_GREEN.get());
+
+						tabData.accept(ModItems.MOLD.get());
+						tabData.accept(ModItems.MOLD_BLOCK.get());
+						tabData.accept(ModItems.LENIN_BUST.get());
 
 			}).build());
 
