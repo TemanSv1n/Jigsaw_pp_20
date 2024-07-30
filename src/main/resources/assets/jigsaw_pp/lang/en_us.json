@@ -126,5 +126,7 @@
   "block.jigsaw_pp.pooped_bricks": "Pooped Bricks",
   "block.jigsaw_pp.lenin_bust": "Lenin bust",
   "block.jigsaw_pp.mold_block": "Mold block",
-  "item.jigsaw_pp.mold": "Mold"
+  "item.jigsaw_pp.mold": "Mold",
+  "block.jigsaw_pp.beaver_computer": "Beaverhost",
+  "effect.jigsaw.beaver_so_deffect": "Brown screen of Death"
 }

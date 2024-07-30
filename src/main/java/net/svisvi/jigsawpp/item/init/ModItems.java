@@ -54,6 +54,7 @@ public class ModItems {
 	public static final RegistryObject<Item> POOPED_BRICKS = block(ModBlocks.POOPED_BRICKS);
 	public static final RegistryObject<Item> LENIN_BUST = block(ModBlocks.LENIN_BUST);
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
+	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",

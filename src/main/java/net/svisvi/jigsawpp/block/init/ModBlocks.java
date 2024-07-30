@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
+import net.svisvi.jigsawpp.block.BeaverComputerBlock;
 import net.svisvi.jigsawpp.block.BeaweedBlock;
 import net.svisvi.jigsawpp.block.MoldBlock;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
@@ -55,4 +56,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> POOPED_BRICKS = REGISTRY.register("pooped_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
     public static final RegistryObject<Block> LENIN_BUST = REGISTRY.register("lenin_bust", () -> new LeninBustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASS).strength(0.6F).noOcclusion().sound(SoundType.STONE).ignitedByLava()));
     public static final RegistryObject<Block> MOLD_BLOCK = REGISTRY.register("mold_block", () -> new MoldBlock());
+    public static final RegistryObject<Block> BEAVER_COMPUTER = REGISTRY.register("beaver_computer", () -> new BeaverComputerBlock());
 }
