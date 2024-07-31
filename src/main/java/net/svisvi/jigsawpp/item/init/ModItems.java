@@ -142,6 +142,7 @@ public class ModItems {
 	public static final RegistryObject<Item> SLONGUN_GREEN = REGISTRY.register("slon_gun_green", () -> new SlonGunGreenItem());
 	public static final RegistryObject<Item> MOLD = REGISTRY.register("mold", () -> new MoldItem());
 	public static final RegistryObject<Item> BEAVER_KNIFE = REGISTRY.register("beaver_knife", () -> new BeaverKnifeItem());
+	public static final RegistryObject<Item> BEAVER_AXE = REGISTRY.register("beaver_axe", () -> new BeaverAxeItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
