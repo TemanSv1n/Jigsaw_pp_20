@@ -461,6 +461,9 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
     public @NotNull List<ItemStack> onSheared(@Nullable Player player, @NotNull ItemStack item, Level level, BlockPos pos, int fortune) {
         ArrayList<ItemStack> list = new ArrayList<ItemStack>();
         list.add(new ItemStack(ModItems.BLABBALL.get(), 2));
+        if (this.isLeashed()){
+            list.add(new ItemStack(Items.LEAD, 1));
+        }
 
         if (!level.isClientSide()) {
             level.playSound(null, pos, SoundEvents.SHEEP_SHEAR, SoundSource.NEUTRAL, 1, 1);
@@ -470,7 +473,7 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
             level.playLocalSound(pos, SoundEvents.ZOMBIE_CONVERTED_TO_DROWNED, SoundSource.NEUTRAL, 1, 1, false);
         }
         if (level instanceof ServerLevel _level)
-            _level.sendParticles(ParticleTypes.EXPLOSION, pos.getX(), pos.getY(), pos.getZ(), 5, 0.5, 0.5, 0.5, 0);
+            _level.sendParticles(ParticleTypes.EXPLOSION, pos.getX(), pos.getY()+1, pos.getZ(), 12, 0.5, 0.5, 0.5, 0);
 
         Rabbit rabbit = (Rabbit) EntityType.RABBIT.create(level);
         rabbit.moveTo(pos, 0.0F, 0.0F);
