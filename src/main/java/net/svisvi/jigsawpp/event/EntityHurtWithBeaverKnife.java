@@ -18,7 +18,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 import javax.annotation.Nullable;
-
+//ACHTUNG MCREATOR LEGACY CODE
 @Mod.EventBusSubscriber
 public class EntityHurtWithBeaverKnife {
     @SubscribeEvent

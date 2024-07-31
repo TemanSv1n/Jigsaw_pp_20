@@ -56,6 +56,7 @@ public class BeaverAxeItem extends AxeItem {
         return InteractionResult.SUCCESS;
     }
 
+    //ACHTUNG!!! MCREATOR LEGACY CODE
     public static void execute(Level world, BlockPos pPos, ItemStack itemstack) {
         boolean found = false;
         int sx = 0;
