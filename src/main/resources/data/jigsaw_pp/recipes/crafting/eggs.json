@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#C#",
+    " D ",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:blabball"
+    },
+    "C": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:eggs",
+    "count": 1
+  }
+}
