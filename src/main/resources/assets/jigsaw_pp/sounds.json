@@ -80,5 +80,14 @@
         "stream": false
       }
     ]
+  },
+  "clown_horn": {
+    "subtitle": "subtitles.clown_horn",
+    "sounds": [
+      {
+        "name": "jigsaw_pp:clown_horn",
+        "stream": false
+      }
+    ]
   }
 }
