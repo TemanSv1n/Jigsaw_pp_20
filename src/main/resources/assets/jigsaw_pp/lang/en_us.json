@@ -132,5 +132,10 @@
   "item.jigsaw_pp.beaver_knife": "Beaver knife",
   "item.jigsaw_pp.beaver_axe": "Beaver axe",
   "item.jigsaw_pp.pigkaxe": "Pigkaxe",
-  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod"
+  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod",
+  "item.jigsaw_pp.tube_19": "Tube №19",
+  "subtitles.clown_horn": "Clown noise",
+  "item.jigsaw_pp.eggs": "Eggs",
+  "effect.jigsaw_pp.egged": "Egg magic",
+  "item.jigsaw_pp.totem_of_shit": "Totem of shit"
 }

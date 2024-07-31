@@ -29,6 +29,8 @@ public class ModEffects {
             () -> new RandomBadEffect(MobEffectCategory.HARMFUL));
     public static final RegistryObject<MobEffect> BVSOD = MOB_EFFECTS.register("bvsod",
             () -> new BeaverSODeffect());
+    public static final RegistryObject<MobEffect> EGGED = MOB_EFFECTS.register("egged",
+            () -> new EggedEffect());
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
