@@ -95,6 +95,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAVER_COMPUTER.get());
 						tabData.accept(ModItems.BEAVER_KNIFE.get());
 						tabData.accept(ModItems.BEAVER_AXE.get());
+						tabData.accept(ModItems.PIGKAXE.get());
 
 			}).build());
 
