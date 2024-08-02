@@ -149,6 +149,7 @@ public class ModItems {
 	public static final RegistryObject<Item> TUBE_19 = REGISTRY.register("tube_19", () -> new Tube19Item());
 	public static final RegistryObject<Item> EGGS = REGISTRY.register("eggs", () -> new EggsItem());
 	public static final RegistryObject<Item> TOTEM_OF_SHIT = REGISTRY.register("totem_of_shit", () -> new TotemOfShitItem());
+	public static final RegistryObject<Item> POOPED_BREAD = REGISTRY.register("pooped_bread", () -> new PoopedBreadItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
