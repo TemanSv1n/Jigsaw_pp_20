@@ -21,7 +21,7 @@ public class ModTabs {
 
 
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB = REGISTRY.register("jigsaw_tab",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(ModItems.TEAPOT.get())).displayItems((parameters, tabData) -> {
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(ModItems.BEAVER_BOMB.get())).displayItems((parameters, tabData) -> {
 						tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.MOSS_ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
@@ -101,6 +101,11 @@ public class ModTabs {
 						tabData.accept(ModItems.TOTEM_OF_SHIT.get());
 						tabData.accept(ModItems.JOTARO_HAT.get());
 						tabData.accept(ModItems.POOPED_BREAD.get());
+
+						tabData.accept(ModItems.BEAVER_HELMET.get());
+						tabData.accept(ModItems.BEAVER_CHESTPLATE.get());
+						tabData.accept(ModItems.BEAVER_BOOTS.get());
+						tabData.accept(ModItems.BEAVER_BOMB.get());
 
 			}).build());
 
