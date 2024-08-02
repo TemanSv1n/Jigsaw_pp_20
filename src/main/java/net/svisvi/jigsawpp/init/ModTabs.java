@@ -99,6 +99,7 @@ public class ModTabs {
 						tabData.accept(ModItems.TUBE_19.get());
 						tabData.accept(ModItems.EGGS.get());
 						tabData.accept(ModItems.TOTEM_OF_SHIT.get());
+						tabData.accept(ModItems.JOTARO_HAT.get());
 
 			}).build());
 
