@@ -153,6 +153,8 @@ public class ModItems {
 	public static final RegistryObject<Item> TOTEM_OF_SHIT = REGISTRY.register("totem_of_shit", () -> new TotemOfShitItem());
 	public static final RegistryObject<Item> POOPED_BREAD = REGISTRY.register("pooped_bread", () -> new PoopedBreadItem());
 	public static final RegistryObject<Item> BEAVER_BOMB = REGISTRY.register("beaver_bomb", () -> new BeaverBombItem());
+	public static final RegistryObject<Item> BEAVER_AMMO = REGISTRY.register("beaver_ammo", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> BEAVERZOOKA = REGISTRY.register("beaverzooka", () -> new BeaverzookaItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

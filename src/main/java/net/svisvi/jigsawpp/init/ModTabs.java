@@ -106,6 +106,8 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAVER_CHESTPLATE.get());
 						tabData.accept(ModItems.BEAVER_BOOTS.get());
 						tabData.accept(ModItems.BEAVER_BOMB.get());
+						tabData.accept(ModItems.BEAVERZOOKA.get());
+						tabData.accept(ModItems.BEAVER_AMMO.get());
 
 			}).build());
 
