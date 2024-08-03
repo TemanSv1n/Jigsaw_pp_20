@@ -143,5 +143,10 @@
   "item.jigsaw_pp.beaver_helmet": "Beaver mask",
   "item.jigsaw_pp.beaver_chestplate": "Beaver suit",
   "item.jigsaw_pp.beaver_boots": "Beaver boots",
-  "item.jigsaw_pp.beaver_bomb": "Beaver Bomb"
+  "item.jigsaw_pp.beaver_bomb": "Beaver Bomb",
+  "item.jigsaw_pp.beaverzooka": "Beaverzooka",
+  "item.jigsaw_pp.beaver_ammo": "Beaver ammo",
+  "item.jigsaw_pp.beaweed_plate": "Beaweed plate",
+  "item.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
+  "item.jigsaw_pp.beaverzooka.desc": "§7Uses beaver ammo to shoot"
 }
