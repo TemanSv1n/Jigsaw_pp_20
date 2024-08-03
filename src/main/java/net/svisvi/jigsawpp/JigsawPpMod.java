@@ -44,11 +44,11 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.init.ModDatas;
+import net.svisvi.jigsawpp.init.ModPaintings;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItemProperties;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
-import net.svisvi.jigsawpp.particles.ModParticles;
 import net.svisvi.jigsawpp.poi_types.ModPoiTypes;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import org.apache.logging.log4j.Logger;
@@ -92,6 +92,8 @@ public class JigsawPpMod {
 		ModFluidTypes.REGISTRY.register(bus);
 
 		//ModParticles.REGISTRY.register(bus);
+
+		ModPaintings.REGISTRY.register(bus);
 
 		ModParticleTypes.REGISTRY.register(bus);
 
