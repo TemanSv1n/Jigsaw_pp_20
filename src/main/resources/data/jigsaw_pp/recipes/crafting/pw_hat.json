@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " Y ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:black_wool"
+    },
+    "Y": {
+      "item": "minecraft:yellow_wool"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:pw_hat",
+    "count": 1
+  }
+}
