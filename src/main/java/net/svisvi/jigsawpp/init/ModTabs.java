@@ -108,6 +108,9 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAVER_BOMB.get());
 						tabData.accept(ModItems.BEAVERZOOKA.get());
 						tabData.accept(ModItems.BEAVER_AMMO.get());
+						tabData.accept(ModItems.SHIT_CUP.get());
+						tabData.accept(ModItems.ADMIN_STICK.get());
+						tabData.accept(ModItems.PW_HAT.get());
 
 			}).build());
 
