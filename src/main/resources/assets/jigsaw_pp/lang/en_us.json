@@ -139,6 +139,7 @@
   "effect.jigsaw_pp.egged": "Egg magic",
   "item.jigsaw_pp.totem_of_shit": "Totem of shit",
 
+
   "painting.jigsaw_pp.avebread.title": "Ave bread",
   "painting.jigsaw_pp.balls.title": "Balls",
   "painting.jigsaw_pp.beavernazi.title": "Beaver flag",
@@ -163,4 +164,18 @@
   "painting.jigsaw_pp.pug.author": "Beaver",
   "painting.jigsaw_pp.slonik.author": "Beaver",
   "painting.jigsaw_pp.svyatostrun.author": "Beaver"
+
+  "item.jigsaw_pp.jotaro_hat": "Jotaro's Cap",
+  "item.jigsaw_pp.pooped_bread": "Pooped bread",
+  "item.jigsaw_pp.beaver_helmet": "Beaver mask",
+  "item.jigsaw_pp.beaver_chestplate": "Beaver suit",
+  "item.jigsaw_pp.beaver_boots": "Beaver boots",
+  "item.jigsaw_pp.beaver_bomb": "Beaver Bomb",
+  "item.jigsaw_pp.beaverzooka": "Beaverzooka",
+  "item.jigsaw_pp.beaver_ammo": "Beaver ammo",
+  "item.jigsaw_pp.beaverzooka.desc": "§7Uses beaver ammo to shoot",
+  "item.jigsaw_pp.shit_cup": "The Great Shit cup",
+  "item.jigsaw_pp.admin_stick": "Admin ♂anal♂ stick",
+  "block.jigsaw_pp.pw_hat": "PWGood's tophat"
+
 }
