@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:fried_beaweed_seeds"
+    }
+  ],
+  "results": [
+    {
+      "item": "jigsaw_pp:beaweed_dust",
+      "count": 3
+    },
+    {
+      "item": "jigsaw_pp:beaweed_dust",
+      "count": 2,
+      "chance": 0.4
+    }
+  ],
+  "processingTime": 200
+}
