@@ -160,6 +160,8 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.BLABBIT.get(), BlabbitRenderer::new);
 			EntityRenderers.register(ModEntities.SLONGUN_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.SLONGUN_GREEN_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.BEAVER_BOMB.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}
