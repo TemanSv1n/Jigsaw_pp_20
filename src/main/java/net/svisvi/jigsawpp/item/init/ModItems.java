@@ -22,9 +22,8 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
-import net.svisvi.jigsawpp.item.armor.GasMaskItem;
-import net.svisvi.jigsawpp.item.armor.HazmatItem;
-import net.svisvi.jigsawpp.item.armor.SlaveItem;
+import net.svisvi.jigsawpp.item.armor.*;
+import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
@@ -34,6 +33,7 @@ import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
+import net.svisvi.jigsawpp.item.shit_cup.ShitCupItem;
 import net.svisvi.jigsawpp.item.slon_gun.SlonGunGreenItem;
 import net.svisvi.jigsawpp.item.slon_gun.SlonGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
@@ -56,6 +56,7 @@ public class ModItems {
 	public static final RegistryObject<Item> LENIN_BUST = block(ModBlocks.LENIN_BUST);
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
+	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
@@ -68,7 +69,12 @@ public class ModItems {
 	public static final RegistryObject<Item> HAZMAT_LEGGINGS = REGISTRY.register("hazmat_leggings", () -> new HazmatItem.Leggings());
 	public static final RegistryObject<Item> HAZMAT_BOOTS = REGISTRY.register("hazmat_boots", () -> new HazmatItem.Boots());
 
+	public static final RegistryObject<Item> BEAVER_HELMET = REGISTRY.register("beaver_helmet", () -> new BeaverItem.Helmet());
+	public static final RegistryObject<Item> BEAVER_CHESTPLATE = REGISTRY.register("beaver_chestplate", () -> new BeaverItem.Chestplate());
+	public static final RegistryObject<Item> BEAVER_BOOTS = REGISTRY.register("beaver_boots", () -> new BeaverItem.Boots());
+
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
+	public static final RegistryObject<Item> JOTARO_HAT = REGISTRY.register("jotaro_hat", () -> new JotaroHatItem.Helmet());
 
 	public static final RegistryObject<Item> SLON_GUN = REGISTRY.register("slon_gun", () -> new SlonGunItem());
 
@@ -84,6 +90,8 @@ public class ModItems {
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+	public static final RegistryObject<Item> SHIT_CUP =REGISTRY.register(
+			"shit_cup", () -> new ShitCupItem(ModFluids.PONOS, new Item.Properties().stacksTo(1)));
 
 	public static final RegistryObject<Item> EMPTY_PILULE = REGISTRY.register("empty_pilule", () -> new EmptyPiluleItem());
 	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
@@ -148,6 +156,11 @@ public class ModItems {
 	public static final RegistryObject<Item> TUBE_19 = REGISTRY.register("tube_19", () -> new Tube19Item());
 	public static final RegistryObject<Item> EGGS = REGISTRY.register("eggs", () -> new EggsItem());
 	public static final RegistryObject<Item> TOTEM_OF_SHIT = REGISTRY.register("totem_of_shit", () -> new TotemOfShitItem());
+	public static final RegistryObject<Item> POOPED_BREAD = REGISTRY.register("pooped_bread", () -> new PoopedBreadItem());
+	public static final RegistryObject<Item> BEAVER_BOMB = REGISTRY.register("beaver_bomb", () -> new BeaverBombItem());
+	public static final RegistryObject<Item> BEAVER_AMMO = REGISTRY.register("beaver_ammo", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> BEAVERZOOKA = REGISTRY.register("beaverzooka", () -> new BeaverzookaItem());
+	public static final RegistryObject<Item> ADMIN_STICK = REGISTRY.register("admin_stick", () -> new AdminStickItem());
 
 	//pspack
 

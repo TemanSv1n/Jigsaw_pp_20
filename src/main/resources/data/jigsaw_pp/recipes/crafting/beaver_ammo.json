@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#J#",
+    " i "
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:carrot_coil"
+    },
+    "J": {
+      "item": "jigsaw_pp:beaweed_block"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaver_ammo",
+    "count": 8
+  }
+}
