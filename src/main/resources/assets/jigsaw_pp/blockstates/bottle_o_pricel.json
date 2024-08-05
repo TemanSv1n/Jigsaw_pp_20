@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "minecraft:block/bottle_o_pricel"
+    "facing=north": {
+      "model": "jigsaw_pp:block/bottle_o_pricel"
+    },
+    "facing=east": {
+      "model": "jigsaw_pp:block/bottle_o_pricel",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/bottle_o_pricel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/bottle_o_pricel",
+      "y": 270
     }
   }
 }
