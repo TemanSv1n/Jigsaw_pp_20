@@ -49,7 +49,11 @@ public class Tube19Item extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity entity) {
-        curePotionEffect(entity, itemstack);
+        if (curePotionEffects(entity, itemstack)){
+            if (entity instanceof Player) {
+                ((Player) entity).getCooldowns().addCooldown(this, 30);
+            }
+        }
         if (world.isClientSide())
             Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ModItems.TUBE_19.get()));
 
