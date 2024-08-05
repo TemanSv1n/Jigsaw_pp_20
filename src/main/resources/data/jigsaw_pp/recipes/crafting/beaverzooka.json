@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G2",
+    "345",
+    "6G "
+  ],
+  "key": {
+    "2": {
+      "item": "minecraft:repeater"
+    },
+    "3": {
+      "item": "jigsaw_pp:beaver_bomb"
+    },
+    "4": {
+      "item": "minecraft:hopper"
+    },
+    "5": {
+      "item": "jigsaw_pp:beaweed_block"
+    },
+    "6": {
+      "item": "minecraft:grindstone"
+    },
+    "G": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaverzooka",
+    "count": 1
+  }
+}

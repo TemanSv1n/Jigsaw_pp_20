@@ -17,4 +17,11 @@ public class ModModelLayers {
             new ResourceLocation(JigsawPpMod.MODID, "blabbit"), "main");
     public static final ModelLayerLocation JOTARO_HAT_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "jotaro_hat_model"), "main");
+
+    public static final ModelLayerLocation BEAVER_BOOTS_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "beaver_boots_model"), "main");
+    public static final ModelLayerLocation BEAVER_BODY_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "beaver_body_model"), "main");
+    public static final ModelLayerLocation BEAVER_HAT_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "beaver_hat_model"), "main");
 }

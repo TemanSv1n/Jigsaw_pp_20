@@ -8,9 +8,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
-import net.svisvi.jigsawpp.block.BeaverComputerBlock;
-import net.svisvi.jigsawpp.block.BeaweedBlock;
-import net.svisvi.jigsawpp.block.MoldBlock;
+import net.svisvi.jigsawpp.block.*;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
 import net.svisvi.jigsawpp.block.kega.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
@@ -18,7 +16,6 @@ import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
 import net.svisvi.jigsawpp.block.lenin_bust.LeninBustBlock;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
-import net.svisvi.jigsawpp.block.CoalFossilBlock;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -57,4 +54,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> LENIN_BUST = REGISTRY.register("lenin_bust", () -> new LeninBustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASS).strength(0.6F).noOcclusion().sound(SoundType.STONE).ignitedByLava()));
     public static final RegistryObject<Block> MOLD_BLOCK = REGISTRY.register("mold_block", () -> new MoldBlock());
     public static final RegistryObject<Block> BEAVER_COMPUTER = REGISTRY.register("beaver_computer", () -> new BeaverComputerBlock());
+    public static final RegistryObject<Block> PW_HAT = REGISTRY.register("pw_hat", () -> new PWHatBlock());
 }
