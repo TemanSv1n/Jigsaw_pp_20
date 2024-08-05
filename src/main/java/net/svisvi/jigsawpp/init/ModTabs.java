@@ -111,6 +111,7 @@ public class ModTabs {
 						tabData.accept(ModItems.SHIT_CUP.get());
 						tabData.accept(ModItems.ADMIN_STICK.get());
 						tabData.accept(ModItems.PW_HAT.get());
+						tabData.accept(ModItems.TREE_LAUNCHER.get());
 
 			}).build());
 

@@ -160,6 +160,7 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAVER_AMMO = REGISTRY.register("beaver_ammo", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> BEAVERZOOKA = REGISTRY.register("beaverzooka", () -> new BeaverzookaItem());
 	public static final RegistryObject<Item> ADMIN_STICK = REGISTRY.register("admin_stick", () -> new AdminStickItem());
+	public static final RegistryObject<Item> TREE_LAUNCHER = REGISTRY.register("tree_launcher", () -> new TreeLauncherItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

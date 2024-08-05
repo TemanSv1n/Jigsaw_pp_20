@@ -253,7 +253,7 @@ public class PurgenPiluleBuilder {
             for (int i = 0; i < Math.ceil((60 - purity)/4); i++){
                 MobEffect ef = mediumEffects.get(random.nextInt(mediumEffects.size()));
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 9000, purity), random.nextInt((Math.abs((int)Math.ceil((60 - purity)/5))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 9020, purity), random.nextInt((Math.abs((int)Math.ceil((60 - purity)/5))+1)));
                 effects.add(mef);
             }
 
