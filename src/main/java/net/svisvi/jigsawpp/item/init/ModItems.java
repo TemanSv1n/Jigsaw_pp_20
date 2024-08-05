@@ -56,6 +56,7 @@ public class ModItems {
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
 	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
+	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
@@ -135,7 +136,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_CLOCK = REGISTRY.register("prh_clock", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_PURITY = REGISTRY.register("prh_purity", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_TNT = REGISTRY.register("prh_tnt", () -> new AbstractPurgenRecipeHelperItem());
-	public static final RegistryObject<Item> BATCH_SIZE_CARD = REGISTRY.register("batch_size_card", () -> new Item(new Item.Properties().stacksTo(8)));
+	public static final RegistryObject<Item> BATCH_SIZE_CARD = REGISTRY.register("batch_size_card", () -> new BatchSizeCardItem());
 	public static final RegistryObject<Item> BLABBIT_SPAWN_EGG = REGISTRY.register("blabbit_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.BLABBIT, 0xf3f6f4, 0x8e7cc3,
 					new Item.Properties()));
@@ -143,7 +144,6 @@ public class ModItems {
 	public static final RegistryObject<Item> SMART_BEAWEED_PLATE = REGISTRY.register("smart_beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> CARROT_COIL = REGISTRY.register("carrot_coil", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> BLABBALL = REGISTRY.register("blabball", () -> new BlabballItem());
-	public static final RegistryObject<Item> BLABEGG = REGISTRY.register("blabegg", () -> new BlabEggItem());
 	public static final RegistryObject<Item> USELESS_PIE = REGISTRY.register("useless_pie", () -> new UselessPieItem());
 
 	public static final RegistryObject<Item> SLONGUN_COSTIL =REGISTRY.register("slongun_costil", () -> new Item(new Item.Properties().stacksTo(64)));

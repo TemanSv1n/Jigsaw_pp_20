@@ -234,7 +234,7 @@ public class PurgenPiluleBuilder {
         Random random = new Random();
         if (purity >= 0 && purity < 20){
             for (int i = 0; i < Math.ceil((21 - purity)/4); i++){
-                MobEffectInstance mef = new MobEffectInstance(ModEffects.BAD_EFFECT.get(), checkedNextInt(random, 9000, purity), random.nextInt((Math.abs((int)Math.ceil((21 - purity)/4))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ModEffects.BAD_EFFECT.get(), checkedNextInt(random, 3000, purity), random.nextInt((Math.abs((int)Math.ceil((21 - purity)/4))+1)));
                 effects.add(mef);
             }
 
@@ -245,7 +245,7 @@ public class PurgenPiluleBuilder {
                     ef = all_effects.get(random.nextInt(all_effects.size()));
                 }
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 9000, purity), random.nextInt((Math.abs((int)Math.ceil((40 - purity)/5))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 3000, purity), random.nextInt((Math.abs((int)Math.ceil((40 - purity)/5))+1)));
                 effects.add(mef);
             }
 
@@ -253,7 +253,7 @@ public class PurgenPiluleBuilder {
             for (int i = 0; i < Math.ceil((60 - purity)/4); i++){
                 MobEffect ef = mediumEffects.get(random.nextInt(mediumEffects.size()));
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 9020, purity), random.nextInt((Math.abs((int)Math.ceil((60 - purity)/5))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 3000, purity), random.nextInt((Math.abs((int)Math.ceil((60 - purity)/5))+1)));
                 effects.add(mef);
             }
 
@@ -268,7 +268,7 @@ public class PurgenPiluleBuilder {
                     ef = all_effects.get(random.nextInt(all_effects.size()));
                 }
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 4600, purity), random.nextInt((Math.abs((int)Math.ceil((101 - purity)/4))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 1600, purity), random.nextInt((Math.abs((int)Math.ceil((101 - purity)/4))+1)));
                 effects.add(mef);
             }
         }

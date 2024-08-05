@@ -117,7 +117,7 @@
 
   "item.jigsaw_pp.blabball.desc": "§7Shear a leashed §dBlabbit",
   "item.jigsaw_pp.blabball": "Blabball",
-  "item.jigsaw_pp.blabegg": "Blabbit Egg",
+  "block.jigsaw_pp.blabegg": "Blabbit Egg",
 
   "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a useless pie",
   "item.jigsaw_pp.useless_pie": "Useless pie",
@@ -152,5 +152,10 @@
   "item.jigsaw_pp.shit_cup": "The Great Shit cup",
   "item.jigsaw_pp.admin_stick": "Admin ♂ anal ♂ stick",
   "block.jigsaw_pp.pw_hat": "PWGood's tophat",
-  "item.jigsaw_pp.tree_launcher": "Tree launcher"
+  "item.jigsaw_pp.tree_launcher": "Tree launcher",
+  "block.jigsaw_pp.lenin_bust.desc": "§7Bee careful with §ebees",
+  "block.jigsaw_pp.purgen_factory.desc": "§7Should be placed onto §6Factory Heater",
+  "block.jigsaw_pp.purgen_factory.desc_two": "§7Fill it with fluid using bucket",
+  "item.jigsaw_pp.batch_size_card.desc": "§7Increases size of produced §6purgen§r's batch",
+  "block.jigsaw_pp.factory_heater.desc": "§7Should be placed onto §6Heat sources"
 }
