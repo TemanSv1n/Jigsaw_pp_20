@@ -38,8 +38,8 @@
   "item.jigsaw_pp.fried_beaweed_seeds": "Fried beaweed seeds",
   "item.jigsaw_pp.beaweed_scum": "Beaweed scum",
   "block.jigsaw_pp.beaweed_block": "Beaweed block",
-  "block.jigsaw_pp.beaweed_plate": "Beaweed plate",
-  "block.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
+  "item.jigsaw_pp.beaweed_plate": "Beaweed plate",
+  "item.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
   "item.jigsaw_pp.beaweed_soup": "Beaweed soup",
   "item.jigsaw_pp.sawdust_soup": "Sawdust soup",
   "item.jigsaw_pp.beaweed_dust": "Beaweed dust",
@@ -115,7 +115,7 @@
   "jigsaw_pp.divider_of_localisation_version": "ALL THAT ADDED AFTER THIS IS NOT RU-LOCALISED UNTIL RELEASE! PLEASE DO NOT ADD LOCALES ABOVE THIS LINE. ONLY UNDER",
 
 
-  "item.jigsaw_pp.blabball.desc": "§7Shear a leashed §dBlabbit",
+  "item.jigsaw_pp.blabball.desc": "§7Shear a leashed and beaten up §dBlabbit",
   "item.jigsaw_pp.blabball": "Blabball",
   "item.jigsaw_pp.blabegg": "Blabbit Egg",
 
@@ -138,6 +138,33 @@
   "item.jigsaw_pp.eggs": "Eggs",
   "effect.jigsaw_pp.egged": "Egg magic",
   "item.jigsaw_pp.totem_of_shit": "Totem of shit",
+
+
+  "painting.jigsaw_pp.avebread.title": "Ave bread",
+  "painting.jigsaw_pp.balls.title": "Balls",
+  "painting.jigsaw_pp.beavernazi.title": "Beaver flag",
+  "painting.jigsaw_pp.blabbit.title": "Blabbit",
+  "painting.jigsaw_pp.ded.title": "Grandfather",
+  "painting.jigsaw_pp.dedsad.title": "Kindergarten",
+  "painting.jigsaw_pp.dristpunk2.title": "Dristpunk 3",
+  "painting.jigsaw_pp.pag.title": "Pag",
+  "painting.jigsaw_pp.potsight.title": "Potsight",
+  "painting.jigsaw_pp.pug.title": "Pug",
+  "painting.jigsaw_pp.slonik.title": "Green elephant",
+  "painting.jigsaw_pp.svyatostrun.title": "Svyatostrun",
+  "painting.jigsaw_pp.avebread.author": "Beaver",
+  "painting.jigsaw_pp.balls.author": "Beaver",
+  "painting.jigsaw_pp.beavernazi.author": "Beaver",
+  "painting.jigsaw_pp.blabbit.author": "Beaver",
+  "painting.jigsaw_pp.ded.author": "Beaver",
+  "painting.jigsaw_pp.dedsad.author": "Beaver",
+  "painting.jigsaw_pp.dristpunk2.author": "Beaver",
+  "painting.jigsaw_pp.pag.author": "Beaver",
+  "painting.jigsaw_pp.potsight.author": "Beaver",
+  "painting.jigsaw_pp.pug.author": "Beaver",
+  "painting.jigsaw_pp.slonik.author": "Beaver",
+  "painting.jigsaw_pp.svyatostrun.author": "Beaver"
+
   "item.jigsaw_pp.jotaro_hat": "Jotaro's Cap",
   "item.jigsaw_pp.pooped_bread": "Pooped bread",
   "item.jigsaw_pp.beaver_helmet": "Beaver mask",
@@ -146,10 +173,9 @@
   "item.jigsaw_pp.beaver_bomb": "Beaver Bomb",
   "item.jigsaw_pp.beaverzooka": "Beaverzooka",
   "item.jigsaw_pp.beaver_ammo": "Beaver ammo",
-  "item.jigsaw_pp.beaweed_plate": "Beaweed plate",
-  "item.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
   "item.jigsaw_pp.beaverzooka.desc": "§7Uses beaver ammo to shoot",
   "item.jigsaw_pp.shit_cup": "The Great Shit cup",
-  "item.jigsaw_pp.admin_stick": "Admin ♂ anal ♂ stick",
+  "item.jigsaw_pp.admin_stick": "Admin ♂anal♂ stick",
   "block.jigsaw_pp.pw_hat": "PWGood's tophat"
+
 }

@@ -1,0 +1,38 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "jigsaw_pp:item/pizdoor",
+		"particle": "jigsaw_pp:item/pizdoor"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 32, 2],
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 8, 1], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [6, 4, 6]
+		},
+		"thirdperson_lefthand": {
+			"translation": [6, 4, 6]
+		},
+		"ground": {
+			"translation": [0, 3, 0]
+		},
+		"gui": {
+			"rotation": [30, 30, 0],
+			"translation": [0, -4, 0],
+			"scale": [0.7, 0.7, 0.7]
+		}
+	}
+}

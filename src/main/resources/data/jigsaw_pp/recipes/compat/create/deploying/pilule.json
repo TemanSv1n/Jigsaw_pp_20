@@ -1,0 +1,23 @@
+
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "jigsaw_pp:empty_pilule"
+    }
+  ]
+}
