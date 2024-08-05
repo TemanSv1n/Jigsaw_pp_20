@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:diamond_iron_ingot"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:diamond_iron_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:diamond_iron_block"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_pp:diamond_iron_ingot",
+    "count": 9
+  }
+}

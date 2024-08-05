@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "jigsaw_pp:block/diamond_iron_block",
+    "up": "jigsaw_pp:block/diamond_iron_block",
+    "north": "jigsaw_pp:block/diamond_iron_block",
+    "east": "jigsaw_pp:block/diamond_iron_block",
+    "south": "jigsaw_pp:block/diamond_iron_block",
+    "west": "jigsaw_pp:block/diamond_iron_block",
+    "particle": "jigsaw_pp:block/diamond_iron_block"
+  },
+  "render_type": "solid"
+}
