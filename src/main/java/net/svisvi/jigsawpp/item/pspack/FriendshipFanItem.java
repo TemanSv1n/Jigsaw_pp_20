@@ -7,11 +7,11 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 
-public class PizdoorItem extends SwordItem {
-    public PizdoorItem() {
+public class FriendshipFanItem extends SwordItem {
+    public FriendshipFanItem() {
         super(new Tier() {
             public int getUses() {
-                return 80;
+                return 100;
             }
 
             public float getSpeed() {
@@ -19,11 +19,11 @@ public class PizdoorItem extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 8f;
+                return 0f;
             }
 
             public int getLevel() {
-                return 1;
+                return 2;
             }
 
             public int getEnchantmentValue() {
@@ -31,8 +31,8 @@ public class PizdoorItem extends SwordItem {
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.SPRUCE_DOOR));
+                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
             }
-        }, 3, -3.2f, new Properties());
+        }, 3, -2.4f, new Properties());
     }
 }

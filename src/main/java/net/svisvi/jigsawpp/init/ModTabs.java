@@ -128,6 +128,7 @@ public class ModTabs {
 						tabData.accept(ModItems.DELLIST.get());
 						tabData.accept(ModItems.BEAWEED_CHECKER.get());
 						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
+						tabData.accept(ModItems.FRIENDSHIP_FAN.get());
 
 			}).build());
 

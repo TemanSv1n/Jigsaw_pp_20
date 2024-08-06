@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.item.pspack;
+package net.svisvi.jigsawpp.item;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
