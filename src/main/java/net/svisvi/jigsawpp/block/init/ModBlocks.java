@@ -57,4 +57,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> BOTTLE_O_PRICEL = REGISTRY.register("bottle_o_pricel", () -> new BottleOPricelBlock());
     public static final RegistryObject<Block> BEAVER_COMPUTER = REGISTRY.register("beaver_computer", () -> new BeaverComputerBlock());
     public static final RegistryObject<Block> PW_HAT = REGISTRY.register("pw_hat", () -> new PWHatBlock());
+    public static final RegistryObject<Block> BLABEGG = REGISTRY.register("blabegg", () -> new BlabeggBlock());
 }

@@ -58,6 +58,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<BeaverzookaEntity>> BEAVERZOOKA_ENTITY =
             ENTITY_TYPES.register("beaverzooka_entity", () -> EntityType.Builder.<BeaverzookaEntity>of(BeaverzookaEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("beaverzooka_entity"));
+
+    public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
+            ENTITY_TYPES.register("tree_projectile", () -> EntityType.Builder.<TreeProjectile>of(TreeProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("tree_projectile"));
   
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
