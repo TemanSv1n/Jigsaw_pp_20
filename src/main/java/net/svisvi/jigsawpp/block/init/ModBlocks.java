@@ -53,6 +53,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> POOPED_BRICKS = REGISTRY.register("pooped_bricks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(2.0F, 6.0F)));
     public static final RegistryObject<Block> LENIN_BUST = REGISTRY.register("lenin_bust", () -> new LeninBustBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASS).strength(0.6F).noOcclusion().sound(SoundType.STONE).ignitedByLava()));
     public static final RegistryObject<Block> MOLD_BLOCK = REGISTRY.register("mold_block", () -> new MoldBlock());
+    public static final RegistryObject<Block> DIAMOND_IRON_BLOCK = REGISTRY.register("diamond_iron_block", () -> new DiamondIronBlock());
+    public static final RegistryObject<Block> BOTTLE_O_PRICEL = REGISTRY.register("bottle_o_pricel", () -> new BottleOPricelBlock());
     public static final RegistryObject<Block> BEAVER_COMPUTER = REGISTRY.register("beaver_computer", () -> new BeaverComputerBlock());
     public static final RegistryObject<Block> PW_HAT = REGISTRY.register("pw_hat", () -> new PWHatBlock());
     public static final RegistryObject<Block> BLABEGG = REGISTRY.register("blabegg", () -> new BlabeggBlock());

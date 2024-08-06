@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:totem_of_undying"
+    },
+    {
+      "amount": 1000,
+      "fluid": "jigsaw_pp:ponos"
+    }
+  ],
+  "results": [
+    {
+      "item": "jigsaw_pp:totem_of_shit"
+    }
+  ]
+}
