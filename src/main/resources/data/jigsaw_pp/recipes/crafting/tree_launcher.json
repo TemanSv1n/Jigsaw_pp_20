@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##H",
+    "JBP",
+    " I "
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:carrot_coil"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    },
+    "J": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    },
+    "B": {
+      "item": "jigsaw_pp:beaver_bomb"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "I": {
+      "item": "minecraft:iron_door"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:tree_launcher",
+    "count": 1
+  }
+}
