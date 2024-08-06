@@ -29,6 +29,7 @@ import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
+import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
@@ -161,6 +162,37 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAVERZOOKA = REGISTRY.register("beaverzooka", () -> new BeaverzookaItem());
 	public static final RegistryObject<Item> ADMIN_STICK = REGISTRY.register("admin_stick", () -> new AdminStickItem());
 	public static final RegistryObject<Item> TREE_LAUNCHER = REGISTRY.register("tree_launcher", () -> new TreeLauncherItem());
+
+	//pspack
+
+	public static final RegistryObject<Item> DIAMOND_IRON_INGOT = REGISTRY.register("diamond_iron_ingot", () -> new DiamondIronIngotItem());
+	public static final RegistryObject<Item> ARM = REGISTRY.register("arm", () -> new ArmItem());
+	public static final RegistryObject<Item> BEAVER_STAFF = REGISTRY.register("beaver_staff", () -> new BeaverStaffItem());
+	public static final RegistryObject<Item> BEAVER_STAFF_HONEY = REGISTRY.register("beaver_staff_honey", () -> new BeaverStaffHoneyItem());
+	public static final RegistryObject<Item> BROWN_CUTLASS = REGISTRY.register("brown_cutlass", () -> new BrownCutlassItem());
+	public static final RegistryObject<Item> CROSS = REGISTRY.register("cross", () -> new CrossItem());
+	public static final RegistryObject<Item> LADLE = REGISTRY.register("ladle", () -> new LadleItem());
+	public static final RegistryObject<Item> EMPTY_BOTTLE = REGISTRY.register("empty_bottle", () -> new EmptyBottleItem());
+	public static final RegistryObject<Item> ROSE_BOTTLE = REGISTRY.register("rose_bottle", () -> new RoseBottleItem());
+	public static final RegistryObject<Item> ERSHIK = REGISTRY.register("ershik", () -> new ErshikItem());
+	public static final RegistryObject<Item> PADDLE = REGISTRY.register("paddle", () -> new PaddleItem());
+	public static final RegistryObject<Item> PIRATE_CUTLASS = REGISTRY.register("pirate_cutlass", () -> new PirateCutlassItem());
+	public static final RegistryObject<Item> PIZDOOR = REGISTRY.register("pizdoor", () -> new PizdoorItem());
+	public static final RegistryObject<Item> PONOS_CUTLASS = REGISTRY.register("ponos_cutlass", () -> new PonosCutlassItem());
+	public static final RegistryObject<Item> PRICEL_RAPIER = REGISTRY.register("pricel_rapier", () -> new PricelRapierItem());
+	public static final RegistryObject<Item> ROAD_SIGN = REGISTRY.register("road_sign", () -> new RoadSignItem());
+	public static final RegistryObject<Item> SHISHKIN = REGISTRY.register("shishkin", () -> new ShishkinItem());
+	public static final RegistryObject<Item> SHIT_STICK = REGISTRY.register("shit_stick", () -> new ShitStickItem());
+	public static final RegistryObject<Item> SKEWER = REGISTRY.register("skewer", () -> new SkewerItem());
+	public static final RegistryObject<Item> BEAWEED_CHECKER = REGISTRY.register("beaweed_checker", () -> new BeaweedCheckerItem());
+	public static final RegistryObject<Item> POMATO = REGISTRY.register("pomato", () -> new PomatoItem());
+	public static final RegistryObject<Item> RADIO_HAT = REGISTRY.register("radio_hat", () -> new RadioHatItem());
+	public static final RegistryObject<Item> HALF_HEART_OF_THE_SEA = REGISTRY.register("half_heart_of_the_sea", () -> new HalfHeartOfTheSeaItem());
+	public static final RegistryObject<Item> DELLIST = REGISTRY.register("dellist", () -> new DellistItem());
+	public static final RegistryObject<Item> BOTTLE_O_PRICEL = block(ModBlocks.BOTTLE_O_PRICEL);
+	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
+
+
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
