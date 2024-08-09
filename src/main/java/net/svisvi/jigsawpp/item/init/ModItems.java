@@ -75,6 +75,7 @@ public class ModItems {
 	public static final RegistryObject<Item> LENIN_BUST = block(ModBlocks.LENIN_BUST);
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
+	public static final RegistryObject<Item> THRON = block(ModBlocks.THRON);
 	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
 	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
 	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
