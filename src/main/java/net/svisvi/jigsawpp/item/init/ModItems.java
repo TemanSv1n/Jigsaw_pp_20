@@ -191,6 +191,7 @@ public class ModItems {
 	public static final RegistryObject<Item> DELLIST = REGISTRY.register("dellist", () -> new DellistItem());
 	public static final RegistryObject<Item> BOTTLE_O_PRICEL = block(ModBlocks.BOTTLE_O_PRICEL);
 	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
+	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));
 
 
 
