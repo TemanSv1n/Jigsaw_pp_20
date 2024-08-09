@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "jigsaw_pp:block/thron",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "jigsaw_pp:block/thron"
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/thron",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/thron",
+      "y": 270
+    }
+  }
+}
