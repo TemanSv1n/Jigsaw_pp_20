@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="jigsaw_pp"
+version="1.0.0"
+displayName="Jigsaw Things II"
+displayURL="https://discord.gg/ufabWE3YvQ"
+credits="Created NOT using mod maker MCreator"
+authors="Tsyganistantsy"
+
+[[dependencies.jigsaw_pp]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+

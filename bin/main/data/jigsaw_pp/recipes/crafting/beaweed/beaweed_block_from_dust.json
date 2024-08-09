@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:beaweed_dust"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaweed_block",
+    "count": 1
+  }
+}

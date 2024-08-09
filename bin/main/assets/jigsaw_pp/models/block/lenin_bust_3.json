@@ -1,0 +1,9 @@
+{
+  "parent": "jigsaw_pp:block/lenin_bust_main",
+  "textures": {
+    "1": "jigsaw_pp:block/lenin_torso_3",
+    "2": "jigsaw_pp:block/lenin_head_r_3",
+    "particle": "jigsaw_pp:block/lenin_torso_3"
+  },
+  "render_type": "cutout"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#Eg",
+    "BLM"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_nugget"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:black_wool"
+    },
+    "L": {
+      "item": "minecraft:leather_helmet"
+    },
+    "M": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:jotaro_hat",
+    "count": 1
+  }
+}

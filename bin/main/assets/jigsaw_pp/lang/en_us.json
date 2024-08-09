@@ -1,0 +1,155 @@
+{
+  "item.jigsaw_pp.elephant_pickaxe": "Elephant Pickaxe",
+  "item.jigsaw_pp.elephant_pickaxe.desc": "§6The hotter - the faster",
+
+  "item_group.jigsaw_pp.jigsaw_tab": "Jigsaw II",
+  "item_group.jigsaw_pp.jigsaw_tab_materials": "Jigsaw II: Materials",
+
+  "item.jigsaw_pp.moss_elephant_pickaxe": "§aMoss Elephant Pickaxe",
+  "item.jigsaw_pp.moss_elephant_pickaxe.desc": "§2Brings life",
+
+  "item.jigsaw_pp.strawberry_elephant_pickaxe": "§cStrawberry Elephant Pickaxe",
+  "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Fossilises living",
+  "block.jigsaw_pp.coal_fossil": "Coal fossil",
+
+  "item.jigsaw_pp.radiation_catalyst_non_activated": "Non-Activated Radiation Catalyst",
+  "item.jigsaw_pp.radiation_catalyst_activated": "Activated Radiation Catalyst",
+  "item.jigsaw_pp.fitting": "Fitting",
+  "item.jigsaw_pp.carrot_coil": "Carrot coil",
+  "block.jigsaw_pp.kega_null": "Empty Fucking Kega",
+  "block.jigsaw_pp.kega": "Charged Fucking Kega",
+  "block.jigsaw_pp.kega.desc": "Atomic Boom-Boom",
+  "subtitles.alpha_bomb": "Alpha Bomb Activated Sound",
+
+  "block.jigsaw_pp.raw_teapot": "Raw teapot",
+  "block.jigsaw_pp.teapot": "Teapot",
+  "block.jigsaw_pp.black_teapot": "Black teapot",
+  "subtitles.whistle": "Whistle",
+
+  "item.jigsaw_pp.sweet_bread": "Sweet Bread",
+  "item.jigsaw_pp.sweet_bread.desc": "§7Produced by the §aMoss Elephant§7 in a moment of fear",
+
+  "item.jigsaw_pp.drist_button": "Drist button",
+  "item.jigsaw_pp.extinguisher": "Extinguisher",
+  "item.jigsaw_pp.marmoset": "Marmoset",
+  "item.jigsaw_pp.nutcracker": "Nutcracker",
+
+  "item.jigsaw_pp.beaweed_seeds": "Beaweed seeds",
+  "item.jigsaw_pp.fried_beaweed_seeds": "Fried beaweed seeds",
+  "item.jigsaw_pp.beaweed_scum": "Beaweed scum",
+  "block.jigsaw_pp.beaweed_block": "Beaweed block",
+  "block.jigsaw_pp.beaweed_plate": "Beaweed plate",
+  "block.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
+  "item.jigsaw_pp.beaweed_soup": "Beaweed soup",
+  "item.jigsaw_pp.sawdust_soup": "Sawdust soup",
+  "item.jigsaw_pp.beaweed_dust": "Beaweed dust",
+  "item.jigsaw_pp.beaweed_nut": "Beaweed nut",
+
+  "item.jigsaw_pp.fork": "Fork",
+  "item.jigsaw_pp.ponos_bucket": "Ponos bucket",
+
+  "item.jigsaw_pp.batch_size_card": "Batch size expansion card",
+  "item.jigsaw_pp.purgen_gun": "Purgen gun",
+  "block.jigsaw_pp.purgen_factory": "Purgen factory",
+  "block.jigsaw_pp.factory_heater": "Factory heater",
+  "item.jigsaw_pp.purgen_bundle": "Purgen bundle",
+  "item.jigsaw_pp.purgen_machine_gun": "Purgen machine gun",
+  "item.jigsaw_pp.basic_purgen_pilule": "Basic purgen pilule",
+  "item.jigsaw_pp.nuclear_purgen_pilule": "Nuclear purgen pilule",
+  "item.jigsaw_pp.advanced_purgen_pilule": "Advanced purgen pilule",
+  "item.jigsaw_pp.crystal_purgen_pilule": "Crystal purgen pilule",
+  "item.jigsaw_pp.empty_pilule": "Pilule",
+
+
+  "item.jigsaw_pp.blabbit_spawn_egg": "§dBlabbit§r spawn egg",
+  "item.jigsaw_pp.prh_tnt": "Explosion chance",
+  "item.jigsaw_pp.prh_clock": "Longevity",
+  "item.jigsaw_pp.prh_purity": "Purity",
+
+  "subtitles.blabbit_live": "Blabbit mumbles",
+  "entity.jigsaw_pp.blabbit": "Blabbit",
+
+
+  "item.jigsaw_pp.moss_elephant_spawn_egg": "§aMoss Elephant§r Spawn Egg",
+  "subtitles.moss_elephant.proot": "Moss elephant proots",
+  "subtitles.moss_elephant.angry_proot": "Moss elephant proots with anger",
+  "recipe.jigsaw_pp.elephanting": "Moss Elephanting",
+  "item.jigsaw_pp.moss_elephant_thumb": "Moss Elephant Thumb",
+  "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result",
+
+  "item.jigsaw_pp.hazmat_helmet": "Hazmat helmet",
+  "item.jigsaw_pp.hazmat_chestplate": "Hazmat chestplate",
+  "item.jigsaw_pp.hazmat_leggings": "Hazmat leggings",
+  "item.jigsaw_pp.hazmat_boots": "Hazmat boots",
+
+  "item.jigsaw_pp.gas_mask_helmet": "Gas Mask",
+
+  "item.jigsaw_pp.slave_helmet": "Slave helmet",
+  "item.jigsaw_pp.slave_chestplate": "Slave chestplate",
+  "item.jigsaw_pp.slave_leggings": "Slave leggings",
+  "item.jigsaw_pp.slave_boots": "Slave boots",
+
+  "effect.jigsaw_pp.poop": "Poop on the screen",
+  "effect.jigsaw_pp.purgative": "Strong purgative",
+  "effect.jigsaw_pp.radiation": "Radiation",
+
+  "item.jigsaw_pp.pilule.duration" : "§7§oEffect duration: ",
+  "misc.jigsaw_pp.second": "§7s",
+  "item.jigsaw_pp.pilule.sec_effect" : "§7§o+Effect: ",
+  "item.jigsaw_pp.pilule.purity" : "§7§oPurity: ",
+  "item.jigsaw_pp.pilule.effects_hidden" : "§k§oEffect: ",
+
+  "effect.jigsaw_pp.random_bad_effect": "Bad Effect",
+  "effect.jigsaw_pp.random_good_effect": "Good Effect",
+
+  "subtitles.factory_heater": "Factory heater is working",
+  "recipe.jigsaw_pp.purgen_catalyst": "Purgen reaction catalyst",
+  "recipe.jigsaw_pp.purgen_factory": "Purgen factory",
+  "item.jigsaw_pp.slon_gun":  "Slon gun",
+
+  "jigsaw_pp.tooltip.liquid.amount": "%s mB",
+  "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "jigsaw_pp.tooltip.liquid.mb": " mB",
+
+
+  "jigsaw_pp.divider_of_localisation_version": "ALL THAT ADDED AFTER THIS IS NOT RU-LOCALISED UNTIL RELEASE! PLEASE DO NOT ADD LOCALES ABOVE THIS LINE. ONLY UNDER",
+
+
+  "item.jigsaw_pp.blabball.desc": "§7Shear a leashed §dBlabbit",
+  "item.jigsaw_pp.blabball": "Blabball",
+  "item.jigsaw_pp.blabegg": "Blabbit Egg",
+
+  "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a useless pie",
+  "item.jigsaw_pp.useless_pie": "Useless pie",
+  "block.jigsaw_pp.yoba": "Snide dough ball",
+  "block.jigsaw_pp.yoba_poop": "Malicious dough ball",
+  "block.jigsaw_pp.pooped_bricks": "Pooped Bricks",
+  "block.jigsaw_pp.lenin_bust": "Lenin bust",
+  "block.jigsaw_pp.mold_block": "Mold block",
+  "item.jigsaw_pp.mold": "Mold",
+  "block.jigsaw_pp.beaver_computer": "Beaverhost",
+  "effect.jigsaw.beaver_so_deffect": "Brown screen of Death",
+  "item.jigsaw_pp.beaver_knife": "Beaver knife",
+  "item.jigsaw_pp.beaver_axe": "Beaver axe",
+  "item.jigsaw_pp.pigkaxe": "Pigkaxe",
+  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod",
+  "item.jigsaw_pp.tube_19": "Tube №19",
+  "subtitles.clown_horn": "Clown noise",
+  "item.jigsaw_pp.eggs": "Eggs",
+  "effect.jigsaw_pp.egged": "Egg magic",
+  "item.jigsaw_pp.totem_of_shit": "Totem of shit",
+  "item.jigsaw_pp.jotaro_hat": "Jotaro's Cap",
+  "item.jigsaw_pp.pooped_bread": "Pooped bread",
+  "item.jigsaw_pp.beaver_helmet": "Beaver mask",
+  "item.jigsaw_pp.beaver_chestplate": "Beaver suit",
+  "item.jigsaw_pp.beaver_boots": "Beaver boots",
+  "item.jigsaw_pp.beaver_bomb": "Beaver Bomb",
+  "item.jigsaw_pp.beaverzooka": "Beaverzooka",
+  "item.jigsaw_pp.beaver_ammo": "Beaver ammo",
+  "item.jigsaw_pp.beaweed_plate": "Beaweed plate",
+  "item.jigsaw_pp.smart_beaweed_plate": "Smart beaweed plate",
+  "item.jigsaw_pp.beaverzooka.desc": "§7Uses beaver ammo to shoot",
+  "item.jigsaw_pp.shit_cup": "The Great Shit cup",
+  "item.jigsaw_pp.admin_stick": "Admin ♂ anal ♂ stick",
+  "block.jigsaw_pp.pw_hat": "PWGood's tophat"
+}

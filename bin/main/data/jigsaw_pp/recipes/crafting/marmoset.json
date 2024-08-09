@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01 ",
+    " 45"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "1": {
+      "item": "jigsaw_pp:beaweed_dust"
+    },
+    "4": {
+      "item": "minecraft:dirt"
+    },
+    "5": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:marmoset",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "jigsaw_pp:elephanting",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:moss_elephant_thumb"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "jigsaw_pp:moss_elephant_spawn_egg"
+  }
+}

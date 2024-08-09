@@ -7,6 +7,7 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
+import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
 
 @Mod.EventBusSubscriber(modid = JigsawPpMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
@@ -15,6 +16,7 @@ public class ModEventBusEvents {
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.MOSS_ELEPHANT.get(), MossElephantEntity.createAttributes().build());
         event.put(ModEntities.BLABBIT.get(), BlabbitEntity.createAttributes().build());
+        event.put(ModEntities.TEAPOD_SPIDER.get(), TeapodSpider.createAttributes().build());
     }
 
 
