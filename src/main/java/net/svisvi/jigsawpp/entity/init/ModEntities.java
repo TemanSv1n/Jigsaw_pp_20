@@ -9,6 +9,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
+import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
+import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.*;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
@@ -62,7 +64,12 @@ public class ModEntities {
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
             ENTITY_TYPES.register("tree_projectile", () -> EntityType.Builder.<TreeProjectile>of(TreeProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("tree_projectile"));
-  
+
+    public static final RegistryObject<EntityType<ThrownPlungerEntity>> THROWN_PLUNGER =
+            ENTITY_TYPES.register("plunger", () -> EntityType.Builder.<ThrownPlungerEntity>of(ThrownPlungerEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("plunger"));
+
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
