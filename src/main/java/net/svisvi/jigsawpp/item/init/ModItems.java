@@ -60,6 +60,9 @@ public class ModItems {
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
+    public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xad5d32, 0xd3b4a3,
+                    new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));

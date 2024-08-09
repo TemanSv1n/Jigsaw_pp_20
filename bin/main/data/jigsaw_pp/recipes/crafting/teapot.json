@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "jigsaw_pp:raw_teapot"
+    },
+    "result": "jigsaw_pp:teapot",
+    "experience": 1,
+    "cookingtime": 300
+}

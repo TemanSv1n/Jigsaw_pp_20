@@ -16,6 +16,7 @@ import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
+import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
 
@@ -61,6 +62,11 @@ public class ModEntities {
             ENTITY_TYPES.register("beaverzooka_entity", () -> EntityType.Builder.<BeaverzookaEntity>of(BeaverzookaEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("beaverzooka_entity"));
 
+    public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
+            ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("teapod_spider"));
+
+  
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
             ENTITY_TYPES.register("tree_projectile", () -> EntityType.Builder.<TreeProjectile>of(TreeProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("tree_projectile"));
@@ -68,6 +74,7 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ThrownPlungerEntity>> THROWN_PLUNGER =
             ENTITY_TYPES.register("plunger", () -> EntityType.Builder.<ThrownPlungerEntity>of(ThrownPlungerEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("plunger"));
+
 
 
     public static void register(IEventBus eventBus) {

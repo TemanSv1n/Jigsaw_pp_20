@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#Q#",
+    " I ",
+    " L "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "Q": {
+      "item": "minecraft:quartz_block"
+    },
+    "I": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "L": {
+      "item": "minecraft:lead"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:elephant_pickaxe",
+    "count": 1
+  }
+}

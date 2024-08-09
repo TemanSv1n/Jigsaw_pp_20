@@ -1,0 +1,112 @@
+{
+  "item.jigsaw_pp.elephant_pickaxe": "Слоновый камнетёс",
+  "item.jigsaw_pp.elephant_pickaxe.desc": "§6Чем горячее тем быстрее",
+
+  "item_group.jigsaw_pp.jigsaw_tab": "Цыганство II",
+  "item_group.jigsaw_pp.jigsaw_tab_materials": "Цыганство II: Материалы",
+
+  "item.jigsaw_pp.moss_elephant_pickaxe": "§aОбросший слоновый камнетёс",
+  "item.jigsaw_pp.moss_elephant_pickaxe.desc": "§2Дает жизнь",
+
+  "item.jigsaw_pp.strawberry_elephant_pickaxe": "§cКлубничный слоновый камнетёс",
+  "item.jigsaw_pp.strawberry_elephant_pickaxe.desc": "§4Иссушает все живое",
+  "block.jigsaw_pp.coal_fossil": "Угольные отложения",
+
+  "item.jigsaw_pp.radiation_catalyst_non_activated": "Неактивированный ядерный катализатор",
+  "item.jigsaw_pp.radiation_catalyst_activated": "Активированный ядерный катализатор",
+  "item.jigsaw_pp.fitting": "Трубочка",
+  "item.jigsaw_pp.carrot_coil": "Морковная катушка",
+  "block.jigsaw_pp.kega_null": "Пустая блядская кега",
+  "block.jigsaw_pp.kega": "Заполненая блядская кега",
+  "block.jigsaw_pp.kega.desc": "Атомный бум-бум",
+  "subtitles.alpha_bomb": "Альфа бомба активирована",
+
+  "block.jigsaw_pp.raw_teapot": "Сырой чайничек",
+  "block.jigsaw_pp.teapot": "Чайничек",
+  "block.jigsaw_pp.black_teapot": "Смуглый чайничек",
+  "subtitles.whistle": "Свистеж",
+
+  "item.jigsaw_pp.sweet_bread": "Сладкий хлеб",
+  "item.jigsaw_pp.sweet_bread.desc": "§7Создан §aМшистым слоном§7 в момент страха",
+
+  "item.jigsaw_pp.drist_button": "Дрист кнопка",
+  "item.jigsaw_pp.extinguisher": "Огнеборец",
+  "item.jigsaw_pp.marmoset": "Мармозетка",
+  "item.jigsaw_pp.nutcracker": "Щелкунчик",
+
+  "item.jigsaw_pp.beaweed_seeds": "Боброжмыховы початки",
+  "item.jigsaw_pp.fried_beaweed_seeds": "Жареные семечки бобровой травы",
+  "item.jigsaw_pp.beaweed_scum": "Боброжмыховое отродье",
+  "block.jigsaw_pp.beaweed_block": "Блок боброжмыховой пыли",
+  "item.jigsaw_pp.beaweed_plate": "Боброжмыховая пластина",
+  "item.jigsaw_pp.smart_beaweed_plate": "Умная боброжмыховая пластина",
+  "item.jigsaw_pp.beaweed_soup": "Супец из боброжмыха",
+  "item.jigsaw_pp.sawdust_soup": "Суп из опилок",
+  "item.jigsaw_pp.beaweed_dust": "Боброжмыхова пыль",
+  "item.jigsaw_pp.beaweed_nut": "Боброжмыхов орешек",
+
+  "item.jigsaw_pp.fork": "Вилка",
+  "item.jigsaw_pp.ponos_bucket": "Ведро поноса",
+
+  "item.jigsaw_pp.batch_size_card": "Карта увеличения размера пургеновой партии",
+  "item.jigsaw_pp.purgen_gun": "П.У.Р.Г.Е.Н. - пушка",
+  "block.jigsaw_pp.purgen_factory": "Завод пургена",
+  "block.jigsaw_pp.factory_heater": "Нагреватель завода",
+  "item.jigsaw_pp.purgen_bundle": "Мешок для пургена",
+  "item.jigsaw_pp.purgen_machine_gun": "П.У.Р.Г.Е.Н. - миниган",
+  "item.jigsaw_pp.basic_purgen_pilule": "Базовая таблетка с пургеном",
+  "item.jigsaw_pp.nuclear_purgen_pilule": "Ядерная таблетка с пургеном",
+  "item.jigsaw_pp.advanced_purgen_pilule": "Улучшенная таблетка с пургеном",
+  "item.jigsaw_pp.crystal_purgen_pilule": "Кристально чистая таблетка с пургеном",
+  "item.jigsaw_pp.empty_pilule": "Пилюля",
+
+  "item.jigsaw_pp.blabbit_spawn_egg": "Яйцо призыва §dПузайца",
+  "item.jigsaw_pp.prh_tnt": "Шанс взрыва",
+  "item.jigsaw_pp.prh_clock": "Длительность",
+  "item.jigsaw_pp.prh_purity": "Чистота",
+
+  "subtitles.blabbit_live": "Пузаяц бормочет",
+  "entity.jigsaw_pp.blabbit": "Пузаяц",
+
+
+  "item.jigsaw_pp.moss_elephant_spawn_egg": "§rЯйцо призыва §aМшистого слона",
+  "subtitles.moss_elephant.proot": "Мшистый слон трубит",
+  "subtitles.moss_elephant.angry_proot": "Мшистый слон агрессивно трубит",
+  "recipe.jigsaw_pp.elephanting": "Мшистослонение",
+  "item.jigsaw_pp.moss_elephant_thumb": "Икона мшистого слона",
+  "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Дайте предмет §aМшистому слону§7 для результата",
+
+  "item.jigsaw_pp.hazmat_helmet": "Шлем химзащиты",
+  "item.jigsaw_pp.hazmat_chestplate": "Нагрудник химзащиты",
+  "item.jigsaw_pp.hazmat_leggings": "Штаны химзащиты",
+  "item.jigsaw_pp.hazmat_boots": "Говнодавы химзащиты",
+
+  "item.jigsaw_pp.gas_mask_helmet": "Противогаз",
+
+  "item.jigsaw_pp.slave_helmet": "Гачи маска",
+  "item.jigsaw_pp.slave_chestplate": "Гачи портупея",
+  "item.jigsaw_pp.slave_leggings": "Гачи трусы",
+  "item.jigsaw_pp.slave_boots": "Гачи тапки",
+
+  "effect.jigsaw_pp.poop": "Экран в говне",
+  "effect.jigsaw_pp.purgative": "Сильное слабительное",
+
+  "item.jigsaw_pp.pilule.duration" : "§7§oДлительность эффекта: ",
+  "misc.jigsaw_pp.second": "§7сек",
+  "item.jigsaw_pp.pilule.sec_effect" : "§7§o+Эффект: ",
+  "item.jigsaw_pp.pilule.purity" : "§7§oЧистота: ",
+  "item.jigsaw_pp.pilule.effects_hidden" : "§k§oЭффект: ",
+
+  "effect.jigsaw_pp.random_bad_effect": "Нехороший эффект",
+  "effect.jigsaw_pp.random_good_effect": "Хороший эффект",
+
+  "subtitles.factory_heater": "Факторный нагреватель шпарит",
+  "recipe.jigsaw_pp.purgen_catalyst": "Катализатор пургенового синтеза",
+  "recipe.jigsaw_pp.purgen_factory": "Пургеновый завод",
+
+  "item.jigsaw_pp.slon_gun":  "Слон пистолет",
+
+  "jigsaw_pp.tooltip.liquid.amount": "%s mB",
+  "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "jigsaw_pp.tooltip.liquid.mb": " mB"
+}

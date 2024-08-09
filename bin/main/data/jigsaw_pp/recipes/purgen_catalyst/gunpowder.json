@@ -1,0 +1,23 @@
+{
+  "type": "jigsaw_pp:purgen_catalyst",
+  "ingredients": [
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "result": {
+    "count": 0,
+    "item": "minecraft:bread"
+  },
+  "purity": 3.5,
+  "additionalTime": 0.2,
+  "malChance": 4.0,
+
+  "potionStats": [
+    {
+      "potion": "minecraft:resistance",
+      "duration": 400,
+      "amplifier": 0
+    }
+  ]
+}

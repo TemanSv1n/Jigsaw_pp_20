@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iLi",
+        "DDD",
+        "iYi"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "L": {
+            "item": "minecraft:leather_chestplate"
+        },
+        "D": {
+            "item": "minecraft:dried_kelp"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:hazmat_chestplate",
+        "count": 1
+    }
+}

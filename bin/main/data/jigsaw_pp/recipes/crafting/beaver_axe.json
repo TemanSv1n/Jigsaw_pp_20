@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iJ",
+    "J/",
+    " /"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "J": {
+      "item": "jigsaw_pp:beaweed_block"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaver_axe",
+    "count": 1
+  }
+}

@@ -1,5 +1,6 @@
 package net.svisvi.jigsawpp.event.init;
 
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +18,7 @@ import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;
 import net.svisvi.jigsawpp.entity.plunger.PlungerModel;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileModel;
+import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpiderModel;
 
 @Mod.EventBusSubscriber(modid = JigsawPpMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusClientEvents {
@@ -25,6 +27,7 @@ public class ModEventBusClientEvents {
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.MOSS_ELEPHANT_LAYER, MossElephantModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BLABBIT_LAYER, BlabbitModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.TEAPOD_SPIDER_LAYER, TeapodSpiderModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

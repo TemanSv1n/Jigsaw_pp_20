@@ -35,7 +35,7 @@ import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
 //import net.svisvi.jigsawpp.fluid.init.ModFluid;
-
+import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpiderRender;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
@@ -166,8 +166,12 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.SLONGUN_GREEN_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVER_BOMB.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
-			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
+
+      EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
+
+ 			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);
+
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}
