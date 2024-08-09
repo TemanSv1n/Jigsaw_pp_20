@@ -67,7 +67,7 @@ public class BeaverBombItem extends Item {
                     if (itemstack.getEnchantmentLevel(Enchantments.BINDING_CURSE) > 0) {
                         thrownegg.setBinding(true);
                     }
-                    thrownegg.shootFromRotation(entityLiving, entityLiving.getXRot(), entityLiving.getYRot(), 0.0F, 1.5F, 1.0F);
+                    thrownegg.shootFromRotation(entityLiving, entityLiving.getXRot(), entityLiving.getYRot(), 0.0F, 0.6F, 1.0F);
                     world.addFreshEntity(thrownegg);
                 }
 

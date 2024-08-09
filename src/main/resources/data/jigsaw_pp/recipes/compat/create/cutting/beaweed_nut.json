@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:beaweed_nut"
+    }
+  ],
+  "processingTime": 500,
+  "results": [
+    {
+      "item": "jigsaw_pp:beaweed_seeds",
+      "count": 3
+    },
+    {
+      "item": "jigsaw_pp:beaweed_seeds",
+      "count": 1,
+      "chance": 0.25
+    }
+  ]
+}

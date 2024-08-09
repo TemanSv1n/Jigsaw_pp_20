@@ -49,6 +49,11 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
         this.registerDefaultState(this.stateDefinition.any().setValue(IS_FURNACED, 0));
     }
+    @Override
+    public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("block.jigsaw_pp.factory_heater.desc"));
+    }
 
     @Override
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
@@ -75,11 +80,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
         super.onPlace(blockstate, world, pos, oldState, moving);
         world.scheduleTick(pos, this, 0);
     }
-
-    @Override
-    public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
-        super.appendHoverText(itemstack, world, list, flag);
-    }
+    
 
     @Override
     public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {

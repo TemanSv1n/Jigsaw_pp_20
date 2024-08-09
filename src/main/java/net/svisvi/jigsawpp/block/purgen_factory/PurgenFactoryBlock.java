@@ -58,6 +58,7 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
+
     @Override
     public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
         super.onPlace(blockstate, world, pos, oldState, moving);
@@ -77,6 +78,8 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
     @Override
     public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("block.jigsaw_pp.purgen_factory.desc"));
+        list.add(Component.translatable("block.jigsaw_pp.purgen_factory.desc_two"));
     }
 
     @Override

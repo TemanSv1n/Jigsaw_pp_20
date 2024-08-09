@@ -111,6 +111,37 @@ public class ModTabs {
 						tabData.accept(ModItems.SHIT_CUP.get());
 						tabData.accept(ModItems.ADMIN_STICK.get());
 						tabData.accept(ModItems.PW_HAT.get());
+						tabData.accept(ModItems.TREE_LAUNCHER.get());
+
+
+						tabData.accept(ModItems.DIAMOND_IRON_INGOT.get());
+						tabData.accept(ModItems.DIAMOND_IRON_BLOCK.get());
+						tabData.accept(ModItems.ARM.get());
+						tabData.accept(ModItems.BEAVER_STAFF.get());
+						tabData.accept(ModItems.BEAVER_STAFF_HONEY.get());
+						tabData.accept(ModItems.BROWN_CUTLASS.get());
+						tabData.accept(ModItems.CROSS.get());
+						tabData.accept(ModItems.LADLE.get());
+						tabData.accept(ModItems.EMPTY_BOTTLE.get());
+						tabData.accept(ModItems.ROSE_BOTTLE.get());
+						tabData.accept(ModItems.ERSHIK.get());
+						tabData.accept(ModItems.LADLE.get());
+						tabData.accept(ModItems.PADDLE.get());
+						tabData.accept(ModItems.PIRATE_CUTLASS.get());
+						tabData.accept(ModItems.PIZDOOR.get());
+						tabData.accept(ModItems.PONOS_CUTLASS.get());
+						tabData.accept(ModItems.PRICEL_RAPIER.get());
+						tabData.accept(ModItems.ROAD_SIGN.get());
+						tabData.accept(ModItems.SHISHKIN.get());
+						tabData.accept(ModItems.SHIT_STICK.get());
+						tabData.accept(ModItems.SKEWER.get());
+						tabData.accept(ModItems.POMATO.get());
+						//tabData.accept(ModItems.RADIO_HAT.get());
+						tabData.accept(ModItems.HALF_HEART_OF_THE_SEA.get());
+						tabData.accept(ModItems.DELLIST.get());
+						tabData.accept(ModItems.BEAWEED_CHECKER.get());
+						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
+						tabData.accept(ModItems.PLUNGER.get());
 
 			}).build());
 

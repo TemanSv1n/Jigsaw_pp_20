@@ -30,6 +30,8 @@ import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
+import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
+import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
 //import net.svisvi.jigsawpp.fluid.init.ModFluid;
@@ -44,11 +46,11 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.init.ModDatas;
+import net.svisvi.jigsawpp.init.ModPaintings;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItemProperties;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
-import net.svisvi.jigsawpp.particles.ModParticles;
 import net.svisvi.jigsawpp.poi_types.ModPoiTypes;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import org.apache.logging.log4j.Logger;
@@ -92,6 +94,8 @@ public class JigsawPpMod {
 		ModFluidTypes.REGISTRY.register(bus);
 
 		//ModParticles.REGISTRY.register(bus);
+
+		ModPaintings.REGISTRY.register(bus);
 
 		ModParticleTypes.REGISTRY.register(bus);
 
@@ -162,7 +166,12 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.SLONGUN_GREEN_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVER_BOMB.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
+
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
+
+ 			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);
+
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}

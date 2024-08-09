@@ -16,6 +16,7 @@ import net.svisvi.jigsawpp.entity.armor.beaver.BeaverHatModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;
+import net.svisvi.jigsawpp.entity.plunger.PlungerModel;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileModel;
 import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpiderModel;
 
@@ -33,6 +34,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.GAS_MASK_LAYER, GasMaskModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JOTARO_HAT_LAYER, JotaroHatModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.FLOPPA_MISSILE_LAYER, FloppaMissileModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.PLUNGER, PlungerModel::createBodyLayer);
 
         event.registerLayerDefinition(ModModelLayers.BEAVER_BOOTS_LAYER, BeaverBootsModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEAVER_BODY_LAYER, BeaverBodyModel::createBodyLayer);
