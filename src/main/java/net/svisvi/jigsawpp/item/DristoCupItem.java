@@ -23,7 +23,7 @@ public class DristoCupItem extends Item {
         super(new Properties().stacksTo(1).rarity(Rarity.COMMON)
             .food((new FoodProperties.Builder()).nutrition(-1)
             .saturationMod(-0.1f).alwaysEat().meat()
-            .effect(new MobEffectInstance(ModEffects.PURGATIVE.get(), 20, 1), 1F)
+            .effect(new MobEffectInstance(ModEffects.PURGATIVE.get(), 30 * 20, 2), 1F)
             .build()));
     }
 
@@ -32,6 +32,8 @@ public class DristoCupItem extends Item {
         double x = pLivingEntity.getX();
         double y = pLivingEntity.getY();
         double z = pLivingEntity.getZ();
+
+        pLivingEntity.push(0, 50, 0);
 
         if (!pLevel.isClientSide()) {
             pLevel.playSound(null, new BlockPos((int)x, (int)y, (int)z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:clown_horn")), SoundSource.PLAYERS, 1, -1);
