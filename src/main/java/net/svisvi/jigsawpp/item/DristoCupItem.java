@@ -33,7 +33,7 @@ public class DristoCupItem extends Item {
         double y = pLivingEntity.getY();
         double z = pLivingEntity.getZ();
 
-        pLivingEntity.push(0, 50, 0);
+        pLivingEntity.push(0, 5, 0);
 
         if (!pLevel.isClientSide()) {
             pLevel.playSound(null, new BlockPos((int)x, (int)y, (int)z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:clown_horn")), SoundSource.PLAYERS, 1, -1);
