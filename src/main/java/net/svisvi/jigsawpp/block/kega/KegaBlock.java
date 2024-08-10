@@ -41,7 +41,7 @@ import java.util.*;
 public class KegaBlock extends Block {
     public static final IntegerProperty ULTRA = IntegerProperty.create("ultra", 0, 1);
     private static final float EXPLOSION_RADIUS = 100.0f;
-    private static final int DELAY_TICKS = 490; // 24 секунды (20 ticks = 1 секунда)
+    private static final int DELAY_TICKS = 490; // 24 секунды
 
     public KegaBlock() {
         super(BlockBehaviour.Properties.of().sound(SoundType.COPPER).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
@@ -55,34 +55,8 @@ public class KegaBlock extends Block {
         }
     }
 
-    /*
-    private static void explodeBoom(LevelAccessor world, double x, double y, double z) {
-        boolean found = false;
-        double sx = 0.0D;
-        double sy = 0.0D;
-        double sz = 0.0D;
-        world.(BlockPos pos, Blocks.f_50016_.m_49966_(), 3);
-        sx = -3.0D;
-        found = false;
-        for (int index0 = 0; index0 < 6; index0++) {
-            sy = -3.0D;
-            for (int index1 = 0; index1 < 6; index1++) {
-                sz = -3.0D;
-                for (int index2 = 0; index2 < 6; index2++) {
-                    if (world instanceof Level) { Level _level = (Level)world; if (!_level.m_5776_())
-                        _level.m_254849_(null, x + sx, y + sy, z + sz, 7.0F, Level.ExplosionInteraction.TNT);  }
-                    sz++;
-                    }
-                sy++;
-                }
-            sx++;
-            }
-    }
-    */
-
     private static void active(BlockPos pPos, BlockState pState, Level pLevel) {
         if ((pState.getBlock().getStateDefinition().getProperty("ultra") instanceof IntegerProperty _getip1 ? pState.getValue(_getip1) : -1) == 0) {
-            // Проигрываем звук и изменяем состояние блока на "активное"
             playSoundOnce((ServerLevel) pLevel, pPos, pState);
 
             {
@@ -92,7 +66,6 @@ public class KegaBlock extends Block {
                     pLevel.setBlock(pPos, _bs.setValue(_integerProp, _value), 3);
             }
 
-            // Запускаем задержку перед взрывом
             pLevel.scheduleTick(pPos, pState.getBlock(), DELAY_TICKS);
         }
     }
@@ -102,7 +75,6 @@ public class KegaBlock extends Block {
     @Override
     public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
         if ((state.getBlock().getStateDefinition().getProperty("ultra") instanceof IntegerProperty _getip1 ? state.getValue(_getip1) : -1) == 1) {
-            // Создаем взрыв
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
             world.explode(null, pos.getX(), pos.getY(), pos.getZ(), EXPLOSION_RADIUS, Level.ExplosionInteraction.BLOCK);
 
@@ -114,8 +86,6 @@ public class KegaBlock extends Block {
                     RadiationEffect.addEffectLiquidWay(entity, new MobEffectInstance(ModEffects.RADIATION.get(), 14400));
                 }
             }
-
-            // Удаляем блок при взрыве без выпадения предметов
 
         }
     }
