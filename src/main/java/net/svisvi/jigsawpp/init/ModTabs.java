@@ -71,8 +71,8 @@ public class ModTabs {
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
-				//		tabData.accept(ModItems.KEGA.get());
-				//		tabData.accept(ModItems.KEGA_NULL.get());
+						tabData.accept(ModItems.KEGA.get()); //Починить BounceBox
+						tabData.accept(ModItems.KEGA_NULL.get()); //Починить BounceBox
 						tabData.accept(ModItems.BLABBIT_SPAWN_EGG.get());
 
 						tabData.accept(ModItems.CARROT_COIL.get());
