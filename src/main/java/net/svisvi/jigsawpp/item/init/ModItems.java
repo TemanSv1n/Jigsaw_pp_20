@@ -199,7 +199,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));
 	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
 	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
-
+	public static final RegistryObject<Item> DRISTOCUP = REGISTRY.register("dristocup", () -> new DristoCupItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
