@@ -185,5 +185,7 @@
   "block.jigsaw_pp.factory_heater.desc": "§7Should be placed onto §6Heat sources",
   "item.jigsaw_pp.plunger": "Plunger",
   "block.jigsaw_pp.drist_tnt": "Drist TNT",
-  "item.jigsaw_pp.drist_tnt_stick": "Drist TNT stick"
+  "item.jigsaw_pp.drist_tnt_stick": "Drist TNT stick",
+
+  "item.jigsaw_pp.dristocup": "dristo cup"
 }
