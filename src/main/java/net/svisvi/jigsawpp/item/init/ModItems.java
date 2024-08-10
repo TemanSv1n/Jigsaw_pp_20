@@ -10,7 +10,6 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
-import net.svisvi.jigsawpp.item.FriedBeaweedSeedsItem;
 import net.svisvi.jigsawpp.item.*;
 
 import net.svisvi.jigsawpp.JigsawPpMod;
@@ -101,6 +100,7 @@ public class ModItems {
 	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
 	public static final RegistryObject<Item> ADVANCED_PURGEN_PILULE = REGISTRY.register("advanced_purgen_pilule", () -> new AdvancedPurgenPiluleItem());
 	public static final RegistryObject<Item> CRYSTAL_PURGEN_PILULE = REGISTRY.register("crystal_purgen_pilule", () -> new CrystalPurgenPiluleItem());
+    public static final RegistryObject<Item> MAD_MILK = REGISTRY.register("mad_milk", () -> new MadMilkItem());  
 
 	public static final RegistryObject<Item> EXTINGUISHER = REGISTRY.register("extinguisher", () -> new ExtinguisherItem());
 

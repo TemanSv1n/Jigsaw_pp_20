@@ -66,7 +66,10 @@ public class ModEntities {
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("teapod_spider"));
 
-  
+    public static final RegistryObject<EntityType<ThrownMadMilkProjectile>> MAD_MILK_PROJECTILE =
+            ENTITY_TYPES.register("mad_milk_projectile", () -> EntityType.Builder.<ThrownMadMilkProjectile>of(ThrownMadMilkProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("mad_milk_projectile"));
+
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
             ENTITY_TYPES.register("tree_projectile", () -> EntityType.Builder.<TreeProjectile>of(TreeProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("tree_projectile"));
