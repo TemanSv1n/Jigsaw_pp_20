@@ -24,11 +24,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.svisvi.jigsawpp.item.armor.*;
 import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
+import net.svisvi.jigsawpp.item.drist_tnt_stick.DristTntStickItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
+import net.svisvi.jigsawpp.item.plunger.PlungerItem;
 import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
@@ -195,7 +197,8 @@ public class ModItems {
 	public static final RegistryObject<Item> BOTTLE_O_PRICEL = block(ModBlocks.BOTTLE_O_PRICEL);
 	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
 	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));
-
+	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
+	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

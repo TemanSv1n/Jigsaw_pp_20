@@ -2,12 +2,14 @@ package net.svisvi.jigsawpp.entity.init;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
@@ -74,6 +76,13 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ThrownPlungerEntity>> THROWN_PLUNGER =
             ENTITY_TYPES.register("plunger", () -> EntityType.Builder.<ThrownPlungerEntity>of(ThrownPlungerEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("plunger"));
+
+    public static final RegistryObject<EntityType<PrimedDristTnt>> DRIST_TNT =
+            ENTITY_TYPES.register("drist_tnt",() -> EntityType.Builder.<PrimedDristTnt>of(PrimedDristTnt::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("drist_tnt"));
+    public static final RegistryObject<EntityType<DristTntStickProjectile>> DRIST_TNT_STICK =
+            ENTITY_TYPES.register("drist_tnt_stick", () -> EntityType.Builder.<DristTntStickProjectile>of(DristTntStickProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("drist_tnt_stick"));
 
 
 

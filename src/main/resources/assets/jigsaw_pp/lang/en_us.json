@@ -183,5 +183,7 @@
   "block.jigsaw_pp.purgen_factory.desc_two": "§7Fill it with fluid using bucket",
   "item.jigsaw_pp.batch_size_card.desc": "§7Increases size of produced §6purgen§r's batch",
   "block.jigsaw_pp.factory_heater.desc": "§7Should be placed onto §6Heat sources",
-  "item.jigsaw_pp.plunger": "Plunger"
+  "item.jigsaw_pp.plunger": "Plunger",
+  "block.jigsaw_pp.drist_tnt": "Drist TNT",
+  "item.jigsaw_pp.drist_tnt_stick": "Drist TNT stick"
 }

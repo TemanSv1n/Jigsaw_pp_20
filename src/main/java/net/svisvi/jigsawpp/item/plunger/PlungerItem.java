@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp.item;
+package net.svisvi.jigsawpp.item.plunger;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -18,7 +18,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
