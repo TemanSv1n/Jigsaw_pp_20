@@ -1,7 +1,0 @@
-{
-  "parent": "jigsaw_pp:item/extinguisher_model",
-  "textures": {
-    "0": "jigsaw_pp:item/extinguisher",
-    "particle": "jigsaw_pp:item/extinguisher"
-  }
-}
