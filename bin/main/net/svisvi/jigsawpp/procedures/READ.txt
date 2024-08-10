@@ -1,1 +1,0 @@
-Get rid of this shitty procedures! Move them into classes as PUBLIC STATIC METHODS
