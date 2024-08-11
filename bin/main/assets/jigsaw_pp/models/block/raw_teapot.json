@@ -1,9 +1,0 @@
-{
-  "parent": "jigsaw_pp:block/teapot",
-  "textures": {
-    "all": "jigsaw_pp:block/teapot_raw",
-    "particle": "jigsaw_pp:block/teapot_raw",
-    "1": "jigsaw_pp:block/teapot_raw"
-  },
-  "render_type": "solid"
-}

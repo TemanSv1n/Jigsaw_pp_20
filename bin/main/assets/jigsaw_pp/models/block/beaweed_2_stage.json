@@ -1,7 +1,0 @@
-{
-	"parent": "block/cross",
-	"textures": {
-		"cross": "jigsaw_pp:block/beaweed_stage_1",
-		"particle": "jigsaw_pp:block/shit_blossom"
-	}
-}

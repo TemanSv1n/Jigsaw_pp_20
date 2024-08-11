@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "jigsaw_pp:item/elephant_pickaxe"
-  }
-}

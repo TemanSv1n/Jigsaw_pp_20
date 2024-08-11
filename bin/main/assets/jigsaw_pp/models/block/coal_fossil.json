@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "jigsaw_pp:block/coal_fossil",
-    "particle": "jigsaw_pp:block/coal_fossil"
-  },
-  "render_type": "solid"
-}
