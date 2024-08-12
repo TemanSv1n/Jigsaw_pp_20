@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
+import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
@@ -77,6 +78,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<DristTntStickProjectile>> DRIST_TNT_STICK =
             ENTITY_TYPES.register("drist_tnt_stick", () -> EntityType.Builder.<DristTntStickProjectile>of(DristTntStickProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("drist_tnt_stick"));
+    public static final RegistryObject<EntityType<JetstreamChairEntity>> JETSTREAM_CHAIR =
+            ENTITY_TYPES.register("jetstream_chair",() -> EntityType.Builder.<JetstreamChairEntity>of(JetstreamChairEntity::new, MobCategory.MISC)
+                    .sized(0.7f,1.1f).setTrackingRange(64).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).build("jetstream_chair"));
 
 
     public static void register(IEventBus eventBus) {

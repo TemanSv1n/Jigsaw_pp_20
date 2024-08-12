@@ -15,8 +15,10 @@ package net.svisvi.jigsawpp;
 
 
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.MinecartRenderer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -31,6 +33,8 @@ import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 import net.svisvi.jigsawpp.entity.drist_tnt.DristTntRenderer;
+import net.svisvi.jigsawpp.entity.init.ModModelLayers;
+import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairRenderer;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
@@ -171,6 +175,9 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);
 			EntityRenderers.register(ModEntities.DRIST_TNT.get(), DristTntRenderer::new);
 			EntityRenderers.register(ModEntities.DRIST_TNT_STICK.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.JETSTREAM_CHAIR.get(), (p_174090_) -> {
+				return new JetstreamChairRenderer(p_174090_, ModModelLayers.JETSTREAM_CHAIR_LAYER);
+			});
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
 		}

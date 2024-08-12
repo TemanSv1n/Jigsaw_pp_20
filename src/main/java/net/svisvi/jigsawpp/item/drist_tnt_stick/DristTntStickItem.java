@@ -7,7 +7,9 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownEgg;
@@ -44,7 +46,7 @@ public class DristTntStickItem extends Item {
             if (!pLevel.isClientSide) {
                 DristTntStickProjectile thrownegg = new DristTntStickProjectile(pLevel, pPlayer);
                 thrownegg.setItem(itemstack);
-                thrownegg.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
+                thrownegg.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 30.0F);
                 pLevel.addFreshEntity(thrownegg);
                 pPlayer.getCooldowns().addCooldown(itemstack.getItem(), 20);
             }
@@ -67,6 +69,7 @@ public class DristTntStickItem extends Item {
         double y = entity.getY();
         double z = entity.getZ();
         DristExplosion.harmfulDristExplode(world, entity.getOnPos(), 2, Level.ExplosionInteraction.NONE, entity);
+        entity.hurt(entity.damageSources().explosion(entity, entity), Float.MAX_VALUE);
 
         return retval;
     }
