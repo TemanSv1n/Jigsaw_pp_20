@@ -91,6 +91,7 @@ public class JetstreamChairEntity extends Entity {
     private double lxd;
     private double lyd;
     private double lzd;
+    private double lastYd;
     private boolean canBePushed;
     private boolean canUseRail;
     private float currentSpeedCapOnRail;
@@ -367,8 +368,8 @@ public class JetstreamChairEntity extends Entity {
                 _level.sendParticles((SimpleParticleType) (ModParticleTypes.POOP.get()), x, (y - 4.3), z, 40, 0.4, (-0.7), 0.4, 0.1);
                 _level.sendParticles((SimpleParticleType) (ModParticleTypes.POOP_BUBBLE.get()), x, (y - 4.3), z, 40, 0.6, (-0.3), 0.6, 0.1);
             }
-                this.getPersistentData().putDouble("counter1", (this.getPersistentData().getDouble("counter1") + 1));
-            if (this.getPersistentData().getDouble("counter1") % 20 == 0) {
+                this.getPersistentData().putDouble("counter2", (this.getPersistentData().getDouble("counter2") + 1));
+            if (this.getPersistentData().getDouble("counter2") % 20 == 0) {
 
                 if (pilot instanceof LivingEntity l_pilot && hand != null) {
                     l_pilot.getItemInHand(hand).shrink(1);
@@ -501,6 +502,34 @@ public class JetstreamChairEntity extends Entity {
         }
 
     }
+    protected void checkFallDamage(double pY, boolean pOnGround, BlockState pState, BlockPos pPos) {
+        this.lastYd = this.getDeltaMovement().y;
+        if (!this.isPassenger()) {
+            if (pOnGround) {
+                if (this.fallDistance > 3.0F) {
+                    if (!this.onGround()) {
+                        this.resetFallDistance();
+                        return;
+                    }
+
+                    this.causeFallDamage(this.fallDistance, 1.0F, this.damageSources().fall());
+                    if (!this.level().isClientSide && !this.isRemoved()) {
+                        this.kill();
+                        if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+                            int j;
+                            this.spawnAtLocation(this.getPickResult());
+                        }
+                    }
+                }
+
+                this.resetFallDistance();
+            } else if (this.onGround() && pY < 0.0) {
+                this.fallDistance -= (float)pY;
+            }
+        }
+
+    }
+
 
     protected double getMaxSpeed() {
         return (this.isInWater() ? 4.0 : 8.0) / 20.0;
