@@ -9,6 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairItem;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.item.FriedBeaweedSeedsItem;
 import net.svisvi.jigsawpp.item.*;
@@ -22,18 +23,20 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
-import net.svisvi.jigsawpp.item.armor.GasMaskItem;
-import net.svisvi.jigsawpp.item.armor.HazmatItem;
-import net.svisvi.jigsawpp.item.armor.SlaveItem;
+import net.svisvi.jigsawpp.item.armor.*;
+import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
+import net.svisvi.jigsawpp.item.drist_tnt_stick.DristTntStickItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
+import net.svisvi.jigsawpp.item.plunger.PlungerItem;
 import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
 import net.svisvi.jigsawpp.item.purgen_recipe_helpers.AbstractPurgenRecipeHelperItem;
+import net.svisvi.jigsawpp.item.shit_cup.ShitCupItem;
 import net.svisvi.jigsawpp.item.slon_gun.SlonGunGreenItem;
 import net.svisvi.jigsawpp.item.slon_gun.SlonGunItem;
 import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
@@ -56,8 +59,13 @@ public class ModItems {
 	public static final RegistryObject<Item> LENIN_BUST = block(ModBlocks.LENIN_BUST);
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
+	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
+	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
+    public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xad5d32, 0xd3b4a3,
+                    new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));
@@ -68,7 +76,12 @@ public class ModItems {
 	public static final RegistryObject<Item> HAZMAT_LEGGINGS = REGISTRY.register("hazmat_leggings", () -> new HazmatItem.Leggings());
 	public static final RegistryObject<Item> HAZMAT_BOOTS = REGISTRY.register("hazmat_boots", () -> new HazmatItem.Boots());
 
+	public static final RegistryObject<Item> BEAVER_HELMET = REGISTRY.register("beaver_helmet", () -> new BeaverItem.Helmet());
+	public static final RegistryObject<Item> BEAVER_CHESTPLATE = REGISTRY.register("beaver_chestplate", () -> new BeaverItem.Chestplate());
+	public static final RegistryObject<Item> BEAVER_BOOTS = REGISTRY.register("beaver_boots", () -> new BeaverItem.Boots());
+
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
+	public static final RegistryObject<Item> JOTARO_HAT = REGISTRY.register("jotaro_hat", () -> new JotaroHatItem.Helmet());
 
 	public static final RegistryObject<Item> SLON_GUN = REGISTRY.register("slon_gun", () -> new SlonGunItem());
 
@@ -84,6 +97,8 @@ public class ModItems {
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+	public static final RegistryObject<Item> SHIT_CUP =REGISTRY.register(
+			"shit_cup", () -> new ShitCupItem(ModFluids.PONOS, new Item.Properties().stacksTo(1)));
 
 	public static final RegistryObject<Item> EMPTY_PILULE = REGISTRY.register("empty_pilule", () -> new EmptyPiluleItem());
 	public static final RegistryObject<Item> BASIC_PURGEN_PILULE = REGISTRY.register("basic_purgen_pilule", () -> new BasicPurgenPiluleItem());
@@ -128,7 +143,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_CLOCK = REGISTRY.register("prh_clock", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_PURITY = REGISTRY.register("prh_purity", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_TNT = REGISTRY.register("prh_tnt", () -> new AbstractPurgenRecipeHelperItem());
-	public static final RegistryObject<Item> BATCH_SIZE_CARD = REGISTRY.register("batch_size_card", () -> new Item(new Item.Properties().stacksTo(8)));
+	public static final RegistryObject<Item> BATCH_SIZE_CARD = REGISTRY.register("batch_size_card", () -> new BatchSizeCardItem());
 	public static final RegistryObject<Item> BLABBIT_SPAWN_EGG = REGISTRY.register("blabbit_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.BLABBIT, 0xf3f6f4, 0x8e7cc3,
 					new Item.Properties()));
@@ -136,7 +151,6 @@ public class ModItems {
 	public static final RegistryObject<Item> SMART_BEAWEED_PLATE = REGISTRY.register("smart_beaweed_plate", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> CARROT_COIL = REGISTRY.register("carrot_coil", () -> new Item(new Item.Properties().stacksTo(64)));
 	public static final RegistryObject<Item> BLABBALL = REGISTRY.register("blabball", () -> new BlabballItem());
-	public static final RegistryObject<Item> BLABEGG = REGISTRY.register("blabegg", () -> new BlabEggItem());
 	public static final RegistryObject<Item> USELESS_PIE = REGISTRY.register("useless_pie", () -> new UselessPieItem());
 
 	public static final RegistryObject<Item> SLONGUN_COSTIL =REGISTRY.register("slongun_costil", () -> new Item(new Item.Properties().stacksTo(64)));
@@ -148,6 +162,12 @@ public class ModItems {
 	public static final RegistryObject<Item> TUBE_19 = REGISTRY.register("tube_19", () -> new Tube19Item());
 	public static final RegistryObject<Item> EGGS = REGISTRY.register("eggs", () -> new EggsItem());
 	public static final RegistryObject<Item> TOTEM_OF_SHIT = REGISTRY.register("totem_of_shit", () -> new TotemOfShitItem());
+	public static final RegistryObject<Item> POOPED_BREAD = REGISTRY.register("pooped_bread", () -> new PoopedBreadItem());
+	public static final RegistryObject<Item> BEAVER_BOMB = REGISTRY.register("beaver_bomb", () -> new BeaverBombItem());
+	public static final RegistryObject<Item> BEAVER_AMMO = REGISTRY.register("beaver_ammo", () -> new Item(new Item.Properties().stacksTo(64)));
+	public static final RegistryObject<Item> BEAVERZOOKA = REGISTRY.register("beaverzooka", () -> new BeaverzookaItem());
+	public static final RegistryObject<Item> ADMIN_STICK = REGISTRY.register("admin_stick", () -> new AdminStickItem());
+	public static final RegistryObject<Item> TREE_LAUNCHER = REGISTRY.register("tree_launcher", () -> new TreeLauncherItem());
 
 	//pspack
 
@@ -178,7 +198,10 @@ public class ModItems {
 	public static final RegistryObject<Item> FRIENDSHIP_FAN = REGISTRY.register("friendship_fan", () -> new FriendshipFanItem());
 	public static final RegistryObject<Item> BOTTLE_O_PRICEL = block(ModBlocks.BOTTLE_O_PRICEL);
 	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
-
+	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));
+	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
+	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
+	public static final RegistryObject<Item> JETSTREAM_CHAIR = REGISTRY.register("jetstream_chair", () -> new JetstreamChairItem(new Item.Properties().stacksTo(1)));
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

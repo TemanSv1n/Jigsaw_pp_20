@@ -2,21 +2,24 @@ package net.svisvi.jigsawpp.entity.init;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
+import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
-import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
-import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
-import net.svisvi.jigsawpp.entity.projectile.ThrownSweetBreadProjectile;
-import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
+import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
+import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
+import net.svisvi.jigsawpp.entity.projectile.*;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
+import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
 
@@ -53,7 +56,40 @@ public class ModEntities {
     public static final RegistryObject<EntityType<SlonGunGreenProjectile>> SLONGUN_GREEN_PROJECTILE =
             ENTITY_TYPES.register("slon_gun_green_projectile", () -> EntityType.Builder.<SlonGunGreenProjectile>of(SlonGunGreenProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("slon_gun_green_projectile"));
+
+    public static final RegistryObject<EntityType<BeaverBombProjectile>> BEAVER_BOMB =
+            ENTITY_TYPES.register("beaver_bomb", () -> EntityType.Builder.<BeaverBombProjectile>of(BeaverBombProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("beaver_bomb"));
+
+    public static final RegistryObject<EntityType<BeaverzookaEntity>> BEAVERZOOKA_ENTITY =
+            ENTITY_TYPES.register("beaverzooka_entity", () -> EntityType.Builder.<BeaverzookaEntity>of(BeaverzookaEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("beaverzooka_entity"));
+
+    public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
+            ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("teapod_spider"));
+
   
+    public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
+            ENTITY_TYPES.register("tree_projectile", () -> EntityType.Builder.<TreeProjectile>of(TreeProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("tree_projectile"));
+
+    public static final RegistryObject<EntityType<ThrownPlungerEntity>> THROWN_PLUNGER =
+            ENTITY_TYPES.register("plunger", () -> EntityType.Builder.<ThrownPlungerEntity>of(ThrownPlungerEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("plunger"));
+
+    public static final RegistryObject<EntityType<PrimedDristTnt>> DRIST_TNT =
+            ENTITY_TYPES.register("drist_tnt",() -> EntityType.Builder.<PrimedDristTnt>of(PrimedDristTnt::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("drist_tnt"));
+    public static final RegistryObject<EntityType<DristTntStickProjectile>> DRIST_TNT_STICK =
+            ENTITY_TYPES.register("drist_tnt_stick", () -> EntityType.Builder.<DristTntStickProjectile>of(DristTntStickProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("drist_tnt_stick"));
+    public static final RegistryObject<EntityType<JetstreamChairEntity>> JETSTREAM_CHAIR =
+            ENTITY_TYPES.register("jetstream_chair",() -> EntityType.Builder.<JetstreamChairEntity>of(JetstreamChairEntity::new, MobCategory.MISC)
+                    .sized(0.7f,1.1f).setTrackingRange(64).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).build("jetstream_chair"));
+
+
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

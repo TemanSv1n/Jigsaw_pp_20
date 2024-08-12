@@ -21,7 +21,7 @@ public class ModTabs {
 
 
 	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB = REGISTRY.register("jigsaw_tab",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(ModItems.TEAPOT.get())).displayItems((parameters, tabData) -> {
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab")).icon(() -> new ItemStack(ModItems.BEAVER_BOMB.get())).displayItems((parameters, tabData) -> {
 						tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.MOSS_ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
@@ -71,8 +71,8 @@ public class ModTabs {
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
-				//		tabData.accept(ModItems.KEGA.get());
-						tabData.accept(ModItems.KEGA_NULL.get());
+						tabData.accept(ModItems.KEGA.get()); //Починить BounceBox
+						tabData.accept(ModItems.KEGA_NULL.get()); //Починить BounceBox
 						tabData.accept(ModItems.BLABBIT_SPAWN_EGG.get());
 
 						tabData.accept(ModItems.CARROT_COIL.get());
@@ -99,6 +99,19 @@ public class ModTabs {
 						tabData.accept(ModItems.TUBE_19.get());
 						tabData.accept(ModItems.EGGS.get());
 						tabData.accept(ModItems.TOTEM_OF_SHIT.get());
+						tabData.accept(ModItems.JOTARO_HAT.get());
+						tabData.accept(ModItems.POOPED_BREAD.get());
+
+						tabData.accept(ModItems.BEAVER_HELMET.get());
+						tabData.accept(ModItems.BEAVER_CHESTPLATE.get());
+						tabData.accept(ModItems.BEAVER_BOOTS.get());
+						tabData.accept(ModItems.BEAVER_BOMB.get());
+						tabData.accept(ModItems.BEAVERZOOKA.get());
+						tabData.accept(ModItems.BEAVER_AMMO.get());
+						tabData.accept(ModItems.SHIT_CUP.get());
+						tabData.accept(ModItems.ADMIN_STICK.get());
+						tabData.accept(ModItems.PW_HAT.get());
+						tabData.accept(ModItems.TREE_LAUNCHER.get());
 
 
 						tabData.accept(ModItems.DIAMOND_IRON_INGOT.get());
@@ -129,6 +142,10 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAWEED_CHECKER.get());
 						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
 						tabData.accept(ModItems.FRIENDSHIP_FAN.get());
+						tabData.accept(ModItems.PLUNGER.get());
+				tabData.accept(ModItems.DRIST_TNT.get());
+				tabData.accept(ModItems.DRIST_TNT_STICK.get());
+				tabData.accept(ModItems.JETSTREAM_CHAIR.get());
 
 			}).build());
 

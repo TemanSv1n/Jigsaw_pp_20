@@ -9,6 +9,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
 import net.svisvi.jigsawpp.block.*;
+import net.svisvi.jigsawpp.block.drist_tnt.DristTntBlock;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
 import net.svisvi.jigsawpp.block.kega.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
@@ -56,4 +57,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> DIAMOND_IRON_BLOCK = REGISTRY.register("diamond_iron_block", () -> new DiamondIronBlock());
     public static final RegistryObject<Block> BOTTLE_O_PRICEL = REGISTRY.register("bottle_o_pricel", () -> new BottleOPricelBlock());
     public static final RegistryObject<Block> BEAVER_COMPUTER = REGISTRY.register("beaver_computer", () -> new BeaverComputerBlock());
+    public static final RegistryObject<Block> PW_HAT = REGISTRY.register("pw_hat", () -> new PWHatBlock());
+    public static final RegistryObject<Block> BLABEGG = REGISTRY.register("blabegg", () -> new BlabeggBlock());
+    public static final RegistryObject<Block> DRIST_TNT = REGISTRY.register("drist_tnt", () -> new DristTntBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
 }

@@ -11,7 +11,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.LivingEntity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.Random;
+
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
@@ -45,7 +49,13 @@ public class Tube19Item extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity entity) {
-        curePotionEffects(entity, itemstack);
+        if (curePotionEffects(entity, itemstack)){
+            if (entity instanceof Player) {
+                ((Player) entity).getCooldowns().addCooldown(this, 30);
+            }
+        }
+        if (world.isClientSide())
+            Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(ModItems.TUBE_19.get()));
 
         ItemStack retvalsus = new ItemStack(ModItems.TUBE_19.get());
 
@@ -65,7 +75,7 @@ public class Tube19Item extends Item {
                 if (!world.isClientSide()) {
                     world.playSound(null, new BlockPos((int)x, (int)y, (int)z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:clown_horn")), SoundSource.PLAYERS, 1, -1);
                 } else {
-                    world.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw:clown_horn")), SoundSource.PLAYERS, 1, -1, false);
+                    world.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:clown_horn")), SoundSource.PLAYERS, 1, -1, false);
                 }
             if (world instanceof ServerLevel _level)
                 _level.sendParticles(ParticleTypes.FLASH, x, y, z, 5, 0.3, 0.3, 0.3, 0);
@@ -96,6 +106,26 @@ public class Tube19Item extends Item {
         }
         return ret;
     }
+    public boolean curePotionEffect(LivingEntity entityLiving, ItemStack curativeItem){
+        Collection<MobEffectInstance> effects = entityLiving.getActiveEffectsMap().values();
+        ArrayList<MobEffectInstance> badEffects = new ArrayList<>();
+        for (MobEffectInstance effect : effects){
+            if (!effect.getEffect().isBeneficial()){
+                badEffects.add(effect);
+            }
+        }
+        System.out.println(badEffects.toString());
+        if (!badEffects.isEmpty()){
+            Random random = new Random();
+            MobEffectInstance randomEffect = badEffects.get(random.nextInt(badEffects.size()));
+//            System.out.println(randomEffect.toString());
+//            randomEffect.getEffect().removeAttributeModifiers(entityLiving, entityLiving.getAttributes(), randomEffect.getAmplifier());
+            entityLiving.removeEffect(randomEffect.getEffect());
+
+        }
+        return false;
+    }
+
     @Override
     public int getUseDuration(ItemStack itemstack) {
         return 32;
