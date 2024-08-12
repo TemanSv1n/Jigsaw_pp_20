@@ -195,6 +195,7 @@ public class ModItems {
 	public static final RegistryObject<Item> RADIO_HAT = REGISTRY.register("radio_hat", () -> new RadioHatItem());
 	public static final RegistryObject<Item> HALF_HEART_OF_THE_SEA = REGISTRY.register("half_heart_of_the_sea", () -> new HalfHeartOfTheSeaItem());
 	public static final RegistryObject<Item> DELLIST = REGISTRY.register("dellist", () -> new DellistItem());
+	public static final RegistryObject<Item> FRIENDSHIP_FAN = REGISTRY.register("friendship_fan", () -> new FriendshipFanItem());
 	public static final RegistryObject<Item> BOTTLE_O_PRICEL = block(ModBlocks.BOTTLE_O_PRICEL);
 	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
 	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));

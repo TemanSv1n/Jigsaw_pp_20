@@ -11,7 +11,7 @@ public class PizdoorItem extends SwordItem {
     public PizdoorItem() {
         super(new Tier() {
             public int getUses() {
-                return 100;
+                return 80;
             }
 
             public float getSpeed() {
@@ -19,11 +19,11 @@ public class PizdoorItem extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 0f;
+                return 8f;
             }
 
             public int getLevel() {
-                return 2;
+                return 1;
             }
 
             public int getEnchantmentValue() {
@@ -31,8 +31,8 @@ public class PizdoorItem extends SwordItem {
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
+                return Ingredient.of(new ItemStack(Blocks.SPRUCE_DOOR));
             }
-        }, 3, -2.4f, new Properties());
+        }, 3, -3.2f, new Properties());
     }
 }

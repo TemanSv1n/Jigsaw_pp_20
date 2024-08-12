@@ -2,37 +2,37 @@ package net.svisvi.jigsawpp.item.pspack;
 
 
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 
 public class ShishkinItem extends SwordItem {
     public ShishkinItem() {
         super(new Tier() {
             public int getUses() {
-                return 100;
+                return 2077;
             }
 
             public float getSpeed() {
-                return 4f;
+                return 8f;
             }
 
             public float getAttackDamageBonus() {
-                return 0f;
+                return 3f;
             }
 
             public int getLevel() {
-                return 2;
+                return 1;
             }
 
             public int getEnchantmentValue() {
-                return 2;
+                return 14;
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
+                return Ingredient.of(new ItemStack(Items.EMERALD));
             }
-        }, 3, -2.4f, new Properties());
+        }, 3, -1.6f, new Properties());
     }
 }

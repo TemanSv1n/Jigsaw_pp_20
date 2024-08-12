@@ -2,16 +2,16 @@ package net.svisvi.jigsawpp.item.pspack;
 
 
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 
-public class SkewerItem extends SwordItem {
-    public SkewerItem() {
+public class FriendshipFanItem extends SwordItem {
+    public FriendshipFanItem() {
         super(new Tier() {
             public int getUses() {
-                return 69;
+                return 100;
             }
 
             public float getSpeed() {
@@ -19,19 +19,19 @@ public class SkewerItem extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 2.5f;
+                return 0f;
             }
 
             public int getLevel() {
-                return 1;
+                return 2;
             }
 
             public int getEnchantmentValue() {
-                return 15;
+                return 2;
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Items.IRON_NUGGET));
+                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
             }
         }, 3, -2.4f, new Properties());
     }

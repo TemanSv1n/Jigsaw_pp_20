@@ -1,8 +1,8 @@
 {
   "credit": "Made with Love",
   "textures": {
-    "1": "jigsaw_pp:blocks/iron_trapdoor_hitler",
-    "particle": "jigsaw_pp:blocks/iron_trapdoor_hitler"
+    "1": "jigsaw_pp:item/friendship_fan",
+    "particle": "jigsaw_pp:item/friendship_fan"
   },
   "elements": [
     {
