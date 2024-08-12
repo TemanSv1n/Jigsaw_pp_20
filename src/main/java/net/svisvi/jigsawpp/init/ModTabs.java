@@ -144,6 +144,7 @@ public class ModTabs {
 						tabData.accept(ModItems.PLUNGER.get());
 				tabData.accept(ModItems.DRIST_TNT.get());
 				tabData.accept(ModItems.DRIST_TNT_STICK.get());
+				tabData.accept(ModItems.JETSTREAM_CHAIR.get());
 
 
 			}).build());

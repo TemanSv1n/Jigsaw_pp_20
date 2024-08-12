@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "OJO",
+    "/H/"
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:beaweed_block"
+    },
+    "O": {
+      "tag": "minecraft:logs"
+    },
+    "J": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:jetstream_chair",
+    "count": 1
+  }
+}
