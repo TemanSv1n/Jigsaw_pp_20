@@ -36,11 +36,11 @@ public class PoopProtectionArmorConditions {
         if(items.size() < 4) {
             return false;
         } else{
-            for (ItemStack item : items) {
-                if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
-                    return false;
-                }
-            }
+//            for (ItemStack item : items) {
+//                if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
+//                    return false;
+//                }
+//            }
             action(entity, items, "liquid");
             return true;
         }
@@ -71,11 +71,11 @@ public class PoopProtectionArmorConditions {
         if(items.size() < 4) {
             return false;
         } else{
-            for (ItemStack item : items) {
-                if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
-                    return false;
-                }
-            }
+//            for (ItemStack item : items) {
+//                if (!(item.getItem().getClass().getSuperclass().getName().equals(temp.getItem().getClass().getSuperclass().getName()))) {
+//                    return false;
+//                }
+//            }
             action(entity, items, "gas");
             return true;
         }

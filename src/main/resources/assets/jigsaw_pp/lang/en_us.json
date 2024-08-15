@@ -209,5 +209,13 @@
   "item.jigsaw_pp.half_heart_of_the_sea": "Half heart of the sea",
   "item.jigsaw_pp.dellist": "Delete from jigsaw tier list",
   "item.jigsaw_pp.beaweed_checker": "Beaweed checker",
-  "block.jigsaw_pp.bottle_o_pricel": "Bottle of potsight"
+  "block.jigsaw_pp.bottle_o_pricel": "Bottle of potsight",
+
+  "item.jigsaw_pp.plunger": "Plunger",
+  "block.jigsaw_pp.drist_tnt": "Drist TNT",
+  "item.jigsaw_pp.drist_tnt_stick": "Drist TNT stick",
+  "entity.jigsaw_pp.jetstream_chair": "Jetstream Chair",
+  "item.jigsaw_pp.jetstream_chair": "Jetstream Chair",
+  "entity.jigsaw_pp.moss_elephant": "Moss elephant"
+
 }

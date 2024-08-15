@@ -1,5 +1,7 @@
 package net.svisvi.jigsawpp.entity.projectile;
 
+import java.util.Random;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
@@ -33,8 +35,9 @@ import net.svisvi.jigsawpp.item.slon_gun.SlonGunItem;
 
 
 public class SlonProjectile extends ThrowableItemProjectile implements ItemSupplier {
+    private static int damage = 2;
     public SlonProjectile(EntityType<?extends ThrowableItemProjectile> entityType, Level level){
-        super(entityType, level);
+      super(entityType, level);
     }
     public SlonProjectile(Level pLevel, LivingEntity pShooter) {
         super(ModEntities.SLONGUN_PROJECTILE.get(), pShooter, pLevel);
@@ -62,21 +65,31 @@ public class SlonProjectile extends ThrowableItemProjectile implements ItemSuppl
             double d0 = 0.8D;
         }
     }
+    public void setDamage(int damage){
+      this.damage = damage;
+    }
 
     private static void spawnParticle(LevelAccessor level, Double x, Double y, Double z){
-        level.addParticle(ParticleTypes.DRIPPING_WATER, x, y, z, 0, 0, 0);
+      Random rand = new Random();
+      Double xd = x + rand.nextDouble(0.1, 0.6);
+      Double yd = y + rand.nextDouble(0.1, 0.6); 
+      Double zd = z + rand.nextDouble(0.1, 0.6); 
+      level.addParticle(ParticleTypes.DRIPPING_WATER, xd, yd, zd, 0, 0, 0);
     }
     @Override
     public void tick() {
         super.tick();
         for (int i = 0; i < 5; i++) {
             spawnParticle(this.level(), this.getX(), this.getY(), this.getZ());
+            spawnParticle(this.level(), this.getX(), this.getY(), this.getZ());
+            spawnParticle(this.level(), this.getX(), this.getY(), this.getZ());
+            spawnParticle(this.level(), this.getX(), this.getY(), this.getZ());
         }
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 2);
+        pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), damage);
 
     }
     public static Projectile shoot (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy){

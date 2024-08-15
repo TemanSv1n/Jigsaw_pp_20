@@ -71,8 +71,8 @@ public class ModTabs {
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
-				//		tabData.accept(ModItems.KEGA.get());
-				//		tabData.accept(ModItems.KEGA_NULL.get());
+						tabData.accept(ModItems.KEGA.get()); //Починить BounceBox
+						tabData.accept(ModItems.KEGA_NULL.get()); //Починить BounceBox
 						tabData.accept(ModItems.BLABBIT_SPAWN_EGG.get());
 
 						tabData.accept(ModItems.CARROT_COIL.get());
@@ -141,6 +141,11 @@ public class ModTabs {
 						tabData.accept(ModItems.DELLIST.get());
 						tabData.accept(ModItems.BEAWEED_CHECKER.get());
 						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
+						tabData.accept(ModItems.FRIENDSHIP_FAN.get());
+						tabData.accept(ModItems.PLUNGER.get());
+				tabData.accept(ModItems.DRIST_TNT.get());
+				tabData.accept(ModItems.DRIST_TNT_STICK.get());
+				tabData.accept(ModItems.JETSTREAM_CHAIR.get());
 
 			}).build());
 

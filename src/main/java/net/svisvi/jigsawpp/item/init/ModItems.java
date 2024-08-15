@@ -9,6 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairItem;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.item.FriedBeaweedSeedsItem;
 import net.svisvi.jigsawpp.item.*;
@@ -24,11 +25,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.svisvi.jigsawpp.item.armor.*;
 import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
+import net.svisvi.jigsawpp.item.drist_tnt_stick.DristTntStickItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
+import net.svisvi.jigsawpp.item.plunger.PlungerItem;
 import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
@@ -60,6 +63,9 @@ public class ModItems {
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
+    public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xad5d32, 0xd3b4a3,
+                    new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));
@@ -189,9 +195,13 @@ public class ModItems {
 	public static final RegistryObject<Item> RADIO_HAT = REGISTRY.register("radio_hat", () -> new RadioHatItem());
 	public static final RegistryObject<Item> HALF_HEART_OF_THE_SEA = REGISTRY.register("half_heart_of_the_sea", () -> new HalfHeartOfTheSeaItem());
 	public static final RegistryObject<Item> DELLIST = REGISTRY.register("dellist", () -> new DellistItem());
+	public static final RegistryObject<Item> FRIENDSHIP_FAN = REGISTRY.register("friendship_fan", () -> new FriendshipFanItem());
 	public static final RegistryObject<Item> BOTTLE_O_PRICEL = block(ModBlocks.BOTTLE_O_PRICEL);
 	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
-
+	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));
+	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
+	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
+	public static final RegistryObject<Item> JETSTREAM_CHAIR = REGISTRY.register("jetstream_chair", () -> new JetstreamChairItem(new Item.Properties().stacksTo(1)));
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

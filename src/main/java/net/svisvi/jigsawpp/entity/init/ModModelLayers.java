@@ -24,4 +24,13 @@ public class ModModelLayers {
             new ResourceLocation(JigsawPpMod.MODID, "beaver_body_model"), "main");
     public static final ModelLayerLocation BEAVER_HAT_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "beaver_hat_model"), "main");
+
+    public static final ModelLayerLocation TEAPOD_SPIDER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "kettlespider"), "main");  
+
+    public static final ModelLayerLocation PLUNGER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "plunger"), "main");
+    public static final ModelLayerLocation JETSTREAM_CHAIR_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "jetstream_chair_model"), "main");
+
 }

@@ -2,7 +2,7 @@
 	"credit": "Made with bebra",
 	"textures": {
 		"3": "jigsaw_pp:block/bottle_o_pricel",
-    	"particle": "shit_projectile"
+    	"particle": "jigsaw_pp:block/shit_projectile"
 	},
 	"elements": [
 		{
