@@ -1,36 +1,19 @@
-package net.svisvi.jigsawpp.entity.teapodSpider;
+package net.svisvi.jigsawpp.entity.beaverSpider;
 
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Shearable;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.monster.Spider;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.common.IForgeShearable;
-import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.MobType;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -43,52 +26,67 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
-import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraft.network.syncher.EntityDataAccessor;
+
+import java.util.Random;
+
+import javax.annotation.Nullable;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.eventbus.api.Event.Result;
+import net.svisvi.jigsawpp.entity.projectile.BeaverBombProjectile;
+import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
-import net.svisvi.jigsawpp.init.ModSounds;
+import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
 
-public class TeapodSpider extends Monster implements RangedAttackMob{
+/**
+ * BeaverSpiderEntity
+ */
+public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID;
    private static final float SPIDER_SPECIAL_EFFECT_CHANCE = 0.1F;
-   public TeapodSpider(EntityType<? extends TeapodSpider> pEntityType, Level pLevel) {
+  
+  public BeaverSpiderEntity(EntityType<? extends BeaverSpiderEntity> pEntityType, Level pLevel) {
       super(pEntityType, pLevel);
-   }
+  }
 
-   protected void registerGoals() {
+  protected void registerGoals() {
       this.goalSelector.addGoal(1, new FloatGoal(this));
       this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
-
       this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8));
       this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 40.0F));
-      this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0, 60, 10.0F));
       this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+      this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0, 60, 10.0F));
       this.targetSelector.addGoal(1, new HurtByTargetGoal(this, new Class[0]));
-      this.targetSelector.addGoal(2, new TeapodSpiderGoals<>(this, Player.class));
-      this.targetSelector.addGoal(2, new TeapodAtackGoal(this));
-   }
+      this.targetSelector.addGoal(2, new BeaverSpiderAttackGoal(this)); 
+      this.targetSelector.addGoal(2, new BeaverSpiderNearestAttackableTarget<>(this, Player.class));
+  }
 
-   public double getPassengersRidingOffset() {
-      return (double)(this.getBbHeight() * 0.5F);
-   }
+  public double getPassengersRidingOffset() {
+    return (double)(this.getBbHeight() * 0.5F);
+  }
 
-   protected PathNavigation createNavigation(Level pLevel) {
-      return new WallClimberNavigation(this, pLevel);
-   }
+  protected PathNavigation createNavigation(Level pLevel) {
+     return new WallClimberNavigation(this, pLevel);
+  }
 
-   protected void defineSynchedData() {
-      super.defineSynchedData();
-      this.entityData.define(DATA_FLAGS_ID, (byte)0);
-   }
+  protected void defineSynchedData() {
+    super.defineSynchedData();
+    this.entityData.define(DATA_FLAGS_ID, (byte)0);
+  }
 
    public void tick() {
       super.tick();
@@ -99,12 +97,13 @@ public class TeapodSpider extends Monster implements RangedAttackMob{
    }
 
    public static AttributeSupplier.Builder createAttributes() {
-      return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 40)
+      return Monster.createMonsterAttributes()
+        .add(Attributes.MAX_HEALTH, 40)
         .add(Attributes.MOVEMENT_SPEED, 0.30000001192092896);
    }
 
    protected SoundEvent getAmbientSound() {
-      return ModSounds.WHISTLE.get();
+      return SoundEvents.SPIDER_AMBIENT; 
    }
 
    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
@@ -195,19 +194,19 @@ public class TeapodSpider extends Monster implements RangedAttackMob{
    }
 
    static {
-      DATA_FLAGS_ID = SynchedEntityData.defineId(Spider.class, EntityDataSerializers.BYTE);
+      DATA_FLAGS_ID = SynchedEntityData.defineId(BeaverSpiderEntity.class, EntityDataSerializers.BYTE);
    }
+
 
   @Override
   public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
-    // TODO Auto-generated method stub
-    SlonProjectile slonProjectile = new SlonProjectile(this.level());
-    slonProjectile.setDamage(3);
-    slonProjectile.shoot(this.level(), this, pVelocity * 3, 0); 
-    
+    Random rand = new Random();
+    float randf = rand.nextFloat(0.0f, 1.0f);
+    if(!this.level().isClientSide()){
+    if(randf <= 0.5f){
+      BeaverBombProjectile bombr = new BeaverBombProjectile(this.level());
+      bombr.shootEnt(this.level(), this, (float) (pVelocity * 1.5), 0.4f);
+    }}
   }
-  
-
-
-  
+ 
 }

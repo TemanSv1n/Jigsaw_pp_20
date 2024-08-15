@@ -13,6 +13,8 @@ import net.svisvi.jigsawpp.entity.armor.JotaroHatModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverBodyModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverBootsModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverHatModel;
+import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
+import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairModel;
@@ -29,6 +31,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.MOSS_ELEPHANT_LAYER, MossElephantModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BLABBIT_LAYER, BlabbitModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.TEAPOD_SPIDER_LAYER, TeapodSpiderModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BEAVER_SPIDER_LAYER, BeaverSpiderModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

@@ -15,6 +15,7 @@ import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.*;
+import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
@@ -77,6 +78,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ThrownPlungerEntity>> THROWN_PLUNGER =
             ENTITY_TYPES.register("plunger", () -> EntityType.Builder.<ThrownPlungerEntity>of(ThrownPlungerEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("plunger"));
+    public static final RegistryObject<EntityType<BeaverSpiderEntity>> BEAVER_SPIDER =
+            ENTITY_TYPES.register("beaver_spider", () -> EntityType.Builder.<BeaverSpiderEntity>of(BeaverSpiderEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("beaver_spider"));
 
     public static final RegistryObject<EntityType<PrimedDristTnt>> DRIST_TNT =
             ENTITY_TYPES.register("drist_tnt",() -> EntityType.Builder.<PrimedDristTnt>of(PrimedDristTnt::new, MobCategory.MISC)
