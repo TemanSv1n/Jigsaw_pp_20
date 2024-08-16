@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
-import net.svisvi.jigsawpp.PlateBreadBlock;
+import net.svisvi.jigsawpp.block.PlateBreadBlock;
 import net.svisvi.jigsawpp.block.*;
 import net.svisvi.jigsawpp.block.drist_tnt.DristTntBlock;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
