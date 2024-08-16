@@ -27,6 +27,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
@@ -41,7 +42,7 @@ public class AbstractPiluleItem extends Item {
 
     public AbstractPiluleItem(MobEffectInstance _effect) {
         super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON)
-                .food((new FoodProperties.Builder()).nutrition(0).saturationMod(0f).alwaysEat().meat()
+                .food((new FoodProperties.Builder()).nutrition(1).saturationMod(0f).alwaysEat().meat()
                         .effect(_effect, 1F).build()));
     }
 //    public AbstractPiluleItem(MobEffectInstance effect, MobEffectInstance second_effect) {
@@ -127,6 +128,10 @@ public class AbstractPiluleItem extends Item {
         }
 
         if (!world.isClientSide) {
+            AbstractPiluleItem pilule = (AbstractPiluleItem) itemstack.getItem();
+            if (pilule.purity(itemstack) >=85 ){
+                curePotionEffects(entity);
+            }
             for(MobEffectInstance mobeffectinstance : PotionUtils.getMobEffects(itemstack)) {
                 if (mobeffectinstance.getEffect().isInstantenous()) {
                     if (mobeffectinstance.getEffect().equals(ModEffects.BAD_EFFECT.get())){
@@ -153,6 +158,28 @@ public class AbstractPiluleItem extends Item {
             }
             return itemstack;
         }
+    }
+
+    public boolean curePotionEffects(LivingEntity entityLiving) { //But not purgative
+        boolean ret = false;
+        Iterator<MobEffectInstance> itr = entityLiving.getActiveEffectsMap().values().iterator();
+        while (itr.hasNext()) {
+            MobEffectInstance effect = itr.next();
+//            if (MinecraftForge.EVENT_BUS.post(new PotionEvent.PotionRemoveEvent(entityLiving, effect))) {
+//                continue;
+//            }
+            if (effect.getEffect().isBeneficial() == false && effect.getEffect() != ModEffects.PURGATIVE.get()) {
+                //dont remove beneficial potions though such as speed, fire prot, night vision
+                effect.getEffect().removeAttributeModifiers(entityLiving, entityLiving.getAttributes(), effect.getAmplifier());
+                itr.remove();
+                ret = true;
+                //entityLiving.effectsDirty = true;
+                if (entityLiving instanceof Player) {
+                    ((Player) entityLiving).getCooldowns().addCooldown(this, 30);
+                }
+            }
+        }
+        return ret;
     }
 
     public static boolean comparePilules(ItemStack first, ItemStack second){

@@ -60,6 +60,8 @@ public class ModItems {
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
 	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
+	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
+	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());

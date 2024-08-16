@@ -213,13 +213,17 @@ public class YobaBlock extends Block implements Equipable {
 
 
     public void moveForward(BlockState pState, Level pLevel, BlockPos pPos){
-        pLevel.setBlock(pPos.relative(pState.getValue(REAL_FACING), 1), roll(pState, pLevel, pState.getValue(REAL_FACING)), 3);
-        pLevel.setBlock(pPos, getTrace().defaultBlockState(), 3);
+        if (pLevel.random.nextFloat() > 0.001) {
+            pLevel.setBlock(pPos.relative(pState.getValue(REAL_FACING), 1), roll(pState, pLevel, pState.getValue(REAL_FACING)), 3);
+            pLevel.setBlock(pPos, getTrace().defaultBlockState(), 3);
             if (!pLevel.isClientSide()) {
                 pLevel.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(MOVE_SOUND())), SoundSource.BLOCKS, 1, 1);
             } else {
                 pLevel.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(MOVE_SOUND())), SoundSource.BLOCKS, 1, 1, false);
             }
+        } else {
+            die(pState, pLevel, pPos);
+        }
     }
     public void moveUpForward(BlockState pState, Level pLevel, BlockPos pPos){
         pLevel.setBlock(pPos.above().relative(pState.getValue(REAL_FACING), 1), roll(pState, pLevel, pState.getValue(REAL_FACING)), 3);
