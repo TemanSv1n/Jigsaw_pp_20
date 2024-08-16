@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp;
+package net.svisvi.jigsawpp.block;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
