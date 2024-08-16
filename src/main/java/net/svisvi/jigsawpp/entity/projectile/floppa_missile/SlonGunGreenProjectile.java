@@ -68,7 +68,7 @@ public class SlonGunGreenProjectile extends ThrowableItemProjectile implements I
         super.onHitEntity(pResult);
         pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 2.5f);
         PoopEffect.addEffectLiquidWay(pResult.getEntity(),(new MobEffectInstance(ModEffects.POOP.get(), 120, 1, false, false)));
-        PurgativeEffect.addEffectLiquidWay(pResult.getEntity(), (new MobEffectInstance(ModEffects.PURGATIVE.get(), 40, 1, false, false)));
+        //PurgativeEffect.addEffectLiquidWay(pResult.getEntity(), (new MobEffectInstance(ModEffects.PURGATIVE.get(), 40, 1, false, false)));
     }
     public static Projectile shoot (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy){
         if (!pLevel.isClientSide) {

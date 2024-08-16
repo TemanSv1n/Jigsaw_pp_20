@@ -17,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.effect.PoopEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
+import net.svisvi.jigsawpp.procedures.ut.DristExplosion;
 
 public class YobaPoopBlock extends YobaBlock{
     @Override
@@ -46,5 +47,11 @@ public class YobaPoopBlock extends YobaBlock{
         } else {
             PoopEffect.addEffectLiquidWay(entity, new MobEffectInstance(ModEffects.POOP.get(), 60,0));
         }
+    }
+
+    @Override
+    public void die(BlockState pState, Level pLevel, BlockPos pPos){
+        super.die(pState, pLevel, pPos);
+        DristExplosion.dristExplode(pLevel, pPos, 2, null);
     }
 }
