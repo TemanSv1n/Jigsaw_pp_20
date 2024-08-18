@@ -4,8 +4,8 @@
     "type": "forge:any"
   },
   "spawners": {
-    "type": "jigsaw_pp:blabbit",
-    "weight": 18,
+    "type": "jigsaw_pp:stone_beaver",
+    "weight": 16,
     "minCount": 1,
     "maxCount": 2
   }
