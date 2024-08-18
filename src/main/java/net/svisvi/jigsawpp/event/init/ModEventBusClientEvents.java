@@ -21,6 +21,7 @@ import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairModel;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;
 import net.svisvi.jigsawpp.entity.plunger.PlungerModel;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileModel;
+import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverModel;
 import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpiderModel;
 
 @Mod.EventBusSubscriber(modid = JigsawPpMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -32,6 +33,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.BLABBIT_LAYER, BlabbitModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.TEAPOD_SPIDER_LAYER, TeapodSpiderModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEAVER_SPIDER_LAYER, BeaverSpiderModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.STONE_BEAVER_LAYER, StoneBeaverModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

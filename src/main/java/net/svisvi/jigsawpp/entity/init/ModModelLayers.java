@@ -35,4 +35,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation JETSTREAM_CHAIR_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "jetstream_chair_model"), "main");
 
+    public static final ModelLayerLocation STONE_BEAVER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "stone_beaver_model"), "main");
+
 }

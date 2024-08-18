@@ -40,6 +40,7 @@ import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
 //import net.svisvi.jigsawpp.fluid.init.ModFluid;
+import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverRenderer;
 import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpiderRender;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
@@ -179,6 +180,7 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
 
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
+			EntityRenderers.register(ModEntities.STONE_BEAVER.get(), StoneBeaverRenderer::new);
 
  			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);

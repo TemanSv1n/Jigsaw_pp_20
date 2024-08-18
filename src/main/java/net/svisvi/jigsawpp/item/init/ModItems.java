@@ -60,6 +60,8 @@ public class ModItems {
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
 	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
+	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
+	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 
     public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
@@ -72,6 +74,9 @@ public class ModItems {
                     new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
+					new Item.Properties()));
+	public static final RegistryObject<Item> STONE_BEAVER_SPAWN_EGG = REGISTRY.register("stone_beaver_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.STONE_BEAVER, 0x482911, 0x1910e0,
 					new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_THUMB = REGISTRY.register("moss_elephant_thumb", () -> new MossElephantThumbItem());
 

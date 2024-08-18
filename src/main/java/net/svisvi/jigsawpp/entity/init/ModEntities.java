@@ -20,6 +20,7 @@ import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
+import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
 import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
@@ -91,6 +92,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<JetstreamChairEntity>> JETSTREAM_CHAIR =
             ENTITY_TYPES.register("jetstream_chair",() -> EntityType.Builder.<JetstreamChairEntity>of(JetstreamChairEntity::new, MobCategory.MISC)
                     .sized(0.7f,1.1f).setTrackingRange(64).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).build("jetstream_chair"));
+
+    public static final RegistryObject<EntityType<StoneBeaverEntity>> STONE_BEAVER =
+            ENTITY_TYPES.register("stone_beaver",() -> EntityType.Builder.<StoneBeaverEntity>of(StoneBeaverEntity::new, MobCategory.MONSTER)
+                    .sized(1f,1f).fireImmune().setTrackingRange(64).setShouldReceiveVelocityUpdates(true).setUpdateInterval(3).build("stone_beaver"));
 
 
 

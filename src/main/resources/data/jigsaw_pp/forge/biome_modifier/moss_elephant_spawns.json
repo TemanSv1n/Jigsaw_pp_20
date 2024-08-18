@@ -6,7 +6,7 @@
   ],
   "spawners": {
     "type": "jigsaw_pp:moss_elephant",
-    "weight": 35,
+    "weight": 65,
     "minCount": 1,
     "maxCount": 1
   }

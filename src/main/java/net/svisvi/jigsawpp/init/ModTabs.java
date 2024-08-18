@@ -146,6 +146,9 @@ public class ModTabs {
 				tabData.accept(ModItems.DRIST_TNT.get());
 				tabData.accept(ModItems.DRIST_TNT_STICK.get());
 				tabData.accept(ModItems.JETSTREAM_CHAIR.get());
+				tabData.accept(ModItems.PLATE_EMPTY.get());
+				tabData.accept(ModItems.PLATE_BREAD.get());
+				tabData.accept(ModItems.STONE_BEAVER_SPAWN_EGG.get());
 
 			}).build());
 
