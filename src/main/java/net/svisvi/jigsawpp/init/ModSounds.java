@@ -19,6 +19,6 @@ public class ModSounds {
         public static final RegistryObject<SoundEvent> BLABBIT_LIVE_2 = REGISTRY.register("blabbit_live_2", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "blabbit_live_2")));
         public static final RegistryObject<SoundEvent> BLABBIT_LIVE_3 = REGISTRY.register("blabbit_live_3", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "blabbit_live_3")));
         public static final RegistryObject<SoundEvent> CLOWN_HORN = REGISTRY.register("clown_horn", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "clown_horn")));
-        public static final RegistryObject<SoundEvent> BEAVER_SPIDER_EMBIENT = REGISTRY.register("beaver_spider_embient", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "beaver_spider_embient")));
+        public static final RegistryObject<SoundEvent> BEAVER_SPIDER_AMBIENT = REGISTRY.register("beaver_spider_ambient", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "beaver_spider_ambient")));
         public static final RegistryObject<SoundEvent> BEAVER_SPIDER_CHOP = REGISTRY.register("beaver_spider_chop", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "beaver_spider_chop")));  
 }

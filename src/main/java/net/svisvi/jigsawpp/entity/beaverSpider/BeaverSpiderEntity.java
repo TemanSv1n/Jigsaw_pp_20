@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -32,6 +32,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -40,17 +41,13 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.svisvi.jigsawpp.entity.projectile.BeaverBombProjectile;
-import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
-import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.init.ModSounds;
-import net.svisvi.jigsawpp.item.init.ModItems;
-import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
 
 /**
@@ -89,13 +86,13 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
     this.entityData.define(DATA_FLAGS_ID, (byte)0);
   }
 
-   public void tick() {
-      super.tick();
-      if (!this.level().isClientSide) {
-         this.setClimbing(this.horizontalCollision);
-      }
+  public void tick() {
+     super.tick();
+     if (!this.level().isClientSide) {
+        this.setClimbing(this.horizontalCollision);
+     }
 
-   }
+  }
 
   public static AttributeSupplier.Builder createAttributes() {
     return Monster.createMonsterAttributes()
@@ -104,51 +101,51 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
   }
 
   protected SoundEvent getAmbientSound() {
-     return ModSounds.BEAVER_SPIDER_EMBIENT.get(); 
+    return SoundEvents.SPIDER_AMBIENT; 
   }
 
-   protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-      return ModSounds.BEAVER_SPIDER_EMBIENT.get();
-   }
+  protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+    return SoundEvents.SPIDER_HURT; 
+  }
 
-   protected SoundEvent getDeathSound() {
-      return ModSounds.BEAVER_SPIDER_EMBIENT.get();
-   }
+  protected SoundEvent getDeathSound() {
+    return SoundEvents.SPIDER_DEATH; 
+  }
 
-   protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-      this.playSound(ModSounds.BEAVER_SPIDER_CHOP.get(), 0.15F, 1.0F);
-   }
+  protected void playStepSound(BlockPos pPos, BlockState pBlock) {
+      this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 0.1F);
+  }
 
-   public boolean onClimbable() {
+  public boolean onClimbable() {
       return this.isClimbing();
-   }
+  }
 
-   public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
-      if (!pState.is(Blocks.COBWEB)) {
+  public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
+     if (!pState.is(Blocks.COBWEB)) {
          super.makeStuckInBlock(pState, pMotionMultiplier);
-      }
+     }
 
-   }
+  }
 
-   public MobType getMobType() {
+  public MobType getMobType() {
       return MobType.ARTHROPOD;
-   }
+  }
 
-   public boolean canBeAffected(MobEffectInstance pPotioneffect) {
-      if (pPotioneffect.getEffect() == MobEffects.POISON) {
+  public boolean canBeAffected(MobEffectInstance pPotioneffect) {
+     if (pPotioneffect.getEffect() == MobEffects.POISON) {
          MobEffectEvent.Applicable event = new MobEffectEvent.Applicable(this, pPotioneffect);
          MinecraftForge.EVENT_BUS.post(event);
          return event.getResult() == Result.ALLOW;
-      } else {
+     } else {
          return super.canBeAffected(pPotioneffect);
-      }
-   }
+     }
+  }
 
-   public boolean isClimbing() {
+  public boolean isClimbing() {
       return ((Byte)this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
-   }
+  }
 
-   public void setClimbing(boolean pClimbing) {
+  public void setClimbing(boolean pClimbing) {
       byte b0 = (Byte)this.entityData.get(DATA_FLAGS_ID);
       if (pClimbing) {
          b0 = (byte)(b0 | 1);
@@ -157,10 +154,10 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
       }
 
       this.entityData.set(DATA_FLAGS_ID, b0);
-   }
+  }
 
-   @Nullable
-   public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+  @Nullable
+  public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
       //SpawnGroupData pSpawnData = super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
       //RandomSource randomsource = pLevel.getRandom();
       //prigoditsa
@@ -187,16 +184,16 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
          }
       }*/
 
-      return (SpawnGroupData)pSpawnData;
-   }
+     return (SpawnGroupData)pSpawnData;
+  }
 
-   protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
+  protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
       return 0.65F;
-   }
+  }
 
-   static {
+  static {
       DATA_FLAGS_ID = SynchedEntityData.defineId(BeaverSpiderEntity.class, EntityDataSerializers.BYTE);
-   }
+  }
 
 
   @Override
@@ -204,6 +201,7 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
     Random rand = new Random();
     float randf = rand.nextFloat(0.0f, 1.0f);
     if(!this.level().isClientSide()){
+      this.playSound(ModSounds.BEAVER_SPIDER_AMBIENT.get());
     if(randf <= 0.5f){
       BeaverBombProjectile bombr = new BeaverBombProjectile(this.level());
       bombr.shootEnt(this.level(), this, (float) (pVelocity * 1.5), 0.4f);
