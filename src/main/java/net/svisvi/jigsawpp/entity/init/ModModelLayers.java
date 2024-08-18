@@ -27,6 +27,8 @@ public class ModModelLayers {
 
     public static final ModelLayerLocation TEAPOD_SPIDER_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "kettlespider"), "main");  
+    public static final ModelLayerLocation BEAVER_SPIDER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "beaver_spider_model"), "main");
 
     public static final ModelLayerLocation PLUNGER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "plunger"), "main");
