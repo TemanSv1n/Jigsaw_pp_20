@@ -71,6 +71,9 @@ public class ModItems {
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));
+	public static final RegistryObject<Item> STONE_BEAVER_SPAWN_EGG = REGISTRY.register("stone_beaver_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.STONE_BEAVER, 0x482911, 0x1910e0,
+					new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_THUMB = REGISTRY.register("moss_elephant_thumb", () -> new MossElephantThumbItem());
 
 	public static final RegistryObject<Item> HAZMAT_HELMET = REGISTRY.register("hazmat_helmet", () -> new HazmatItem.Helmet());
