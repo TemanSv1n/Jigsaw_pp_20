@@ -48,6 +48,7 @@ import net.minecraftforge.eventbus.api.Event.Result;
 import net.svisvi.jigsawpp.entity.projectile.BeaverBombProjectile;
 import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
+import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 
@@ -96,26 +97,26 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
 
    }
 
-   public static AttributeSupplier.Builder createAttributes() {
-      return Monster.createMonsterAttributes()
-        .add(Attributes.MAX_HEALTH, 40)
-        .add(Attributes.MOVEMENT_SPEED, 0.30000001192092896);
-   }
+  public static AttributeSupplier.Builder createAttributes() {
+    return Monster.createMonsterAttributes()
+      .add(Attributes.MAX_HEALTH, 40)
+      .add(Attributes.MOVEMENT_SPEED, 0.30000001192092896);
+  }
 
-   protected SoundEvent getAmbientSound() {
-      return SoundEvents.SPIDER_AMBIENT; 
-   }
+  protected SoundEvent getAmbientSound() {
+     return ModSounds.BEAVER_SPIDER_EMBIENT.get(); 
+  }
 
    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-      return SoundEvents.SPIDER_HURT;
+      return ModSounds.BEAVER_SPIDER_EMBIENT.get();
    }
 
    protected SoundEvent getDeathSound() {
-      return SoundEvents.SPIDER_DEATH;
+      return ModSounds.BEAVER_SPIDER_EMBIENT.get();
    }
 
    protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-      this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
+      this.playSound(ModSounds.BEAVER_SPIDER_CHOP.get(), 0.15F, 1.0F);
    }
 
    public boolean onClimbable() {

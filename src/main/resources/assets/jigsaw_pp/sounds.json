@@ -35,7 +35,22 @@
 }
 ]
 },
-
+  "beaver_spider_ambient": {
+    "subtitle": "subtitles.beaver_spider_ambient",
+    "sounds": [
+      { 
+      "name": "jigsaw_pp:beaver_spider_ambient",
+      "stream": false 
+      }]
+  },
+  "beaver_spider_chop": {
+    "subtitle": "subtitles.beaver_spider_chop",
+    "sounds": [
+      { 
+      "name": "jigsaw_pp:beaver_spider_chop",
+      "stream": false 
+      }]
+  },
   "alpha_bomb": {
     "subtitle": "subtitles.alpha_bomb",
     "sounds": [
