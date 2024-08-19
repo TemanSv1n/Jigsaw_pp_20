@@ -3,6 +3,7 @@ package net.svisvi.jigsawpp.entity.beaver_zombie;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
@@ -13,6 +14,7 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -72,6 +74,7 @@ import net.minecraftforge.common.ForgeConfig;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.ZombieEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
+import net.minecraftforge.registries.ForgeRegistries;
 
 
 
@@ -104,9 +107,11 @@ public class BeaverZombieEntity extends Monster {
    }
 
    protected void addBehaviourGoals() {
-      this.goalSelector.addGoal(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
+      this.goalSelector.addGoal(2, new BeaverZombieAttackGoal(this, 1.0, false));
       this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0));
-      this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[0])).setAlertOthers(new Class[]{ZombifiedPiglin.class}));
+      this.goalSelector.addGoal(2, new BeaverZombieEatTreeGoal(this));
+      this.goalSelector.addGoal(6, new BeaverZombieGoToWoodGoal(this, 1, 10));
+      this.targetSelector.addGoal(1, new HurtByTargetGoal(this, new Class[0]));
       this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
       this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
       this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
@@ -175,9 +180,6 @@ public class BeaverZombieEntity extends Monster {
    }
 
    public void tick() {
-      if (!this.level().isClientSide && this.isAlive() && !this.isNoAi()) {
-      }
-
       super.tick();
    }
 
@@ -219,11 +221,6 @@ public class BeaverZombieEntity extends Monster {
       return true;
    }
 
-   public boolean hurt(DamageSource pSource, float pAmount) {
-      
-     return true; 
-   }
-
    public boolean doHurtTarget(Entity pEntity) {
       boolean flag = super.doHurtTarget(pEntity);
       if (flag) {
@@ -237,15 +234,33 @@ public class BeaverZombieEntity extends Monster {
    }
 
    protected SoundEvent getAmbientSound() {
-      return SoundEvents.ZOMBIE_AMBIENT;
+      return getRandomSoundEvents();
    }
+  private SoundEvent getRandomSoundEvents(){
+      Random rand = new Random();
+      int i = rand.nextInt(1, 3);
+      switch (i) {
+        case 1:
+          return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaverzombie_ambient_1"));
+        
+        case 2:
+          return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaverzombie_ambient_2"));
+     
+        case 3:
+          return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaverzombie_ambient_5"));
+
+        default:
+          break;
+      }
+      return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaverzombie_ambient_1"));
+  }
 
    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-      return SoundEvents.ZOMBIE_HURT;
+      return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaverzombie_ambient_3"));
    }
 
    protected SoundEvent getDeathSound() {
-      return SoundEvents.ZOMBIE_DEATH;
+      return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaverzombie_ambient_4"));
    }
 
    protected SoundEvent getStepSound() {

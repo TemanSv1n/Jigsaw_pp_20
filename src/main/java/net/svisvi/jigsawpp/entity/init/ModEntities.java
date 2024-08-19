@@ -101,7 +101,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<BeaverZombieEntity>> ZOMBIE_BEAVER =
             ENTITY_TYPES.register("zombie_beaver", () -> EntityType.Builder.<BeaverZombieEntity>of(BeaverZombieEntity::new, MobCategory.MONSTER)
-                    .sized(1f, 1f).build("zombie_beaver"));
+                    .sized(0.6f, 2f).build("zombie_beaver"));
 
 
 
