@@ -83,6 +83,7 @@ import java.util.function.Supplier;
 
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderRenderer;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieRenderer;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitRenderer;
 
 @Mod("jigsaw_pp")
@@ -181,6 +182,7 @@ public class JigsawPpMod {
 
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
 			EntityRenderers.register(ModEntities.STONE_BEAVER.get(), StoneBeaverRenderer::new);
+      EntityRenderers.register(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieRenderer::new);
 
  			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);

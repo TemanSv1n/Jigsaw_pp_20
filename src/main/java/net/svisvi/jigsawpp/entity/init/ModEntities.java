@@ -16,6 +16,8 @@ import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.*;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
@@ -96,6 +98,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<StoneBeaverEntity>> STONE_BEAVER =
             ENTITY_TYPES.register("stone_beaver",() -> EntityType.Builder.<StoneBeaverEntity>of(StoneBeaverEntity::new, MobCategory.MONSTER)
                     .sized(1f,1f).fireImmune().setTrackingRange(64).setShouldReceiveVelocityUpdates(true).setUpdateInterval(3).build("stone_beaver"));
+
+    public static final RegistryObject<EntityType<BeaverZombieEntity>> ZOMBIE_BEAVER =
+            ENTITY_TYPES.register("zombie_beaver", () -> EntityType.Builder.<BeaverZombieEntity>of(BeaverZombieEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("zombie_beaver"));
 
 
 
