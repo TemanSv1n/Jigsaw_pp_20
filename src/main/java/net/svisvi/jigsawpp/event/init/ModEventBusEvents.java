@@ -1,10 +1,13 @@
 package net.svisvi.jigsawpp.event.init;
 
+import java.security.spec.ECPoint;
+
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
@@ -22,6 +25,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.BEAVER_SPIDER.get(), TeapodSpider.createAttributes().build());
         event.put(ModEntities.STONE_BEAVER.get(), StoneBeaverEntity.createAttributes().build());
         event.put(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieEntity.createAttributes().build());
+        event.put(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), BeaverZombieSpawner.createAttributes().build());
     }
 
 

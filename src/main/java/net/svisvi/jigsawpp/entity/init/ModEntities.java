@@ -19,6 +19,8 @@ import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
+
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
@@ -103,6 +105,9 @@ public class ModEntities {
             ENTITY_TYPES.register("zombie_beaver", () -> EntityType.Builder.<BeaverZombieEntity>of(BeaverZombieEntity::new, MobCategory.MONSTER)
                     .sized(0.6f, 2f).build("zombie_beaver"));
 
+    public static final RegistryObject<EntityType<BeaverZombieSpawner>> ZOMBIE_BEAVER_SPAWNER =
+            ENTITY_TYPES.register("zombie_beaver_spawner", () -> EntityType.Builder.<BeaverZombieSpawner>of(BeaverZombieSpawner::new, MobCategory.MONSTER)
+                    .sized(0.6f, 0.6f).build("zombie_beaver_spawner"));
 
 
     public static void register(IEventBus eventBus) {

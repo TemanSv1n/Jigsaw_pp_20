@@ -95,7 +95,7 @@ public class BeaverZombieEntity extends Monster {
    private int inWaterTime;
    private int conversionTime;
 
-   public BeaverZombieEntity(EntityType<? extends BeaverZombieEntity> pEntityType, Level pLevel) {
+   public BeaverZombieEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
       super(pEntityType, pLevel);
    }
 
@@ -348,7 +348,7 @@ public class BeaverZombieEntity extends Monster {
    }
 
    @Nullable
-   public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+   public SpawnGroupData finalizeSpawn(Level level, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
       //RandomSource randomsource = pLevel.getRandom();
       //SpawnGroupData pSpawnData = super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
       //float f = pDifficulty.getSpecialMultiplier();
