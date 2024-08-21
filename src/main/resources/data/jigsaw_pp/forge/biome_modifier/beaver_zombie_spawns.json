@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": {
+    "type": "forge:any"
+  },
+  "spawners": {
+    "type": "jigsaw_pp:zombie_beaver_spawner",
+    "weight": 4,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

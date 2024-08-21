@@ -7,6 +7,9 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
+
+import org.checkerframework.checker.units.qual.s;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
@@ -62,6 +65,7 @@ import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
@@ -75,6 +79,9 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.ZombieEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
+import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
 
 
@@ -116,6 +123,9 @@ public class BeaverZombieEntity extends Monster {
       this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, AbstractVillager.class, false));
       this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, IronGolem.class, true));
       this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, Turtle.class, 10, true, false, Turtle.BABY_ON_LAND_SELECTOR));
+      this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, BlabbitEntity.class, true));
+      this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, MossElephantEntity.class, true));
+    
    }
 
    public static AttributeSupplier.Builder createAttributes() {
@@ -424,7 +434,23 @@ public class BeaverZombieEntity extends Monster {
             }
          }
       }
-
+      Random rand = new Random();
+      if(rand.nextInt(1, 100) < 40){
+        ItemStack stack ; 
+        stack = new ItemStack(ModItems.BEAWEED_DUST.get()); 
+        if(stack != null){
+          this.spawnAtLocation(stack);
+        }
+      }
+      if(rand.nextInt(1, 100) < 70){
+        ItemStack stack ; 
+        stack = new ItemStack(ModItems.BEAWEED_SEEDS.get()); 
+        if(stack != null){
+          this.spawnAtLocation(stack);
+        } 
+      }
+      ItemStack stack = new ItemStack(Items.ROTTEN_FLESH);
+      this.spawnAtLocation(stack);
    }
 
    protected ItemStack getSkull() {

@@ -54,6 +54,7 @@ import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.IForgeShearable;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
@@ -216,9 +217,9 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
         });
         this.goalSelector.addGoal(4, new BlabbitGoals.BlabbitRandomDirectionGoal(this));
         this.goalSelector.addGoal(5, new BlabbitGoals.BlabbitKeepOnJumpingGoal(this));
-//        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
-//            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
-//        })); //placeholder for beaver zomdbie
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, BeaverZombieEntity.class, 10, true, false, (p_289461_) -> {
+            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
+        })); //placeholder for beaver zomdbie
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this){
             @Override
             public boolean canUse() {

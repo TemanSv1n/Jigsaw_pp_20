@@ -96,7 +96,7 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
 
   public static AttributeSupplier.Builder createAttributes() {
     return Monster.createMonsterAttributes()
-      .add(Attributes.MAX_HEALTH, 40)
+      .add(Attributes.MAX_HEALTH, 20)
       .add(Attributes.MOVEMENT_SPEED, 0.30000001192092896);
   }
 

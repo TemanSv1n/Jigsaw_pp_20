@@ -1,8 +1,22 @@
 package net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner;
 
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import com.google.common.eventbus.DeadEvent;
+
+import net.minecraft.client.gui.font.providers.UnihexProvider.Dimensions;
 import net.minecraft.client.multiplayer.chat.LoggedChatMessage.Player;
+import net.minecraft.data.worldgen.DimensionTypes;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -12,7 +26,39 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraftforge.client.event.ScreenEvent.Init;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraftforge.common.DungeonHooks;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.network.PlayMessages;
+import net.minecraftforge.network.NetworkHooks;
+
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.Difficulty;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.core.BlockPos;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
+
+
 
 /**
  * BeaverZombieSpawner
@@ -26,17 +72,34 @@ public class BeaverZombieSpawner extends Monster{
 
   @Override
   protected void registerGoals() {
-    this.goalSelector.addGoal(3, new SpawnBeaverZombieGoal(this )); 
-    this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0f));
-    this.goalSelector.addGoal(1, new FloatGoal(this));
-    this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+    this.goalSelector.addGoal(1, new SpawnBeaverZombieGoal(this )); 
   }
   public static AttributeSupplier.Builder createAttributes() {
     return Animal.createLivingAttributes()
-      .add(Attributes.MAX_HEALTH, 1)
+      .add(Attributes.MAX_HEALTH, 10)
       .add(Attributes.MOVEMENT_SPEED, 0.30000001192092896)
       .add(Attributes.FOLLOW_RANGE, 30);
   }
+  @Override
+  public boolean isPushable() {
+      return false;
+  }
+  
+  public static void init() {
+    SpawnPlacements.register(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), SpawnPlacements.Type.NO_RESTRICTIONS , Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
+            int y = pos.getY();
+            if (y <= 40) {
+      return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
+     }
+      return false;
 
+    }); 
+     
+  }
+    @Override
+    public MobType getMobType() {
+        return MobType.UNDEFINED;
+    }
+  
   
 }

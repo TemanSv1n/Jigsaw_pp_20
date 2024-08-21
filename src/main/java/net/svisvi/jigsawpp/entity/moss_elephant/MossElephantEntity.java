@@ -29,6 +29,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
@@ -96,6 +97,7 @@ public class MossElephantEntity extends Animal {
         super.registerGoals();
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Cow.class, (float) 12, 1, 1.2)); //placeholder for beaver zomdbie
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, BeaverZombieEntity.class, (float) 12, 1, 1.2)); //placeholder for beaver zomdbie
     }
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes()
