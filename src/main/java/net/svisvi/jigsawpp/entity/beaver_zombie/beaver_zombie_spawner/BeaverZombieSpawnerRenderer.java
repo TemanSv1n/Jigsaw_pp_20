@@ -14,7 +14,7 @@ public class BeaverZombieSpawnerRenderer extends MobRenderer <BeaverZombieSpawne
   
 	protected static final ResourceLocation Texture = new ResourceLocation(JigsawPpMod.MODID, "textures/entity/beaver_zombie_spawner.png");
 	public BeaverZombieSpawnerRenderer(Context context) {
-		super(context, new BeaverZombieSpawnerModel<>(context.bakeLayer(ModModelLayers.BEAVER_SPIDER_LAYER)), 1f);
+		super(context, new BeaverZombieSpawnerModel<>(context.bakeLayer(ModModelLayers.BEAVER_ZOMBIE_SPAWNER)), 1f);
 	}
   @Override
   public ResourceLocation getTextureLocation(BeaverZombieSpawner pEntity) {
