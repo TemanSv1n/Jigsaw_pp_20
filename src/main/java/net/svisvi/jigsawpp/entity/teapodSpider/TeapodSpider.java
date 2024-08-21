@@ -17,6 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -53,6 +54,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.init.ModSounds;
 
@@ -104,7 +107,7 @@ public class TeapodSpider extends Monster implements RangedAttackMob{
    }
 
    protected SoundEvent getAmbientSound() {
-      return ModSounds.WHISTLE.get();
+      return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")); 
    }
 
    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
@@ -200,11 +203,12 @@ public class TeapodSpider extends Monster implements RangedAttackMob{
 
   @Override
   public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
-    // TODO Auto-generated method stub
-    SlonProjectile slonProjectile = new SlonProjectile(this.level());
-    slonProjectile.setDamage(3);
-    slonProjectile.shoot(this.level(), this, pVelocity * 3, 0); 
-    
+    if(!this.level().isClientSide){
+      SlonProjectile slonProjectile = new SlonProjectile(this.level());
+      slonProjectile.setDamage(3);
+      playSound(SoundEvents.DROWNED_HURT_WATER, 1f, 2f);
+      slonProjectile.shoot(this.level(), this, pVelocity * 3, 0); 
+    }
   }
   
 

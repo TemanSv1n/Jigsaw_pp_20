@@ -19,6 +19,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.Tags.EntityTypes;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.minecraft.world.entity.SpawnGroupData;
@@ -42,7 +43,7 @@ public class SpawnBeaverZombieGoal extends Goal {
       if(this.bzSpawner.isAlive()){ 
         LightningBolt lightningbolt = (LightningBolt)EntityType.LIGHTNING_BOLT.create(serverLevel);
         if(lightningbolt != null){
-          lightningbolt.moveTo(this.bzSpawner.getX() + 1.5d, this.bzSpawner.getY(), this.bzSpawner.getZ() + 1.5d);
+          lightningbolt.moveTo(this.bzSpawner.getX(), this.bzSpawner.getY(), this.bzSpawner.getZ());
           lightningbolt.setVisualOnly(true);
           serverLevel.addFreshEntity(lightningbolt);
           Random rand = new Random(); 
@@ -50,9 +51,11 @@ public class SpawnBeaverZombieGoal extends Goal {
           double x = this.bzSpawner.getX();
           double y = this.bzSpawner.getY();
           double z = this.bzSpawner.getZ();
+          double xe = x - 1.5d;
+          double ze = z - 1.5d;
           for(int i = 0; i <= BeaverZombieCount; i++){
-            double xd = x + rand.nextDouble(0d, 3.0d);
-            double zd = z + rand.nextDouble(0d, 3.0d);
+            double xd = xe + rand.nextDouble(0d, 3.0d);
+            double zd = ze + rand.nextDouble(0d, 3.0d);
             spawnBvz(xd, y, zd, serverLevel);
           }
         }
@@ -64,14 +67,28 @@ public class SpawnBeaverZombieGoal extends Goal {
     Random rand = new Random();
     BeaverZombieEntity bvd = new BeaverZombieEntity(bz, serverLevel);
     if(bvd != null){
-      bvd.moveTo(xd, y, zd);
       int b = rand.nextInt(0, 30);
+      int c = rand.nextInt(0, 30);
       if(b <= 1){
          bvd.setBaby(true);;              
       }
-      serverLevel.addFreshEntity(bvd);
+      if(c <= 1){
+        BeaverSpiderEntity beaverSpiderEntity = new BeaverSpiderEntity(ModEntities.BEAVER_SPIDER.get(), serverLevel);
+        if(beaverSpiderEntity != null) {
+          beaverSpiderEntity.moveTo(xd, y, zd);
+          bvd.startRiding(beaverSpiderEntity);
+          serverLevel.addFreshEntityWithPassengers(beaverSpiderEntity); 
+          
+        }
+      }else{
+        bvd.moveTo(xd, y, zd);
+        serverLevel.addFreshEntity(bvd);
+      }
     }
   }
+
+
+
   @Override
   public boolean canUse() {
      Player nearestPlayer = this.bzSpawner.level().getNearestPlayer(this.bzSpawner, 10);

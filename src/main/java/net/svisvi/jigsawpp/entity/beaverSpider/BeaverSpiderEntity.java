@@ -201,11 +201,13 @@ public class BeaverSpiderEntity extends Monster implements RangedAttackMob{
     Random rand = new Random();
     float randf = rand.nextFloat(0.0f, 1.0f);
     if(!this.level().isClientSide()){
-      this.playSound(ModSounds.BEAVER_SPIDER_AMBIENT.get());
-    if(randf <= 0.5f){
-      BeaverBombProjectile bombr = new BeaverBombProjectile(this.level());
-      bombr.shootEnt(this.level(), this, (float) (pVelocity * 1.5), 0.4f);
-    }}
+      this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:beaver_spider_ambient")));
+      //this.playSound(ModSounds.BEAVER_SPIDER_AMBIENT.get());
+      if(randf <= 0.5f){
+        BeaverBombProjectile bombr = new BeaverBombProjectile(this.level());
+        bombr.shootEnt(this.level(), this, (float) (pVelocity * 1.5), 0.4f);
+      }
+    }
   }
  
 }
