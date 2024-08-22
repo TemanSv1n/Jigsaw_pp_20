@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.common.SoundAction;
 import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.svisvi.jigsawpp.fluid.fat.FatFluidType;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluidType;
 import net.svisvi.jigsawpp.JigsawPpMod;
 
@@ -21,6 +22,7 @@ public class ModFluidTypes {
 //    public static final ResourceLocation PONOS_OVERLAY_RL = new ResourceLocation(JigsawPpMod.MODID, "block/water_overlay");
     public static final DeferredRegister<FluidType> REGISTRY = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, JigsawPpMod.MODID);
     public static final RegistryObject<FluidType> PONOS_TYPE = REGISTRY.register("ponos", () -> new PonosFluidType());
+    public static final RegistryObject<FluidType> FAT_TYPE = REGISTRY.register("fat", () -> new FatFluidType());
 }
 
 

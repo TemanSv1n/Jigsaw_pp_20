@@ -50,6 +50,8 @@ public class ModItems {
 	public static final RegistryObject<Item> STRAWBERRY_ELEPHANT_PICKAXE = REGISTRY.register("strawberry_elephant_pickaxe", () -> new StrawberryElephantPickaxeItem());
 
 	public static final RegistryObject<Item> COAL_FOSSIL = block(ModBlocks.COAL_FOSSIL);
+	public static final RegistryObject<Item> FAT_BLOCK = block(ModBlocks.FAT_BLOCK);
+	public static final RegistryObject<Item> PORK_BLOCK = block(ModBlocks.PORK_BLOCK);
 	public static final RegistryObject<Item> RAW_TEAPOT = block(ModBlocks.RAW_TEAPOT);
 	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
 	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
@@ -101,6 +103,9 @@ public class ModItems {
 	public static final RegistryObject<Item> FORK = REGISTRY.register("fork", () -> new ForkItem());
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
+					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+	public static final RegistryObject<Item> FAT_BUCKET =REGISTRY.register(
+			"fat_bucket", () -> new BucketItem(ModFluids.FAT,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 	public static final RegistryObject<Item> SHIT_CUP =REGISTRY.register(
 			"shit_cup", () -> new ShitCupItem(ModFluids.PONOS, new Item.Properties().stacksTo(1)));
@@ -207,7 +212,8 @@ public class ModItems {
 	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
 	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
 	public static final RegistryObject<Item> JETSTREAM_CHAIR = REGISTRY.register("jetstream_chair", () -> new JetstreamChairItem(new Item.Properties().stacksTo(1)));
-
+	public static final RegistryObject<Item> HOT_FAT = REGISTRY.register("hot_fat", () -> new HotFatItem(new Item.Properties().stacksTo(16), 0.9f));
+	public static final RegistryObject<Item> TALLOW = REGISTRY.register("tallow", () -> new TallowItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
