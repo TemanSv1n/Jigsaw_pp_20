@@ -20,3 +20,5 @@ gradle-app.setting
 .classpath
 .idea/compiler.xml
 .idea/modules/Jigsaw_pp_20.main.iml
+.idea/.name
+.idea/modules/GitHub.Jigsaw_pp_20.main.iml
