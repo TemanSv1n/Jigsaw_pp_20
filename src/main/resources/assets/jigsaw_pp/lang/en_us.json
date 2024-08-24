@@ -140,6 +140,8 @@
   "effect.jigsaw_pp.egged": "Egg magic",
   "item.jigsaw_pp.totem_of_shit": "Totem of shit",
 
+  "subtitles.beaver_spider_chop": "Beaver spider crawls",
+  "subtitles.beaver_spider_ambient": "Beaver spider",
 
   "painting.jigsaw_pp.avebread.title": "Ave bread",
   "painting.jigsaw_pp.balls.title": "Balls",
@@ -216,6 +218,11 @@
   "item.jigsaw_pp.drist_tnt_stick": "Drist TNT stick",
   "entity.jigsaw_pp.jetstream_chair": "Jetstream Chair",
   "item.jigsaw_pp.jetstream_chair": "Jetstream Chair",
-  "entity.jigsaw_pp.moss_elephant": "Moss elephant"
+  "entity.jigsaw_pp.moss_elephant": "Moss elephant",
+
+  "block.jigsaw_pp.plate_bread": "Full plate of Sweet Bread",
+  "block.jigsaw_pp.plate_empty": "Empty plate",
+  "entity.jigsaw_pp.stone_beaver": "Stone Beaver",
+  "item.jigsaw_pp.stone_beaver_spawn_egg": "§6Stone Beaver§r spawn egg"
 
 }

@@ -30,6 +30,9 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.Containers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.svisvi.jigsawpp.block.entity.FactoryHeaterBlockEntity;
 import net.svisvi.jigsawpp.init.ModDatas;
 import net.svisvi.jigsawpp.init.ModSounds;
@@ -84,7 +87,15 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
 
     @Override
     public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return 15;
+        return 0;
+    }
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, BlockGetter reader, BlockPos pos) {
+        return true;
+    }
+    @Override
+    public VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return Shapes.empty();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.item.slon_gun;
 
 import net.minecraft.advancements.critereon.ItemDurabilityTrigger;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -29,8 +31,10 @@ import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.projectile.ExtinguisherProjectile;
 import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
+import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
+import org.jetbrains.annotations.Nullable;
 
-public class SlonGunItem extends Item {
+public class SlonGunItem extends Item implements CustomArmPoseItem {
 
     private Fluid content;
 
@@ -44,6 +48,15 @@ public class SlonGunItem extends Item {
     private static void chleen(BlockPos pos, LevelAccessor level){
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
     }
+    @Override
+    @Nullable
+    public HumanoidModel.@Nullable ArmPose getArmPose(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {
+        if (!player.swinging && !player.isUsingItem()) {
+            return HumanoidModel.ArmPose.CROSSBOW_CHARGE;
+        }
+        return null;
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         InteractionResultHolder<ItemStack> interact = super.use(pLevel, pPlayer, pUsedHand);
