@@ -3,6 +3,7 @@ package net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 
 import com.google.common.eventbus.DeadEvent;
 
@@ -26,6 +27,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraftforge.client.event.ScreenEvent.Init;
@@ -53,6 +55,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.core.BlockPos;
@@ -85,21 +88,20 @@ public class BeaverZombieSpawner extends Monster{
       return false;
   }
   
-  public static void init() {
-    SpawnPlacements.register(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), SpawnPlacements.Type.NO_RESTRICTIONS , Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-            int y = pos.getY();
-            if (y <= 40) {
-      return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
-     }
-      return false;
-
-    }); 
-     
+  public static boolean init(EntityType<? extends BeaverZombieSpawner> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
+    int y = pPos.getY();
+    return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y > 40 && moonPhaseBeaverZombie(pLevel);
+  } 
+  
+  public static boolean moonPhaseBeaverZombie(ServerLevelAccessor pLevel){
+    return pLevel.getMoonPhase() == 0 || pLevel.getMoonPhase() == 4;
   }
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
+  
+
+ @Override
+ public MobType getMobType() {
+      return MobType.UNDEFINED;
+  }
   
   
 }
