@@ -14,6 +14,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -101,6 +102,15 @@ public class BeaverBombProjectile extends ThrowableItemProjectile {
         super.onHit(pResult);
         realHit(this.level(), new BlockPos((int)pResult.getLocation().x, (int)pResult.getLocation().y, (int)pResult.getLocation().z));
 
+    }
+    public static Projectile shootEnt (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy){
+      if (!pLevel.isClientSide) {
+        BeaverBombProjectile thrownegg = new BeaverBombProjectile(pLevel, pEntity);
+        thrownegg.shootFromRotation(pEntity, pEntity.getXRot(), pEntity.getYRot(), 0.0F, pVelocity, pInaccuracy);
+        pLevel.addFreshEntity(thrownegg);
+        return thrownegg;
+      }
+      return null;
     }
 // SCRIPTING
 
