@@ -67,10 +67,13 @@ public class ModItems {
 	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
 	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
-
-    public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.BEAVER_SPIDER, 0x451d02, 0x0d0703,
-                    new Item.Properties()));
+  
+  public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER, 0x114f02, 0xf21313,
+                new Item.Properties()));
+  public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntities.BEAVER_SPIDER, 0x451d02, 0x0d0703,
+                new Item.Properties()));
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
     public static final RegistryObject<Item> TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",

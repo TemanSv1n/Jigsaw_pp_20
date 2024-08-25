@@ -60,6 +60,9 @@
   "item.jigsaw_pp.crystal_purgen_pilule": "Crystal purgen pilule",
   "item.jigsaw_pp.empty_pilule": "Pilule",
 
+  "subtitles.beaver_zombie_ambient": "Beaver zombie groans",
+  "subtitles.beaver_zombie_hurts": "Beaver zombie hurts",
+  "subtitles.beaver_zombie_die": "Beaver zombie dies",
 
   "item.jigsaw_pp.blabbit_spawn_egg": "§dBlabbit§r spawn egg",
   "item.jigsaw_pp.prh_tnt": "Explosion chance",
