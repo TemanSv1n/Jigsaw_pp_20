@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01 ",
+    "345",
+    "  8"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:lightning_rod"
+    },
+    "1": {
+      "item": "minecraft:lightning_rod"
+    },
+    "3": {
+      "item": "jigsaw:sussy_vent"
+    },
+    "4": {
+      "item": "jigsaw:totemofshit"
+    },
+    "5": {
+      "item": "minecraft:furnace"
+    },
+    "8": {
+      "item": "minecraft:barrel"
+    }
+  },
+  "result": {
+    "item": "jigsaw:shitter_gun",
+    "count": 1
+  }
+}

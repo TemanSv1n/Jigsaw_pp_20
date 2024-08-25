@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  2",
+    " 4 ",
+    "6  "
+  ],
+  "key": {
+    "2": {
+      "item": "jigsaw_pp:beaweed_nut"
+    },
+    "4": {
+      "item": "minecraft:stripped_oak_log"
+    },
+    "6": {
+      "item": "minecraft:stripped_oak_log"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaver_staff",
+    "count": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01 ",
+    "345",
+    "6  "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:comparator"
+    },
+    "1": {
+      "item": "minecraft:gold_ingot"
+    },
+    "3": {
+      "item": "minecraft:end_crystal"
+    },
+    "4": {
+      "item": "minecraft:brewing_stand"
+    },
+    "5": {
+      "item": "minecraft:dispenser"
+    },
+    "6": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw:medicgun",
+    "count": 1
+  }
+}

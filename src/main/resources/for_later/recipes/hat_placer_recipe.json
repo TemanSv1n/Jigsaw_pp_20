@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1",
+    "2 ",
+    "4 "
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:pink_wool"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    },
+    "4": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "jigsaw:hat_placer",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "create"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "4",
+    "2"
+  ],
+  "key": {
+    "2": {
+      "item": "jigsaw_pp:beaver_staff"
+    },
+    "4": {
+      "item": "minecraft:honey_block"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaver_staff_honey",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+    "type": "create:crushing",
+        "ingredients": [
+            {
+                "item": "jigsaw_pp:floppa_washbowl"
+            }
+        ],
+        "results": [
+            {
+                "item": "jigsaw_pp:floppa_cube",
+                "count": 1
+            }
+        ],
+        "processingTime": 1000
+    }

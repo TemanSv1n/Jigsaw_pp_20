@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  2",
+    "345",
+    " 78"
+  ],
+  "key": {
+    "2": {
+      "item": "minecraft:emerald_block"
+    },
+    "3": {
+      "item": "minecraft:copper_block"
+    },
+    "4": {
+      "item": "minecraft:iron_block"
+    },
+    "5": {
+      "item": "minecraft:tnt"
+    },
+    "7": {
+      "item": "jigsaw:xrenoder"
+    },
+    "8": {
+      "item": "jigsaw:xrenoder"
+    }
+  },
+  "result": {
+    "item": "jigsaw:poozooka",
+    "count": 1
+  }
+}

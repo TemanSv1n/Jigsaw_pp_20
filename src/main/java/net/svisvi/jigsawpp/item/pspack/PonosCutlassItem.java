@@ -27,7 +27,7 @@ public class PonosCutlassItem extends SwordItem {
     public PonosCutlassItem() {
         super(new Tier() {
             public int getUses() {
-                return 100;
+                return 2384;
             }
 
             public float getSpeed() {
@@ -35,7 +35,7 @@ public class PonosCutlassItem extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 0f;
+                return 4f;
             }
 
             public int getLevel() {
@@ -47,7 +47,7 @@ public class PonosCutlassItem extends SwordItem {
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
+                return Ingredient.of(new ItemStack(Blocks.ANCIENT_DEBRIS));
             }
         }, 3, -2.4f, new Properties());
     }

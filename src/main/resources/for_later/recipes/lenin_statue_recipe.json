@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:iron_hoe"
+    },
+    "1": {
+      "item": "jigsaw:beaverbody"
+    },
+    "2": {
+      "item": "minecraft:iron_pickaxe"
+    },
+    "4": {
+      "item": "minecraft:stone"
+    },
+    "6": {
+      "item": "minecraft:chiseled_stone_bricks"
+    },
+    "7": {
+      "item": "minecraft:smooth_stone"
+    },
+    "8": {
+      "item": "minecraft:chiseled_stone_bricks"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:lenin_statue_spawn_egg",
+    "count": 4
+  }
+}

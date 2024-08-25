@@ -1,6 +1,6 @@
 {
   "type": "minecraft:block",
-  "random_sequence": "jigsaw_pp:blocks/pricel_bottle",
+  "random_sequence": "jigsaw_pp:blocks/bottle_o_pricel",
   "pools": [
     {
       "rolls": 1.0,
@@ -12,7 +12,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "jigsaw_pp:pricel_bottle"
+          "name": "jigsaw_pp:bottle_o_pricel"
         }
       ]
     }

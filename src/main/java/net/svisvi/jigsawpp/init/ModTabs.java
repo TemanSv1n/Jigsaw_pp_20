@@ -119,7 +119,7 @@ public class ModTabs {
 						tabData.accept(ModItems.ARM.get());
 						tabData.accept(ModItems.BEAVER_STAFF.get());
 						tabData.accept(ModItems.BEAVER_STAFF_HONEY.get());
-						tabData.accept(ModItems.BROWN_CUTLASS.get());
+						//tabData.accept(ModItems.BROWN_CUTLASS.get());
 						tabData.accept(ModItems.CROSS.get());
 						tabData.accept(ModItems.LADLE.get());
 						tabData.accept(ModItems.EMPTY_BOTTLE.get());

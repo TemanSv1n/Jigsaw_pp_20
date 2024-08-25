@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    "678"
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw:highcompressedbeaweed"
+    },
+    "3": {
+      "item": "jigsaw:beaweeddustblock"
+    },
+    "4": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "5": {
+      "item": "jigsaw:beaweeddustblock"
+    },
+    "6": {
+      "item": "minecraft:stick"
+    },
+    "7": {
+      "item": "minecraft:hopper"
+    },
+    "8": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw:jetstreamchair_spawn_egg",
+    "count": 1
+  }
+}

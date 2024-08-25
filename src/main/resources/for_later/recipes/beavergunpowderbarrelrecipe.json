@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:barrel"
+    },
+    {
+      "item": "jigsaw:beaverbomb"
+    }
+  ],
+  "result": {
+    "item": "jigsaw:beavergunpowderbarrel",
+    "count": 1
+  }
+}

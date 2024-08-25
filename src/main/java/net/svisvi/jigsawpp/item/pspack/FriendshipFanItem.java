@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.item.pspack;
 
 
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -11,7 +12,7 @@ public class FriendshipFanItem extends SwordItem {
     public FriendshipFanItem() {
         super(new Tier() {
             public int getUses() {
-                return 100;
+                return 256;
             }
 
             public float getSpeed() {
@@ -19,7 +20,7 @@ public class FriendshipFanItem extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 0f;
+                return 2.5f;
             }
 
             public int getLevel() {
@@ -31,7 +32,7 @@ public class FriendshipFanItem extends SwordItem {
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
+                return Ingredient.of(new ItemStack(Items.IRON_INGOT));
             }
         }, 3, -2.4f, new Properties());
     }

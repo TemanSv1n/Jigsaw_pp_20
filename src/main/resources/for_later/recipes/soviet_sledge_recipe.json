@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_ponos_dlc:shit_ingot_placeholder"
+    },
+    "1": {
+      "item": "jigsaw_ponos_dlc:shit_ingor_block"
+    },
+    "2": {
+      "item": "jigsaw_ponos_dlc:shit_ingot_placeholder"
+    },
+    "4": {
+      "item": "minecraft:stick"
+    },
+    "7": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:soviet_sledge",
+    "count": 1
+  }
+}

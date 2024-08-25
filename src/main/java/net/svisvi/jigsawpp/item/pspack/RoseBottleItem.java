@@ -11,7 +11,7 @@ public class RoseBottleItem extends SwordItem {
     public RoseBottleItem() {
         super(new Tier() {
             public int getUses() {
-                return 100;
+                return 30;
             }
 
             public float getSpeed() {
@@ -19,11 +19,11 @@ public class RoseBottleItem extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 0f;
+                return 3f;
             }
 
             public int getLevel() {
-                return 2;
+                return 1;
             }
 
             public int getEnchantmentValue() {
@@ -31,7 +31,7 @@ public class RoseBottleItem extends SwordItem {
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
+                return Ingredient.of(new ItemStack(Blocks.GREEN_STAINED_GLASS));
             }
         }, 3, -2.4f, new Properties());
     }

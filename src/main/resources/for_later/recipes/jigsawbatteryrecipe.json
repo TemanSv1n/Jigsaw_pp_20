@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:lapis_block"
+    },
+    "1": {
+      "item": "minecraft:nether_star"
+    },
+    "2": {
+      "item": "jigsaw:beaverblock"
+    }
+  },
+  "result": {
+    "item": "jigsaw:jigsawbattery",
+    "count": 3
+  }
+}

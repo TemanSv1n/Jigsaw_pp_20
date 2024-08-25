@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 78"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:gold_ingot"
+    },
+    "3": {
+      "item": "minecraft:jukebox"
+    },
+    "4": {
+      "item": "minecraft:cod"
+    },
+    "5": {
+      "item": "minecraft:shield"
+    },
+    "7": {
+      "item": "minecraft:stone_button"
+    },
+    "8": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "jigsaw:fargusfish",
+    "count": 1
+  }
+}

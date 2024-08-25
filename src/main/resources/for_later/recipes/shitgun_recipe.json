@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "345",
+    " 78"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:blaze_rod"
+    },
+    "3": {
+      "item": "minecraft:blaze_rod"
+    },
+    "4": {
+      "item": "minecraft:blast_furnace"
+    },
+    "5": {
+      "item": "minecraft:iron_block"
+    },
+    "7": {
+      "item": "jigsaw:xrenoder"
+    },
+    "8": {
+      "item": "minecraft:flint_and_steel"
+    }
+  },
+  "result": {
+    "item": "jigsaw:shit_gun",
+    "count": 1
+  }
+}

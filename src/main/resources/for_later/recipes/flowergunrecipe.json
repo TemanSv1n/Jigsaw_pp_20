@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3  "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:blast_furnace"
+    },
+    "1": {
+      "item": "minecraft:dispenser"
+    },
+    "2": {
+      "item": "minecraft:rose_bush"
+    },
+    "3": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "result": {
+    "item": "jigsaw:flowergun_0",
+    "count": 1
+  }
+}
