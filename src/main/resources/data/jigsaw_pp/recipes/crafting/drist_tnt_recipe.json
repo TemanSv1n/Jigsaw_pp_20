@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:drist_tnt_stick"
+    },
+    {
+      "item": "jigsaw_pp:drist_tnt_stick"
+    },
+    {
+      "item": "jigsaw_pp:drist_tnt_stick"
+    },
+    {
+      "item": "jigsaw_pp:drist_tnt_stick"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_pp:drist_tnt",
+    "count": 1
+  }
+}

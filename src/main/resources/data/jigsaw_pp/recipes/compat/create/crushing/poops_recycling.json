@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+      {
+          "item": "jigsaw_pp:poops"
+      }
+  ],
+  "results": [
+      {
+          "item": "farmersdelight:minced_beef",
+          "count": 8
+      }
+  ],
+  "processingTime": 400
+}

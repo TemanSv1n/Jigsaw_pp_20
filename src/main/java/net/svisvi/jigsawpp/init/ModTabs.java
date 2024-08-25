@@ -119,7 +119,7 @@ public class ModTabs {
 						tabData.accept(ModItems.ARM.get());
 						tabData.accept(ModItems.BEAVER_STAFF.get());
 						tabData.accept(ModItems.BEAVER_STAFF_HONEY.get());
-						tabData.accept(ModItems.BROWN_CUTLASS.get());
+						//tabData.accept(ModItems.BROWN_CUTLASS.get());
 						tabData.accept(ModItems.CROSS.get());
 						tabData.accept(ModItems.LADLE.get());
 						tabData.accept(ModItems.EMPTY_BOTTLE.get());
@@ -149,6 +149,13 @@ public class ModTabs {
 				tabData.accept(ModItems.PLATE_EMPTY.get());
 				tabData.accept(ModItems.PLATE_BREAD.get());
 				tabData.accept(ModItems.STONE_BEAVER_SPAWN_EGG.get());
+				tabData.accept(ModItems.FAT_BUCKET.get());
+				tabData.accept(ModItems.FAT_BLOCK.get());
+				tabData.accept(ModItems.PORK_BLOCK.get());
+				tabData.accept(ModItems.HOT_FAT.get());
+				tabData.accept(ModItems.TALLOW.get());
+				tabData.accept(ModItems.POOPS.get());
+				tabData.accept(ModItems.POOPIS.get());
 
 			}).build());
 

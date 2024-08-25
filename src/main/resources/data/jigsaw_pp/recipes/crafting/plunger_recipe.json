@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "thermal"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 0",
+    "202",
+    " 1 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:dried_kelp"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    },
+    "2": {
+      "item": "minecraft:brown_dye"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:plunger",
+    "count": 1
+  }
+}

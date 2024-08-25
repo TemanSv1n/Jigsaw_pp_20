@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_pp:beaver_staff_honey"
+    },
+    "1": {
+      "item": "jigsaw_pp:beaver_staff"
+    },
+    "2": {
+      "item": "jigsaw_pp:beaver_staff_honey"
+    },
+    "3": {
+      "item": "jigsaw_pp:cross"
+    },
+    "4": {
+      "item": "jigsaw_pp:empty_bottle"
+    },
+    "5": {
+      "item": "jigsaw_pp:cross"
+    },
+    "6": {
+      "item": "jigsaw_pp:pricel_rapier"
+    },
+    "7": {
+      "item": "minecraft:diamond_leggings"
+    },
+    "8": {
+      "item": "jigsaw_pp:pricel_rapier"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:bottle_o_pricel",
+    "count": 1
+  }
+}

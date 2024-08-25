@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:dried_kelp"
+    },
+    "1": {
+      "item": "minecraft:iron_ingot"
+    },
+    "2": {
+      "item": "minecraft:dried_kelp"
+    },
+    "3": {
+      "item": "minecraft:black_stained_glass_pane"
+    },
+    "4": {
+      "item": "minecraft:iron_helmet"
+    },
+    "5": {
+      "item": "minecraft:black_stained_glass_pane"
+    },
+    "6": {
+      "item": "minecraft:dried_kelp"
+    },
+    "7": {
+      "tag": "minecraft:wool"
+    },
+    "8": {
+      "item": "minecraft:dried_kelp"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:pyro_helmet",
+    "count": 1
+  }
+}

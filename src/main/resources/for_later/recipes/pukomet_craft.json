@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_ponos_dlc:ponos"
+    },
+    "1": {
+      "item": "jigsaw_ponos_dlc:perdezh_in_bottle"
+    },
+    "2": {
+      "item": "jigsaw_ponos_dlc:perdezh_in_bottle"
+    },
+    "3": {
+      "item": "jigsaw_ponos_dlc:diamond_iron_block"
+    },
+    "4": {
+      "item": "minecraft:iron_block"
+    },
+    "5": {
+      "item": "minecraft:iron_nugget"
+    },
+    "6": {
+      "item": "minecraft:iron_ingot"
+    },
+    "7": {
+      "item": "minecraft:emerald_block"
+    },
+    "8": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:pushka_perdushka",
+    "count": 1
+  }
+}

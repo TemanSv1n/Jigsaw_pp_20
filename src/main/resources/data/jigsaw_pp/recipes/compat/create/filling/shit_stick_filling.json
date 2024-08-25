@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "fluid": "jigsaw_pp:ponos",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "jigsaw_pp:shit_stick"
+    }
+  ]
+}

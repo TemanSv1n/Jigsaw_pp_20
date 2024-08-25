@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345"
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw:ponos_sounds"
+    },
+    "3": {
+      "item": "jigsaw:beaweeddustblock"
+    },
+    "4": {
+      "item": "minecraft:netherite_leggings"
+    },
+    "5": {
+      "item": "jigsaw:beaweeddustblock"
+    }
+  },
+  "result": {
+    "item": "jigsaw:maznyaslayer_leggings",
+    "count": 1
+  }
+}

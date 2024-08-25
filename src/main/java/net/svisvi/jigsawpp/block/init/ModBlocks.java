@@ -29,15 +29,20 @@ import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.block.yoba.YobaBlock;
 import net.svisvi.jigsawpp.block.yoba.YobaPoopBlock;
+import net.svisvi.jigsawpp.fluid.fat.FatFluidBlock;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluidBlock;
 
 
 public class ModBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, JigsawPpMod.MODID);
     public static final RegistryObject<Block> COAL_FOSSIL = REGISTRY.register("coal_fossil", () -> new CoalFossilBlock());
+    public static final RegistryObject<Block> FAT_BLOCK = REGISTRY.register("fat_block", () -> new FatBlock());
+    public static final RegistryObject<Block> PORK_BLOCK = REGISTRY.register("pork_block", () -> new PorkBlock());
 
     public static final RegistryObject<LiquidBlock> PONOS_FLUID_BLOCK = REGISTRY.register("ponos_fluid_block",
             () -> new PonosFluidBlock());
+    public static final RegistryObject<LiquidBlock> FAT_FLUID_BLOCK = REGISTRY.register("fat_fluid_block",
+            () -> new FatFluidBlock());
     public static final RegistryObject<Block> RAW_TEAPOT = REGISTRY.register("raw_teapot", () -> new RawTeapotBlock());
 
     public static final RegistryObject<Block> TEAPOT = REGISTRY.register("teapot", () -> new TeapotBlock());

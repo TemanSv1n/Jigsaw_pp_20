@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6  "
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_ponos_dlc:shit_ingot_placeholder"
+    },
+    "1": {
+      "item": "jigsaw_ponos_dlc:shit_ingot_placeholder"
+    },
+    "2": {
+      "item": "jigsaw_ponos_dlc:shit_ingot_placeholder"
+    },
+    "3": {
+      "item": "jigsaw_ponos_dlc:shit_ingor_block"
+    },
+    "5": {
+      "item": "jigsaw_ponos_dlc:shit_ingot_placeholder"
+    },
+    "6": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:soviet_sickle",
+    "count": 1
+  }
+}

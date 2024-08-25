@@ -11,15 +11,15 @@ public class ErshikItem extends SwordItem {
     public ErshikItem() {
         super(new Tier() {
             public int getUses() {
-                return 100;
+                return 250;
             }
 
             public float getSpeed() {
-                return 4f;
+                return 7f;
             }
 
             public float getAttackDamageBonus() {
-                return 0f;
+                return 5f;
             }
 
             public int getLevel() {
@@ -27,12 +27,12 @@ public class ErshikItem extends SwordItem {
             }
 
             public int getEnchantmentValue() {
-                return 2;
+                return 24;
             }
 
             public Ingredient getRepairIngredient() {
-                return Ingredient.of(new ItemStack(Blocks.BEDROCK));
+                return Ingredient.of(new ItemStack(Blocks.WARPED_ROOTS));
             }
-        }, 3, -2.4f, new Properties());
+        }, 0, -2f, new Properties());
     }
 }

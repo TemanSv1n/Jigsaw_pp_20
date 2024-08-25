@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 12",
+    " 45",
+    "6  "
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:red_wool"
+    },
+    "2": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "4": {
+      "item": "jigsaw_pp:beaweed_scum"
+    },
+    "5": {
+      "item": "minecraft:blue_wool"
+    },
+    "6": {
+      "item": "minecraft:lightning_rod"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:beaweed_checker",
+    "count": 1
+  }
+}

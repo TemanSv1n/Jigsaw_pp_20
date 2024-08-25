@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:warped_roots"
+    },
+    "1": {
+      "item": "minecraft:nether_brick"
+    },
+    "2": {
+      "item": "minecraft:warped_roots"
+    },
+    "3": {
+      "item": "minecraft:warped_roots"
+    },
+    "4": {
+      "item": "minecraft:nether_brick"
+    },
+    "5": {
+      "item": "minecraft:warped_roots"
+    },
+    "7": {
+      "item": "minecraft:flower_pot"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:ershik",
+    "count": 1
+  }
+}

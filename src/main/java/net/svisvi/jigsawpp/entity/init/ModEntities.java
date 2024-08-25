@@ -109,6 +109,15 @@ public class ModEntities {
             ENTITY_TYPES.register("zombie_beaver_spawner", () -> EntityType.Builder.<BeaverZombieSpawner>of(BeaverZombieSpawner::new, MobCategory.MONSTER)
                     .sized(3f, 3f).build("zombie_beaver_spawner"));
 
+    public static final RegistryObject<EntityType<PoopsEntity>> POOPS =
+            ENTITY_TYPES.register("poops", () -> EntityType.Builder.<PoopsEntity>of(PoopsEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("poops"));
+
+    public static final RegistryObject<EntityType<PoopisEntity>> POOPIS =
+            ENTITY_TYPES.register("poopis", () -> EntityType.Builder.<PoopisEntity>of(PoopisEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("poopis"));
+
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
