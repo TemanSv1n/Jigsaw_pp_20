@@ -223,6 +223,16 @@
   "block.jigsaw_pp.plate_bread": "Full plate of Sweet Bread",
   "block.jigsaw_pp.plate_empty": "Empty plate",
   "entity.jigsaw_pp.stone_beaver": "Stone Beaver",
-  "item.jigsaw_pp.stone_beaver_spawn_egg": "§6Stone Beaver§r spawn egg"
-
+  "item.jigsaw_pp.stone_beaver_spawn_egg": "§6Stone Beaver§r spawn egg",
+  "fluid_type.jigsaw_pp.ponos": "Ponos",
+  "fluid_type.jigsaw_pp.fat": "Fat",
+  "item.jigsaw_pp.fat_bucket": "Fat bucket",
+  "block.jigsaw_pp.fat_block": "Fat Block",
+  "block.jigsaw_pp.pork_block": "Pork block",
+  "item.jigsaw_pp.hot_fat": "Hot fat",
+  "item.jigsaw_pp.tallow": "Tallow",
+  "item.jigsaw_pp.poops": "Poops",
+  "entity.jigsaw_pp.poops": "Poops",
+  "item.jigsaw_pp.poopis": "Poopis",
+  "entity.jigsaw_pp.poopis": "Poopis"
 }

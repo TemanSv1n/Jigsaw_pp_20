@@ -16,6 +16,7 @@ public class ModFuels {
 		ItemStack itemstack = event.getItemStack();
 		if (itemstack.getItem() == ModItems.BEAWEED_DUST.get()) event.setBurnTime(10);
 		if (itemstack.getItem() == ModItems.COAL_FOSSIL.get()) event.setBurnTime(1);
+		if (itemstack.getItem() == ModItems.PONOS_BUCKET.get()) event.setBurnTime(10);
 		if (itemstack.getItem() == ModItems.BEAWEED_BLOCK.get()) event.setBurnTime(100);
 	}
 }

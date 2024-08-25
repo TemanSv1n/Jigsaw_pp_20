@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jigsaw_pp:block/fat_block",
+    "particle": "jigsaw_pp:block/fat_block"
+  },
+  "render_type": "solid"
+}

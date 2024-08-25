@@ -23,7 +23,7 @@ import net.svisvi.jigsawpp.particles.ModParticleTypes;
 
 public abstract class PonosFluid extends ForgeFlowingFluid {
     public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> ModFluidTypes.PONOS_TYPE.get(), () -> ModFluids.PONOS.get(), () -> ModFluids.FLOWING_PONOS.get())
-            .explosionResistance(100f).tickRate(8).levelDecreasePerBlock(2).slopeFindDistance(6).bucket(() -> ModItems.PONOS_BUCKET.get()).block(() -> (LiquidBlock) ModBlocks.PONOS_FLUID_BLOCK.get());
+            .explosionResistance(100f).tickRate(3).levelDecreasePerBlock(2).slopeFindDistance(6).bucket(() -> ModItems.PONOS_BUCKET.get()).block(() -> (LiquidBlock) ModBlocks.PONOS_FLUID_BLOCK.get());
 
     private PonosFluid() {
         super(PROPERTIES);
