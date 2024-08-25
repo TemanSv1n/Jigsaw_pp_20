@@ -149,6 +149,13 @@ public class ModTabs {
 				tabData.accept(ModItems.PLATE_EMPTY.get());
 				tabData.accept(ModItems.PLATE_BREAD.get());
 				tabData.accept(ModItems.STONE_BEAVER_SPAWN_EGG.get());
+				tabData.accept(ModItems.FAT_BUCKET.get());
+				tabData.accept(ModItems.FAT_BLOCK.get());
+				tabData.accept(ModItems.PORK_BLOCK.get());
+				tabData.accept(ModItems.HOT_FAT.get());
+				tabData.accept(ModItems.TALLOW.get());
+				tabData.accept(ModItems.POOPS.get());
+				tabData.accept(ModItems.POOPIS.get());
 
 			}).build());
 
