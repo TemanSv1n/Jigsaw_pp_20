@@ -93,6 +93,14 @@ public class ModEntities {
             ENTITY_TYPES.register("stone_beaver",() -> EntityType.Builder.<StoneBeaverEntity>of(StoneBeaverEntity::new, MobCategory.MONSTER)
                     .sized(1f,1f).fireImmune().setTrackingRange(64).setShouldReceiveVelocityUpdates(true).setUpdateInterval(3).build("stone_beaver"));
 
+    public static final RegistryObject<EntityType<PoopsEntity>> POOPS =
+            ENTITY_TYPES.register("poops", () -> EntityType.Builder.<PoopsEntity>of(PoopsEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("poops"));
+
+    public static final RegistryObject<EntityType<PoopisEntity>> POOPIS =
+            ENTITY_TYPES.register("poopis", () -> EntityType.Builder.<PoopisEntity>of(PoopisEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("poopis"));
+
 
 
     public static void register(IEventBus eventBus) {

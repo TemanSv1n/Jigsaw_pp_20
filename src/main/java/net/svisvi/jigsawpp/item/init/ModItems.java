@@ -32,6 +32,8 @@ import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.plunger.PlungerItem;
+import net.svisvi.jigsawpp.item.poops.PoopisItem;
+import net.svisvi.jigsawpp.item.poops.PoopsItem;
 import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
@@ -214,6 +216,9 @@ public class ModItems {
 	public static final RegistryObject<Item> JETSTREAM_CHAIR = REGISTRY.register("jetstream_chair", () -> new JetstreamChairItem(new Item.Properties().stacksTo(1)));
 	public static final RegistryObject<Item> HOT_FAT = REGISTRY.register("hot_fat", () -> new HotFatItem(new Item.Properties().stacksTo(16), 0.9f));
 	public static final RegistryObject<Item> TALLOW = REGISTRY.register("tallow", () -> new TallowItem());
+	public static final RegistryObject<Item> POOPS = REGISTRY.register("poops", () -> new PoopsItem());
+	public static final RegistryObject<Item> POOPIS = REGISTRY.register("poopis", () -> new PoopisItem());
+
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

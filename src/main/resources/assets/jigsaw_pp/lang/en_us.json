@@ -199,5 +199,9 @@
   "block.jigsaw_pp.fat_block": "Fat Block",
   "block.jigsaw_pp.pork_block": "Pork block",
   "item.jigsaw_pp.hot_fat": "Hot fat",
-  "item.jigsaw_pp.tallow": "Tallow"
+  "item.jigsaw_pp.tallow": "Tallow",
+  "item.jigsaw_pp.poops": "Poops",
+  "entity.jigsaw_pp.poops": "Poops",
+  "item.jigsaw_pp.poopis": "Poopis",
+  "entity.jigsaw_pp.poopis": "Poopis"
 }

@@ -154,6 +154,8 @@ public class ModTabs {
 				tabData.accept(ModItems.PORK_BLOCK.get());
 				tabData.accept(ModItems.HOT_FAT.get());
 				tabData.accept(ModItems.TALLOW.get());
+				tabData.accept(ModItems.POOPS.get());
+				tabData.accept(ModItems.POOPIS.get());
 
 			}).build());
 
