@@ -6,7 +6,7 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = 'Beta-0.2x'
+version = 'Beta-0.3x'
 group = 'net.svisvi.jigsawpp'
 archivesBaseName = 'jigsawPP'
 
