@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "everythingisedibleeie"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "everythingisedibleeie:raw_human_meat"
+    },
+    {
+      "item": "everythingisedibleeie:raw_human_meat"
+    },
+    {
+      "item": "everythingisedibleeie:raw_human_meat"
+    },
+    {
+      "item": "everythingisedibleeie:raw_human_meat"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_pp:pork_block",
+    "count": 2
+  }
+}
