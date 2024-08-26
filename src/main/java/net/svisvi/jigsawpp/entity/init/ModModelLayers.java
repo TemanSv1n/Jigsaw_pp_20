@@ -38,4 +38,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation STONE_BEAVER_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "stone_beaver_model"), "main");
 
+    public static final ModelLayerLocation BEAVER_ZOMBIE = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "zombie_beaver"), "main");
+    public static final ModelLayerLocation BEAVER_ZOMBIE_SPAWNER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "beaver_zombie_spawner_model"), "main");
 }

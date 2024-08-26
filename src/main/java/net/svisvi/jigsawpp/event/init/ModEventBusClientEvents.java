@@ -1,6 +1,7 @@
 package net.svisvi.jigsawpp.event.init;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,6 +16,8 @@ import net.svisvi.jigsawpp.entity.armor.beaver.BeaverBootsModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverHatModel;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderModel;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieModel;
+import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawnerModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairModel;
@@ -34,6 +37,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.TEAPOD_SPIDER_LAYER, TeapodSpiderModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEAVER_SPIDER_LAYER, BeaverSpiderModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.STONE_BEAVER_LAYER, StoneBeaverModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BEAVER_ZOMBIE_SPAWNER, BeaverZombieSpawnerModel::createBodyLayer);
     }
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

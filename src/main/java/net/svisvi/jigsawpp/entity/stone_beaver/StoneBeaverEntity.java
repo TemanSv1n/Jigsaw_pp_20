@@ -10,6 +10,7 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -18,11 +19,13 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.core.BlockPos;
@@ -45,6 +48,11 @@ public class StoneBeaverEntity extends Monster {
         xpReward = 10;
         setNoAi(false);
     }
+    
+    public static boolean init(EntityType<? extends StoneBeaverEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
+        int y = pPos.getY();
+        return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y <= 40;
+     } 
 
 
 
@@ -107,18 +115,6 @@ public class StoneBeaverEntity extends Monster {
         //StonebeaverOnEntityTickUpdateProcedure.execute(this.level, this.getX(), this.getY(), this.getZ(), this);
     }
 
-    public static void init() {
-        SpawnPlacements.register(ModEntities.STONE_BEAVER.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-            int y = pos.getY();
-            if (y <= 40) {
-                return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
-            }
-            return false;
-
-        });
-        DungeonHooks.addDungeonMob(ModEntities.STONE_BEAVER.get(), 180);
-
-    }
 
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();

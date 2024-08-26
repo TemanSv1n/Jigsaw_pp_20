@@ -60,6 +60,52 @@
       }
     ]
   },
+  "beaverzombie_ambient_1": {
+    "subtitle": "subtitles.beaver_zombie_ambient",
+    "sounds": [
+    {
+      "name": "jigsaw_pp:beaverzombie_ambient_1",
+      "stream": false
+    }
+    ] 
+  },
+  "beaverzombie_ambient_2": {
+    "subtitle": "subtitles.beaver_zombie_ambient",
+    "sounds": [
+    {
+      "name": "jigsaw_pp:beaverzombie_ambient_2",
+      "stream": false
+    }
+    ] 
+  },
+  "beaverzombie_ambient_3": {
+    "subtitle": "subtitles.beaver_zombie_hurts",
+    "sounds": [
+    {
+      "name": "jigsaw_pp:beaverzombie_ambient_3",
+      "stream": false
+    }
+    ] 
+  },
+  "beaverzombie_ambient_4": {
+    "subtitle": "subtitles.beaver_zombie_die",
+    "sounds": [
+    {
+      "name": "jigsaw_pp:beaverzombie_ambient_4",
+      "stream": false
+    }
+    ] 
+  },
+  "beaverzombie_ambient_5": {
+    "subtitle": "subtitles.beaver_zombie_ambient",
+    "sounds": [
+    {
+      "name": "jigsaw_pp:beaverzombie_ambient_5",
+      "stream": false
+    }
+    ] 
+  },
+
   "blabbit_live_0": {
     "subtitle": "subtitles.blabbit_live",
     "sounds": [
