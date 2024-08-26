@@ -108,5 +108,10 @@
 
   "jigsaw_pp.tooltip.liquid.amount": "%s mB",
   "jigsaw_pp.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+ 
+  "item.jigsaw_pp.zombie_beaver_spawn_egg": "Яйцо призыва боброзомби",
+  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "Яйцо призыва коробки с боброзомби",
+
+  "item.jigsaw_pp.beaver_spider_spawn_egg": "Яйцо призыва бобропаука",
   "jigsaw_pp.tooltip.liquid.mb": " mB"
 }
