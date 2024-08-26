@@ -80,6 +80,11 @@
   "item.jigsaw_pp.moss_elephant_thumb": "Moss Elephant Thumb",
   "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result",
 
+  "item.jigsaw_pp.zombie_beaver_spawn_egg": "Zombie Beaver spawn egg",
+  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "Zombie Beaver spawner spawn egg",
+
+  "item.jigsaw_pp.beaver_spider_spawn_egg": "Beaver spider spawn egg",
+
   "item.jigsaw_pp.hazmat_helmet": "Hazmat helmet",
   "item.jigsaw_pp.hazmat_chestplate": "Hazmat chestplate",
   "item.jigsaw_pp.hazmat_leggings": "Hazmat leggings",

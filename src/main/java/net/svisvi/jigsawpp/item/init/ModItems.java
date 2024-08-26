@@ -71,6 +71,10 @@ public class ModItems {
   public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawn_egg",
         () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER, 0x114f02, 0xf21313,
                 new Item.Properties()));
+
+  public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWNER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawner_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER_SPAWNER, 0x114f02, 0xf21313,
+                new Item.Properties()));
   public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
         () -> new ForgeSpawnEggItem(ModEntities.BEAVER_SPIDER, 0x451d02, 0x0d0703,
                 new Item.Properties()));
