@@ -223,6 +223,8 @@
   "block.jigsaw_pp.plate_bread": "Full plate of Sweet Bread",
   "block.jigsaw_pp.plate_empty": "Empty plate",
   "entity.jigsaw_pp.stone_beaver": "Stone Beaver",
-  "item.jigsaw_pp.stone_beaver_spawn_egg": "§6Stone Beaver§r spawn egg"
+  "item.jigsaw_pp.stone_beaver_spawn_egg": "§6Stone Beaver§r spawn egg",
+
+  "item.jigsaw_pp.friendship_fan": "Friendship fan"
 
 }
