@@ -4,8 +4,9 @@
   "priority": 1100,
   "package": "net.svisvi.jigsawpp.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "jigsaw_pp.refmap.json",
+  "refmap": "mixins.jigsaw_pp.refmap.json",
   "mixins": [
+    "ShearsDispenserItemBehaviorMixin"
   ],
   "client": [
     "client.PlayerRendererMixin"

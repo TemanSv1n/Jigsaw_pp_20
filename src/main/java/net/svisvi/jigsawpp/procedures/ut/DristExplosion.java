@@ -73,8 +73,9 @@ public class DristExplosion {
     }
 
     public static void harmfulDristExplode(Level world, BlockPos pPos, int radii, Level.ExplosionInteraction explosion, @Nullable LivingEntity igniter){
-        dristExplode(world,pPos,radii, igniter);
         world.explode(null,pPos.getX(), pPos.getY(), pPos.getZ(),radii, explosion);
+        dristExplode(world,pPos,radii, igniter);
+
     }
     }
 

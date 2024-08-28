@@ -71,7 +71,7 @@ dependencies {
 
 mixin {
     // MixinGradle Settings
-    add sourceSets.main, 'jigsaw_pp.refmap.json'
+    add sourceSets.main, 'mixins.jigsaw_pp.refmap.json'
     config 'jigsaw_pp.mixins.json'
 }
 

@@ -64,7 +64,7 @@ public class FatFluidBlock extends LiquidBlock {
     public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
         super.tick(blockstate, world, pos, random);
         harden(world, pos);
-        world.scheduleTick(pos, this, 10);
+        world.scheduleTick(pos, this, 200);
     }
 
     public static void harden(LevelAccessor world, BlockPos pPos) {

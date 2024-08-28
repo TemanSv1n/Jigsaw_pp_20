@@ -213,7 +213,7 @@ public class YobaBlock extends Block implements Equipable {
 
 
     public void moveForward(BlockState pState, Level pLevel, BlockPos pPos){
-        if (pLevel.random.nextFloat() > 0.001) {
+        if (pLevel.random.nextFloat() > 0.0004) {
             pLevel.setBlock(pPos.relative(pState.getValue(REAL_FACING), 1), roll(pState, pLevel, pState.getValue(REAL_FACING)), 3);
             pLevel.setBlock(pPos, getTrace().defaultBlockState(), 3);
             if (!pLevel.isClientSide()) {
