@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:spruce_log"
+    },
+    "1": {
+      "item": "minecraft:iron_block"
+    },
+    "2": {
+      "item": "minecraft:spruce_log"
+    },
+    "3": {
+      "item": "minecraft:stripped_spruce_log"
+    },
+    "4": {
+      "item": "minecraft:moss_block"
+    },
+    "5": {
+      "item": "minecraft:stripped_spruce_log"
+    },
+    "6": {
+      "item": "minecraft:stripped_spruce_log"
+    },
+    "7": {
+      "item": "minecraft:moss_block"
+    },
+    "8": {
+      "item": "minecraft:stripped_spruce_log"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:slavic_totem_uncharged",
+    "count": 1
+  }
+}

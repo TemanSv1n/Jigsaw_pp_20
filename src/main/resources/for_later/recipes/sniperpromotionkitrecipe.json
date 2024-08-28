@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw:purgengun"
+    },
+    "3": {
+      "item": "jigsaw:purgenbundle"
+    },
+    "4": {
+      "item": "minecraft:book"
+    },
+    "5": {
+      "item": "jigsaw:purgenbundle"
+    },
+    "7": {
+      "item": "jigsaw:purgenbundle"
+    }
+  },
+  "result": {
+    "item": "jigsaw:sniperpromotionkit",
+    "count": 1
+  }
+}

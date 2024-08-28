@@ -1,5 +1,5 @@
 {
-	"credit": "Made with Blockbench",
+	"credit": "Made with Love",
 	"texture_size": [40, 20],
 	"textures": {
 		"0": "jigsaw_pp:item/paddle",
@@ -10,7 +10,7 @@
 			"name": "paddle_left",
 			"from": [8.3, -2, 13],
 			"to": [9.3, 4, 20],
-			"rotation": {"angle": 0, "axis": "x", "origin": [17, -10, 8]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [17, -10, 8]},
 			"faces": {
 				"north": {"uv": [2.8, 5.6, 3.2, 10.4], "texture": "#0"},
 				"east": {"uv": [0, 5.6, 2.8, 10.4], "texture": "#0"},
@@ -24,7 +24,7 @@
 			"name": "paddle_left",
 			"from": [7, -1, 0],
 			"to": [9, 1, 18],
-			"rotation": {"angle": 0, "axis": "x", "origin": [17, -10, 8]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [17, -10, 8]},
 			"faces": {
 				"north": {"uv": [7.2, 14.4, 8, 16], "texture": "#0"},
 				"east": {"uv": [0, 14.4, 7.2, 16], "texture": "#0"},
@@ -37,12 +37,12 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [90, 0, 0],
-			"translation": [0, -4, 10]
+			"rotation": [-90, 0, 0],
+			"translation": [0, 1, -6.25]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [90, 0, 0],
-			"translation": [0, -4, 10]
+			"rotation": [-90, 0, 0],
+			"translation": [0, 1, -6.25]
 		},
 		"firstperson_righthand": {
 			"rotation": [-90, 0, 0],

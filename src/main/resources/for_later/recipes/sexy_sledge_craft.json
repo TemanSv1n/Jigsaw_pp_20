@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_ponos_dlc:diamond_iron_block"
+    },
+    "1": {
+      "item": "minecraft:yellow_shulker_box"
+    },
+    "2": {
+      "item": "jigsaw_ponos_dlc:diamond_iron_block"
+    },
+    "4": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "7": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:sexy_sledgehammer",
+    "count": 1
+  }
+}

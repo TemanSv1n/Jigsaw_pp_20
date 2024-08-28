@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_ponos_dlc:pig_ammo"
+    },
+    "1": {
+      "item": "jigsaw_ponos_dlc:pig_ammo"
+    },
+    "2": {
+      "item": "jigsaw_ponos_dlc:pig_ammo"
+    },
+    "3": {
+      "item": "minecraft:hay_block"
+    },
+    "4": {
+      "item": "minecraft:dispenser"
+    },
+    "5": {
+      "item": "minecraft:iron_block"
+    },
+    "6": {
+      "item": "minecraft:iron_ingot"
+    },
+    "7": {
+      "item": "minecraft:iron_nugget"
+    },
+    "8": {
+      "item": "minecraft:porkchop"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:piggun",
+    "count": 1
+  }
+}

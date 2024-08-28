@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -54,6 +55,7 @@ import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.IForgeShearable;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
@@ -120,18 +122,6 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
 //        System.out.println("JUMP DATA");
 //        System.out.println(this.entityData.get(JUMPING));
         return this.entityData.get(FEAR);
-
-    }
-    public static void init() {
-        SpawnPlacements.register(ModEntities.BLABBIT.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
-            int y = pos.getY();
-            if (y <= 40) {
-                return true && world.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(entityType, world, reason, pos, random);
-            }
-            return false;
-
-    });
-        DungeonHooks.addDungeonMob(ModEntities.BLABBIT.get(), 180);
 
     }
 
@@ -216,9 +206,9 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
         });
         this.goalSelector.addGoal(4, new BlabbitGoals.BlabbitRandomDirectionGoal(this));
         this.goalSelector.addGoal(5, new BlabbitGoals.BlabbitKeepOnJumpingGoal(this));
-//        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
-//            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
-//        })); //placeholder for beaver zomdbie
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, BeaverZombieEntity.class, 10, true, false, (p_289461_) -> {
+            return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
+        })); //placeholder for beaver zomdbie
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this){
             @Override
             public boolean canUse() {
@@ -341,6 +331,10 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
         return pTarget instanceof Player && this.level().getDifficulty() == Difficulty.PEACEFUL ? false : pTarget.canBeSeenAsEnemy();
     }
 
+    public static boolean init(EntityType<? extends BlabbitEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
+        int y = pPos.getY();
+        return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y <= 40;
+    } 
 
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes()

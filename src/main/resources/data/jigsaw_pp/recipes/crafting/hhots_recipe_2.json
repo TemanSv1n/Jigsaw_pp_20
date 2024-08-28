@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:half_heart_of_the_sea"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "jigsaw_pp:half_heart_of_the_sea"
+    }
+  ],
+  "result": {
+    "item": "minecraft:heart_of_the_sea",
+    "count": 1
+  }
+}

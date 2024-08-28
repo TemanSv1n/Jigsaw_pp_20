@@ -16,7 +16,11 @@ import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.*;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
+import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
+
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
@@ -96,6 +100,22 @@ public class ModEntities {
     public static final RegistryObject<EntityType<StoneBeaverEntity>> STONE_BEAVER =
             ENTITY_TYPES.register("stone_beaver",() -> EntityType.Builder.<StoneBeaverEntity>of(StoneBeaverEntity::new, MobCategory.MONSTER)
                     .sized(1f,1f).fireImmune().setTrackingRange(64).setShouldReceiveVelocityUpdates(true).setUpdateInterval(3).build("stone_beaver"));
+
+    public static final RegistryObject<EntityType<BeaverZombieEntity>> ZOMBIE_BEAVER =
+            ENTITY_TYPES.register("zombie_beaver", () -> EntityType.Builder.<BeaverZombieEntity>of(BeaverZombieEntity::new, MobCategory.MONSTER)
+                    .sized(0.6f, 2f).build("zombie_beaver"));
+
+    public static final RegistryObject<EntityType<BeaverZombieSpawner>> ZOMBIE_BEAVER_SPAWNER =
+            ENTITY_TYPES.register("zombie_beaver_spawner", () -> EntityType.Builder.<BeaverZombieSpawner>of(BeaverZombieSpawner::new, MobCategory.MONSTER)
+                    .sized(3f, 3f).build("zombie_beaver_spawner"));
+
+    public static final RegistryObject<EntityType<PoopsEntity>> POOPS =
+            ENTITY_TYPES.register("poops", () -> EntityType.Builder.<PoopsEntity>of(PoopsEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("poops"));
+
+    public static final RegistryObject<EntityType<PoopisEntity>> POOPIS =
+            ENTITY_TYPES.register("poopis", () -> EntityType.Builder.<PoopisEntity>of(PoopisEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("poopis"));
 
 
 

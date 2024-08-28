@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "1": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "2": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "3": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "4": {
+      "item": "jigsaw:jetstreamchair_spawn_egg"
+    },
+    "5": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "6": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "7": {
+      "item": "jigsaw:beaweeddust"
+    },
+    "8": {
+      "item": "jigsaw:beaweeddust"
+    }
+  },
+  "result": {
+    "item": "jigsaw:jetstream_chair_emergency",
+    "count": 1
+  }
+}

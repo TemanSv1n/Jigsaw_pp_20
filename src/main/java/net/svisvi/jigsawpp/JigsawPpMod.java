@@ -1,14 +1,6 @@
 /*
- *    MCreator note:
- *
- *    If you lock base mod element files, you can edit this file and it won't get overwritten.
- *    If you change your modid or package, you need to apply these changes to this file MANUALLY.
- *
- *    Settings in @Mod annotation WON'T be changed in case of the base mod element
- *    files lock too, so you need to set them manually here in such case.
- *
- *    If you do not lock base mod element files in Workspace settings, this file
- *    will be REGENERATED on each build.
+ *  JigsawPpMod
+ *  Guano
  *
  */
 package net.svisvi.jigsawpp;
@@ -83,6 +75,8 @@ import java.util.function.Supplier;
 
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderRenderer;
+import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieRenderer;
+import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawnerRenderer;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitRenderer;
 
 @Mod("jigsaw_pp")
@@ -170,6 +164,8 @@ public class JigsawPpMod {
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.POOPS.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.POOPIS.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.FLOPPA_MISSILE.get(), FloppaMissileRenderer::new);
 			EntityRenderers.register(ModEntities.PURGEN_PILULE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.EXTINGUISHER_PROJECTILE.get(), ThrownItemRenderer::new);
@@ -181,6 +177,8 @@ public class JigsawPpMod {
 
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
 			EntityRenderers.register(ModEntities.STONE_BEAVER.get(), StoneBeaverRenderer::new);
+      EntityRenderers.register(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieRenderer::new);
+      EntityRenderers.register(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), BeaverZombieSpawnerRenderer::new);
 
  			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);
@@ -190,6 +188,7 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.JETSTREAM_CHAIR.get(), (p_174090_) -> {
 				return new JetstreamChairRenderer(p_174090_, ModModelLayers.JETSTREAM_CHAIR_LAYER);
 			});
+
 
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);

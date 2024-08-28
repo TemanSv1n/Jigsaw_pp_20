@@ -32,6 +32,8 @@ import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
 import net.svisvi.jigsawpp.item.pilule.*;
 import net.svisvi.jigsawpp.item.plunger.PlungerItem;
+import net.svisvi.jigsawpp.item.poops.PoopisItem;
+import net.svisvi.jigsawpp.item.poops.PoopsItem;
 import net.svisvi.jigsawpp.item.pspack.*;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
 import net.svisvi.jigsawpp.item.purgen_gun.PurgenMachineGunItem;
@@ -50,6 +52,8 @@ public class ModItems {
 	public static final RegistryObject<Item> STRAWBERRY_ELEPHANT_PICKAXE = REGISTRY.register("strawberry_elephant_pickaxe", () -> new StrawberryElephantPickaxeItem());
 
 	public static final RegistryObject<Item> COAL_FOSSIL = block(ModBlocks.COAL_FOSSIL);
+	public static final RegistryObject<Item> FAT_BLOCK = block(ModBlocks.FAT_BLOCK);
+	public static final RegistryObject<Item> PORK_BLOCK = block(ModBlocks.PORK_BLOCK);
 	public static final RegistryObject<Item> RAW_TEAPOT = block(ModBlocks.RAW_TEAPOT);
 	public static final RegistryObject<Item> TEAPOT = block(ModBlocks.TEAPOT);
 	public static final RegistryObject<Item> BLACK_TEAPOT = block(ModBlocks.BLACK_TEAPOT);
@@ -63,10 +67,17 @@ public class ModItems {
 	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
 	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
+  
+  public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER, 0x114f02, 0xf21313,
+                new Item.Properties()));
 
-    public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.BEAVER_SPIDER, 0x451d02, 0x0d0703,
-                    new Item.Properties()));
+  public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWNER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawner_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER_SPAWNER, 0x114f02, 0xf21313,
+                new Item.Properties()));
+  public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntities.BEAVER_SPIDER, 0x451d02, 0x0d0703,
+                new Item.Properties()));
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
     public static final RegistryObject<Item> TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
@@ -105,6 +116,9 @@ public class ModItems {
 	public static final RegistryObject<Item> FORK = REGISTRY.register("fork", () -> new ForkItem());
 	public static final RegistryObject<Item> PONOS_BUCKET =REGISTRY.register(
 			"ponos_bucket", () -> new BucketItem(ModFluids.PONOS,
+					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+	public static final RegistryObject<Item> FAT_BUCKET =REGISTRY.register(
+			"fat_bucket", () -> new BucketItem(ModFluids.FAT,
 					new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 	public static final RegistryObject<Item> SHIT_CUP =REGISTRY.register(
 			"shit_cup", () -> new ShitCupItem(ModFluids.PONOS, new Item.Properties().stacksTo(1)));
@@ -211,6 +225,10 @@ public class ModItems {
 	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
 	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
 	public static final RegistryObject<Item> JETSTREAM_CHAIR = REGISTRY.register("jetstream_chair", () -> new JetstreamChairItem(new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> HOT_FAT = REGISTRY.register("hot_fat", () -> new HotFatItem(new Item.Properties().stacksTo(16), 0.9f));
+	public static final RegistryObject<Item> TALLOW = REGISTRY.register("tallow", () -> new TallowItem());
+	public static final RegistryObject<Item> POOPS = REGISTRY.register("poops", () -> new PoopsItem());
+	public static final RegistryObject<Item> POOPIS = REGISTRY.register("poopis", () -> new PoopisItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A B",
+    " C ",
+    "D E"
+  ],
+  "key": {
+    "A": {
+      "item": "jigsaw_pp:pooped_bread"
+    },
+    "B": {
+      "item": "jigsaw_pp:kega_null"
+    },
+    "C": {
+      "item": "minecraft:paper"
+    },
+    "D": {
+      "item": "jigsaw_pp:beaweed_checker"
+    },
+    "E": {
+      "item": "jigsaw_pp:pooped_bricks"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:dellist",
+    "count": 1
+  }
+}

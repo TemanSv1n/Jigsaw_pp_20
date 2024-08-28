@@ -12,7 +12,7 @@ import net.svisvi.jigsawpp.procedures.ExtinguisherUse;
 
 public class ExtinguisherItem extends Item {
     public ExtinguisherItem(){
-        super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).durability(250));
+        super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON).durability(50));
     }
 
     @Override

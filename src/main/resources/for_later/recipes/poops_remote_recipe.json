@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw:radiohat_helmet"
+    },
+    "1": {
+      "item": "jigsaw:poops"
+    },
+    "2": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "item": "jigsaw:poops_remote",
+    "count": 1
+  }
+}

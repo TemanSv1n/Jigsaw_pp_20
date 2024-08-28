@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_ponos_dlc:tinker_essence"
+    },
+    {
+      "item": "jigsaw_ponos_dlc:create_essence"
+    },
+    {
+      "item": "jigsaw_ponos_dlc:jigsawium_essence"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_ponos_dlc:maznya_essence",
+    "count": 1
+  }
+}

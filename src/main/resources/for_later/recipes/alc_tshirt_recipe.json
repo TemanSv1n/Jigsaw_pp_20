@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:string"
+    },
+    "2": {
+      "item": "minecraft:string"
+    },
+    "3": {
+      "item": "minecraft:white_carpet"
+    },
+    "4": {
+      "item": "minecraft:white_carpet"
+    },
+    "5": {
+      "item": "minecraft:white_carpet"
+    },
+    "6": {
+      "item": "minecraft:gold_ingot"
+    },
+    "7": {
+      "item": "minecraft:yellow_wool"
+    },
+    "8": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:alcoholic_chestplate",
+    "count": 1
+  }
+}

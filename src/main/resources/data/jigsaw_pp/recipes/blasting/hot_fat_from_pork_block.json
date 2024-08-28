@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "create"
+      }
+    }
+  ],
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "jigsaw_pp:pork_block"
+  },
+  "result": "jigsaw_pp:hot_fat",
+  "experience": 0.1,
+  "cookingtime": 400
+}

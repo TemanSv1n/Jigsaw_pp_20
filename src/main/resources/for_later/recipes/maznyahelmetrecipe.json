@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw:ponos_sounds"
+    },
+    "3": {
+      "item": "jigsaw:beaweeddustblock"
+    },
+    "4": {
+      "item": "minecraft:netherite_helmet"
+    },
+    "5": {
+      "item": "jigsaw:beaweeddustblock"
+    },
+    "7": {
+      "tag": "forge:stained_glass"
+    }
+  },
+  "result": {
+    "item": "jigsaw:maznyaslayer_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:porkchop"
+    },
+    "1": {
+      "item": "minecraft:diamond_block"
+    },
+    "2": {
+      "item": "minecraft:porkchop"
+    },
+    "3": {
+      "item": "minecraft:leather"
+    },
+    "4": {
+      "item": "minecraft:diamond"
+    },
+    "5": {
+      "item": "minecraft:leather"
+    },
+    "6": {
+      "item": "minecraft:porkchop"
+    },
+    "7": {
+      "item": "minecraft:lightning_rod"
+    },
+    "8": {
+      "item": "minecraft:porkchop"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:shishkin",
+    "count": 1
+  }
+}

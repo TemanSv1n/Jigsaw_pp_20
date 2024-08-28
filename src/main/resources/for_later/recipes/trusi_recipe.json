@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "1": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "2": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "3": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "5": {
+      "item": "minecraft:light_blue_wool"
+    }
+  },
+  "result": {
+    "item": "jigsaw_ponos_dlc:trusi_leggings",
+    "count": 1
+  }
+}

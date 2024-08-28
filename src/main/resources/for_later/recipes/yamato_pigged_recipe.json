@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_ponos_dlc:pig_apple_corrupted"
+    },
+    "1": {
+      "item": "jigsaw:yamato"
+    }
+  },
+  "result": {
+    "item": "jigsaw:yamato_pig",
+    "count": 1
+  }
+}

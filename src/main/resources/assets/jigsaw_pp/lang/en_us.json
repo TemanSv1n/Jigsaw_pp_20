@@ -60,6 +60,9 @@
   "item.jigsaw_pp.crystal_purgen_pilule": "Crystal purgen pilule",
   "item.jigsaw_pp.empty_pilule": "Pilule",
 
+  "subtitles.beaver_zombie_ambient": "Beaver zombie groans",
+  "subtitles.beaver_zombie_hurts": "Beaver zombie hurts",
+  "subtitles.beaver_zombie_die": "Beaver zombie dies",
 
   "item.jigsaw_pp.blabbit_spawn_egg": "§dBlabbit§r spawn egg",
   "item.jigsaw_pp.prh_tnt": "Explosion chance",
@@ -76,6 +79,11 @@
   "recipe.jigsaw_pp.elephanting": "Moss Elephanting",
   "item.jigsaw_pp.moss_elephant_thumb": "Moss Elephant Thumb",
   "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result",
+
+  "item.jigsaw_pp.zombie_beaver_spawn_egg": "Zombie Beaver spawn egg",
+  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "Zombie Beaver spawner spawn egg",
+
+  "item.jigsaw_pp.beaver_spider_spawn_egg": "Beaver spider spawn egg",
 
   "item.jigsaw_pp.hazmat_helmet": "Hazmat helmet",
   "item.jigsaw_pp.hazmat_chestplate": "Hazmat chestplate",
@@ -225,6 +233,18 @@
   "entity.jigsaw_pp.stone_beaver": "Stone Beaver",
   "item.jigsaw_pp.stone_beaver_spawn_egg": "§6Stone Beaver§r spawn egg",
 
-  "item.jigsaw_pp.friendship_fan": "Friendship fan"
+  "item.jigsaw_pp.friendship_fan": "Friendship fan",
+
+  "fluid_type.jigsaw_pp.ponos": "Ponos",
+  "fluid_type.jigsaw_pp.fat": "Fat",
+  "item.jigsaw_pp.fat_bucket": "Fat bucket",
+  "block.jigsaw_pp.fat_block": "Fat Block",
+  "block.jigsaw_pp.pork_block": "Pork block",
+  "item.jigsaw_pp.hot_fat": "Hot fat",
+  "item.jigsaw_pp.tallow": "Tallow",
+  "item.jigsaw_pp.poops": "Poops",
+  "entity.jigsaw_pp.poops": "Poops",
+  "item.jigsaw_pp.poopis": "Poopis",
+  "entity.jigsaw_pp.poopis": "Poopis"
 
 }

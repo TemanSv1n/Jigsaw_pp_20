@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3  "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:blast_furnace"
+    },
+    "1": {
+      "item": "minecraft:jukebox"
+    },
+    "2": {
+      "item": "minecraft:observer"
+    },
+    "3": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "result": {
+    "item": "jigsaw:rickrollgun",
+    "count": 1
+  }
+}

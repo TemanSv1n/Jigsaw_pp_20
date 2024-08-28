@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:golden_sword"
+    },
+    "2": {
+      "item": "minecraft:golden_sword"
+    },
+    "3": {
+      "item": "minecraft:gold_ingot"
+    },
+    "4": {
+      "item": "minecraft:golden_helmet"
+    },
+    "5": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "jigsaw:merchant_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    "678"
+  ],
+  "key": {
+    "1": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "3": {
+      "item": "minecraft:green_stained_glass"
+    },
+    "4": {
+      "item": "minecraft:oak_sign"
+    },
+    "5": {
+      "item": "minecraft:green_stained_glass"
+    },
+    "6": {
+      "item": "minecraft:green_stained_glass"
+    },
+    "7": {
+      "item": "minecraft:green_stained_glass"
+    },
+    "8": {
+      "item": "minecraft:green_stained_glass"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:empty_bottle",
+    "count": 1
+  }
+}

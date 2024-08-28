@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    "678"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:cauldron"
+    },
+    "3": {
+      "item": "minecraft:stone_brick_wall"
+    },
+    "4": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "5": {
+      "item": "minecraft:stone_brick_wall"
+    },
+    "6": {
+      "item": "minecraft:basalt"
+    },
+    "7": {
+      "item": "minecraft:blast_furnace"
+    },
+    "8": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "result": {
+    "item": "jigsaw:solonka",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:heart_of_the_sea"
+  },
+  "result": "jigsaw_pp:half_heart_of_the_sea"
+}
