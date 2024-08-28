@@ -29,6 +29,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.core.BlockPos;
+import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 
 
@@ -86,7 +87,7 @@ public class StoneBeaverEntity extends Monster {
 
     @Override
     public SoundEvent getAmbientSound() {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.villager.ambient"));
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(JigsawPpMod.MODID, "beaver_spider_ambient"));
     }
 
     @Override

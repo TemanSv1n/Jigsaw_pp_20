@@ -75,6 +75,7 @@ public class BeaverBombItem extends Item {
                     pPlayer.awardStat(Stats.ITEM_USED.get(this));
                     if (!pPlayer.getAbilities().instabuild) {
                         itemstack.shrink(1);
+                        pPlayer.getCooldowns().addCooldown(itemstack.getItem(), 100);
                     }
                 } else {
                     itemstack.shrink(1);
