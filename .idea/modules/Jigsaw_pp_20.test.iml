@@ -8,12 +8,11 @@
           <platformType>MIXIN</platformType>
           <platformType>MCP</platformType>
         </autoDetectTypes>
-        <projectReimportVersion>1</projectReimportVersion>
       </configuration>
     </facet>
   </component>
   <component name="McpModuleSettings">
-    <option name="mappingFile" value="F:\GitHub\Jigsaw_pp_20\build\createMcpToSrg\output.tsrg" />
+    <option name="mappingFile" value="E:\MCreatorWorkSpaces\Jigsaw_pp_20\build\createMcpToSrg\output.tsrg" />
     <option name="mcpVersion" value="parchment_2023.09.03-1.20.1" />
     <option name="minecraftVersion" value="1.20.1" />
     <option name="platformVersion" value="47.2.0" />

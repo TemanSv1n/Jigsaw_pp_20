@@ -22,3 +22,6 @@ gradle-app.setting
 .idea/modules/Jigsaw_pp_20.main.iml
 .idea/.name
 .idea/modules/GitHub.Jigsaw_pp_20.main.iml
+.idea/modules/net.svisvi.jigsawpp.Jigsaw_pp_20.main.iml
+.idea/modules/Jigsaw_pp_20.test.iml
+.idea/compiler.xml
