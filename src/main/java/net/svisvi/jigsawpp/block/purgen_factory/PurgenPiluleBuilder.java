@@ -47,11 +47,11 @@ public class PurgenPiluleBuilder {
         mediumEffects.add(MobEffects.WEAKNESS);
     }
     public static ItemStack build_main(Optional<PurgenFactoryRecipe> o_recipe, ItemStack food1, ItemStack food2, ItemStack catalyst, Level level, BlockPos pos, BlockState state){
-        return buildFromPurity_5(buildFromRandom_4(buildFromWorld_3(
+        return buildFromPurity_5(buildFromCatalyst_2(buildFromRandom_4(buildFromWorld_3(
                 buildFromCatalyst_2(buildFromFood_1(buildFromRecipe_0(o_recipe),
                                 food1, food2),
                         catalyst, level),
-                level, pos)));
+                level, pos)), catalyst, level));
     }
 
     public static ItemStack buildFromRecipe_0(Optional<PurgenFactoryRecipe> o_recipe) {
@@ -125,7 +125,7 @@ public class PurgenPiluleBuilder {
         List<MobEffectInstance> efs = new ArrayList<MobEffectInstance>();
 
         dur_buff *= catalyst_recipe.getAdditionalTimeK(null);
-        purity *= catalyst_recipe.getPurityK(null);
+        purity *= catalyst_recipe.getPurityK(null) * 2.5;
         efs = catalyst_recipe.getEffects();
 
         AbstractPiluleItem.setDurationBuff((int) dur_buff, purgen_stack);
@@ -165,6 +165,8 @@ public class PurgenPiluleBuilder {
     }
 
     public static ItemStack buildFromRandom_4(ItemStack purgen_stack){
+        int purity = purgen_stack.getOrCreateTag().getInt("purity");
+        AbstractPiluleItem.setPurity((int) (purity + 7 * 2.6), purgen_stack);
         return purgen_stack;
     }
     public static ItemStack buildFromPurity_5(ItemStack purgen_stack){

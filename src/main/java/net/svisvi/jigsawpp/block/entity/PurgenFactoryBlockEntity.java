@@ -52,12 +52,15 @@ import net.svisvi.jigsawpp.block.purgen_factory.PurgenCatalystRecipeReader;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenPiluleBuilder;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
+import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.networking.packet.FluidSyncS2CPacket;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
+import net.svisvi.jigsawpp.procedures.ut.DristExplosion;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
 import org.jetbrains.annotations.NotNull;
@@ -350,10 +353,18 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
     public void badEventHandler(Level world, BlockPos pPos){
         //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
         if (world instanceof ServerLevel _level && !_level.isClientSide()) {
-            _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
-            ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.FACTORY_HEATER.get()));
-            entityToSpawn.setPickUpDelay(10);
-            _level.addFreshEntity(entityToSpawn);
+            float rand = world.random.nextFloat();
+            if (rand < 0.2) {
+                _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
+                ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.FACTORY_HEATER.get()));
+                entityToSpawn.setPickUpDelay(10);
+                _level.addFreshEntity(entityToSpawn);
+            } else if (rand > 0.2 && rand < 0.7){
+                DristExplosion.harmfulDristExplode(_level, pPos, 6, Level.ExplosionInteraction.NONE, null);
+            } else {
+                BeaverSpiderEntity entityToSpawn = new BeaverSpiderEntity(ModEntities.BEAVER_SPIDER.get(), _level);
+                _level.addFreshEntity(entityToSpawn);
+            }
         }
 
 
