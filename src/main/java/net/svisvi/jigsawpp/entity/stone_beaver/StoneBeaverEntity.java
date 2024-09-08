@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.entity.stone_beaver;
 
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
@@ -52,7 +53,7 @@ public class StoneBeaverEntity extends Monster {
     
     public static boolean init(EntityType<? extends StoneBeaverEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
         int y = pPos.getY();
-        return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y <= 40;
+        return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y <= 40 && ((pLevel instanceof Level _lvl ? _lvl.dimension() : (pLevel instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD);
      } 
 
 

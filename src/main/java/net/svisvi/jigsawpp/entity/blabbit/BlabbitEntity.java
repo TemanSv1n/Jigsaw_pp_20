@@ -43,10 +43,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShearsItem;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
@@ -333,7 +330,7 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
 
     public static boolean init(EntityType<? extends BlabbitEntity> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
         int y = pPos.getY();
-        return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y <= 40;
+        return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y <= 40 && ((pLevel instanceof Level _lvl ? _lvl.dimension() : (pLevel instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD);
     } 
 
     public static AttributeSupplier.Builder createAttributes() {

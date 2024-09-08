@@ -10,6 +10,7 @@ import com.google.common.eventbus.DeadEvent;
 import net.minecraft.client.gui.font.providers.UnihexProvider.Dimensions;
 import net.minecraft.client.multiplayer.chat.LoggedChatMessage.Player;
 import net.minecraft.data.worldgen.DimensionTypes;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Difficulty;
@@ -26,9 +27,6 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraftforge.client.event.ScreenEvent.Init;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
@@ -90,7 +88,7 @@ public class BeaverZombieSpawner extends Monster{
   
   public static boolean init(EntityType<? extends BeaverZombieSpawner> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom){
     int y = pPos.getY();
-    return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y > 40 && moonPhaseBeaverZombie(pLevel);
+    return checkMonsterSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom) && y > 40 && moonPhaseBeaverZombie(pLevel) && ((pLevel instanceof Level _lvl ? _lvl.dimension() : (pLevel instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) ;
   } 
   
   public static boolean moonPhaseBeaverZombie(ServerLevelAccessor pLevel){
