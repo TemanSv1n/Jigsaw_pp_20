@@ -102,6 +102,7 @@ public class ModItems {
 
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
 	public static final RegistryObject<Item> JOTARO_HAT = REGISTRY.register("jotaro_hat", () -> new JotaroHatItem.Helmet());
+	public static final RegistryObject<Item> STRAPS = REGISTRY.register("straps", () -> new StrapsItem.Chestplate());
 
 	public static final RegistryObject<Item> SLON_GUN = REGISTRY.register("slon_gun", () -> new SlonGunItem());
 
