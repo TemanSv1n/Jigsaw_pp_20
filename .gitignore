@@ -25,3 +25,7 @@ gradle-app.setting
 .idea/modules/net.svisvi.jigsawpp.Jigsaw_pp_20.main.iml
 .idea/modules/Jigsaw_pp_20.test.iml
 .idea/compiler.xml
+.idea/compiler.xml
+.idea/modules.xml
+.idea/modules/Jigsaw_pp_20.test.iml
+.idea/modules/net.svisvi.jigsawpp.Jigsaw_pp_20.main.iml
