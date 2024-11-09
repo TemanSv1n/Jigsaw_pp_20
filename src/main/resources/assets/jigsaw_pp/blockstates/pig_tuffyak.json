@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "jigsaw_pp:block/pig_tuffyak",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "jigsaw_pp:block/pig_tuffyak"
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/pig_tuffyak",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/pig_tuffyak",
+      "y": 270
+    }
+  }
+}

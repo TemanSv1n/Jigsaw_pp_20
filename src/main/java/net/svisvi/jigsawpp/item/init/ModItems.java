@@ -67,6 +67,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
 	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
+	public static final RegistryObject<Item> PIG_TUFFYAK = block(ModBlocks.PIG_TUFFYAK);
   
   public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawn_egg",
         () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER, 0x114f02, 0xf21313,
