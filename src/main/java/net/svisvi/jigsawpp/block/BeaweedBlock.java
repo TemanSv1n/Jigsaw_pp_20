@@ -35,12 +35,12 @@ public class BeaweedBlock extends FallingBlock {
     }
 
 
-    @Override
-    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-        if (player.getInventory().getSelected().getItem() instanceof ShovelItem tieredItem)
-            return tieredItem.getTier().getLevel() >= 1;
-        return false;
-    }
+//    @Override
+//    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+//        if (player.getInventory().getSelected().getItem() instanceof ShovelItem tieredItem)
+//            return tieredItem.getTier().getLevel() >= 1;
+//        return false;
+//    }
 
     @Override
     public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {

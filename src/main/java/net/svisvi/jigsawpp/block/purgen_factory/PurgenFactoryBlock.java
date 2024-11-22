@@ -5,10 +5,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
@@ -24,9 +25,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.MenuProvider;
@@ -118,12 +116,12 @@ public class PurgenFactoryBlock extends BaseEntityBlock {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
-    @Override
-    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-        if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
-            return tieredItem.getTier().getLevel() >= 0;
-        return false;
-    }
+//    @Override
+//    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+//        if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
+//            return tieredItem.getTier().getLevel() >= 0 && player.getInventory().getSelected().is(ItemTags.create(new ResourceLocation("forge:pickaxes")));
+//        return false;
+//    }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
