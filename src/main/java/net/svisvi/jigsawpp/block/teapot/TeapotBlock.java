@@ -44,7 +44,7 @@ public class TeapotBlock extends Block {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public TeapotBlock() {
-        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(0.1f, 10f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
+        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(0.8f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -106,12 +106,12 @@ public class TeapotBlock extends Block {
         return BlockPathTypes.DAMAGE_CAUTIOUS;
     }
 
-    @Override
-    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-        if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
-            return tieredItem.getTier().getLevel() >= 1;
-        return false;
-    }
+//    @Override
+//    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+//        if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
+//            return tieredItem.getTier().getLevel() >= 1;
+//        return false;
+//    }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {

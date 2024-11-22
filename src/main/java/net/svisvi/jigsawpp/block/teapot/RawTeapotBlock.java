@@ -32,7 +32,7 @@ public class RawTeapotBlock extends FallingBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public RawTeapotBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.GRAVEL).strength(0.1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
+        super(BlockBehaviour.Properties.of().sound(SoundType.GRAVEL).strength(0.8f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -83,12 +83,12 @@ public class RawTeapotBlock extends FallingBlock {
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
-    @Override
-    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-        if (player.getInventory().getSelected().getItem() instanceof ShovelItem tieredItem)
-            return tieredItem.getTier().getLevel() >= 1;
-        return false;
-    }
+//    @Override
+//    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+//        if (player.getInventory().getSelected().getItem() instanceof ShovelItem tieredItem)
+//            return tieredItem.getTier().getLevel() >= 1;
+//        return false;
+//    }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
