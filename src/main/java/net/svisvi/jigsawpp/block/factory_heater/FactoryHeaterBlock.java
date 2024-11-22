@@ -117,12 +117,12 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
-    @Override
-    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-        if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
-            return tieredItem.getTier().getLevel() >= 0;
-        return false;
-    }
+//    @Override
+//    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+//        if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
+//            return tieredItem.getTier().getLevel() >= 0;
+//        return false;
+//    }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
