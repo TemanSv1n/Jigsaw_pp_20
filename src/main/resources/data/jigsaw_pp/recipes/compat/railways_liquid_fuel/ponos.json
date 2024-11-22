@@ -1,0 +1,12 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "railways"
+    }
+  ],
+  "fluids": [
+    "jigsaw_pp:ponos"
+  ],
+  "fuel_ticks": 15
+}

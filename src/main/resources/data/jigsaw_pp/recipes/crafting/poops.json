@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1",
+    "1",
+    "2"
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw_pp:tallow"
+    },
+    "2": {
+      "item": "minecraft:firework_rocket"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:poops",
+    "count": 1
+  }
+}

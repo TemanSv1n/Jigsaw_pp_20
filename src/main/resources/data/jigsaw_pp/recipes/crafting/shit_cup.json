@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "121",
+    "343"
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw_pp:crystal_purgen_pilule"
+    },
+    "2": {
+      "item": "jigsaw_pp:kega_null"
+    },
+    "3": {
+      "item": "jigsaw_pp:blabball"
+    },
+    "4": {
+      "item": "jigsaw_pp:bottle_o_pricel"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:shit_cup",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "igsaw_pp:beaweed_nut"
+  },
+  "result": "jigsaw_pp:beaweed_seeds"
+}

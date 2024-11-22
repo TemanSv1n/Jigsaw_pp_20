@@ -90,7 +90,7 @@ public class ShitCupItem extends BucketItem implements DispensibleContainerItem 
                         }
 
                         pPlayer.awardStat(Stats.ITEM_USED.get(this));
-                        pPlayer.getCooldowns().addCooldown(itemstack.getItem(), 100);
+                        pPlayer.getCooldowns().addCooldown(itemstack.getItem(), 20);
                         return InteractionResultHolder.sidedSuccess(getEmptySuccessItem(itemstack, pPlayer), pLevel.isClientSide());
                     } else {
                         return InteractionResultHolder.fail(itemstack);

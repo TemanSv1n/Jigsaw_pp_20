@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "222",
+    "333"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "2": {
+      "tag": "forge:stone"
+    },
+    "3": {
+      "item": "minecraft:red_mushroom"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:lenin_bust",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "3",
+    "1",
+    "2"
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw_pp:tallow"
+    },
+    "3": {
+      "item": "minecraft:string"
+    },
+    "2": {
+      "item": "jigsaw_pp:sweet_bread"
+    }
+    
+  },
+  "result": {
+    "item": "jigsaw_pp:drist_tnt_stick",
+    "count": 4
+  }
+}

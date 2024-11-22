@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 2 ",
+    " 1 ",
+    "111"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:green_terracotta"
+    },
+    "2": {
+      "item": "jigsaw_pp:beaweed_nut"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:pig_tuffyak",
+    "count": 1
+  }
+}
