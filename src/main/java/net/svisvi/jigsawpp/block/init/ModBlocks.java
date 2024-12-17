@@ -7,9 +7,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
-
-import net.svisvi.jigsawpp.PigTuffyakBlock;
-import net.svisvi.jigsawpp.block.PlateBreadBlock;
 import net.svisvi.jigsawpp.block.*;
 import net.svisvi.jigsawpp.block.drist_tnt.DristTntBlock;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
@@ -19,6 +16,8 @@ import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
 import net.svisvi.jigsawpp.block.lenin_bust.LeninBustBlock;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
+
+import net.svisvi.jigsawpp.block.PigTuffyak;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -69,5 +68,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> DRIST_TNT = REGISTRY.register("drist_tnt", () -> new DristTntBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
     public static final RegistryObject<Block> PLATE_EMPTY = REGISTRY.register("plate_empty", () -> new PlateEmptyBlock());
     public static final RegistryObject<Block> PLATE_BREAD = REGISTRY.register("plate_bread", () -> new PlateBreadBlock());
-    public static final RegistryObject<Block> PIG_TUFFYAK = REGISTRY.register("pig_tuffyak", () -> new PigTuffyakBlock());
+    public static final RegistryObject<Block> PIG_TUFFYAK = REGISTRY.register("pig_tuffyak", () -> new PigTuffyak());
 }

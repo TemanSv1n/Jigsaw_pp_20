@@ -1,6 +1,7 @@
 package net.svisvi.jigsawpp.entity.beaver_zombie;
 
 import java.util.EnumSet;
+import java.util.Random;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -38,15 +39,10 @@ public class BeaverZombieEatTreeGoal extends Goal {
             if (this.mob.getRandom().nextInt(5) != 0) {
                 return false;
             } else {
-//                System.out.println("EDGER");
                 BlockPos blockpos = getLookPos(mob);
                 BlockPos downPos = mob.blockPosition().below();
-                BlockPos upPos = mob.blockPosition().above(4);
-                BlockPos uPos2 = mob.blockPosition().above(2);
-                BlockPos uPos3 = mob.blockPosition().above(3);
-                BlockPos uPos4 = mob.blockPosition().above(4);       
                 BlockPos blockPosDown = getLookPosDown(blockpos); 
-                return isBlockWood(blockpos) || isBlockWood(downPos) || isBlockWood(blockPosDown) || isBlockWood(upPos) || isBlockWood(uPos2) || isBlockWood(uPos3) || isBlockWood(uPos4); 
+                return isBlockWood(blockpos) || isBlockWood(downPos) || isBlockWood(blockPosDown) || hasWoodenBlockUp(4); 
             }
         }
 
@@ -86,28 +82,33 @@ public class BeaverZombieEatTreeGoal extends Goal {
             this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
             if (this.eatAnimationTick == this.adjustedTickDelay(2)) {
                 BlockPos blockpos = getLookPos(mob);
-                BlockPos blockPosDown = getLookPosDown(blockpos);
-                BlockPos uPos = mob.blockPosition().above();
-                BlockPos uPos2 = mob.blockPosition().above(2);
-                BlockPos uPos3 = mob.blockPosition().above(3);
-                BlockPos uPos4 = mob.blockPosition().above(4);
                 BlockPos downPos = mob.blockPosition().below();
-                if (isBlockWood(blockpos)) {
-//                    System.out.println("GOONER");
-                    breakBlockHorizontaly(blockpos); 
-                    this.mob.ate();
-                } else if (isBlockWood(blockPosDown)){
-                    breakBlockHorizontaly(blockPosDown);
-                    this.mob.ate();
-                } else if (isBlockWood(uPos)){breakBlockVerticaly(uPos);}
-                  else if (isBlockWood(uPos2)){breakBlockVerticaly(uPos2);} 
-                  else if (isBlockWood(uPos3)){breakBlockVerticaly(uPos3);} 
-                  else if (isBlockWood(uPos4)){breakBlockVerticaly(uPos4);}
-                else if (isBlockWood(downPos)) {
-                    breakBlockVerticaly(downPos); 
-                }
+                
+                if(isBlockWood(blockpos)) {
+                    if(isBlockWood(getLookPosDown(blockpos))) breakBlockHorizontaly(getLookPosDown(blockpos));
+                    else breakBlockHorizontaly(blockpos);
+                    
+                } else if(hasWoodenBlockUp(4)){
+                    for(int i = 1; i < 4; i++) {
+                        if (isBlockWood(this.mob.blockPosition().above(i))) {
+                                breakBlockVerticaly(this.mob.blockPosition().above(i));
+                                break;
+                        }
+                    }
+                } else if(isBlockWood(downPos)) breakBlockVerticaly(downPos);
             }
 
+        }
+        
+        private boolean hasWoodenBlockUp(int distance) {
+            boolean b = false;
+            for(int i = 1; i < distance; i++) {
+                if (isBlockWood(this.mob.blockPosition().above(i))) {
+                    b = true;
+                    break;
+                }
+            }
+            return b;
         }
 
         public void breakBlockVerticaly(BlockPos downPos) {

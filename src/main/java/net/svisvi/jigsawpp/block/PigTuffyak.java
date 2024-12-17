@@ -1,4 +1,4 @@
-package net.svisvi.jigsawpp;
+package net.svisvi.jigsawpp.block;
 
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -40,11 +40,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PigTuffyakBlock extends Block implements SimpleWaterloggedBlock {
+public class PigTuffyak extends Block implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public PigTuffyakBlock() {
+    public PigTuffyak() {
         super(Properties.of().sound(SoundType.METAL).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }
