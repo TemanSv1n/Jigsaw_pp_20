@@ -35,7 +35,7 @@ public class AbstractPiluleItem extends Item {
     static int duration = 1000;
     int duration_buff = 0;
     static int amplifier = 0;
-    public static int EFFECTS_REVEAL = 60; //>= this value ---- effects are shown under pilule
+    public static int EFFECTS_REVEAL = 50; //>= this value ---- effects are shown under pilule
 
     MobEffectInstance effect;
 
@@ -43,7 +43,8 @@ public class AbstractPiluleItem extends Item {
     public AbstractPiluleItem(MobEffectInstance _effect) {
         super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON)
                 .food((new FoodProperties.Builder()).nutrition(1).saturationMod(0f).alwaysEat().meat()
-                        .effect(_effect, 1F).build()));
+                        .effect(_effect, 1F)
+                        .build()));
     }
 //    public AbstractPiluleItem(MobEffectInstance effect, MobEffectInstance second_effect) {
 //        super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON)
@@ -118,7 +119,8 @@ public class AbstractPiluleItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity entity) {
-        PurgativeEffect.addEffectInnerWay(entity, new MobEffectInstance(this.effect().getEffect(), this.duration()+this.duration_buff(), amplifier()));
+
+        PurgativeEffect.addEffectInnerWay(entity, new MobEffectInstance(this.effect().getEffect(), this.duration()+itemstack.getOrCreateTag().getInt("duration_buff"), amplifier()));
         //probably do разводка for effects
 
 

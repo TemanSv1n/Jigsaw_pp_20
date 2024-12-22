@@ -54,6 +54,7 @@ import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
@@ -291,6 +292,8 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
 
 
+
+
     private boolean craftItem(Level pLevel, BlockPos pPos, BlockState pState) {
         Optional<PurgenFactoryRecipe> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().getResultItem(null);
@@ -312,10 +315,15 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
                 this.itemHandler.extractItem(3, partenSize(), false);
             }
             //catalyst
+            ItemStack catalyst_ = ItemStack.EMPTY;
             if (itemHandler.getStackInSlot(4) != ItemStack.EMPTY && itemHandler.getStackInSlot(4).is(ItemTags.create(new ResourceLocation("jigsaw_pp:purgen_catalysts")))) {
                 ItemStack catalyst = itemHandler.getStackInSlot(4).copy();
+                catalyst_ = catalyst.copy();
                 //malchance affecting
                 float mchmod = PurgenCatalystRecipeReader.getMalChanceK(PurgenCatalystRecipeReader.getCurrentRecipe(catalyst, pLevel).get());
+                if (malChance < 0.7 && mchmod >=2){
+                    mchmod*=10;
+                }
                 malChance *= mchmod > 0 ? mchmod : 1;
                 this.itemHandler.extractItem(4, 1, false);
                 //guanization
@@ -334,7 +342,7 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
             Random random = new Random();
             if (random.nextFloat() < malChance){
-                badEventHandler(pLevel, pPos);
+                badEventHandler(pLevel, pPos, malChance, catalyst_);
             }
             return true;
         } else {
@@ -350,22 +358,124 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
 
     }
 
-    public void badEventHandler(Level world, BlockPos pPos){
-        //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
+    public static int sumMapValues(Map<String, Integer> map) {
+        if (map == null || map.isEmpty()) {
+            return 0; // Return 0 if the map is null or empty
+        }
+
+        int sum = 0;
+        for (Integer value : map.values()) {
+            sum += value;
+        }
+        return sum;
+    }
+    public static <K, V> K getKeyByIndex(LinkedHashMap<K, V> map, int index) {
+        if (map == null || map.isEmpty()) {
+            return null; // or throw an exception
+        }
+        if (index < 0 || index >= map.size()) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of range"); // throw an exception if the index is invalid
+        }
+
+        // Convert the key set to a list
+        List<K> keys = new ArrayList<>(map.keySet());
+
+        // Get the key at the index position
+        return keys.get(index);
+    }
+
+    public static final Map<String, Integer> badEvents = new HashMap<String, Integer>(); //Name of event, weight
+    static {
+        badEvents.put("poop_leak", 90);
+        badEvents.put("big_poop_leak", 30);
+        badEvents.put("teapodification", 3);
+        badEvents.put("teapotification", 6);
+        badEvents.put("explosion", 1);
+    }
+    public static final Map<Item, String> catalystEvents = new HashMap<Item, String>(); //Name of event, weight
+    static {
+        catalystEvents.put(Items.GUNPOWDER, "explosion");
+    }
+
+    public void badEventHandler(Level world, BlockPos pPos, float malChance, ItemStack catalyst){
         if (world instanceof ServerLevel _level && !_level.isClientSide()) {
-            float rand = world.random.nextFloat();
-            if (rand < 0.2) {
-                _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
-                ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.FACTORY_HEATER.get()));
-                entityToSpawn.setPickUpDelay(10);
-                _level.addFreshEntity(entityToSpawn);
-            } else if (rand > 0.2 && rand < 0.7){
-                DristExplosion.harmfulDristExplode(_level, pPos, 6, Level.ExplosionInteraction.NONE, null);
-            } else {
-                BeaverSpiderEntity entityToSpawn = new BeaverSpiderEntity(ModEntities.BEAVER_SPIDER.get(), _level);
-                _level.addFreshEntity(entityToSpawn);
+            int totalSum = sumMapValues(badEvents);
+            int random = world.random.nextInt(totalSum) + 1;
+            int sum = 0;
+            int counter = 0;
+            String event = "";
+            if (catalystEvents.containsKey(catalyst.getItem())){
+                event = catalystEvents.get(catalyst.getItem());
+            }
+            // 3. Iterate through the map, decrementing the randomWeight
+            // and selecting the key once randomWeight becomes less than zero
+            int currentWeight = 0;
+            if (event.equals("")) {
+                for (Map.Entry<String, Integer> entry : badEvents.entrySet()) {
+                    currentWeight += entry.getValue();
+                    if (random < currentWeight) {
+                        event = entry.getKey();
+                    }
+                }
+            }
+
+            switch (event) {
+                case "poop_leak":
+                    DristExplosion.harmfulDristExplode(world, pPos, 6, Level.ExplosionInteraction.NONE, null);
+                    break;
+                case "big_poop_leak":
+                    DristExplosion.harmfulDristExplode(world, pPos, 10, Level.ExplosionInteraction.NONE, null);
+                    break;
+                case "teapodification":
+                    world.setBlock(pPos, Blocks.AIR.defaultBlockState(), 3);
+                    TeapodSpider entityToSpawn = new TeapodSpider(ModEntities.TEAPOD_SPIDER.get(), _level);
+                    _level.addFreshEntity(entityToSpawn);
+                    _level.sendParticles(ParticleTypes.DRIPPING_WATER, pPos.getX(), pPos.getY(), pPos.getZ(), 20, 0.5, 0.5, 0.5, 0);
+
+                        if (!_level.isClientSide()) {
+                            _level.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.enderman.death")), SoundSource.BLOCKS, 1, 1);
+                        } else {
+                            _level.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.enderman.death")), SoundSource.BLOCKS, 1, 1, false);
+
+                        }
+                    break;
+                case "teapotification":
+                    world.setBlock(pPos, ModBlocks.TEAPOT.get().defaultBlockState(), 3);
+                    _level.sendParticles(ParticleTypes.DRIPPING_WATER, pPos.getX(), pPos.getY(), pPos.getZ(), 20, 0.5, 0.5, 0.5, 0);
+
+                    if (!_level.isClientSide()) {
+                        _level.playSound(null, pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.piston.extend")), SoundSource.BLOCKS, 1, 1);
+                    } else {
+                        _level.playLocalSound(pPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.piston.extend")), SoundSource.BLOCKS, 1, 1, false);
+
+                    }
+                    break;
+                case "explosion":
+                    _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
+                    ItemEntity eentityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.FACTORY_HEATER.get()));
+                    eentityToSpawn.setPickUpDelay(10);
+                    _level.addFreshEntity(eentityToSpawn);
+                    break;
+                default:
+                    System.out.println("Invalid purgen factory malfunction.");
+                    break;
             }
         }
+        //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
+//        if (world instanceof ServerLevel _level && !_level.isClientSide()) {
+//            float rand = world.random.nextFloat();
+//            if (rand < 0.2) {
+//                _level.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 8, Level.ExplosionInteraction.TNT);
+//                ItemEntity entityToSpawn = new ItemEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), new ItemStack(ModBlocks.FACTORY_HEATER.get()));
+//                entityToSpawn.setPickUpDelay(10);
+//                _level.addFreshEntity(entityToSpawn);
+//            } else if (rand > 0.2 && rand < 0.7){
+//                DristExplosion.harmfulDristExplode(_level, pPos, 6, Level.ExplosionInteraction.NONE, null);
+//            } else {
+//                BeaverSpiderEntity entityToSpawn = new BeaverSpiderEntity(ModEntities.BEAVER_SPIDER.get(), _level);
+//                _level.addFreshEntity(entityToSpawn);
+//            }
+//        }
 
 
         }
