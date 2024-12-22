@@ -69,8 +69,33 @@ public class BeaweedNutItem extends Item implements CustomArmPoseItem {
             return(null);
         if (stack.getDamageValue() < stack.getMaxDamage() - 1) {
             if ((pPlayer instanceof ServerPlayer _plr ? _plr.getFoodData().getFoodLevel() : 0) > 0) {
-                if (pPlayer instanceof ServerPlayer _player)
-                    _player.getFoodData().setFoodLevel((int) ((pPlayer instanceof ServerPlayer _plr ? _plr.getFoodData().getFoodLevel() : 0) - 1));
+                if (pPlayer instanceof ServerPlayer _player) {
+                    boolean minus_food = true;
+                    ItemStack cracker = ItemStack.EMPTY;
+                    if (pHand.equals(InteractionHand.MAIN_HAND)){
+                        if (_player.getItemInHand(InteractionHand.OFF_HAND).getItem().equals(ModItems.NUTCRACKER.get())){
+                            minus_food = false;
+                            cracker = _player.getItemInHand(InteractionHand.OFF_HAND);
+                        }
+                    } else {
+                        if (_player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(ModItems.NUTCRACKER.get())){
+                            minus_food = false;
+                            cracker = _player.getItemInHand(InteractionHand.MAIN_HAND);
+                        }
+                    }
+                    if (minus_food) {
+                        _player.getFoodData().setFoodLevel((int) ((pPlayer instanceof ServerPlayer _plr ? _plr.getFoodData().getFoodLevel() : 0) - 1));
+                    } else {
+                        if (pLevel instanceof ServerLevel _level) {
+                            _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("ui.stonecutter.take_result")), SoundSource.PLAYERS, 1, 1, false);
+                        }
+                        if (cracker.hurt(1, RandomSource.create(), null)) {
+                            cracker.shrink(1);
+                            cracker.setDamageValue(0);
+                        }
+
+                    }
+                }
                 {
                     ItemStack _ist = stack;
                     if (_ist.hurt(1, RandomSource.create(), null)) {
