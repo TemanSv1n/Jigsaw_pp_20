@@ -6,6 +6,7 @@ package net.svisvi.jigsawpp.item.init;
 
 
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
@@ -198,7 +199,31 @@ public class ModItems {
 
 	public static final RegistryObject<Item> DIAMOND_IRON_INGOT = REGISTRY.register("diamond_iron_ingot", () -> new DiamondIronIngotItem());
 	public static final RegistryObject<Item> ARM = REGISTRY.register("arm", () -> new ArmItem());
-	public static final RegistryObject<Item> BEAVER_STAFF = REGISTRY.register("beaver_staff", () -> new BeaverStaffItem());
+	public static final RegistryObject<Item> BEAVER_STAFF = REGISTRY.register("beaver_staff", () -> new BeaverStaffItem(new Tier() {
+		public int getUses() {
+			return 100;
+		}
+
+		public float getSpeed() {
+			return 4f;
+		}
+
+		public float getAttackDamageBonus() {
+			return 0f;
+		}
+
+		public int getLevel() {
+			return 1;
+		}
+
+		public int getEnchantmentValue() {
+			return 2;
+		}
+
+		public Ingredient getRepairIngredient() {
+			return Ingredient.of(new ItemStack(Items.STICK));
+		}
+	}));
 	public static final RegistryObject<Item> BEAVER_STAFF_HONEY = REGISTRY.register("beaver_staff_honey", () -> new BeaverStaffHoneyItem());
 	public static final RegistryObject<Item> BROWN_CUTLASS = REGISTRY.register("brown_cutlass", () -> new BrownCutlassItem());
 	public static final RegistryObject<Item> CROSS = REGISTRY.register("cross", () -> new CrossItem());

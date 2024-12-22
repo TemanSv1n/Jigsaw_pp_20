@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 
@@ -46,7 +47,7 @@ public class Beaweed extends CropBlock {
     }
     @Override
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.is(BlockTags.DIRT) || pState.is(Blocks.FARMLAND);
+        return pState.is(BlockTags.DIRT) || pState.is(Blocks.FARMLAND) || pState.is(ModBlocks.BEAWEED_BLOCK.get());
     }
     @Override
     public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {

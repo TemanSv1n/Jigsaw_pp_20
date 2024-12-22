@@ -11,7 +11,7 @@ import java.util.List;
 
 public class NutcrackerItem extends Item {
     public NutcrackerItem() {
-        super(new Item.Properties().durability(384).rarity(Rarity.COMMON));
+        super(new Item.Properties().durability(228).rarity(Rarity.COMMON));
     }
 
     @Override

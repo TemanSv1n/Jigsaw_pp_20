@@ -3,6 +3,7 @@ package net.svisvi.jigsawpp.entity.stone_beaver;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
@@ -128,5 +129,16 @@ public class StoneBeaverEntity extends Monster {
         builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 10);
         builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.5);
         return builder;
+    }
+    @Override
+    public boolean canBeLeashed(Player pPlayer) {
+        return !this.isLeashed();
+    }
+    public Vec3 getLeashOffset() {
+        return new Vec3(0.0, (double)(0.6F * this.getEyeHeight()-0.35D), (double)(this.getBbWidth() * 0.4F)-0.2D);
+    }
+    @Override
+    protected double followLeashSpeed() {
+        return 1.5D;
     }
 }

@@ -16,7 +16,7 @@ import net.minecraft.world.level.LevelAccessor;
 
 
 
-public class BeaverStaffHoneyItem extends SwordItem {
+public class BeaverStaffHoneyItem extends BeaverStaffItem {
     public BeaverStaffHoneyItem() {
         super(new Tier() {
             public int getUses() {
@@ -42,7 +42,7 @@ public class BeaverStaffHoneyItem extends SwordItem {
             public Ingredient getRepairIngredient() {
                 return Ingredient.of(new ItemStack(Blocks.HONEY_BLOCK));
             }
-        }, 3, -3.4f, new Properties());
+        });
     }
 
     @Override
