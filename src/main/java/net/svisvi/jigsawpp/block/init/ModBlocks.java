@@ -69,4 +69,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> PLATE_EMPTY = REGISTRY.register("plate_empty", () -> new PlateEmptyBlock());
     public static final RegistryObject<Block> PLATE_BREAD = REGISTRY.register("plate_bread", () -> new PlateBreadBlock());
     public static final RegistryObject<Block> PIG_TUFFYAK = REGISTRY.register("pig_tuffyak", () -> new PigTuffyak());
+    public static final RegistryObject<Block> PSYCHO_STONE = REGISTRY.register("psycho_stone", () -> new PsychoStoneBlock());
 }

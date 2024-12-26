@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jigsaw_pp:block/psycho_stone",
+    "particle": "jigsaw_pp:block/psycho_stone"
+  },
+  "render_type": "solid"
+}

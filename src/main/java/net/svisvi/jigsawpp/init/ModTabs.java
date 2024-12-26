@@ -161,6 +161,7 @@ public class ModTabs {
         tabData.accept(ModItems.BEAVER_SPIDER_SPAWN_EGG.get());
 		tabData.accept(ModItems.STRAPS.get());
 		tabData.accept(ModItems.PIG_TUFFYAK.get());
+				tabData.accept(ModItems.PSYCHO_STONE.get());
 
 			}).build());
 
