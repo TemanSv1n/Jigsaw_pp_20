@@ -68,6 +68,7 @@ public class ModTabs {
 						tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
 
 						tabData.accept(ModItems.MARMOSET.get());
+						tabData.accept(Items.FURNACE);
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
@@ -161,6 +162,7 @@ public class ModTabs {
         tabData.accept(ModItems.BEAVER_SPIDER_SPAWN_EGG.get());
 		tabData.accept(ModItems.STRAPS.get());
 		tabData.accept(ModItems.PIG_TUFFYAK.get());
+				tabData.accept(ModItems.PSYCHO_STONE.get());
 
 			}).build());
 

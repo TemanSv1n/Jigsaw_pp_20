@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
+import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -203,6 +204,11 @@ public class JigsawPpMod {
 
 
 		}
+	}
+
+	public static boolean isModLoaded(String modId) {
+		return FMLLoader.getLoadingModList().getMods().stream()
+				.anyMatch(m -> m.getModId().equals(modId));
 	}
 
 
