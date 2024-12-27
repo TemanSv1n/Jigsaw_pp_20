@@ -122,8 +122,13 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
 
     }
 
-
-
+    @Override
+    public double getPerceivedTargetDistanceSquareForMeleeAttack(LivingEntity pEntity) {
+        if (pEntity == null){
+            return 1488;
+        }
+        return Math.max(this.distanceToSqr(pEntity.getMeleeAttackReferencePosition()), this.distanceToSqr(pEntity.position()));
+    }
 
     @Override
     public void tick() {

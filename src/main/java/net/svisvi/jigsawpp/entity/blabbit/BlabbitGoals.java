@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.entity.blabbit;
 
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
@@ -9,8 +11,12 @@ import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.monster.Slime;
+import net.svisvi.jigsawpp.JigsawPpMod;
 
+import java.util.Collection;
 import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.List;
 
 public class BlabbitGoals {
     static class BlabbitAttackGoal extends MeleeAttackGoal {
@@ -100,12 +106,25 @@ public class BlabbitGoals {
             if(shouldCountTillNextAttack) {
                 this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
             }
+//            if (JigsawPpMod.isModLoaded("jcraft")){
+//                Collection<MobEffectInstance> effects = this.blabbit.getActiveEffects();
+//                for (MobEffectInstance effect : effects){
+//                    MobEffect ef = effect.getEffect();
+////                    if (ef.getDescriptionId().equals("effect.jcraft.dazed_effect")){
+//                    if (ef.getDescriptionId().contains("jcraft")){
+//                        return;
+//                    }
+//                }
+//            }
             double d0 = this.mob.getPerceivedTargetDistanceSquareForMeleeAttack(livingentity);
             checkAndPerformAttack(livingentity, d0);
 
         }
         @Override
         protected double getAttackReachSqr(LivingEntity entity) {
+            if (entity == null){
+                return 0;
+            }
             return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
         }
 
