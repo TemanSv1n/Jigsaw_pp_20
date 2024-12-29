@@ -23,6 +23,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
 import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
+import net.svisvi.jigsawpp.client.screen.space_lift.SpaceLiftScreen;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 import net.svisvi.jigsawpp.entity.drist_tnt.DristTntRenderer;
@@ -52,6 +53,7 @@ import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.poi_types.ModPoiTypes;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
+import net.svisvi.jigsawpp.recipe.SpaceLiftRecipe;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -162,6 +164,7 @@ public class JigsawPpMod {
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FACTORY_HEATER.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.LENIN_BUST.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURGEN_FACTORY.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.SPACE_LIFT.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
@@ -193,6 +196,7 @@ public class JigsawPpMod {
 
 
 			MenuScreens.register(ModMenuTypes.PURGEN_FACTORY_MENU.get(), PurgenFactoryScreen::new);
+			MenuScreens.register(ModMenuTypes.SPACE_LIFT_MENU.get(), SpaceLiftScreen::new);
 		}
 	}
 

@@ -15,6 +15,7 @@ import net.svisvi.jigsawpp.block.crops.Beaweed;
 import net.svisvi.jigsawpp.block.factory_heater.FactoryHeaterBlock;
 import net.svisvi.jigsawpp.block.lenin_bust.LeninBustBlock;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenFactoryBlock;
+import net.svisvi.jigsawpp.block.space_lift.SpaceLiftBlock;
 import net.svisvi.jigsawpp.block.teapot.BlackTeapotBlock;
 
 import net.svisvi.jigsawpp.block.PigTuffyak;
@@ -70,4 +71,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> PLATE_BREAD = REGISTRY.register("plate_bread", () -> new PlateBreadBlock());
     public static final RegistryObject<Block> PIG_TUFFYAK = REGISTRY.register("pig_tuffyak", () -> new PigTuffyak());
     public static final RegistryObject<Block> PSYCHO_STONE = REGISTRY.register("psycho_stone", () -> new PsychoStoneBlock());
+    public static final RegistryObject<Block> SPACE_LIFT = REGISTRY.register("space_lift", () -> new SpaceLiftBlock());
 }

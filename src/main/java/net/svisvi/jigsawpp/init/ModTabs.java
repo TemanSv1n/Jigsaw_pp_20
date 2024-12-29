@@ -163,6 +163,7 @@ public class ModTabs {
 		tabData.accept(ModItems.STRAPS.get());
 		tabData.accept(ModItems.PIG_TUFFYAK.get());
 				tabData.accept(ModItems.PSYCHO_STONE.get());
+				tabData.accept(ModItems.SPACE_LIFT.get());
 
 			}).build());
 

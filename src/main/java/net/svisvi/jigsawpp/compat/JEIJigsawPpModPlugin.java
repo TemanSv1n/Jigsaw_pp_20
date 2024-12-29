@@ -12,6 +12,7 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
 import net.svisvi.jigsawpp.recipe.PurgenCatalystRecipe;
 import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
+import net.svisvi.jigsawpp.recipe.SpaceLiftRecipe;
 
 import java.util.List;
 
@@ -25,8 +26,9 @@ public class JEIJigsawPpModPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new ElephantingCategory(registration.getJeiHelpers().getGuiHelper()), new PurgenCatalystCategory(registration.getJeiHelpers().getGuiHelper()),
-                new PurgenFactoryCategory(registration.getJeiHelpers().getGuiHelper()));
+                new PurgenFactoryCategory(registration.getJeiHelpers().getGuiHelper()), new SpaceLiftCategory(registration.getJeiHelpers().getGuiHelper()));
         //registration.addRecipeCategories(new PurgenCatalystCategory(registration.getJeiHelpers().getGuiHelper()));
+
     }
 
     @Override
@@ -36,12 +38,15 @@ public class JEIJigsawPpModPlugin implements IModPlugin {
         List<ElephantingRecipe> elephantingRecipes = recipeManager.getAllRecipesFor(ElephantingRecipe.Type.INSTANCE);
         List<PurgenCatalystRecipe> purgenCatalystRecipes = recipeManager.getAllRecipesFor(PurgenCatalystRecipe.Type.INSTANCE);
         List<PurgenFactoryRecipe> purgenFactoryRecipes = recipeManager.getAllRecipesFor(PurgenFactoryRecipe.Type.INSTANCE);
+        List<SpaceLiftRecipe> spaceLiftRecipes = recipeManager.getAllRecipesFor(SpaceLiftRecipe.Type.INSTANCE);
 
         registration.addRecipes(ElephantingCategory.ELEPHANTING_TYPE, elephantingRecipes);
 
         registration.addRecipes(PurgenCatalystCategory.PURGEN_CATALYST_TYPE, purgenCatalystRecipes);
 
         registration.addRecipes(PurgenFactoryCategory.PURGEN_FACTORY_TYPE, purgenFactoryRecipes);
+
+        registration.addRecipes(SpaceLiftCategory.SPACE_LIFT_TYPE, spaceLiftRecipes);
     }
 
     @Override

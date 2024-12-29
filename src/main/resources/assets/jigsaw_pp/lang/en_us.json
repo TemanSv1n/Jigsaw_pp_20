@@ -249,6 +249,10 @@
   "item.jigsaw_pp.straps": "Colonel straps",
   "block.jigsaw_pp.pig_tuffyak": "Pig Tuffyak",
   "item.jigsaw_pp.beaver_staff.desc": "§7Can be used to incite §6Stone Beavers",
-  "block.jigsaw_pp.psycho_stone": "Psycho stone"
+  "block.jigsaw_pp.psycho_stone": "Psycho stone",
+
+
+  "block.jigsaw_pp.space_lift": "Space Lift",
+  "recipe.jigsaw_pp.space_lift": "Space lift"
 
 }

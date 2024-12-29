@@ -12,6 +12,7 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.block.entity.FactoryHeaterBlockEntity;
 import net.svisvi.jigsawpp.block.entity.LeninBustBlockEntity;
 import net.svisvi.jigsawpp.block.entity.PurgenFactoryBlockEntity;
+import net.svisvi.jigsawpp.block.entity.SpaceLiftBlockEntity;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
 
 public class ModBlockEntities {
@@ -25,6 +26,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<LeninBustBlockEntity>> LENIN_BUST_BE = REGISTRY.register("lenin_bust_be", () ->
             BlockEntityType.Builder.of(LeninBustBlockEntity::new,
                     ModBlocks.LENIN_BUST.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<SpaceLiftBlockEntity>> SPACE_LIFT_BE = REGISTRY.register("space_lift_be", () ->
+            BlockEntityType.Builder.of(SpaceLiftBlockEntity::new,
+                    ModBlocks.SPACE_LIFT.get()).build(null));
 
 
     public static void register(IEventBus eventBus){

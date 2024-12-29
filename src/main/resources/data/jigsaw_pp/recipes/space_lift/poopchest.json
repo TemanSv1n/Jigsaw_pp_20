@@ -1,0 +1,37 @@
+{
+  "type": "jigsaw_pp:space_lift",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:chest",
+      "count": 5
+    },
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "minecraft:chest"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:chest",
+    "nbt": {
+      "BlockEntityTag":{"Items":[{"Slot":0,"id":"minecraft:brown_dye","Count":1}]}
+    }
+  }
+}
