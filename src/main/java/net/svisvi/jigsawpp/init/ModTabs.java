@@ -97,6 +97,7 @@ public class ModTabs {
 						tabData.accept(ModItems.BEAVER_KNIFE.get());
 						tabData.accept(ModItems.BEAVER_AXE.get());
 						tabData.accept(ModItems.PIGKAXE.get());
+				        tabData.accept(ModItems.SAPPER_SHOVEL.get());
 						tabData.accept(ModItems.TUBE_19.get());
 						tabData.accept(ModItems.EGGS.get());
 						tabData.accept(ModItems.TOTEM_OF_SHIT.get());
