@@ -215,6 +215,7 @@ public class ModItems {
 	public static final RegistryObject<Item> MOLD = REGISTRY.register("mold", () -> new MoldItem());
 	public static final RegistryObject<Item> BEAVER_KNIFE = REGISTRY.register("beaver_knife", () -> new BeaverKnifeItem());
 	public static final RegistryObject<Item> BEAVER_AXE = REGISTRY.register("beaver_axe", () -> new BeaverAxeItem());
+	public static final RegistryObject<Item> SAPPER_SHOVEL = REGISTRY.register("sapper_shovel", () -> new SapperShovelItem());
 	public static final RegistryObject<Item> PIGKAXE = REGISTRY.register("pigkaxe", () -> new PigkaxeItem());
 	public static final RegistryObject<Item> TUBE_19 = REGISTRY.register("tube_19", () -> new Tube19Item());
 	public static final RegistryObject<Item> EGGS = REGISTRY.register("eggs", () -> new EggsItem());
