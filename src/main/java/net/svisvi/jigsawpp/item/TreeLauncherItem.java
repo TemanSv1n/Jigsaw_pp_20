@@ -30,6 +30,7 @@ import net.svisvi.jigsawpp.procedures.ut.TreeSaplingFinder;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TreeLauncherItem extends Item implements CustomArmPoseItem {
@@ -154,7 +155,11 @@ public class TreeLauncherItem extends Item implements CustomArmPoseItem {
         return UseAnim.BOW;
     }
 
-
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.tree_launcher.desc"));
+    }
     @Override
     @Nullable
     public HumanoidModel.@Nullable ArmPose getArmPose(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {

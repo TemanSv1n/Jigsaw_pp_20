@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.LivingEntity;
 
+import java.util.List;
 import java.util.Random;
 
 public class BeaverKnifeItem extends SwordItem {
@@ -40,6 +41,11 @@ public class BeaverKnifeItem extends SwordItem {
         }, 2, -2.2000000000000002f, new Item.Properties());
     }
 
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.beaver_knife.desc"));
+    }
     @Override
     public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
         boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);

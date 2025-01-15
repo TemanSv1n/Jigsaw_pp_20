@@ -23,6 +23,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 
+import java.util.List;
+
 public class PonosCutlassItem extends SwordItem {
     public PonosCutlassItem() {
         super(new Tier() {
@@ -58,6 +60,11 @@ public class PonosCutlassItem extends SwordItem {
         drainPoop(entity.level(), entity.getX(), entity.getY(), entity.getZ(), entity, sourceentity);
 
         return retval;
+    }
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.ponos_cutlass.desc"));
     }
 
     public void drainPoop(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity){

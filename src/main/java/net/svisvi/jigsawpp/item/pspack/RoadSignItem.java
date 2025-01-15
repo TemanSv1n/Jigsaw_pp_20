@@ -56,6 +56,11 @@ public class RoadSignItem extends SwordItem {
         RoadSignEntitySwingsItemProcedure.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), sourceentity);
         return retval;
     }
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.road_sign.desc"));
+    }
     public class RoadSignEntitySwingsItemProcedure {
         public static void execute(LevelAccessor world, double x, double y, double z, Entity sourceentity) {
             if (sourceentity == null)

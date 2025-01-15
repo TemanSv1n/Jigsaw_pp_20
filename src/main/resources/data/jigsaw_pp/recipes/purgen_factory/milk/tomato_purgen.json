@@ -32,7 +32,7 @@
     "fluid_name": "minecraft:milk",
     "amount": 250
   },
-  "purity": 75,
+  "purity": 50,
   "additionalTime": 40,
   "malChance": 0.08,
 

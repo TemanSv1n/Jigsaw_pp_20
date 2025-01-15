@@ -249,6 +249,16 @@
   "item.jigsaw_pp.straps": "Colonel straps",
   "block.jigsaw_pp.pig_tuffyak": "Pig Tuffyak",
   "item.jigsaw_pp.beaver_staff.desc": "§7Can be used to incite §6Stone Beavers",
-  "block.jigsaw_pp.psycho_stone": "Psycho stone"
+  "block.jigsaw_pp.psycho_stone": "Psycho stone",
+
+  "block.jigsaw_pp.fat_block.desc": "§7Spill §6Fat bucket §7in the world and wait",
+  "item.jigsaw_pp.beaver_knife.desc": "May revive your foe as zombie, or kill you on chance.",
+  "item.jigsaw_pp.beaver_axe.desc": "Strips wood with AoE",
+  "item.jigsaw_pp.plunger.desc": "§6Shitty §7version of plunger",
+  "item.jigsaw_pp.road_sign.desc": "§7Insane knockback",
+  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cures people with diarrhoea and you",
+  "item.jigsaw_pp.tree_launcher.desc": "§7Uses saplings to remotely plant trees",
+  "item.jigsaw_pp.fork.desc": "§7Handy tool to help you clean §6Poop§7 spillages"
+}
 
 }
