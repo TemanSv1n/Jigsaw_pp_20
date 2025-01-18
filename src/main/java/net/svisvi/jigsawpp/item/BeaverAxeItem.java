@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.List;
 import java.util.Map;
 
 import java.util.Random;
@@ -48,6 +50,11 @@ public class BeaverAxeItem extends AxeItem {
         }, 1, -2.7999999999999998f, new Item.Properties());
     }
 
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.beaver_axe.desc"));
+    }
     @Override
     public InteractionResult useOn(UseOnContext context) {
         super.useOn(context);

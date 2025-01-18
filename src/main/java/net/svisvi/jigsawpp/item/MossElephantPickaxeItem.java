@@ -80,7 +80,7 @@ public class MossElephantPickaxeItem extends PickaxeItem {
                 }
             }
             if (entity instanceof Player _player)
-                _player.getCooldowns().addCooldown(itemstack.getItem(), 30);
+                _player.getCooldowns().addCooldown(itemstack.getItem(), 7);
         }
 
     }

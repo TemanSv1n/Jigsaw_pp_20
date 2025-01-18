@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_glass",
+  "key": {
+    "#": {
+      "item": "minecraft:sand"
+    },
+    "X": {
+      "item": "minecraft:coal"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "jigsaw_pp:coal_fossil"
+  },
+  "show_notification": true
+}

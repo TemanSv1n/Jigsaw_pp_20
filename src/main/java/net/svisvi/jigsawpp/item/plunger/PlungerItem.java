@@ -32,6 +32,8 @@ import net.minecraft.world.phys.Vec3;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.procedures.ut.IsInPoopOrPoopRain;
 
+import java.util.List;
+
 public class PlungerItem extends Item implements Vanishable {
     public static final int THROW_THRESHOLD_TIME = 10;
     public static final float BASE_DAMAGE = 8.0F;
@@ -161,5 +163,11 @@ public class PlungerItem extends Item implements Vanishable {
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
         return (enchantment == Enchantments.LOYALTY || enchantment == Enchantments.RIPTIDE || enchantment == Enchantments.MENDING);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.plunger.desc"));
     }
 }

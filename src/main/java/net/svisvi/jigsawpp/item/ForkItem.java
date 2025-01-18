@@ -65,6 +65,11 @@ public class ForkItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.fork.desc"));
+    }
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
     }
 
     @Override

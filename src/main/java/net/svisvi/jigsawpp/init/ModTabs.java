@@ -142,7 +142,7 @@ public class ModTabs {
 						tabData.accept(ModItems.DELLIST.get());
 						tabData.accept(ModItems.BEAWEED_CHECKER.get());
 						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
-						tabData.accept(ModItems.FRIENDSHIP_FAN.get());
+						//tabData.accept(ModItems.FRIENDSHIP_FAN.get());
 						tabData.accept(ModItems.PLUNGER.get());
 				tabData.accept(ModItems.DRIST_TNT.get());
 				tabData.accept(ModItems.DRIST_TNT_STICK.get());
