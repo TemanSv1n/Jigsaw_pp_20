@@ -163,6 +163,13 @@ public class ModTabs {
 		tabData.accept(ModItems.STRAPS.get());
 		tabData.accept(ModItems.PIG_TUFFYAK.get());
 				tabData.accept(ModItems.PSYCHO_STONE.get());
+				tabData.accept(ModItems.TEAPOD_SPIDER_SPAWN_EGG.get());
+				tabData.accept(ModItems.BLACK_TEAPOD_SPIDER_SPAWN_EGG.get());
+				tabData.accept(ModItems.RAW_TEAPOD_SPIDER_SPAWN_EGG.get());
+				tabData.accept(ModItems.TEAPOT_DRILL.get());
+				tabData.accept(ModItems.FARFUHRER.get());
+				tabData.accept(ModItems.RANDOMPOT.get());
+				tabData.accept(ModItems.TEAPOT_HAMMER.get());
 
 			}).build());
 

@@ -25,6 +25,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
+import net.svisvi.jigsawpp.block.teapot.FarFuhrerBlock;
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
 import net.svisvi.jigsawpp.block.yoba.YobaBlock;
@@ -46,6 +47,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> RAW_TEAPOT = REGISTRY.register("raw_teapot", () -> new RawTeapotBlock());
 
     public static final RegistryObject<Block> TEAPOT = REGISTRY.register("teapot", () -> new TeapotBlock());
+    public static final RegistryObject<Block> RANDOMPOT = REGISTRY.register("randompot", () -> new RandompotBlock());
+    public static final RegistryObject<Block> FARFUHRER = REGISTRY.register("farfuhrer", () -> new FarFuhrerBlock());
     public static final RegistryObject<Block> BEAWEED_BLOCK = REGISTRY.register("beaweed_block", () -> new BeaweedBlock());
     public static final RegistryObject<Block> BLACK_TEAPOT = REGISTRY.register("black_teapot", () -> new BlackTeapotBlock());
     public static final RegistryObject<Block> FACTORY_HEATER = REGISTRY.register("factory_heater", () -> new FactoryHeaterBlock());

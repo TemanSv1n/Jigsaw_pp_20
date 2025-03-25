@@ -2,8 +2,6 @@ package net.svisvi.jigsawpp.entity.init;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.item.PrimedTnt;
-import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,11 +11,9 @@ import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
-import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.*;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
-import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
 
@@ -25,8 +21,9 @@ import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZomb
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
-import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
-import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
+import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpider;
+import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
+import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpider;
 
 
 public class ModEntities {
@@ -74,6 +71,12 @@ public class ModEntities {
     public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("teapod_spider"));
+    public static final RegistryObject<EntityType<BlackTeapodSpider>> BLACK_TEAPOD_SPIDER =
+            ENTITY_TYPES.register("black_teapod_spider", () -> EntityType.Builder.of(BlackTeapodSpider::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("black_teapod_spider"));
+    public static final RegistryObject<EntityType<RawTeapodSpider>> RAW_TEAPOD_SPIDER =
+            ENTITY_TYPES.register("raw_teapod_spider", () -> EntityType.Builder.of(RawTeapodSpider::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("raw_teapod_spider"));
 
   
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =

@@ -7,19 +7,11 @@ package net.svisvi.jigsawpp;
 
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.MinecartRenderer;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.simple.SimpleChannel;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
 import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
@@ -28,13 +20,14 @@ import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.entity.drist_tnt.DristTntRenderer;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairRenderer;
-import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
-import net.svisvi.jigsawpp.entity.projectile.SlonProjectile;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
 //import net.svisvi.jigsawpp.fluid.init.ModFluid;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverRenderer;
-import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpiderRender;
+import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpiderRender;
+import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
+import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpiderRender;
+import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpiderRender;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
@@ -44,7 +37,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
-import net.svisvi.jigsawpp.init.ModDatas;
 import net.svisvi.jigsawpp.init.ModPaintings;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItemProperties;
@@ -70,11 +62,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
-import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderRenderer;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieRenderer;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawnerRenderer;
@@ -163,6 +151,9 @@ public class JigsawPpMod {
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.LENIN_BUST.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURGEN_FACTORY.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FARFUHRER.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RANDOMPOT.get(), RenderType.cutout());
+
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.POOPS.get(), ThrownItemRenderer::new);
@@ -177,6 +168,9 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
 
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
+			EntityRenderers.register(ModEntities.BLACK_TEAPOD_SPIDER.get(), BlackTeapodSpiderRender::new);
+			EntityRenderers.register(ModEntities.RAW_TEAPOD_SPIDER.get(), RawTeapodSpiderRender::new);
+
 			EntityRenderers.register(ModEntities.STONE_BEAVER.get(), StoneBeaverRenderer::new);
       EntityRenderers.register(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieRenderer::new);
       EntityRenderers.register(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), BeaverZombieSpawnerRenderer::new);

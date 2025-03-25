@@ -1,7 +1,7 @@
 // Made with Love
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-package net.svisvi.jigsawpp.entity.teapodSpider;
+package net.svisvi.jigsawpp.entity.teapod.teapodSpider;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

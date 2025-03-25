@@ -87,6 +87,12 @@ public class ModItems {
     public static final RegistryObject<Item> TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xad5d32, 0xd3b4a3,
                     new Item.Properties()));
+	public static final RegistryObject<Item> BLACK_TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("black_teapod_spider_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.BLACK_TEAPOD_SPIDER, 0xac5e42, 0xd3e4a3,
+					new Item.Properties()));
+	public static final RegistryObject<Item> RAW_TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("raw_teapod_spider_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.RAW_TEAPOD_SPIDER, 0xadf332, 0xe3a3a3,
+					new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));
@@ -151,6 +157,8 @@ public class ModItems {
 
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
+	public static final RegistryObject<Item> FARFUHRER = block(ModBlocks.FARFUHRER);
+	public static final RegistryObject<Item> RANDOMPOT = block(ModBlocks.RANDOMPOT);
 
 	// #################################################################
 	// #################################################################
@@ -258,6 +266,8 @@ public class ModItems {
 	public static final RegistryObject<Item> TALLOW = REGISTRY.register("tallow", () -> new TallowItem());
 	public static final RegistryObject<Item> POOPS = REGISTRY.register("poops", () -> new PoopsItem());
 	public static final RegistryObject<Item> POOPIS = REGISTRY.register("poopis", () -> new PoopisItem());
+	public static final RegistryObject<Item> TEAPOT_DRILL = REGISTRY.register("teapot_drill", () -> new TeapotDrillItem());
+	public static final RegistryObject<Item> TEAPOT_HAMMER = REGISTRY.register("teapot_hammer", () -> new RoadSignItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

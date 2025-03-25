@@ -1,13 +1,12 @@
 package net.svisvi.jigsawpp.init;
 
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static net.minecraft.world.level.block.AbstractFurnaceBlock.LIT;
 
@@ -38,6 +37,19 @@ public class ModDatas {
         factoryHeaterCoefficients.put(Blocks.FIRE, 0.1f);
         factoryHeaterCoefficients.put(Blocks.SOUL_FIRE, 0.1f);
         factoryHeaterCoefficients.put(Blocks.LAVA, 0.4f);
+    }
+
+    public static HashSet<Item> TEAPOTS = new HashSet<Item>();
+    static {
+        TEAPOTS.add(ModItems.TEAPOT.get());
+        TEAPOTS.add(ModItems.BLACK_TEAPOT.get());
+        TEAPOTS.add(ModItems.RAW_TEAPOT.get());
+        TEAPOTS.add(ModItems.FARFUHRER.get());
+        TEAPOTS.add(ModItems.TEAPOT_DRILL.get());
+        TEAPOTS.add(ModItems.TEAPOD_SPIDER_SPAWN_EGG.get());
+        TEAPOTS.add(ModItems.BLACK_TEAPOD_SPIDER_SPAWN_EGG.get());
+        TEAPOTS.add(ModItems.RAW_TEAPOD_SPIDER_SPAWN_EGG.get());
+        TEAPOTS.add(ModItems.TEAPOT_HAMMER.get());
     }
 
 }
