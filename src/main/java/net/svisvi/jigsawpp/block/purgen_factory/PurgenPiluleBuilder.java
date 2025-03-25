@@ -181,39 +181,28 @@ public class PurgenPiluleBuilder {
         }
         //System.out.println(purity);
         //upgraded pilule
+
         if (purity > 100){
-            if (PILULE_PROGRESSION.contains(purgen_stack.getItem())) {
-                if (PILULE_PROGRESSION.indexOf(purgen_stack.getItem()) + 1 > PILULE_PROGRESSION.size()) {
-                    retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())), purgen_stack.getCount());
-                    purity = 200;
-                } else {
-                    retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem()) + 1), purgen_stack.getCount());
-
-                }
-            } else {
-                retStack = new ItemStack(PILULE_PROGRESSION.get(PILULE_PROGRESSION.indexOf(purgen_stack.getItem())), purgen_stack.getCount());
-                purity = 200;
-
-            }
-            if (purity == 0){
-                purity = 1;
-            }
-            AbstractPiluleItem.setPurity(purity - 100, retStack);
-            AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff"), retStack);
-            PotionUtils.setCustomEffects(retStack, PotionUtils.getMobEffects(retStack));
-        } else {
-            retStack = purgen_stack.copy();
+            retStack = purgen_stack;
+            AbstractPiluleItem.setPurity(100,retStack);
         }
-
-        //simple recursion for very good purgen
-        if (retStack.getOrCreateTag().getInt("purity") < 100){
+        if (purity >=65 && purity < 90){
+            retStack = new ItemStack(ModItems.ADVANCED_PURGEN_PILULE.get());
+            AbstractPiluleItem.setPurity(purgen_stack.getOrCreateTag().getInt("purity"), retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)((((purity+1%7) * (purity+1/10))*random.nextInt(purity+1/8))/100), retStack);
-            PotionUtils.setCustomEffects(retStack, effectsFromPurity(retStack.getOrCreateTag().getInt("purity")));
-            return retStack;
+            PotionUtils.setCustomEffects(retStack, effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")));
+        } else if (purity >= 90){
+            retStack = new ItemStack(ModItems.CRYSTAL_PURGEN_PILULE.get());
+            AbstractPiluleItem.setPurity(purgen_stack.getOrCreateTag().getInt("purity"), retStack);
+            AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)((((purity+1%7) * (purity+1/10))*random.nextInt(purity+1/8))/100), retStack);
+            PotionUtils.setCustomEffects(retStack, effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")));
+        } else {
+            retStack = purgen_stack;
+            PotionUtils.setCustomEffects(retStack, effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")));
         }
 
 
-        return buildFromPurity_5(retStack);
+        return retStack;
 
     }
 
