@@ -28,6 +28,8 @@ import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpiderRend
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpiderRender;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpiderRender;
+import net.svisvi.jigsawpp.entity.tntpot.NuclearTeapotRenderer;
+import net.svisvi.jigsawpp.entity.tntpot.TntPotRenderer;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
@@ -153,6 +155,8 @@ public class JigsawPpMod {
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.KEGA.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.FARFUHRER.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RANDOMPOT.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.TNTPOT.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.NUCLEAR_TEAPOT.get(), RenderType.cutout());
 
 			EntityRenderers.register(ModEntities.MOSS_ELEPHANT.get(), MossElephantRenderer::new);
 			EntityRenderers.register(ModEntities.SWEET_BREAD.get(), ThrownItemRenderer::new);
@@ -166,6 +170,7 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.SLONGUN_GREEN_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVER_BOMB.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.NUCLEAR_TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
 
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
 			EntityRenderers.register(ModEntities.BLACK_TEAPOD_SPIDER.get(), BlackTeapodSpiderRender::new);
@@ -178,6 +183,8 @@ public class JigsawPpMod {
  			EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);
 			EntityRenderers.register(ModEntities.DRIST_TNT.get(), DristTntRenderer::new);
+			EntityRenderers.register(ModEntities.TNTPOT.get(), TntPotRenderer::new);
+			EntityRenderers.register(ModEntities.NUCLEAR_TEAPOT.get(), NuclearTeapotRenderer::new);
 			EntityRenderers.register(ModEntities.DRIST_TNT_STICK.get(), ThrownItemRenderer::new);
       EntityRenderers.register(ModEntities.BEAVER_SPIDER.get(), BeaverSpiderRenderer::new);
 			EntityRenderers.register(ModEntities.JETSTREAM_CHAIR.get(), (p_174090_) -> {

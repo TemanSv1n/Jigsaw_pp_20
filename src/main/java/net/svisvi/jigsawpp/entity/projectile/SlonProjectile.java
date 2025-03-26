@@ -9,7 +9,9 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundMoveEntityPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,12 +28,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.effect.PoopEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.item.slon_gun.SlonGunItem;
+import net.svisvi.jigsawpp.procedures.ut.Washing;
 
 
 public class SlonProjectile extends ThrowableItemProjectile implements ItemSupplier {
@@ -90,6 +94,14 @@ public class SlonProjectile extends ThrowableItemProjectile implements ItemSuppl
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), damage);
+        if (pResult.getEntity() instanceof LivingEntity ent){
+            Washing.wash(ent);
+        }
+        Level world = pResult.getEntity().level();
+        BlockPos pPos = pResult.getEntity().getOnPos();
+        Washing.washEffect(pPos.above(), world);
+
+
 
     }
     public static Projectile shoot (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy){

@@ -24,6 +24,8 @@ import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
 import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpider;
+import net.svisvi.jigsawpp.entity.tntpot.PrimedNuclearTeapot;
+import net.svisvi.jigsawpp.entity.tntpot.PrimedTntPot;
 
 
 public class ModEntities {
@@ -67,6 +69,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<BeaverzookaEntity>> BEAVERZOOKA_ENTITY =
             ENTITY_TYPES.register("beaverzooka_entity", () -> EntityType.Builder.<BeaverzookaEntity>of(BeaverzookaEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("beaverzooka_entity"));
+    public static final RegistryObject<EntityType<NuclearTeapotMissileEntity>> NUCLEAR_TEAPOT_MISSILE_ENTITY =
+            ENTITY_TYPES.register("nuclear_teapot_missile_entity", () -> EntityType.Builder.<NuclearTeapotMissileEntity>of(NuclearTeapotMissileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("nuclear_teapot_missile_entity"));
 
     public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
@@ -93,6 +98,12 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PrimedDristTnt>> DRIST_TNT =
             ENTITY_TYPES.register("drist_tnt",() -> EntityType.Builder.<PrimedDristTnt>of(PrimedDristTnt::new, MobCategory.MISC)
                     .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("drist_tnt"));
+    public static final RegistryObject<EntityType<PrimedTntPot>> TNTPOT =
+            ENTITY_TYPES.register("tntpot",() -> EntityType.Builder.<PrimedTntPot>of(PrimedTntPot::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("tntpot"));
+    public static final RegistryObject<EntityType<PrimedNuclearTeapot>> NUCLEAR_TEAPOT =
+            ENTITY_TYPES.register("nuclear_teapot",() -> EntityType.Builder.<PrimedNuclearTeapot>of(PrimedNuclearTeapot::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("tntpot"));
     public static final RegistryObject<EntityType<DristTntStickProjectile>> DRIST_TNT_STICK =
             ENTITY_TYPES.register("drist_tnt_stick", () -> EntityType.Builder.<DristTntStickProjectile>of(DristTntStickProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("drist_tnt_stick"));

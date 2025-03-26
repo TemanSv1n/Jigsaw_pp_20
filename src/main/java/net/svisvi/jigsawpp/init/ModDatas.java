@@ -4,6 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 import java.util.*;
@@ -50,6 +51,17 @@ public class ModDatas {
         TEAPOTS.add(ModItems.BLACK_TEAPOD_SPIDER_SPAWN_EGG.get());
         TEAPOTS.add(ModItems.RAW_TEAPOD_SPIDER_SPAWN_EGG.get());
         TEAPOTS.add(ModItems.TEAPOT_HAMMER.get());
+        TEAPOTS.add(ModItems.TNTPOT.get());
+        TEAPOTS.add(ModItems.NUCLEAR_TEAPOT.get());
+        TEAPOTS.add(ModItems.TEAPOT_RIFFLE.get());
+        TEAPOTS.add(ModItems.TEAPOT_LAUNCHER.get());
+    }
+
+    public static HashSet<Block> DEFAULT_TEAPOTS = new HashSet<Block>(){};
+    static {
+        DEFAULT_TEAPOTS.add(ModBlocks.TEAPOT.get());
+        DEFAULT_TEAPOTS.add(ModBlocks.BLACK_TEAPOT.get());
+        DEFAULT_TEAPOTS.add(ModBlocks.RAW_TEAPOT.get());
     }
 
 }

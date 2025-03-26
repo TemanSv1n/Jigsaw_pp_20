@@ -261,5 +261,10 @@
   "item.jigsaw_pp.teapot_drill.desc": "§7Feed with coal",
   "block.jigsaw_pp.farfuhrer": "Farfuhrer",
   "block.jigsaw_pp.randompot": "Teapot O'Chance",
-  "item.jigsaw_pp.teapot_hammer": "Teapot hammer"
+  "item.jigsaw_pp.teapot_hammer": "Teapot hammer",
+  "entity.jigsaw_pp.beaver_spider": "Beaver spider",
+  "block.jigsaw_pp.tntpot": "TNTpot",
+  "item.jigsaw_pp.teapot_riffle": "Teapot riffle",
+  "block.jigsaw_pp.nuclear_teapot": "Nuclear teapot",
+  "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher"
 }

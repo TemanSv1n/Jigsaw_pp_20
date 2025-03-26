@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "jigsaw_pp:block/tntpot",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "jigsaw_pp:block/tntpot"
+    },
+    "facing=south": {
+      "model": "jigsaw_pp:block/tntpot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jigsaw_pp:block/tntpot",
+      "y": 270
+    }
+  }
+}
