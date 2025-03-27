@@ -53,8 +53,9 @@ public class ModDatas {
         TEAPOTS.add(ModItems.TEAPOT_HAMMER.get());
         TEAPOTS.add(ModItems.TNTPOT.get());
         TEAPOTS.add(ModItems.NUCLEAR_TEAPOT.get());
-        TEAPOTS.add(ModItems.TEAPOT_RIFFLE.get());
+        TEAPOTS.add(ModItems.TEAPOT_RIFLE.get());
         TEAPOTS.add(ModItems.TEAPOT_LAUNCHER.get());
+        TEAPOTS.add(ModItems.TEAPOT_CANNON.get());
     }
 
     public static HashSet<Block> DEFAULT_TEAPOTS = new HashSet<Block>(){};

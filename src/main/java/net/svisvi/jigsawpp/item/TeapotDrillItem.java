@@ -1,6 +1,7 @@
 package net.svisvi.jigsawpp.item;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.procedures.ut.Carbonise;
@@ -76,20 +78,70 @@ public class TeapotDrillItem extends PickaxeItem {
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
         super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-        if (!(pEntity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(Items.COAL)) : false)) {
-            if (pEntity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-                _entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 21, 4, false, false));
+        if (pIsSelected) {
+            if (!(pEntity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(Items.COAL)) : false)) {
+                if (pEntity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+                    _entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 21, 4, false, false));
+            }
         }
     }
 
+
+
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        if (Mth.nextInt(pLevel.random, 1, 10) <= 2) {
+        if (Mth.nextInt(pLevel.random, 1, 10) <= 8) {
             if (pEntityLiving instanceof Player _player) {
                 ItemStack _stktoremove = new ItemStack(Items.COAL);
                 _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
             }
         }
+        double i = 0;
+        double j = 0;
+        String tag = "";
+        tag = "mineable/pickaxe";
+        i = -1;
+        LivingEntity entity = pEntityLiving;
+        Level world = pLevel;
+        int x = pPos.getX();
+        int y = pPos.getY();
+        int z = pPos.getZ();
+
+        for (int index0 = 0; index0 < 3; index0++) {
+            j = -1;
+            for (int index1 = 0; index1 < 3; index1++) {
+                if (i != 0 || j != 0) {
+                    if (entity.getXRot() > 40 || entity.getXRot() < -40) {
+                        if ((world.getBlockState(BlockPos.containing(x + i, y, z + j))).is(BlockTags.create(new ResourceLocation((tag).toLowerCase(java.util.Locale.ENGLISH))))) {
+                            {
+                                BlockPos _pos = BlockPos.containing(x + i, y, z + j);
+                                Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
+                                world.destroyBlock(_pos, false);
+                            }
+                        }
+                    } else if ((entity.getDirection()).getAxis() == Direction.Axis.Z) {
+                        if ((world.getBlockState(BlockPos.containing(x + i, y + j, z))).is(BlockTags.create(new ResourceLocation((tag).toLowerCase(java.util.Locale.ENGLISH))))) {
+                            {
+                                BlockPos _pos = BlockPos.containing(x + i, y + j, z);
+                                Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
+                                world.destroyBlock(_pos, false);
+                            }
+                        }
+                    } else if ((entity.getDirection()).getAxis() == Direction.Axis.X) {
+                        if ((world.getBlockState(BlockPos.containing(x, y + j, z + i))).is(BlockTags.create(new ResourceLocation((tag).toLowerCase(java.util.Locale.ENGLISH))))) {
+                            {
+                                BlockPos _pos = BlockPos.containing(x, y + j, z + i);
+                                Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
+                                world.destroyBlock(_pos, false);
+                            }
+                        }
+                    }
+                }
+                j = j + 1;
+            }
+            i = i + 1;
+        }
+
         if (pLevel instanceof ServerLevel _level)
             _level.sendParticles(ParticleTypes.POOF, pPos.getX(), pPos.getY(), pPos.getZ(), 5, 0.1, 0.1, 0.1, 0);
             if (!pLevel.isClientSide()) {

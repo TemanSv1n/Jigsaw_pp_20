@@ -180,6 +180,7 @@ public class ModItems {
 
 	public static final RegistryObject<Item> GAY = REGISTRY.register("gay", () -> new RadiationItem(new Item.Properties().stacksTo(14), 0.001F));
 	public static final RegistryObject<Item> BIG_NUCLEAR_TEAPOT = REGISTRY.register("big_nuclear_teapot", () -> new AbstractPurgenRecipeHelperItem());
+	public static final RegistryObject<Item> BIG_TEAPOT = REGISTRY.register("big_teapot", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_CLOCK = REGISTRY.register("prh_clock", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_PURITY = REGISTRY.register("prh_purity", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_TNT = REGISTRY.register("prh_tnt", () -> new AbstractPurgenRecipeHelperItem());
@@ -272,8 +273,9 @@ public class ModItems {
 	public static final RegistryObject<Item> POOPIS = REGISTRY.register("poopis", () -> new PoopisItem());
 	public static final RegistryObject<Item> TEAPOT_DRILL = REGISTRY.register("teapot_drill", () -> new TeapotDrillItem());
 	public static final RegistryObject<Item> TEAPOT_HAMMER = REGISTRY.register("teapot_hammer", () -> new TeapotHammerItem());
-	public static final RegistryObject<Item> TEAPOT_RIFFLE = REGISTRY.register("teapot_riffle", () -> new TeapotRiffleItem());
+	public static final RegistryObject<Item> TEAPOT_RIFLE = REGISTRY.register("teapot_rifle", () -> new TeapotRiffleItem());
 	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
+	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

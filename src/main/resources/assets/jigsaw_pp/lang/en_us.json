@@ -264,7 +264,8 @@
   "item.jigsaw_pp.teapot_hammer": "Teapot hammer",
   "entity.jigsaw_pp.beaver_spider": "Beaver spider",
   "block.jigsaw_pp.tntpot": "TNTpot",
-  "item.jigsaw_pp.teapot_riffle": "Teapot riffle",
+  "item.jigsaw_pp.teapot_rifle": "Teapot rifle",
   "block.jigsaw_pp.nuclear_teapot": "Nuclear teapot",
-  "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher"
+  "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher",
+  "item.jigsaw_pp.teapot_cannon": "Teapotest-3000"
 }

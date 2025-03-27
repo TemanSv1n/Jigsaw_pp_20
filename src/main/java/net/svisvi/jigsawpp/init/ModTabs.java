@@ -171,9 +171,10 @@ public class ModTabs {
 				tabData.accept(ModItems.RANDOMPOT.get());
 				tabData.accept(ModItems.TEAPOT_HAMMER.get());
 				tabData.accept(ModItems.TNTPOT.get());
-				tabData.accept(ModItems.TEAPOT_RIFFLE.get());
+				tabData.accept(ModItems.TEAPOT_RIFLE.get());
 				tabData.accept(ModItems.NUCLEAR_TEAPOT.get());
 				tabData.accept(ModItems.TEAPOT_LAUNCHER.get());
+				tabData.accept(ModItems.TEAPOT_CANNON.get());
 
 			}).build());
 

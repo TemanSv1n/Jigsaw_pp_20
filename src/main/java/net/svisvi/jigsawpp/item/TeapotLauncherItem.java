@@ -63,7 +63,7 @@ public class TeapotLauncherItem extends Item implements CustomArmPoseItem {
             double y = entity.getY();
             double z = entity.getZ();
             if (true) {
-                    NuclearTeapotMissileEntity entityarrow = NuclearTeapotMissileEntity.shoot(world, entity, new Random(), 0.5f, 1, 1);
+                    NuclearTeapotMissileEntity entityarrow = NuclearTeapotMissileEntity.shoot(world, entity, new Random(), 1.5f, 1, 1);
                     itemstack.hurtAndBreak(1000000, entity, e -> e.broadcastBreakEvent(entity.getUsedItemHand()));
                 }
             }

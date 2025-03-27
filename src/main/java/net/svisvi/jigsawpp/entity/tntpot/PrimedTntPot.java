@@ -30,7 +30,7 @@ public class PrimedTntPot extends Entity implements TraceableEntity {
         this.setPos(pX, pY, pZ);
         double $$5 = pLevel.random.nextDouble() * 6.2831854820251465;
         this.setDeltaMovement(-Math.sin($$5) * 0.02, 0.20000000298023224, -Math.cos($$5) * 0.02);
-        this.setFuse(80);
+        this.setFuse(100);
         this.xo = pX;
         this.yo = pY;
         this.zo = pZ;

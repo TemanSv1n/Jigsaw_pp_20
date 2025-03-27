@@ -72,6 +72,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<NuclearTeapotMissileEntity>> NUCLEAR_TEAPOT_MISSILE_ENTITY =
             ENTITY_TYPES.register("nuclear_teapot_missile_entity", () -> EntityType.Builder.<NuclearTeapotMissileEntity>of(NuclearTeapotMissileEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("nuclear_teapot_missile_entity"));
+    public static final RegistryObject<EntityType<TeapotMissileEntity>> TEAPOT_MISSILE_ENTITY =
+            ENTITY_TYPES.register("teapot_missile_entity", () -> EntityType.Builder.<TeapotMissileEntity>of(TeapotMissileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("teapot_missile_entity"));
 
     public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)

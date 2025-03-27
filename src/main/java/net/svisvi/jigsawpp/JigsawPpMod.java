@@ -171,6 +171,7 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.BEAVER_BOMB.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
 			EntityRenderers.register(ModEntities.NUCLEAR_TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
+			EntityRenderers.register(ModEntities.TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
 
       EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
 			EntityRenderers.register(ModEntities.BLACK_TEAPOD_SPIDER.get(), BlackTeapodSpiderRender::new);
