@@ -26,7 +26,12 @@ public class ModModelLayers {
             new ResourceLocation(JigsawPpMod.MODID, "beaver_hat_model"), "main");
 
     public static final ModelLayerLocation TEAPOD_SPIDER_LAYER = new ModelLayerLocation(
-            new ResourceLocation(JigsawPpMod.MODID, "kettlespider"), "main");  
+            new ResourceLocation(JigsawPpMod.MODID, "kettlespider"), "main");
+    public static final ModelLayerLocation BLACK_TEAPOD_SPIDER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "black_kettlespider"), "main");
+    public static final ModelLayerLocation RAW_TEAPOD_SPIDER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "raw_kettlespider"), "main");
+
     public static final ModelLayerLocation BEAVER_SPIDER_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "beaver_spider_model"), "main");
 

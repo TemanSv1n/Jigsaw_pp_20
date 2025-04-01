@@ -1,12 +1,7 @@
-package net.svisvi.jigsawpp.entity.teapodSpider;
+package net.svisvi.jigsawpp.entity.teapod.teapodSpider;
 
-import net.minecraft.client.particle.Particle;
-import net.minecraft.core.Position;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.level.LevelAccessor;
 
 /**
  * TeapodSpiderGoals

@@ -1,8 +1,7 @@
-package net.svisvi.jigsawpp.entity.teapodSpider;
+package net.svisvi.jigsawpp.entity.teapod.teapodSpider;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.monster.Spider;
 
 /**
  * TeapodAtackGoal

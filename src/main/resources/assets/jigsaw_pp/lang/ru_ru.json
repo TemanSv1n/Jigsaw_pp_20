@@ -252,7 +252,25 @@
   "block.jigsaw_pp.psycho_stone": "Психоделический камешек",
 
 
-  "jigsaw_pp.divider_of_localisation_version_2": "ALL THAT ADDED AFTER THIS IS NOT RU-LOCALISED UNTIL RELEASE! PLEASE DO NOT ADD LOCALES ABOVE THIS LINE. ONLY UNDER"
+  "jigsaw_pp.divider_of_localisation_version_2": "ALL THAT ADDED AFTER THIS IS NOT RU-LOCALISED UNTIL RELEASE! PLEASE DO NOT ADD LOCALES ABOVE THIS LINE. ONLY UNDER",
+
+  "item.jigsaw_pp.teapod_spider_spawn_egg": "§Яйцо призыва §6Паучайника§r",
+  "item.jigsaw_pp.black_teapod_spider_spawn_egg": "Яйцо призыва §6Смуглого Паучайника§r",
+  "item.jigsaw_pp.raw_teapod_spider_spawn_egg": "Яйцо призыва §6Сырого Паучайника§r",
+  "entity.jigsaw_pp.teapod_spider": "Паучайник",
+  "entity.jigsaw_pp.black_teapod_spider": "Смуглый паучайник",
+  "entity.jigsaw_pp.raw_teapod_spider": "Сырой паучайник",
+  "item.jigsaw_pp.teapot_drill": "Буровой чайничек",
+  "item.jigsaw_pp.teapot_drill.desc": "§7Кормить угольками",
+  "block.jigsaw_pp.farfuhrer": "Фарфюрер",
+  "block.jigsaw_pp.randompot": "Случайник",
+  "item.jigsaw_pp.teapot_hammer": "Чайник молот",
+  "entity.jigsaw_pp.beaver_spider": "Бобер паук",
+  "block.jigsaw_pp.tntpot": "Взрывчайник",
+  "item.jigsaw_pp.teapot_rifle": "Винтовчайник",
+  "block.jigsaw_pp.nuclear_teapot": "Ядерный чайник",
+  "item.jigsaw_pp.teapot_launcher": "Ракетница с ядерным чайником",
+  "item.jigsaw_pp.teapot_cannon": "Чайнейший-3000"
 
 
 

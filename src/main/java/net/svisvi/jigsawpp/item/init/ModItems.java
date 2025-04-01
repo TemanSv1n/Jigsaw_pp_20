@@ -87,6 +87,12 @@ public class ModItems {
     public static final RegistryObject<Item> TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xad5d32, 0xd3b4a3,
                     new Item.Properties()));
+	public static final RegistryObject<Item> BLACK_TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("black_teapod_spider_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.BLACK_TEAPOD_SPIDER, 0xac5e42, 0xd3e4a3,
+					new Item.Properties()));
+	public static final RegistryObject<Item> RAW_TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("raw_teapod_spider_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntities.RAW_TEAPOD_SPIDER, 0xadf332, 0xe3a3a3,
+					new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,
 					new Item.Properties()));
@@ -151,6 +157,11 @@ public class ModItems {
 
 	public static final RegistryObject<Item> BEAWEED_BLOCK = block(ModBlocks.BEAWEED_BLOCK);
 	public static final RegistryObject<Item> FACTORY_HEATER = block(ModBlocks.FACTORY_HEATER);
+	public static final RegistryObject<Item> FARFUHRER = block(ModBlocks.FARFUHRER);
+	public static final RegistryObject<Item> RANDOMPOT = block(ModBlocks.RANDOMPOT);
+	public static final RegistryObject<Item> TNTPOT = block(ModBlocks.TNTPOT);
+	public static final RegistryObject<Item> NUCLEAR_TEAPOT = block(ModBlocks.NUCLEAR_TEAPOT);
+
 
 	// #################################################################
 	// #################################################################
@@ -168,6 +179,8 @@ public class ModItems {
 	public static final RegistryObject<Item> MARMOSET = REGISTRY.register("marmoset", () -> new MarmosetItem());
 
 	public static final RegistryObject<Item> GAY = REGISTRY.register("gay", () -> new RadiationItem(new Item.Properties().stacksTo(14), 0.001F));
+	public static final RegistryObject<Item> BIG_NUCLEAR_TEAPOT = REGISTRY.register("big_nuclear_teapot", () -> new AbstractPurgenRecipeHelperItem());
+	public static final RegistryObject<Item> BIG_TEAPOT = REGISTRY.register("big_teapot", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_CLOCK = REGISTRY.register("prh_clock", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_PURITY = REGISTRY.register("prh_purity", () -> new AbstractPurgenRecipeHelperItem());
 	public static final RegistryObject<Item> PURGEN_RECIPE_HELPER_TNT = REGISTRY.register("prh_tnt", () -> new AbstractPurgenRecipeHelperItem());
@@ -258,6 +271,11 @@ public class ModItems {
 	public static final RegistryObject<Item> TALLOW = REGISTRY.register("tallow", () -> new TallowItem());
 	public static final RegistryObject<Item> POOPS = REGISTRY.register("poops", () -> new PoopsItem());
 	public static final RegistryObject<Item> POOPIS = REGISTRY.register("poopis", () -> new PoopisItem());
+	public static final RegistryObject<Item> TEAPOT_DRILL = REGISTRY.register("teapot_drill", () -> new TeapotDrillItem());
+	public static final RegistryObject<Item> TEAPOT_HAMMER = REGISTRY.register("teapot_hammer", () -> new TeapotHammerItem());
+	public static final RegistryObject<Item> TEAPOT_RIFLE = REGISTRY.register("teapot_rifle", () -> new TeapotRiffleItem());
+	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
+	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

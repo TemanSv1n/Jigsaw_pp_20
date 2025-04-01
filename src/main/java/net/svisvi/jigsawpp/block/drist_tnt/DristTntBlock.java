@@ -88,6 +88,8 @@ public class DristTntBlock extends Block implements IPoopExplosive {
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!pLevel.isClientSide) {
             PrimedDristTnt primedtnt = new PrimedDristTnt(pLevel, (double)pPos.getX() + 0.5, (double)pPos.getY(), (double)pPos.getZ() + 0.5, pEntity);
+            int i = primedtnt.getFuse();
+            primedtnt.setFuse((short)(pLevel.random.nextInt(i / 4) + i / 8));
             pLevel.addFreshEntity(primedtnt);
             pLevel.playSound((Player)null, primedtnt.getX(), primedtnt.getY(), primedtnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
             pLevel.gameEvent(pEntity, GameEvent.PRIME_FUSE, pPos);

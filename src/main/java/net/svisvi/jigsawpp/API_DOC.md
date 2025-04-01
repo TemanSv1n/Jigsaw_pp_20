@@ -41,3 +41,9 @@ import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
 This is a class for storing some arrays or dicts with objects, because im too lazy to use JSON here.
 Who wants - will add this thing
 You should add this by ModDatas.*add() in SetupEvent
+
+**WASHING**
+Removing poop effect via /procedures/ut/Washing methods, if you want to wash it off
+
+**POOP PROTECTION CONDITIONS**
+In class PoopProtectionArmorConditions there are methods for gas/fluid/inner ways. Use them to check, can player be *attacked*

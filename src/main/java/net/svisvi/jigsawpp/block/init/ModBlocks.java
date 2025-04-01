@@ -25,8 +25,11 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
+import net.svisvi.jigsawpp.block.teapot.FarFuhrerBlock;
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;
 import net.svisvi.jigsawpp.block.teapot.TeapotBlock;
+import net.svisvi.jigsawpp.block.tntpot.NuclearTeapotBlock;
+import net.svisvi.jigsawpp.block.tntpot.TntPotBlock;
 import net.svisvi.jigsawpp.block.yoba.YobaBlock;
 import net.svisvi.jigsawpp.block.yoba.YobaPoopBlock;
 import net.svisvi.jigsawpp.fluid.fat.FatFluidBlock;
@@ -46,6 +49,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> RAW_TEAPOT = REGISTRY.register("raw_teapot", () -> new RawTeapotBlock());
 
     public static final RegistryObject<Block> TEAPOT = REGISTRY.register("teapot", () -> new TeapotBlock());
+    public static final RegistryObject<Block> RANDOMPOT = REGISTRY.register("randompot", () -> new RandompotBlock());
+    public static final RegistryObject<Block> FARFUHRER = REGISTRY.register("farfuhrer", () -> new FarFuhrerBlock());
     public static final RegistryObject<Block> BEAWEED_BLOCK = REGISTRY.register("beaweed_block", () -> new BeaweedBlock());
     public static final RegistryObject<Block> BLACK_TEAPOT = REGISTRY.register("black_teapot", () -> new BlackTeapotBlock());
     public static final RegistryObject<Block> FACTORY_HEATER = REGISTRY.register("factory_heater", () -> new FactoryHeaterBlock());
@@ -70,4 +75,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> PLATE_BREAD = REGISTRY.register("plate_bread", () -> new PlateBreadBlock());
     public static final RegistryObject<Block> PIG_TUFFYAK = REGISTRY.register("pig_tuffyak", () -> new PigTuffyak());
     public static final RegistryObject<Block> PSYCHO_STONE = REGISTRY.register("psycho_stone", () -> new PsychoStoneBlock());
+    public static final RegistryObject<Block> TNTPOT = REGISTRY.register("tntpot", () -> new TntPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.STONE).strength(0.8f, 10f).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
+    public static final RegistryObject<Block> NUCLEAR_TEAPOT = REGISTRY.register("nuclear_teapot", () -> new NuclearTeapotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.STONE).strength(0.8f, 10f).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
 }

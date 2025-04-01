@@ -2,8 +2,6 @@ package net.svisvi.jigsawpp.entity.init;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.item.PrimedTnt;
-import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,11 +11,9 @@ import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
-import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.*;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
-import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
 
@@ -25,8 +21,11 @@ import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZomb
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
-import net.svisvi.jigsawpp.entity.teapodSpider.TeapodSpider;
-import net.svisvi.jigsawpp.item.purgen_gun.PurgenGunItem;
+import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpider;
+import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
+import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpider;
+import net.svisvi.jigsawpp.entity.tntpot.PrimedNuclearTeapot;
+import net.svisvi.jigsawpp.entity.tntpot.PrimedTntPot;
 
 
 public class ModEntities {
@@ -70,10 +69,22 @@ public class ModEntities {
     public static final RegistryObject<EntityType<BeaverzookaEntity>> BEAVERZOOKA_ENTITY =
             ENTITY_TYPES.register("beaverzooka_entity", () -> EntityType.Builder.<BeaverzookaEntity>of(BeaverzookaEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("beaverzooka_entity"));
+    public static final RegistryObject<EntityType<NuclearTeapotMissileEntity>> NUCLEAR_TEAPOT_MISSILE_ENTITY =
+            ENTITY_TYPES.register("nuclear_teapot_missile_entity", () -> EntityType.Builder.<NuclearTeapotMissileEntity>of(NuclearTeapotMissileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("nuclear_teapot_missile_entity"));
+    public static final RegistryObject<EntityType<TeapotMissileEntity>> TEAPOT_MISSILE_ENTITY =
+            ENTITY_TYPES.register("teapot_missile_entity", () -> EntityType.Builder.<TeapotMissileEntity>of(TeapotMissileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("teapot_missile_entity"));
 
     public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("teapod_spider"));
+    public static final RegistryObject<EntityType<BlackTeapodSpider>> BLACK_TEAPOD_SPIDER =
+            ENTITY_TYPES.register("black_teapod_spider", () -> EntityType.Builder.of(BlackTeapodSpider::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("black_teapod_spider"));
+    public static final RegistryObject<EntityType<RawTeapodSpider>> RAW_TEAPOD_SPIDER =
+            ENTITY_TYPES.register("raw_teapod_spider", () -> EntityType.Builder.of(RawTeapodSpider::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("raw_teapod_spider"));
 
   
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
@@ -90,6 +101,12 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PrimedDristTnt>> DRIST_TNT =
             ENTITY_TYPES.register("drist_tnt",() -> EntityType.Builder.<PrimedDristTnt>of(PrimedDristTnt::new, MobCategory.MISC)
                     .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("drist_tnt"));
+    public static final RegistryObject<EntityType<PrimedTntPot>> TNTPOT =
+            ENTITY_TYPES.register("tntpot",() -> EntityType.Builder.<PrimedTntPot>of(PrimedTntPot::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("tntpot"));
+    public static final RegistryObject<EntityType<PrimedNuclearTeapot>> NUCLEAR_TEAPOT =
+            ENTITY_TYPES.register("nuclear_teapot",() -> EntityType.Builder.<PrimedNuclearTeapot>of(PrimedNuclearTeapot::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("tntpot"));
     public static final RegistryObject<EntityType<DristTntStickProjectile>> DRIST_TNT_STICK =
             ENTITY_TYPES.register("drist_tnt_stick", () -> EntityType.Builder.<DristTntStickProjectile>of(DristTntStickProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("drist_tnt_stick"));

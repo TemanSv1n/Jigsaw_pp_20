@@ -35,6 +35,9 @@ public class RawTeapotBlock extends FallingBlock {
         super(BlockBehaviour.Properties.of().sound(SoundType.GRAVEL).strength(0.8f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
+    public void setFallingBlock(){
+
+    }
 
     @Override
     public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {

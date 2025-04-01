@@ -158,29 +158,35 @@ public class TeapotBlock extends Block {
         return true;
     }
 
-    public static void ticking(LevelAccessor world, double x, double y, double z) {
+    public void ticking(LevelAccessor world, double x, double y, double z) {
+
+        if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.CAMPFIRE || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.SOUL_CAMPFIRE) {
+            fume(world,x,y,z);
+        }
+    }
+
+    public void fume(LevelAccessor world, double x, double y, double z){
         double xRadius = 0;
         double loop = 0;
         double zRadius = 0;
         double particleAmount = 0;
-        if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.CAMPFIRE || (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.SOUL_CAMPFIRE) {
-            if (world instanceof Level _level) {
-                if (!_level.isClientSide()) {
-                    _level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1);
-                } else {
-                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1, false);
-                }
+        if (world instanceof Level level) {
+            if (!level.isClientSide()) {
+                level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1);
+            } else {
+                level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1, false);
             }
-            if (world instanceof ServerLevel _level)
-                _level.sendParticles(ParticleTypes.CLOUD, x, y, z, 5, 1, 1, 1, 1);
-            loop = 0;
-            particleAmount = 128;
-            xRadius = 1.5;
-            zRadius = 1.5;
-            while (loop < particleAmount) {
-                world.addParticle(ParticleTypes.CLOUD, (x + Math.cos(((Math.PI * 2) / particleAmount) * loop) * xRadius), (y + 0.02), (z + Math.sin(((Math.PI * 2) / particleAmount) * loop) * zRadius), 0, 0.05, 0);
-                loop = loop + 1;
-            }
+        }
+
+        if (world instanceof ServerLevel _level)
+            _level.sendParticles(ParticleTypes.CLOUD, x, y, z, 5, 1, 1, 1, 1);
+        loop = 0;
+        particleAmount = 128;
+        xRadius = 1.5;
+        zRadius = 1.5;
+        while (loop < particleAmount) {
+            world.addParticle(ParticleTypes.CLOUD, (x + Math.cos(((Math.PI * 2) / particleAmount) * loop) * xRadius), (y + 0.02), (z + Math.sin(((Math.PI * 2) / particleAmount) * loop) * zRadius), 0, 0.05, 0);
+            loop = loop + 1;
         }
     }
 

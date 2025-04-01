@@ -26,6 +26,8 @@ public class SlonGunGreenProjectile extends ThrowableItemProjectile implements I
     public SlonGunGreenProjectile(EntityType<?extends ThrowableItemProjectile> entityType, Level level){
         super(entityType, level);
     }
+
+    private static int damage = 1;
     public SlonGunGreenProjectile(Level pLevel, LivingEntity pShooter) {
         super(ModEntities.SLONGUN_GREEN_PROJECTILE.get(), pShooter, pLevel);
     }
@@ -53,6 +55,10 @@ public class SlonGunGreenProjectile extends ThrowableItemProjectile implements I
         }
     }
 
+    public void setDamage(int damage){
+        this.damage = damage;
+    }
+
     private static void spawnParticle(LevelAccessor level, Double x, Double y, Double z){
         level.addParticle(ModParticleTypes.POOP.get(), x, y, z, 0, 0, 0);
     }
@@ -66,7 +72,7 @@ public class SlonGunGreenProjectile extends ThrowableItemProjectile implements I
 
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 2.5f);
+        pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), damage);
         PoopEffect.addEffectLiquidWay(pResult.getEntity(),(new MobEffectInstance(ModEffects.POOP.get(), 120, 1, false, false)));
         //PurgativeEffect.addEffectLiquidWay(pResult.getEntity(), (new MobEffectInstance(ModEffects.PURGATIVE.get(), 40, 1, false, false)));
     }

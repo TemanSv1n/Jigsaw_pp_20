@@ -85,21 +85,21 @@ public class SpawnBeaverZombieGoal extends Goal {
       if(b <= 1){
          bvd.setBaby(true);;              
       }
-      //if(c <= 1){
-      //  BeaverSpiderEntity beaverSpiderEntity = new BeaverSpiderEntity(ModEntities.BEAVER_SPIDER.get(), serverLevel);
-      //  if(beaverSpiderEntity != null) {
-      //    beaverSpiderEntity.moveTo(xd, y, zd);
-      //    bvd.startRiding(beaverSpiderEntity);
-      //    serverLevel.addFreshEntityWithPassengers(beaverSpiderEntity); 
-      //    
-      //  }
       if(c <= 1){
-        Spider spider = (Spider)EntityType.SPIDER.create(this.bzSpawner.level());  
-        if(spider != null) {
-          spider.moveTo(xd, y, zd);
-          bvd.startRiding(spider);
-          serverLevel.addFreshEntityWithPassengers(spider);
+        BeaverSpiderEntity beaverSpiderEntity = new BeaverSpiderEntity(ModEntities.BEAVER_SPIDER.get(), serverLevel);
+        if(beaverSpiderEntity != null) {
+          beaverSpiderEntity.moveTo(xd, y, zd);
+          bvd.startRiding(beaverSpiderEntity);
+          serverLevel.addFreshEntityWithPassengers(beaverSpiderEntity);
+
         }
+//      if(c <= 1){
+//        Spider spider = (Spider)EntityType.SPIDER.create(this.bzSpawner.level());
+//        if(spider != null) {
+//          spider.moveTo(xd, y, zd);
+//          bvd.startRiding(spider);
+//          serverLevel.addFreshEntityWithPassengers(spider);
+//        }
       }else{
         bvd.moveTo(xd, y, zd);
         serverLevel.addFreshEntity(bvd);
