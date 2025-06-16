@@ -21,6 +21,7 @@ import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
+//import net.svisvi.jigsawpp.block.space_lift.SpaceLiftBeamRenderer;
 import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
 import net.svisvi.jigsawpp.client.screen.space_lift.SpaceLiftScreen;

@@ -8,12 +8,15 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.recipe.ElephantingRecipe;
+import net.svisvi.jigsawpp.recipe.ModRecipes;
 import net.svisvi.jigsawpp.recipe.SpaceLiftRecipe;
 
 public class SpaceLiftCategory implements IRecipeCategory<SpaceLiftRecipe> {
@@ -67,4 +70,8 @@ public class SpaceLiftCategory implements IRecipeCategory<SpaceLiftRecipe> {
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 62).addItemStack(recipe.getResultItem(null));
 
     }
+
+//    public void registerCatalysts(IRecipeCatalystRegistration registration) {
+//        registration.addRecipeCatalyst(new ItemStack(ModItems.SPACE_LIFT.get()), SPACE_LIFT_TYPE);
+//    }
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -52,7 +53,7 @@ public class SpaceLiftBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public SpaceLiftBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(4f, 1f).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK));
+        super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(70f, 255f).noOcclusion().pushReaction(PushReaction.BLOCK));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -173,7 +174,9 @@ public class SpaceLiftBlock extends BaseEntityBlock {
         if (world.getBestNeighborSignal(pos) > 0) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof SpaceLiftBlockEntity be) {
-                be.craftItem(world,pos,blockstate);
+                if (world instanceof ServerLevel && !world.isClientSide()) {
+                    be.craftItem(world, pos, blockstate);
+                }
                 //world.updateNeighbourForOutputSignal(pos, this);
             }
         }

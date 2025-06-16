@@ -250,6 +250,8 @@
   "block.jigsaw_pp.pig_tuffyak": "Свиной тюфяк",
   "item.jigsaw_pp.beaver_staff.desc": "§7Позволяет подстрекать §6Каменных Бобриков",
   "block.jigsaw_pp.psycho_stone": "Психоделический камешек",
+  "block.jigsaw_pp.space_lift": "Космический лифт",
+  "recipe.jigsaw_pp.space_lift": "Космический лифт",
 
 
   "jigsaw_pp.divider_of_localisation_version_2": "ALL THAT ADDED AFTER THIS IS NOT RU-LOCALISED UNTIL RELEASE! PLEASE DO NOT ADD LOCALES ABOVE THIS LINE. ONLY UNDER"

@@ -117,6 +117,7 @@ public class JetstreamChairEntity extends Entity {
         this.zo = pZ;
     }
 
+
     public IMinecartCollisionHandler getCollisionHandler() {
         return COLLISIONS;
     }

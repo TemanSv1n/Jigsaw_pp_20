@@ -119,6 +119,7 @@ public class PurgenFactoryRecipe implements Recipe<SimpleContainer> {
         public static final String ID = "purgen_factory";
 
     }
+
     public static class Serializer implements RecipeSerializer<PurgenFactoryRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(JigsawPpMod.MODID, "purgen_factory");
