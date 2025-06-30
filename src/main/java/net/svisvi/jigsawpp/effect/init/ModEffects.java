@@ -33,6 +33,8 @@ public class ModEffects {
             () -> new EggedEffect());
     public static final RegistryObject<MobEffect> RECTAL_THRUST = MOB_EFFECTS.register("rectal_thrust",
             () -> new RectalThrustEffect(MobEffectCategory.HARMFUL, -12372212));
+    public static final RegistryObject<MobEffect> UNLEVITATION = MOB_EFFECTS.register("unlevitation",
+            () -> new UnlevitationEffect(MobEffectCategory.HARMFUL, 6987972));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

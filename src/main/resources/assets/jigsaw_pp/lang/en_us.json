@@ -271,6 +271,7 @@
 
   "block.jigsaw_pp.shit_block": "Shit",
   "effect.jigsaw_pp.rectal_thrust": "Rectal thrust",
+  "effect.jigsaw_pp.unlevitation": "Unlevitation",
 
   "item.minecraft.tipped_arrow.effect.poop_potion": "Pooped arrow",
   "item.minecraft.potion.effect.poop_potion": "Poop potion",
@@ -294,6 +295,11 @@
 
   "item.minecraft.tipped_arrow.effect.egged_potion": "Egged arrow",
   "item.minecraft.potion.effect.egged_potion": "Egged potion",
-  "item.minecraft.splash_potion.effect.egged_potion": "Egged poop potion",
-  "item.minecraft.lingering_potion.effect.egged_potion": "Lingering egged potion"
+  "item.minecraft.splash_potion.effect.egged_potion": "Splash egged potion",
+  "item.minecraft.lingering_potion.effect.egged_potion": "Lingering egged potion",
+
+  "item.minecraft.tipped_arrow.effect.unlevitation_potion": "Unlevitation arrow",
+  "item.minecraft.potion.effect.unlevitation_potion": "Unlevitation potion",
+  "item.minecraft.splash_potion.effect.unlevitation_potion": "Splash unlevitation potion",
+  "item.minecraft.lingering_potion.effect.unlevitation_potion": "Lingering unlevitation potion"
 }
