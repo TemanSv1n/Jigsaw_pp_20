@@ -5,17 +5,18 @@
       "modid": "create"
     }
   ],
-  "type": "create:mixing",
-  "heatRequirement": "heated",
+  "type": "create:item_application",
   "ingredients": [
     {
-      "item": "jigsaw_pp:pork_block"
+      "item": "jigsaw_pp:teapot"
+    },
+    {
+      "item": "jigsaw_pp:drist_tnt_stick"
     }
   ],
   "results": [
     {
-      "amount": 1000,
-      "fluid": "jigsaw_pp:fat"
+      "item": "jigsaw_pp:tntpot"
     }
   ]
 }

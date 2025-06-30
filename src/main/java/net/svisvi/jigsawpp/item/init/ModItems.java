@@ -77,7 +77,7 @@ public class ModItems {
                 new Item.Properties()));
 
   public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWNER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawner_spawn_egg",
-        () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER_SPAWNER, 0x114f02, 0xf21313,
+        () -> new ForgeSpawnEggItem(ModEntities.ZOMBIE_BEAVER_SPAWNER, 0x114f02, 0x7f3300,
                 new Item.Properties()));
   public static final RegistryObject<Item> BEAVER_SPIDER_SPAWN_EGG = REGISTRY.register("beaver_spider_spawn_egg",
         () -> new ForgeSpawnEggItem(ModEntities.BEAVER_SPIDER, 0x451d02, 0x0d0703,
@@ -85,13 +85,13 @@ public class ModItems {
 
 	public static final RegistryObject<Item> SWEET_BREAD = REGISTRY.register("sweet_bread", () -> new SweetBreadItem());
     public static final RegistryObject<Item> TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("teapod_spider_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xad5d32, 0xd3b4a3,
+            () -> new ForgeSpawnEggItem(ModEntities.TEAPOD_SPIDER, 0xcfb1a0, 0xc06c3e,
                     new Item.Properties()));
 	public static final RegistryObject<Item> BLACK_TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("black_teapod_spider_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.BLACK_TEAPOD_SPIDER, 0xac5e42, 0xd3e4a3,
+			() -> new ForgeSpawnEggItem(ModEntities.BLACK_TEAPOD_SPIDER, 0x241610, 0xc06c3e,
 					new Item.Properties()));
 	public static final RegistryObject<Item> RAW_TEAPOD_SPIDER_SPAWN_EGG = REGISTRY.register("raw_teapod_spider_spawn_egg",
-			() -> new ForgeSpawnEggItem(ModEntities.RAW_TEAPOD_SPIDER, 0xadf332, 0xe3a3a3,
+			() -> new ForgeSpawnEggItem(ModEntities.RAW_TEAPOD_SPIDER, 0xadb7d3, 0xc06c3e,
 					new Item.Properties()));
 	public static final RegistryObject<Item> MOSS_ELEPHANT_SPAWN_EGG = REGISTRY.register("moss_elephant_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntities.MOSS_ELEPHANT, 0x213818, 0x509e31,

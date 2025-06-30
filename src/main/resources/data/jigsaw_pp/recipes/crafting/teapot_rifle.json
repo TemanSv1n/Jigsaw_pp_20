@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "331",
+        " 62"
+    ],
+    "key": {
+        "1": {
+            "item": "jigsaw_pp:teapot"
+        },
+        "2": {
+            "item": "jigsaw_pp:drist_button"
+        },
+        "3": {
+            "item": "jigsaw_pp:fitting"
+        },
+        "6": {
+            "item": "minecraft:lever"
+        }
+
+    },
+    "result": {
+        "item": "jigsaw_pp:teapot_rifle",
+        "count": 1
+    }
+}

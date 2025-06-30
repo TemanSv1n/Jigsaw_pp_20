@@ -70,13 +70,7 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
         pLevel.scheduleTick(pPos, this, 10);
     }
 
-    public int getFurnacedState(BlockState pState, ServerLevel pLevel, BlockPos pPos) {
-        if (ModDatas.factoryHeaterFurnaceModeList.contains((pLevel.getBlockState(BlockPos.containing(pPos.getX(), pPos.getY() - 1, pPos.getZ()))).getBlock())) {
-            return 1;
 
-        }
-        return 0;
-    }
 
     @Override
     public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
@@ -116,13 +110,6 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
-
-//    @Override
-//    public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-//        if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
-//            return tieredItem.getTier().getLevel() >= 0;
-//        return false;
-//    }
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
@@ -169,6 +156,14 @@ public class FactoryHeaterBlock extends Block implements FactoryHeatProducer {
             return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
         else
             return 0;
+    }
+
+    public int getFurnacedState(BlockState pState, ServerLevel pLevel, BlockPos pPos) {
+        if (ModDatas.factoryHeaterFurnaceModeList.contains((pLevel.getBlockState(BlockPos.containing(pPos.getX(), pPos.getY() - 1, pPos.getZ()))).getBlock())) {
+            return 1;
+
+        }
+        return 0;
     }
 
     @Override
