@@ -10,7 +10,7 @@ public class PiluleStyles {
     public static Style effectLogic(MobEffectInstance mobEffectInstance){
         String color = "";
         if (!mobEffectInstance.getEffect().isBeneficial()){
-            color = "#AA0000";
+            color = "#FF5555";
         } else {
             color = "#5555FF";
         }
@@ -35,5 +35,9 @@ public class PiluleStyles {
         }
 
         return Style.EMPTY.withColor(TextColor.parseColor(color));
+    }
+
+    public static String numberToRoman(int n){ //only for 1-6, like with effects
+        return "1";
     }
 }

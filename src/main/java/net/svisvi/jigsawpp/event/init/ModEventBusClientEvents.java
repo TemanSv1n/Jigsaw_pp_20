@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.client.gui.BeaverSODOverlay;
 import net.svisvi.jigsawpp.client.gui.PoopOverlay;
+import net.svisvi.jigsawpp.entity.armor.DoctorHelmetModel;
 import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
 import net.svisvi.jigsawpp.entity.armor.JotaroHatModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverBodyModel;
@@ -41,6 +42,7 @@ public class ModEventBusClientEvents {
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.GAS_MASK_LAYER, GasMaskModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JOTARO_HAT_LAYER, JotaroHatModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.DOCTOR_HELMET_LAYER, DoctorHelmetModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.FLOPPA_MISSILE_LAYER, FloppaMissileModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.PLUNGER, PlungerModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JETSTREAM_CHAIR_LAYER, JetstreamChairModel::createBodyLayer);

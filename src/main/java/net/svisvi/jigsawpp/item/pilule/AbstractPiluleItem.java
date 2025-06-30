@@ -1,6 +1,7 @@
 package net.svisvi.jigsawpp.item.pilule;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
@@ -8,6 +9,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
@@ -18,6 +20,8 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
@@ -60,8 +64,16 @@ public class AbstractPiluleItem extends Item {
         return 16;
     }
 
+    public static boolean doctorEnabled(Player player){;
+        return player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DOCTOR_HELMET.get();
+    }
+
     @Override
+    @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+
+        Player player = Minecraft.getInstance().player;
+        boolean isCreative = player != null && player.isCreative();
 
         //List<MobEffectInstance> efs = PotionUtils.getMobEffects(itemstack);
 
@@ -76,7 +88,13 @@ public class AbstractPiluleItem extends Item {
         list.add(Component.literal(Integer.toString(purity(itemstack)))     .setStyle(PiluleStyles.purityLogic(purity(itemstack)))
                 .append(Component.literal("%")));
 
-        if (purity(itemstack) >= EFFECTS_REVEAL) {
+        if (doctorEnabled(player)) {
+            list.add(Component.translatable("item.jigsaw_pp.pilule.doctor_visibility"));
+        }else if (isCreative){
+            list.add(Component.translatable("item.jigsaw_pp.pilule.god_visibility"));
+        }
+
+        if (purity(itemstack) >= EFFECTS_REVEAL || isCreative || doctorEnabled(player)) {
             if (PotionUtils.getMobEffects(itemstack) != null) {
                 list.add(Component.translatable("item.jigsaw_pp.pilule.sec_effect"));
                 for (MobEffectInstance mobeffectinstance : PotionUtils.getMobEffects(itemstack)) {

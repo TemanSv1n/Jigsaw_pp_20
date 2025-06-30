@@ -78,4 +78,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> TNTPOT = REGISTRY.register("tntpot", () -> new TntPotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.STONE).strength(0.8f, 10f).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
     public static final RegistryObject<Block> NUCLEAR_TEAPOT = REGISTRY.register("nuclear_teapot", () -> new NuclearTeapotBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.STONE).strength(0.8f, 10f).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
     public static final RegistryObject<Block> SHIT_BLOCK = REGISTRY.register("shit_block", () -> new ShitBlock());
+    public static final RegistryObject<Block> CREATIVE_HEAT_SOURCE = REGISTRY.register("creative_heat_source", () -> new CreativeHeatSourceBlock());
 }

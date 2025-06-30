@@ -69,6 +69,7 @@ public class ModTabs {
 
 						tabData.accept(ModItems.MARMOSET.get());
 						tabData.accept(Items.FURNACE);
+						tabData.accept(ModItems.CREATIVE_HEAT_SOURCE.get());
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
 						tabData.accept(ModItems.BATCH_SIZE_CARD.get());
@@ -176,6 +177,7 @@ public class ModTabs {
 				tabData.accept(ModItems.TEAPOT_LAUNCHER.get());
 				tabData.accept(ModItems.TEAPOT_CANNON.get());
 				tabData.accept(ModItems.SHIT_BLOCK.get());
+				tabData.accept(ModItems.DOCTOR_HELMET.get());
 
 			}).build());
 
