@@ -175,6 +175,7 @@ public class ModTabs {
 				tabData.accept(ModItems.NUCLEAR_TEAPOT.get());
 				tabData.accept(ModItems.TEAPOT_LAUNCHER.get());
 				tabData.accept(ModItems.TEAPOT_CANNON.get());
+				tabData.accept(ModItems.SHIT_BLOCK.get());
 
 			}).build());
 

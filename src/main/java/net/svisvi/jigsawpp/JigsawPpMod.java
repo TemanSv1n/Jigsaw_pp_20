@@ -45,6 +45,7 @@ import net.svisvi.jigsawpp.item.init.ModItemProperties;
 import net.svisvi.jigsawpp.networking.ModMessages;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.poi_types.ModPoiTypes;
+import net.svisvi.jigsawpp.potion.ModPotions;
 import net.svisvi.jigsawpp.recipe.ModRecipes;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -108,6 +109,8 @@ public class JigsawPpMod {
 		ModMenuTypes.REGISTRY.register(bus);
 
 		ModPoiTypes.POI_TYPES.register(bus);
+
+		ModPotions.register(bus);
 
 		ModMessages.register();
 

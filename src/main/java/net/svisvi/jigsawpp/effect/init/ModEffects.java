@@ -31,6 +31,8 @@ public class ModEffects {
             () -> new BeaverSODeffect());
     public static final RegistryObject<MobEffect> EGGED = MOB_EFFECTS.register("egged",
             () -> new EggedEffect());
+    public static final RegistryObject<MobEffect> RECTAL_THRUST = MOB_EFFECTS.register("rectal_thrust",
+            () -> new RectalThrustEffect(MobEffectCategory.HARMFUL, -12372212));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

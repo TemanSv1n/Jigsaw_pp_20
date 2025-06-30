@@ -49,6 +49,19 @@ public abstract class PonosFluid extends ForgeFlowingFluid {
 
     }
 
+//    @Override
+//    protected void randomTick(Level pLevel, BlockPos pPos, FluidState pState, RandomSource pRandom) {
+//        if (pLevel.getMaxLocalRawBrightness(pPos) >= 13 && pLevel. && pLevel.random.nextInt(10) >= 3){
+//            pLevel.setBlock(pPos, ModBlocks.SHIT_BLOCK.get().defaultBlockState(), 3);
+//        }
+//        super.randomTick(pLevel, pPos, pState, pRandom);
+//    }
+//
+//    @Override
+//    protected boolean isRandomlyTicking() {
+//        return true;
+//    }
+
     public static class Source extends PonosFluid {
         public int getAmount(FluidState state) {
             return 8;

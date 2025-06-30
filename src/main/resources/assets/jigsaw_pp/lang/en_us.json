@@ -267,5 +267,33 @@
   "item.jigsaw_pp.teapot_rifle": "Teapot rifle",
   "block.jigsaw_pp.nuclear_teapot": "Nuclear teapot",
   "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher",
-  "item.jigsaw_pp.teapot_cannon": "Teapotest-3000"
+  "item.jigsaw_pp.teapot_cannon": "Teapotest-3000",
+
+  "block.jigsaw_pp.shit_block": "Shit",
+  "effect.jigsaw_pp.rectal_thrust": "Rectal thrust",
+
+  "item.minecraft.tipped_arrow.effect.poop_potion": "Pooped arrow",
+  "item.minecraft.potion.effect.poop_potion": "Poop potion",
+  "item.minecraft.splash_potion.effect.poop_potion": "Splash poop potion",
+  "item.minecraft.lingering_potion.effect.poop_potion": "Lingering poop potion",
+
+  "item.minecraft.tipped_arrow.effect.purgative_potion": "Purgative arrow",
+  "item.minecraft.potion.effect.purgative_potion": "Purgative potion",
+  "item.minecraft.splash_potion.effect.purgative_potion": "Splash purgative potion",
+  "item.minecraft.lingering_potion.effect.purgative_potion": "Lingering purgative potion",
+
+  "item.minecraft.tipped_arrow.effect.rectal_thrust_potion": "Rectal thrust arrow",
+  "item.minecraft.potion.effect.rectal_thrust_potion": "Rectal thrust potion",
+  "item.minecraft.splash_potion.effect.rectal_thrust_potion": "Splash rectal thrust potion",
+  "item.minecraft.lingering_potion.effect.rectal_thrust_potion": "Lingering rectal thrust potion",
+
+  "item.minecraft.tipped_arrow.effect.bvsod_potion": "BVSOD arrow",
+  "item.minecraft.potion.effect.bvsod_potion": "BVSOD potion",
+  "item.minecraft.splash_potion.effect.bvsod_potion": "Splash BVSOD potion",
+  "item.minecraft.lingering_potion.effect.bvsod_potion": "Lingering BVSOD potion",
+
+  "item.minecraft.tipped_arrow.effect.egged_potion": "Egged arrow",
+  "item.minecraft.potion.effect.egged_potion": "Egged potion",
+  "item.minecraft.splash_potion.effect.egged_potion": "Egged poop potion",
+  "item.minecraft.lingering_potion.effect.egged_potion": "Lingering egged potion"
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,10 +21,13 @@ import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.recipe.PurgenCatalystRecipe;
 import net.svisvi.jigsawpp.recipe.PurgenFactoryRecipe;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PurgenPiluleBuilder {
 
@@ -129,12 +133,14 @@ public class PurgenPiluleBuilder {
         dur_buff *= catalyst_recipe.getAdditionalTimeK(null);
         purity *= catalyst_recipe.getPurityK(null);
         efs = catalyst_recipe.getEffects();
+        System.out.println(efs);
 
         AbstractPiluleItem.setDurationBuff((int) dur_buff, purgen_stack);
         AbstractPiluleItem.setPurity((int) purity, purgen_stack);
         if (efs != null) {
             PotionUtils.setCustomEffects(purgen_stack, efs);
         }
+        System.out.println(purgen_stack);
         return purgen_stack;
 
 
@@ -181,6 +187,7 @@ public class PurgenPiluleBuilder {
         }
         //System.out.println(purity);
         //upgraded pilule
+        List<MobEffectInstance> previous_list = PotionUtils.getCustomEffects(purgen_stack);
 
         if (purity > 100){
             retStack = purgen_stack;
@@ -190,21 +197,36 @@ public class PurgenPiluleBuilder {
             retStack = new ItemStack(ModItems.ADVANCED_PURGEN_PILULE.get());
             AbstractPiluleItem.setPurity(purgen_stack.getOrCreateTag().getInt("purity"), retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)((((purity+1%7) * (purity+1/10))*random.nextInt(purity+1/8))/100), retStack);
-            PotionUtils.setCustomEffects(retStack, effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")));
+            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")), previous_list));
         } else if (purity >= 90){
             retStack = new ItemStack(ModItems.CRYSTAL_PURGEN_PILULE.get());
             AbstractPiluleItem.setPurity(purgen_stack.getOrCreateTag().getInt("purity"), retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)((((purity+1%7) * (purity+1/10))*random.nextInt(purity+1/8))/100), retStack);
-            PotionUtils.setCustomEffects(retStack, effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")));
+            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")), previous_list));
         } else {
             retStack = purgen_stack;
-            PotionUtils.setCustomEffects(retStack, effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")));
+            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")), previous_list));
         }
 
 
         return retStack;
 
     }
+
+    public static List<MobEffectInstance> concatEffectsLists(@Nullable List<MobEffectInstance> list1, @Nullable List<MobEffectInstance> list2){
+        if (list1.isEmpty() && list2.isEmpty()){
+            return new ArrayList<MobEffectInstance>();
+        }
+        if (list1.isEmpty()){
+            return list2;
+        }
+        if (list2.isEmpty()){
+            return list1;
+        }
+        return Stream.concat(list1.stream(), list2.stream())
+                .collect(Collectors.toList());
+    }
+
 
     public static double dayTimeCalc(Level level){
         return Math.cbrt((level.dayTime() % 9000) + 1 / 6000) * 2;
