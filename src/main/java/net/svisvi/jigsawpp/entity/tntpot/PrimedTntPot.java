@@ -77,9 +77,8 @@ public class PrimedTntPot extends Entity implements TraceableEntity {
     }
 
     public void explode() {
-        float $$0 = 4.0F;
         //this.level().explode(this, this.getX(), this.getY(0.0625), this.getZ(), 4.0F, ExplosionInteraction.TNT);
-        TeapotExplosion.harmfulTeapotExplode(this.level(), this.getOnPos(), 3 , ExplosionInteraction.TNT, this.owner);
+        TeapotExplosion.harmfulTeapotExplode(this.level(), this.getOnPos(), 4 , ExplosionInteraction.TNT, this.owner);
     }
 
     protected void addAdditionalSaveData(CompoundTag pCompound) {

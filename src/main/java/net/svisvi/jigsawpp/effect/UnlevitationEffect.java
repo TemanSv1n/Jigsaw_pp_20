@@ -16,7 +16,7 @@ import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 public class UnlevitationEffect extends MobEffect {
     //reging
-    public int color = -10040320;
+    public int color = -15040820;
 
     public UnlevitationEffect(MobEffectCategory mobEffectCategory, int color) {
 

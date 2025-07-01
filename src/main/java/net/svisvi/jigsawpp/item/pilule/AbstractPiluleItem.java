@@ -101,7 +101,7 @@ public class AbstractPiluleItem extends Item {
                     list.add(Component.literal("§7")
                             .append(Component.translatable(mobeffectinstance.getDescriptionId())    .setStyle(PiluleStyles.effectLogic(mobeffectinstance)))
                             .append(Component.literal(" "))
-                            .append(Integer.toString(mobeffectinstance.getAmplifier() + 1))
+                            .append(Component.literal(PiluleStyles.numberToRoman(mobeffectinstance.getAmplifier())    ).setStyle(PiluleStyles.effectLogic(mobeffectinstance)))
                             .append(Component.literal(" "))
                             .append(Integer.toString(mobeffectinstance.getDuration() / 20))
                             .append(Component.translatable("misc.jigsaw_pp.second")));

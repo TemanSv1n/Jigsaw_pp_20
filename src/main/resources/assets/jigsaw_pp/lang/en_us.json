@@ -308,5 +308,11 @@
   "item.jigsaw_pp.pilule.god_visibility": "§7Creative visibility applied",
   "item.jigsaw_pp.pilule.doctor_visibility": "§7Doctor's view applied",
   "item.jigsaw_pp.doctor_helmet": "Dr. Govnarius' outfit",
-  "item.jigsaw_pp.doctor_helmet.desc": "§7Allows to inspect hidden purgen effects"
+  "item.jigsaw_pp.doctor_helmet.desc": "§7Allows to inspect hidden purgen effects",
+
+  "effect.jigsaw_pp.empregnation": "Empregnation",
+  "item.minecraft.tipped_arrow.effect.empregnation_potion": "Empregnation arrow",
+  "item.minecraft.potion.effect.empregnation_potion": "Empregnation potion",
+  "item.minecraft.splash_potion.effect.empregnation_potion": "Splash empregnation potion",
+  "item.minecraft.lingering_potion.effect.empregnation_potion": "Lingering empregnation potion"
 }

@@ -37,7 +37,37 @@ public class PiluleStyles {
         return Style.EMPTY.withColor(TextColor.parseColor(color));
     }
 
-    public static String numberToRoman(int n){ //only for 1-6, like with effects
-        return "1";
+    public static String numberToRoman(int n){//only for 1-6, like with effects
+        n++;
+        String ret = "Z";
+        if (n >= 7){
+            return Integer.toString(n);
+        } else {
+            switch (n) {
+                case 1:
+                    ret = "I";
+                    break;
+                case 2:
+                    ret = "II";
+                    break;
+                case 3:
+                    ret = "III";
+                    break;
+                case 4:
+                    ret = "IV";
+                    break;
+                case 5:
+                    ret = "V";
+                    break;
+                case 6:
+                    ret = "VI";
+                    break;
+                default:
+                    ret = "Z";
+                    break;
+
+            }
+        }
+        return ret;
     }
 }

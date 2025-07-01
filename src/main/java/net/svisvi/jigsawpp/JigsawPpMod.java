@@ -10,11 +10,14 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
 import net.svisvi.jigsawpp.client.screen.ModMenuTypes;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
+import net.svisvi.jigsawpp.config.ModServerConfigs;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
 import net.svisvi.jigsawpp.entity.drist_tnt.DristTntRenderer;
@@ -115,6 +118,8 @@ public class JigsawPpMod {
 		ModMessages.register();
 
 		MinecraftForge.EVENT_BUS.register(this);
+
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModServerConfigs.SPEC, "jigsaw-server.toml");
 
 
 	}
