@@ -314,5 +314,13 @@
   "item.minecraft.tipped_arrow.effect.empregnation_potion": "Empregnation arrow",
   "item.minecraft.potion.effect.empregnation_potion": "Empregnation potion",
   "item.minecraft.splash_potion.effect.empregnation_potion": "Splash empregnation potion",
-  "item.minecraft.lingering_potion.effect.empregnation_potion": "Lingering empregnation potion"
+  "item.minecraft.lingering_potion.effect.empregnation_potion": "Lingering empregnation potion",
+
+  "item.jigsaw_pp.gruel": "Gruel",
+
+  "effect.jigsaw_pp.purgenman_blessing": "PurgenMan's Blessing",
+  "item.minecraft.tipped_arrow.effect.purgenman_blessing_potion": "PurgenMan's Blessing arrow",
+  "item.minecraft.potion.effect.purgenman_blessing_potion": "PurgenMan's Blessing potion",
+  "item.minecraft.splash_potion.effect.purgenman_blessing_potion": "Splash PurgenMan's Blessing potion",
+  "item.minecraft.lingering_potion.effect.purgenman_blessing_potion": "Lingering PurgenMan's Blessing potion"
 }

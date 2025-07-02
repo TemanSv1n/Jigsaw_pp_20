@@ -2,10 +2,10 @@
   "type": "jigsaw_pp:purgen_factory",
   "ingredients": [
     {
-      "item": "jigsaw_pp:beaweed_dust"
+      "item": "jigsaw_pp:gruel"
     },
     {
-      "item": "jigsaw_pp:shit_block"
+      "item": "jigsaw_pp:beaweed_block"
     }
   ],
   "result": {
@@ -13,12 +13,12 @@
     "item": "jigsaw_pp:basic_purgen_pilule"
   },
   "fluid" : {
-    "fluid_name": "jigsaw_pp:ponos",
+    "fluid_name": "minecraft:water",
     "amount": 1000
   },
-  "purity": 1,
-  "additionalTime": 0,
-  "malChance": 0.99,
+  "purity": 180,
+  "additionalTime": 120,
+  "malChance": 0.05,
 
   "potionStats": [
     {

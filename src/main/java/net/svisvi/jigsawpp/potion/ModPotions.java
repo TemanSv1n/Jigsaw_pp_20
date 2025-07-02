@@ -34,6 +34,9 @@ public class ModPotions {
     public static final RegistryObject<Potion> EMPREGNATION_POTION = POTIONS.register("empregnation_potion",
             () -> new Potion(new MobEffectInstance(ModEffects.EMPREGNATION.get(), 2000, 0)));
 
+    public static final RegistryObject<Potion> PURGENMAN_BLESSING_POTION = POTIONS.register("purgenman_blessing_potion",
+            () -> new Potion(new MobEffectInstance(ModEffects.PURGENMAN_BLESSING.get(), 2000, 0)));
+
 
     public static void register(IEventBus eventBus) {
         POTIONS.register(eventBus);

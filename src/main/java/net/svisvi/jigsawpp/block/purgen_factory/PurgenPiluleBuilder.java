@@ -197,15 +197,15 @@ public class PurgenPiluleBuilder {
             retStack = new ItemStack(ModItems.ADVANCED_PURGEN_PILULE.get());
             AbstractPiluleItem.setPurity(purgen_stack.getOrCreateTag().getInt("purity"), retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)((((purity+1%7) * (purity+1/10))*random.nextInt(purity+1/8))/100), retStack);
-            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")), previous_list));
+            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity"), 200+ purgen_stack.getOrCreateTag().getInt("duration_buff")), previous_list));
         } else if (purity >= 90){
             retStack = new ItemStack(ModItems.CRYSTAL_PURGEN_PILULE.get());
             AbstractPiluleItem.setPurity(purgen_stack.getOrCreateTag().getInt("purity"), retStack);
             AbstractPiluleItem.setDurationBuff(purgen_stack.getOrCreateTag().getInt("duration_buff") + (int)((((purity+1%7) * (purity+1/10))*random.nextInt(purity+1/8))/100), retStack);
-            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")), previous_list));
+            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity"), 200+ purgen_stack.getOrCreateTag().getInt("duration_buff")), previous_list));
         } else {
             retStack = purgen_stack;
-            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity")), previous_list));
+            PotionUtils.setCustomEffects(retStack, concatEffectsLists(effectsFromPurity(purgen_stack.getOrCreateTag().getInt("purity"), 200+ purgen_stack.getOrCreateTag().getInt("duration_buff")), previous_list));
         }
 
 
@@ -244,13 +244,13 @@ public class PurgenPiluleBuilder {
         return Math.abs(level.getBiome(pos).value().getBaseTemperature() / 100f);
     }
 
-    public static List<MobEffectInstance> effectsFromPurity(int purity){
+    public static List<MobEffectInstance> effectsFromPurity(int purity, int duration){
         List<MobEffectInstance> effects = new ArrayList<MobEffectInstance>();
         List<MobEffect> all_effects = ImmutableList.copyOf(ForgeRegistries.MOB_EFFECTS.getValues());
         Random random = new Random();
         if (purity >= 0 && purity < 20){
             for (int i = 0; i < Math.ceil(purity%5f + 1f); i++){
-                MobEffectInstance mef = new MobEffectInstance(ModEffects.BAD_EFFECT.get(), checkedNextInt(random, 9000, purity)*3, random.nextInt((Math.abs((int)Math.ceil((21 - purity)/4))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ModEffects.BAD_EFFECT.get(), checkedNextInt(random, duration * 2, purity)*3, random.nextInt((Math.abs((int)Math.ceil((21 - purity)/4))+1)));
                 effects.add(mef);
             }
 
@@ -261,7 +261,7 @@ public class PurgenPiluleBuilder {
                     ef = all_effects.get(random.nextInt(all_effects.size()));
                 }
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 9000, purity)*3, random.nextInt((Math.abs((int)Math.ceil((40 - purity)/5))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, duration * 24, purity)*3, random.nextInt((Math.abs((int)Math.ceil((40 - purity)/5))+1)));
                 effects.add(mef);
             }
 
@@ -269,7 +269,7 @@ public class PurgenPiluleBuilder {
             for (int i = 0; i < Math.ceil(purity%5f + 1f); i++){
                 MobEffect ef = mediumEffects.get(random.nextInt(mediumEffects.size()));
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 9000, purity)*3, random.nextInt((Math.abs((int)Math.ceil((60 - purity)/5))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, duration * 24, purity)*3, random.nextInt((Math.abs((int)Math.ceil((60 - purity)/5))+1)));
                 effects.add(mef);
             }
 
@@ -284,7 +284,7 @@ public class PurgenPiluleBuilder {
                     ef = all_effects.get(random.nextInt(all_effects.size()));
                 }
 
-                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, 7600, purity)*3, random.nextInt((Math.abs((int)Math.ceil((101 - purity)/4))+1)));
+                MobEffectInstance mef = new MobEffectInstance(ef, checkedNextInt(random, duration * 24, purity)*3, random.nextInt((Math.abs((int)Math.ceil((101 - purity)/4))+1)));
                 effects.add(mef);
             }
         }

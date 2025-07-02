@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.procedures.ut;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -27,4 +28,29 @@ public class RegistriesGoon {
         }
         return ret;
     }
+    //ITEMS
+    public static String getItemRegistryName(Item item) {
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey(item);
+        return key != null ? key.toString() : null; // Returns "modid:item_name"
+    }
+
+    public static Item getItemFromRegistryName(String registryName) {
+        ResourceLocation key = new ResourceLocation(registryName);
+        // Default fallback to minecraft:potato
+        final Item fallbackItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "potato"));
+
+        if (key == null) {
+            return fallbackItem;
+        }
+
+        try {
+            Item item = ForgeRegistries.ITEMS.getValue(key);
+            return item != null ? item : fallbackItem;
+        } catch (Exception e) {
+            return fallbackItem;
+        }
+    }
+
 }
+
+

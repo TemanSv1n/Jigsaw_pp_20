@@ -37,6 +37,8 @@ public class ModEffects {
             () -> new UnlevitationEffect(MobEffectCategory.HARMFUL, 6987972));
     public static final RegistryObject<MobEffect> EMPREGNATION = MOB_EFFECTS.register("empregnation",
             () -> new EmpregnationEffect(MobEffectCategory.HARMFUL, 2037522));
+    public static final RegistryObject<MobEffect> PURGENMAN_BLESSING = MOB_EFFECTS.register("purgenman_blessing",
+            () -> new PurgenManBlessingEffect(MobEffectCategory.HARMFUL, -12372212));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

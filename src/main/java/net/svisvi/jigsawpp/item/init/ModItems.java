@@ -280,6 +280,7 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT_RIFLE = REGISTRY.register("teapot_rifle", () -> new TeapotRiffleItem());
 	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
 	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
+	public static final RegistryObject<Item> GRUEL = REGISTRY.register("gruel", () -> new GruelItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

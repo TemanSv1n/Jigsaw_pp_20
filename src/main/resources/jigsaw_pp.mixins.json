@@ -6,7 +6,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "mixins.jigsaw_pp.refmap.json",
   "mixins": [
-    "ShearsDispenserItemBehaviorMixin"
+    "ShearsDispenserItemBehaviorMixin",
+    "LivingEntityCanStandOnFluidMixin"
   ],
   "client": [
     "client.PlayerRendererMixin"
