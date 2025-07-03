@@ -37,6 +37,9 @@ public class ModPotions {
     public static final RegistryObject<Potion> PURGENMAN_BLESSING_POTION = POTIONS.register("purgenman_blessing_potion",
             () -> new Potion(new MobEffectInstance(ModEffects.PURGENMAN_BLESSING.get(), 2000, 0)));
 
+    public static final RegistryObject<Potion> POOP_WALKING_POTION = POTIONS.register("poop_walking_potion",
+            () -> new Potion(new MobEffectInstance(ModEffects.POOP_WALKING.get(), 8000, 0)));
+
 
     public static void register(IEventBus eventBus) {
         POTIONS.register(eventBus);

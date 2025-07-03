@@ -322,5 +322,11 @@
   "item.minecraft.tipped_arrow.effect.purgenman_blessing_potion": "PurgenMan's Blessing arrow",
   "item.minecraft.potion.effect.purgenman_blessing_potion": "PurgenMan's Blessing potion",
   "item.minecraft.splash_potion.effect.purgenman_blessing_potion": "Splash PurgenMan's Blessing potion",
-  "item.minecraft.lingering_potion.effect.purgenman_blessing_potion": "Lingering PurgenMan's Blessing potion"
+  "item.minecraft.lingering_potion.effect.purgenman_blessing_potion": "Lingering PurgenMan's Blessing potion",
+
+  "effect.jigsaw_pp.poop_walking": "Poop walking",
+  "item.minecraft.tipped_arrow.effect.poop_walking_potion": "Poop walking arrow",
+  "item.minecraft.potion.effect.poop_walking_potion": "Poop walking potion",
+  "item.minecraft.splash_potion.effect.poop_walking_potion": "Splash poop walking potion",
+  "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion"
 }

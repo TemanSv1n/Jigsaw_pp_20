@@ -26,7 +26,7 @@ public abstract class LivingEntityCanStandOnFluidMixin {
         // Unified logic for all entities
         boolean canStand = false;
 
-        if (entity.hasEffect(ModEffects.PURGENMAN_BLESSING.get()) && (fluidState.is(ModFluids.PONOS.get()))) {
+        if (entity.hasEffect(ModEffects.POOP_WALKING.get()) && (fluidState.is(ModFluids.PONOS.get()))) {
             canStand = true;
         }
 
