@@ -10,7 +10,9 @@
     "LivingEntityCanStandOnFluidMixin"
   ],
   "client": [
-    "client.PlayerRendererMixin"
+    "client.PlayerRendererMixin",
+    "client.LevelRendererMixin",
+    "client.FogRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

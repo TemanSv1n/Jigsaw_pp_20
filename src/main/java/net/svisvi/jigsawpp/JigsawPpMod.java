@@ -10,8 +10,10 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.fluids.FluidInteractionRegistry;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.svisvi.jigsawpp.block.entity.init.ModBlockEntities;
@@ -33,6 +35,7 @@ import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpiderRender;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpiderRender;
 import net.svisvi.jigsawpp.entity.tntpot.NuclearTeapotRenderer;
 import net.svisvi.jigsawpp.entity.tntpot.TntPotRenderer;
+import net.svisvi.jigsawpp.event.PonosFluidInteractionHandler;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 
 import net.svisvi.jigsawpp.fluid.init.ModFluidTypes;
@@ -42,6 +45,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
+import net.svisvi.jigsawpp.gamerules.ModGameRules;
 import net.svisvi.jigsawpp.init.ModPaintings;
 import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.init.ModItemProperties;
@@ -84,42 +88,27 @@ public class JigsawPpMod {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		ModItems.REGISTRY.register(bus);
-
 		ModBlocks.REGISTRY.register(bus);
-
 		ModTabs.REGISTRY.register(bus);
-
 		ModFluidTypes.REGISTRY.register(bus);
-
 		//ModParticles.REGISTRY.register(bus);
-
 		ModPaintings.REGISTRY.register(bus);
-
 		ModParticleTypes.REGISTRY.register(bus);
-
 		ModFluids.REGISTRY.register(bus);
-
 		ModSounds.REGISTRY.register(bus);
-
 		ModEntities.register(bus);
-
 		ModRecipes.register(bus);
-
 		ModEffects.register(bus);
-
 		ModBlockEntities.REGISTRY.register(bus);
-
 		ModMenuTypes.REGISTRY.register(bus);
-
 		ModPoiTypes.POI_TYPES.register(bus);
-
 		ModPotions.register(bus);
-
 		ModMessages.register();
-
+		ModGameRules.register();
 		MinecraftForge.EVENT_BUS.register(this);
-
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModServerConfigs.SPEC, "jigsaw-server.toml");
+
+		//MinecraftForge.EVENT_BUS.register(PonosFluidInteractionHandler.class);
 
 
 	}
@@ -213,6 +202,14 @@ public class JigsawPpMod {
 			//ModDatas.addFactoryHeaterFurnaceModeList(ModBlocks.TEAPOT.get());
 
 
+		}
+	}
+
+	@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+	public class ModSetup {
+		@SubscribeEvent
+		public static void onCommonSetup(FMLCommonSetupEvent event) {
+			event.enqueueWork(PonosFluidInteractionHandler::registerInteractions);
 		}
 	}
 
