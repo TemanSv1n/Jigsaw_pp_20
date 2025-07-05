@@ -9,7 +9,7 @@ public class ModGameRules {
 
     private static <T extends GameRules.Value<T>> GameRules.Key<T> register(
             String name, GameRules.Category category, GameRules.Type<T> type) {
-        return GameRules.register(JigsawPpMod.MODID + name, category, type);
+        return GameRules.register(JigsawPpMod.MODID + "_" + name, category, type);
     }
 
     public static void register() {

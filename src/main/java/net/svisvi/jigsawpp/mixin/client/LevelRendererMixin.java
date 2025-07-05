@@ -1,78 +1,120 @@
 package net.svisvi.jigsawpp.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Axis;
 import net.minecraft.client.Camera;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import net.svisvi.jigsawpp.gamerules.ModGameRules;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
+import net.svisvi.jigsawpp.procedures.ut.PurgenApocalypseUtils;
+//import net.svisvi.jigsawpp.procedures.ut.PurgenEnvironmentHandler;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LevelRenderer.class)
 public abstract class LevelRendererMixin {
     private static final ResourceLocation CUSTOM_SUN =
             new ResourceLocation("jigsaw_pp:textures/environment/purgen_sun.png");
+    private static final Vec3 BROWN_SKY_COLOR = new Vec3(0.4, 0.2, 0.0);
 
     @Shadow private ClientLevel level;
+    @Shadow private VertexBuffer starBuffer;
 
-    // 1. Sun Texture Replacement
     @Inject(
             method = "renderSky",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderTexture(ILnet/minecraft/resources/ResourceLocation;)V",
-                    ordinal = 0,
-                    shift = At.Shift.AFTER
-            )
+            at = @At("HEAD"),
+            cancellable = true
     )
-    private void replaceSunTexture(PoseStack poseStack, Matrix4f projectionMatrix, float partialTick,
-                                   Camera camera, boolean isFoggy, Runnable skyFogSetup, CallbackInfo ci) {
+    private void renderCustomSky(PoseStack poseStack, Matrix4f projectionMatrix, float partialTick,
+                                 Camera camera, boolean isFoggy, Runnable skyFogSetup, CallbackInfo ci) {
+        // Проверка игрового правила на клиенте
+        if (!shouldApplyPurgenEffects()) return;
+
+        ci.cancel();
+
+        // 1. Коричневое небо
+        RenderSystem.setShader(GameRenderer::getPositionShader);
+        RenderSystem.setShaderColor(
+                (float)BROWN_SKY_COLOR.x,
+                (float)BROWN_SKY_COLOR.y,
+                (float)BROWN_SKY_COLOR.z,
+                1.0f
+        );
+
+        BufferBuilder buffer = Tesselator.getInstance().getBuilder();
+        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+        buffer.vertex(-1.0, -1.0, -1.0).endVertex();
+        buffer.vertex(1.0, -1.0, -1.0).endVertex();
+        buffer.vertex(1.0, 1.0, -1.0).endVertex();
+        buffer.vertex(-1.0, 1.0, -1.0).endVertex();
+        BufferUploader.drawWithShader(buffer.end());
+
+        // 2. Звёзды (если правило активно)
+        float starBrightness = level.getStarBrightness(partialTick) * (shouldApplyPurgenEffects() ? 1.0F : 0.0F);
+        if (starBrightness > 0.0F) {
+            RenderSystem.setShaderColor(starBrightness, starBrightness, starBrightness, starBrightness);
+            FogRenderer.setupNoFog();
+            this.starBuffer.bind();
+            this.starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
+            VertexBuffer.unbind();
+        }
+
+        // 3. Кастомное солнце (если правило активно)
         if (shouldApplyPurgenEffects()) {
-            RenderSystem.setShaderTexture(0, CUSTOM_SUN);
+            renderCustomSun(poseStack, partialTick);
         }
     }
 
-    // 2. Sky Color Calculation Override
-    @Redirect(
-            method = "renderSky",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/multiplayer/ClientLevel;getSkyColor(Lnet/minecraft/world/phys/Vec3;F)Lnet/minecraft/world/phys/Vec3;"
-            )
-    )
-    private Vec3 overrideSkyColor(ClientLevel instance, Vec3 position, float partialTick) {
-        if (shouldApplyPurgenEffects()) {
-            return new Vec3(0.4, 0.2, 0.0); // Brown color
-        }
-        return instance.getSkyColor(position, partialTick);
+    private void renderCustomSun(PoseStack poseStack, float partialTick) {
+        poseStack.pushPose();
+        poseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
+        poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360.0F));
+
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, CUSTOM_SUN);
+        RenderSystem.setShaderColor(
+                (float)BROWN_SKY_COLOR.x,
+                (float)BROWN_SKY_COLOR.y,
+                (float)BROWN_SKY_COLOR.z,
+                1.0f
+        );
+
+        Matrix4f matrix = poseStack.last().pose();
+        BufferBuilder buffer = Tesselator.getInstance().getBuilder();
+        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+
+        float size = 30.0f;
+        buffer.vertex(matrix, -size, 100.0F, -size).uv(0.0F, 0.0F).endVertex();
+        buffer.vertex(matrix, size, 100.0F, -size).uv(1.0F, 0.0F).endVertex();
+        buffer.vertex(matrix, size, 100.0F, size).uv(1.0F, 1.0F).endVertex();
+        buffer.vertex(matrix, -size, 100.0F, size).uv(0.0F, 1.0F).endVertex();
+
+        BufferUploader.drawWithShader(buffer.end());
+        poseStack.popPose();
     }
 
-    // 3. Force Sky Color
-    @Inject(
-            method = "renderSky",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderColor(FFFF)V",
-                    ordinal = 0,
-                    shift = At.Shift.AFTER
-            )
-    )
-    private void forceSkyColor(PoseStack poseStack, Matrix4f projectionMatrix, float partialTick,
-                               Camera camera, boolean isFoggy, Runnable skyFogSetup, CallbackInfo ci) {
-        if (shouldApplyPurgenEffects()) {
-            RenderSystem.setShaderColor(0.4f, 0.2f, 0.0f, 1.0f);
-        }
-    }
-
+    // Проверка игрового правила на клиенте
+//    private boolean shouldApplyPurgenEffects() {
+//        return PurgenApocalypseUtils.purgesEnvironmentCondition(level);
+//    }
+    @OnlyIn(Dist.CLIENT)
     private boolean shouldApplyPurgenEffects() {
-        return true;//level != null && level.getGameRules().getBoolean(ModGameRules.RULE_PURGEN_ENVIROMENT);
+        Player player = Minecraft.getInstance().player;
+
+        if (player == null) return false;
+        return PurgenApocalypseUtils.purgenPlayerRenderCondition(player);
     }
 }
