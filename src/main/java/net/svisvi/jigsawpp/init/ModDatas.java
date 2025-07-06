@@ -22,6 +22,7 @@ public class ModDatas {
         factoryHeaterFurnaceModeList.add(Blocks.FIRE);
         factoryHeaterFurnaceModeList.add(Blocks.SOUL_FIRE);
         factoryHeaterFurnaceModeList.add(Blocks.LAVA);
+        factoryHeaterFurnaceModeList.add(ModBlocks.CREATIVE_HEAT_SOURCE.get());
 
     }
     public static void addFactoryHeaterFurnaceModeList(Block block){
@@ -38,6 +39,7 @@ public class ModDatas {
         factoryHeaterCoefficients.put(Blocks.FIRE, 0.1f);
         factoryHeaterCoefficients.put(Blocks.SOUL_FIRE, 0.1f);
         factoryHeaterCoefficients.put(Blocks.LAVA, 0.4f);
+        factoryHeaterCoefficients.put(ModBlocks.CREATIVE_HEAT_SOURCE.get(), 2f);
     }
 
     public static HashSet<Item> TEAPOTS = new HashSet<Item>();
