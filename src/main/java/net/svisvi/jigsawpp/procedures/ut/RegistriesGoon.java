@@ -1,6 +1,7 @@
 package net.svisvi.jigsawpp.procedures.ut;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
@@ -48,6 +49,29 @@ public class RegistriesGoon {
             return item != null ? item : fallbackItem;
         } catch (Exception e) {
             return fallbackItem;
+        }
+    }
+
+    //effects
+    public static String getEffectRegistryName(MobEffect effect) {
+        ResourceLocation key = ForgeRegistries.MOB_EFFECTS.getKey(effect);
+        return key != null ? key.toString() : null; // Returns "modid:effect_name"
+    }
+
+    public static MobEffect getEffectFromRegistryName(String registryName) {
+        ResourceLocation key = new ResourceLocation(registryName);
+        // Default fallback to minecraft:nausea
+        final MobEffect fallbackEffect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("minecraft", "nausea"));
+
+        if (key == null) {
+            return fallbackEffect;
+        }
+
+        try {
+            MobEffect effect = ForgeRegistries.MOB_EFFECTS.getValue(key);
+            return effect != null ? effect : fallbackEffect;
+        } catch (Exception e) {
+            return fallbackEffect;
         }
     }
 

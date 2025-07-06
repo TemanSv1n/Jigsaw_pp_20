@@ -76,7 +76,7 @@ public class PurgenFactoryCategory implements IRecipeCategory<PurgenFactoryRecip
 
         ItemStack output_stack = recipe.getResultItem(null);
         AbstractPiluleItem.setDurationBuff(recipe.getAdditionalTime(null), output_stack);
-        AbstractPiluleItem.setPurity(recipe.getPurity(null), output_stack);
+        AbstractPiluleItem.setPurity(recipe.getPurity(null)/4, output_stack);
         PotionUtils.setCustomEffects(output_stack, recipe.getEffects());
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 152, 60).addItemStack(output_stack);

@@ -126,7 +126,7 @@ public class PurgenFactoryRecipe implements Recipe<SimpleContainer> {
         @Override
         public PurgenFactoryRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             //primitives
-            int purity = pSerializedRecipe.get("purity").getAsInt();
+            int purity = pSerializedRecipe.get("purity").getAsInt() * 4;
             int additionalTime = pSerializedRecipe.get("additionalTime").getAsInt();;
             float malChance = pSerializedRecipe.get("malChance").getAsFloat();;
 

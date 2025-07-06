@@ -17,6 +17,7 @@ public class ModServerConfigs {
 
     public static final ForgeConfigSpec.ConfigValue<String> JIGSAW;
     public static final ForgeConfigSpec.ConfigValue<List<String>> EMPREGNATION_MOBS_LIST;
+    public static final ForgeConfigSpec.ConfigValue<List<String>> PURGEN_EFFECTS_BLACK_LIST;
 
 
 
@@ -37,6 +38,11 @@ public class ModServerConfigs {
                                 "minecraft:zoglin",
                                 "minecraft:hoglin"
                         ));
+
+        PURGEN_EFFECTS_BLACK_LIST = BUILDER.comment("Effects that won't appear in purgen by random")
+                .define("PURGEN_EFFECTS_BLACK_LIST", Arrays.asList(
+                        "jigsaw_pp:purgative"
+                ));
 
         BUILDER.pop();
         SPEC = BUILDER.build();
