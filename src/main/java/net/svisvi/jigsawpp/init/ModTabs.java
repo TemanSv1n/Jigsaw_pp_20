@@ -68,7 +68,7 @@ public class ModTabs {
 						tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
 
 						tabData.accept(ModItems.MARMOSET.get());
-						tabData.accept(Items.FURNACE);
+						//tabData.accept(Items.FURNACE);
 						tabData.accept(ModItems.CREATIVE_HEAT_SOURCE.get());
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
