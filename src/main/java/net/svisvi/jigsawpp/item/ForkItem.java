@@ -16,7 +16,7 @@ import net.svisvi.jigsawpp.procedures.ut.PonosClear;
 
 import java.util.List;
 
-public class ForkItem extends SwordItem {
+public class ForkItem extends ShovelItem {
     public ForkItem() {
         super(new Tier() {
             public int getUses() {

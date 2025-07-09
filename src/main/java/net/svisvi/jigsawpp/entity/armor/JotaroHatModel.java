@@ -29,7 +29,7 @@ public class JotaroHatModel<T extends Entity> extends EntityModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(24, 13).addBox(-4.5F, -8.0F, -6.5F, 9.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(24, 13).addBox(-4.5F, -8.0F, -6.5F, 9.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -23F, 0.0F));
 
 		PartDefinition cube_r1 = head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(-5.0F, -2.0F, 0.75F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false)
 		.texOffs(60, 0).addBox(4.0F, -2.0F, 0.75F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -7.0F, -5.5F, -0.2182F, 0.0F, 0.0F));

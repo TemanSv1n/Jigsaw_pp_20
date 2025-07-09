@@ -62,10 +62,10 @@ public class RawTeapotBlock extends FallingBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(FACING)) {
-            default -> box(2, 0, 2, 14, 14, 14);
-            case NORTH -> box(2, 0, 2, 14, 14, 14);
-            case EAST -> box(2, 0, 2, 14, 14, 14);
-            case WEST -> box(2, 0, 2, 14, 14, 14);
+            default -> box(2, 0, 2, 14, 16, 14);
+            case NORTH -> box(2, 0, 2, 14, 16, 14);
+            case EAST -> box(2, 0, 2, 14, 16, 14);
+            case WEST -> box(2, 0, 2, 14, 16, 14);
         };
     }
 

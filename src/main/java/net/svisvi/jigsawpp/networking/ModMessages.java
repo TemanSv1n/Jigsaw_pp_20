@@ -32,6 +32,12 @@ public class ModMessages {
                 .encoder(FluidSyncS2CPacket::toBytes)
                 .consumerMainThread(FluidSyncS2CPacket::handle)
                 .add();
+
+//        net.messageBuilder(PurgenEnvironmentPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+//                .decoder(PurgenEnvironmentPacket::new)
+//                .encoder(PurgenEnvironmentPacket::toBytes)
+//                .consumerMainThread(PurgenEnvironmentPacket::handle)
+//                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {

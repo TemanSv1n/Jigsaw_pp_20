@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:sweet_bread"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:shit_block",
+    "count": 1
+  }
+}

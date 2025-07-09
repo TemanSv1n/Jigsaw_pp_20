@@ -2,10 +2,10 @@
   "type": "jigsaw_pp:purgen_factory",
   "ingredients": [
     {
-      "item": "jigsaw_pp:sweet_bread"
+      "item": "jigsaw_pp:beaweed_dust"
     },
     {
-      "item": "minecraft:dirt"
+      "item": "jigsaw_pp:shit_block"
     }
   ],
   "result": {

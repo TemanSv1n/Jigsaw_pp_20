@@ -16,7 +16,7 @@
     "fluid_name": "minecraft:water",
     "amount": 1000
   },
-  "purity": 60,
+  "purity": 15,
   "additionalTime": 40,
   "malChance": 0.05,
 

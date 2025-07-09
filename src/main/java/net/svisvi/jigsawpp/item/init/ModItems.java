@@ -70,6 +70,8 @@ public class ModItems {
 	public static final RegistryObject<Item> BLABEGG = block(ModBlocks.BLABEGG);
 	public static final RegistryObject<Item> PIG_TUFFYAK = block(ModBlocks.PIG_TUFFYAK);
 	public static final RegistryObject<Item> PSYCHO_STONE = block(ModBlocks.PSYCHO_STONE);
+	public static final RegistryObject<Item> SHIT_BLOCK = block(ModBlocks.SHIT_BLOCK);
+	public static final RegistryObject<Item> CREATIVE_HEAT_SOURCE = block(ModBlocks.CREATIVE_HEAT_SOURCE);
 
 
 	public static final RegistryObject<Item> ZOMBIE_BEAVER_SPAWN_EGG = REGISTRY.register("zombie_beaver_spawn_egg",
@@ -113,6 +115,8 @@ public class ModItems {
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
 	public static final RegistryObject<Item> JOTARO_HAT = REGISTRY.register("jotaro_hat", () -> new JotaroHatItem.Helmet());
 	public static final RegistryObject<Item> STRAPS = REGISTRY.register("straps", () -> new StrapsItem.Chestplate());
+	public static final RegistryObject<Item> DOCTOR_HELMET = REGISTRY.register("doctor_helmet", () -> new DoctorHelmetItem.Helmet());
+
 
 	public static final RegistryObject<Item> SLON_GUN = REGISTRY.register("slon_gun", () -> new SlonGunItem());
 
@@ -276,6 +280,7 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT_RIFLE = REGISTRY.register("teapot_rifle", () -> new TeapotRiffleItem());
 	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
 	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
+	public static final RegistryObject<Item> GRUEL = REGISTRY.register("gruel", () -> new GruelItem());
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {

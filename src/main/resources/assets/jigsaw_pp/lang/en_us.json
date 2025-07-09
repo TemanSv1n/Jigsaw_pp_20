@@ -277,4 +277,66 @@
   "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings teapots as an ammo",
   "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
   "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get"
+
+  "block.jigsaw_pp.shit_block": "Shit",
+  "effect.jigsaw_pp.rectal_thrust": "Rectal thrust",
+  "effect.jigsaw_pp.unlevitation": "Unlevitation",
+
+  "item.minecraft.tipped_arrow.effect.poop_potion": "Pooped arrow",
+  "item.minecraft.potion.effect.poop_potion": "Poop potion",
+  "item.minecraft.splash_potion.effect.poop_potion": "Splash poop potion",
+  "item.minecraft.lingering_potion.effect.poop_potion": "Lingering poop potion",
+
+  "item.minecraft.tipped_arrow.effect.purgative_potion": "Purgative arrow",
+  "item.minecraft.potion.effect.purgative_potion": "Purgative potion",
+  "item.minecraft.splash_potion.effect.purgative_potion": "Splash purgative potion",
+  "item.minecraft.lingering_potion.effect.purgative_potion": "Lingering purgative potion",
+
+  "item.minecraft.tipped_arrow.effect.rectal_thrust_potion": "Rectal thrust arrow",
+  "item.minecraft.potion.effect.rectal_thrust_potion": "Rectal thrust potion",
+  "item.minecraft.splash_potion.effect.rectal_thrust_potion": "Splash rectal thrust potion",
+  "item.minecraft.lingering_potion.effect.rectal_thrust_potion": "Lingering rectal thrust potion",
+
+  "item.minecraft.tipped_arrow.effect.bvsod_potion": "BVSOD arrow",
+  "item.minecraft.potion.effect.bvsod_potion": "BVSOD potion",
+  "item.minecraft.splash_potion.effect.bvsod_potion": "Splash BVSOD potion",
+  "item.minecraft.lingering_potion.effect.bvsod_potion": "Lingering BVSOD potion",
+
+  "item.minecraft.tipped_arrow.effect.egged_potion": "Egged arrow",
+  "item.minecraft.potion.effect.egged_potion": "Egged potion",
+  "item.minecraft.splash_potion.effect.egged_potion": "Splash egged potion",
+  "item.minecraft.lingering_potion.effect.egged_potion": "Lingering egged potion",
+
+  "item.minecraft.tipped_arrow.effect.unlevitation_potion": "Unlevitation arrow",
+  "item.minecraft.potion.effect.unlevitation_potion": "Unlevitation potion",
+  "item.minecraft.splash_potion.effect.unlevitation_potion": "Splash unlevitation potion",
+  "item.minecraft.lingering_potion.effect.unlevitation_potion": "Lingering unlevitation potion",
+
+  "block.jigsaw_pp.creative_heat_source.desc": "§7Infinity heat source for purgen factory",
+  "block.jigsaw_pp.creative_heat_source": "Creative heat source",
+  "item.jigsaw_pp.pilule.god_visibility": "§7Creative visibility applied",
+  "item.jigsaw_pp.pilule.doctor_visibility": "§7Doctor's view applied",
+  "item.jigsaw_pp.doctor_helmet": "Dr. Govnarius' outfit",
+  "item.jigsaw_pp.doctor_helmet.desc": "§7Allows to inspect hidden purgen effects",
+
+  "effect.jigsaw_pp.empregnation": "Empregnation",
+  "item.minecraft.tipped_arrow.effect.empregnation_potion": "Empregnation arrow",
+  "item.minecraft.potion.effect.empregnation_potion": "Empregnation potion",
+  "item.minecraft.splash_potion.effect.empregnation_potion": "Splash empregnation potion",
+  "item.minecraft.lingering_potion.effect.empregnation_potion": "Lingering empregnation potion",
+
+  "item.jigsaw_pp.gruel": "Gruel",
+
+  "effect.jigsaw_pp.purgenman_blessing": "PurgenMan's Blessing",
+  "item.minecraft.tipped_arrow.effect.purgenman_blessing_potion": "PurgenMan's Blessing arrow",
+  "item.minecraft.potion.effect.purgenman_blessing_potion": "PurgenMan's Blessing potion",
+  "item.minecraft.splash_potion.effect.purgenman_blessing_potion": "Splash PurgenMan's Blessing potion",
+  "item.minecraft.lingering_potion.effect.purgenman_blessing_potion": "Lingering PurgenMan's Blessing potion",
+
+  "effect.jigsaw_pp.poop_walking": "Poop walking",
+  "item.minecraft.tipped_arrow.effect.poop_walking_potion": "Poop walking arrow",
+  "item.minecraft.potion.effect.poop_walking_potion": "Poop walking potion",
+  "item.minecraft.splash_potion.effect.poop_walking_potion": "Splash poop walking potion",
+  "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion"
+
 }

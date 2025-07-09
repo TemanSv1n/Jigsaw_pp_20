@@ -448,7 +448,6 @@ public class BlabbitEntity extends Monster implements IForgeShearable, Shearable
     }
 
 
-
     //NO BALLS ?
     public boolean isShearable(@NotNull ItemStack item, Level level, BlockPos pos) {
         return this.isLeashed();

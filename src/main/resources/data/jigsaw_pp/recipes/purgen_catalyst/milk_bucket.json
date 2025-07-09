@@ -7,7 +7,7 @@
   ],
   "result": {
     "count": 1,
-    "item": "minecraft:slime_ball"
+    "item": "minecraft:bucket"
   },
   "purity": 0.1,
   "additionalTime": 1.4,
@@ -15,9 +15,9 @@
 
   "potionStats": [
     {
-      "potion": "minecraft:water",
-      "duration": 400,
-      "amplifier": 4
+      "potion": "jigsaw_pp:rectal_thrust_potion",
+      "duration": 200,
+      "amplifier": 1
     }
   ]
 }

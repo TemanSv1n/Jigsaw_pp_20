@@ -254,7 +254,9 @@ public class YobaBlock extends Block implements Equipable {
     }
 
     public void die(BlockState pState, Level pLevel, BlockPos pPos){
-        pLevel.setBlock(pPos, getDied().defaultBlockState(), 3);
+        if (!nutrientBlocks.stream().anyMatch(pLevel.getBlockState(pPos.below())::is)) {
+            pLevel.setBlock(pPos, getDied().defaultBlockState(), 3);
+        }
     }
 
     public BlockPos getPosForward(BlockState pState, BlockPos pPos){
@@ -272,6 +274,12 @@ public class YobaBlock extends Block implements Equipable {
         replaceableTags.add(BlockTags.UNDERWATER_BONEMEALS);
         replaceableTags.add(BlockTags.CROPS);
         replaceableTags.add(BlockTags.REPLACEABLE);
+    }
+
+    public static HashSet<Block> nutrientBlocks = new HashSet<Block>();
+    static {
+        nutrientBlocks.add(ModBlocks.PORK_BLOCK.get());
+        nutrientBlocks.add(ModBlocks.FAT_BLOCK.get());
     }
 
     public static boolean canReplaceBlock(BlockState pState){

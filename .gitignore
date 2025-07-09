@@ -3,6 +3,7 @@
 **/run/
 **/build/
 !src/**/build/
+/.idea/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -32,3 +33,5 @@ gradle-app.setting
 .idea/misc.xml
 .idea/modules/Jigsaw_pp_20.main.iml
 .idea/modules.xml
+.idea/modules.xml
+/.idea

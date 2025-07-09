@@ -4,8 +4,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.effect.PoopEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
@@ -28,12 +31,20 @@ public class PonosFluidBlock extends LiquidBlock {
     }
     @Override
     public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 200;
+        return 1;
     }
 
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 200;
+        return 1;
+    }
+
+    public boolean isRandomlyTicking(BlockState pState) {
+        return pState.getFluidState().isRandomlyTicking();
+    }
+
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        pState.getFluidState().randomTick(pLevel, pPos, pRandom);
     }
 
 
@@ -56,6 +67,14 @@ public class PonosFluidBlock extends LiquidBlock {
                 }
             }
 
+        }
+
+        if (entity instanceof LivingEntity livingEntity){
+            if (livingEntity.hasEffect(ModEffects.POOP_WALKING.get())){
+                if (!blockstate.getFluidState().isSource()){
+                    livingEntity.setDeltaMovement(new Vec3(livingEntity.getDeltaMovement().x,+ 0.01, livingEntity.getDeltaMovement().z));
+                }
+            }
         }
 
     }

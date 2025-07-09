@@ -31,6 +31,16 @@ public class ModEffects {
             () -> new BeaverSODeffect());
     public static final RegistryObject<MobEffect> EGGED = MOB_EFFECTS.register("egged",
             () -> new EggedEffect());
+    public static final RegistryObject<MobEffect> RECTAL_THRUST = MOB_EFFECTS.register("rectal_thrust",
+            () -> new RectalThrustEffect(MobEffectCategory.HARMFUL, -12372212));
+    public static final RegistryObject<MobEffect> UNLEVITATION = MOB_EFFECTS.register("unlevitation",
+            () -> new UnlevitationEffect(MobEffectCategory.HARMFUL, 6987972));
+    public static final RegistryObject<MobEffect> EMPREGNATION = MOB_EFFECTS.register("empregnation",
+            () -> new EmpregnationEffect(MobEffectCategory.HARMFUL, 2037522));
+    public static final RegistryObject<MobEffect> PURGENMAN_BLESSING = MOB_EFFECTS.register("purgenman_blessing",
+            () -> new PurgenManBlessingEffect(MobEffectCategory.HARMFUL, -12372212));
+    public static final RegistryObject<MobEffect> POOP_WALKING = MOB_EFFECTS.register("poop_walking",
+            () -> new PoopWalkingEffect(MobEffectCategory.BENEFICIAL, -12372212));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

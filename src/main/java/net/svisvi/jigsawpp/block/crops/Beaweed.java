@@ -47,7 +47,7 @@ public class Beaweed extends CropBlock {
     }
     @Override
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.is(BlockTags.DIRT) || pState.is(Blocks.FARMLAND) || pState.is(ModBlocks.BEAWEED_BLOCK.get());
+        return pState.is(BlockTags.DIRT) || pState.is(Blocks.FARMLAND) || pState.is(ModBlocks.BEAWEED_BLOCK.get()) || pState.is(ModBlocks.SHIT_BLOCK.get());
     }
     @Override
     public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
