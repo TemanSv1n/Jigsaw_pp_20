@@ -319,11 +319,11 @@
   "item.jigsaw_pp.doctor_helmet": "Dr. Govnarius' outfit",
   "item.jigsaw_pp.doctor_helmet.desc": "§7Allows to inspect hidden purgen effects",
 
-  "effect.jigsaw_pp.empregnation": "Empregnation",
-  "item.minecraft.tipped_arrow.effect.empregnation_potion": "Empregnation arrow",
-  "item.minecraft.potion.effect.empregnation_potion": "Empregnation potion",
-  "item.minecraft.splash_potion.effect.empregnation_potion": "Splash empregnation potion",
-  "item.minecraft.lingering_potion.effect.empregnation_potion": "Lingering empregnation potion",
+  "effect.jigsaw_pp.empregnation": "Impregnation",
+  "item.minecraft.tipped_arrow.effect.empregnation_potion": "Impregnation arrow",
+  "item.minecraft.potion.effect.empregnation_potion": "Impregnation potion",
+  "item.minecraft.splash_potion.effect.empregnation_potion": "Splash impregnation potion",
+  "item.minecraft.lingering_potion.effect.empregnation_potion": "Lingering impregnation potion",
 
   "item.jigsaw_pp.gruel": "Gruel",
 
