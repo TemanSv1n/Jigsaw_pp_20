@@ -24,8 +24,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Beaweed extends CropBlock {
-    public static final int MAX_AGE = 5;
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
+    public static final int MAX_AGE = 4;
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
     public Beaweed(Properties Prop) {
         super(Prop);
     }
@@ -65,9 +65,9 @@ public class Beaweed extends CropBlock {
         world.scheduleTick(pos, this, 5);
     }
     public void ticking(Level level, BlockPos pos, BlockState state) {
-        if ((state.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip1 ? state.getValue(_getip1) : -1) == 3) {
+        if ((state.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _getip1 ? state.getValue(_getip1) : -1) == 2) {
             if (level instanceof ServerLevel _level)
-                _level.sendParticles((SimpleParticleType) (ModParticleTypes.FLY.get()), pos.getX(), pos.getY(), pos.getZ(), 5, 3, 3, 3, 0.3);
+                _level.sendParticles((SimpleParticleType) (ModParticleTypes.FLY.get()), pos.getX(), pos.getY(), pos.getZ(), 3, 3, 3, 3, 0.2);
         }
     }
     @Override

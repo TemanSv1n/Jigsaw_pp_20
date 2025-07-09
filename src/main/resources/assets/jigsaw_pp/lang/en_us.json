@@ -144,7 +144,7 @@
   "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod",
   "item.jigsaw_pp.tube_19": "Tube №19",
   "subtitles.clown_horn": "Clown noise",
-  "item.jigsaw_pp.eggs": "Eggs",
+  "item.jigsaw_pp.eggs": "Fortnite balls",
   "effect.jigsaw_pp.egged": "Egg magic",
   "item.jigsaw_pp.totem_of_shit": "Totem of shit",
 
@@ -269,11 +269,12 @@
   "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher",
   "item.jigsaw_pp.teapot_cannon": "Teapoterminator-3000",
 
-  "block.jigsaw_pp.farfuhrer.desc": "§7Gasses it's surroundings when §3Heated",
+  "block.jigsaw_pp.farfuhrer.desc": "§7Gasses it's surroundings when §3Heated with campfire",
   "item.jigsaw_pp.fork.desc": "§7What do you mean \"clean\", damn it, how am I supposed to §l§6clean shit§r§7 with a fork?!",
   "item.jigsaw_pp.nutcracker.desc": "§7Cracks §3Nuts§7 in your off-hand",
   "item.jigsaw_pp.teapot_cannon.desc": "§7Uses TNTpots as an ammo",
   "item.jigsaw_pp.teapot_launcher.desc": "§7Uses itself as an ammo",
   "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings teapots as an ammo",
-  "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only"
+  "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
+  "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get"
 }

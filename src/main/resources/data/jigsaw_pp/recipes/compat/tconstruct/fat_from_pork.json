@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "jigsaw_pp:pork_block"
+  },
+  "result": {
+    "amount": 1000,
+    "fluid": "jigsaw_pp:fat"
+  },
+  "temperature": 800,
+  "time": 100
+}
+

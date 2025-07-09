@@ -1,7 +1,9 @@
 package net.svisvi.jigsawpp.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -21,6 +23,12 @@ public class FatBlock extends Block {
     @Override
     public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return 15;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.fat_block.desc"));
     }
 
     @Override

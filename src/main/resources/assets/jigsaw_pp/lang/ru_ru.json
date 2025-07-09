@@ -258,8 +258,15 @@
   "item.jigsaw_pp.teapot_rifle": "Винтовчайник",
   "block.jigsaw_pp.nuclear_teapot": "Ядерный чайник",
   "item.jigsaw_pp.teapot_launcher": "Ракетница с ядерным чайником",
-  "item.jigsaw_pp.teapot_cannon": "Чайнейший-3000"
+  "item.jigsaw_pp.teapot_cannon": "Чайнейший-3000",
 
-
+  "block.jigsaw_pp.farfuhrer.desc": "§7Устраивает газовую атаку когда §3на костре",
+  "item.jigsaw_pp.fork.desc": "§7Что §6\"«чисти»\"§7, ёпта, как я буду §6вилкой§7-то чистить?! Чё, совсем мудак что ли, покажи мне, как я буду чистить-то, ёпта!",
+  "item.jigsaw_pp.nutcracker.desc": "§7Колет §3орешки§7 в левой руке",
+  "item.jigsaw_pp.teapot_cannon.desc": "§7Заряжается взрывчайниками",
+  "item.jigsaw_pp.teapot_launcher.desc": "§7Одноразовый",
+  "item.jigsaw_pp.tree_launcher.desc": "§7Заряжается любыми саженцами",
+  "item.jigsaw_pp.blab_egg.desc": "§7Декоративный трофей",
+  "item.jigsaw_pp.fat_block.desc": "§7Чтобы получить пролейте жир в мире и подождите пока он остынет"
 
 }

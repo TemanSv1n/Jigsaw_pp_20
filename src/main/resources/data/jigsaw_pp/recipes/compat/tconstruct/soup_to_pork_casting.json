@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
+
+  "type": "tconstruct:casting_basin",
+  "cooling_time": 6000,
+  "fluid": {
+    "amount": 500,
+    "fluid": "tconsctruct:meat_soup"
+  },
+  "result": "jigsaw_pp:pork_block"
+
+}
+

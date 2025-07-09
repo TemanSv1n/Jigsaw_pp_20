@@ -26,7 +26,7 @@ public class RoadSignItem extends SwordItem {
     public RoadSignItem() {
         super(new Tier() {
             public int getUses() {
-                return 512;
+                return 1024;
             }
 
             public float getSpeed() {
