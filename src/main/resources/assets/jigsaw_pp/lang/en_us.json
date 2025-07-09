@@ -276,7 +276,7 @@
   "item.jigsaw_pp.teapot_launcher.desc": "§7Uses itself as an ammo",
   "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings teapots as an ammo",
   "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
-  "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get"
+  "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get",
 
   "block.jigsaw_pp.shit_block": "Shit",
   "effect.jigsaw_pp.rectal_thrust": "Rectal thrust",
