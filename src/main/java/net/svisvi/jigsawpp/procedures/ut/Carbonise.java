@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -69,7 +70,7 @@ public class Carbonise {
             if (orgSounds.contains(blockstate.getSoundType())) {
                 //replacing
                 //world.levelEvent(2001, BlockPos.containing(x, y, z), Block.getId(blockstate));
-                world.setBlock(BlockPos.containing(x, y, z), ModBlocks.COAL_FOSSIL.get().defaultBlockState(), 3);
+                world.setBlock(BlockPos.containing(x, y, z), Blocks.DEEPSLATE_COAL_ORE.defaultBlockState(), 3);
                 //decorative
                 if (world instanceof ServerLevel _level)
                     _level.sendParticles(ParticleTypes.SQUID_INK, x, y, z, 10, 0.5, 0.5, 0.5, 0);

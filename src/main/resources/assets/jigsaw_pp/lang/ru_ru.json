@@ -2,8 +2,8 @@
   "item.jigsaw_pp.elephant_pickaxe": "Слоновый камнетёс",
   "item.jigsaw_pp.elephant_pickaxe.desc": "§6Чем горячее тем быстрее",
 
-  "item_group.jigsaw_pp.jigsaw_tab": "Цыгащина II",
-  "item_group.jigsaw_pp.jigsaw_tab_materials": "Цыгащина II: Материалы",
+  "item_group.jigsaw_pp.jigsaw_tab": "Цыганщина II",
+  "item_group.jigsaw_pp.jigsaw_tab_materials": "Цыганщина II: Материалы",
 
   "item.jigsaw_pp.moss_elephant_pickaxe": "§aОбросший слоновый камнетёс",
   "item.jigsaw_pp.moss_elephant_pickaxe.desc": "§2Дает жизнь",
@@ -163,18 +163,6 @@
   "painting.jigsaw_pp.pug.title": "Пудж",
   "painting.jigsaw_pp.slonik.title": "Зеленый слоник",
   "painting.jigsaw_pp.svyatostrun.title": "Святострун",
-  "painting.jigsaw_pp.avebread.author": "Beaver",
-  "painting.jigsaw_pp.balls.author": "Beaver",
-  "painting.jigsaw_pp.beavernazi.author": "Beaver",
-  "painting.jigsaw_pp.blabbit.author": "Beaver",
-  "painting.jigsaw_pp.ded.author": "Beaver",
-  "painting.jigsaw_pp.dedsad.author": "Beaver",
-  "painting.jigsaw_pp.dristpunk2.author": "Beaver",
-  "painting.jigsaw_pp.pag.author": "Beaver",
-  "painting.jigsaw_pp.potsight.author": "Beaver",
-  "painting.jigsaw_pp.pug.author": "Beaver",
-  "painting.jigsaw_pp.slonik.author": "Beaver",
-  "painting.jigsaw_pp.svyatostrun.author": "Beaver",
 
   "item.jigsaw_pp.jotaro_hat": "Кепарик Джотаро Токийского",
   "item.jigsaw_pp.pooped_bread": "Хлеб с повидлом",
@@ -189,7 +177,7 @@
   "item.jigsaw_pp.admin_stick": "Admin ♂anal♂ stick",
   "block.jigsaw_pp.pw_hat": "Цилиндр PWGood-а",
   "item.jigsaw_pp.tree_launcher": "Древострел",
-  "block.jigsaw_pp.lenin_bust.desc": "§7Следует опасаться §eпчел",
+  "block.jigsaw_pp.lenin_bust.desc": "§7При использовании в качестве пасеки разлагается на §eплесень",
   "block.jigsaw_pp.purgen_factory.desc": "§7Следует установить на §6Нагреватель завода",
   "block.jigsaw_pp.purgen_factory.desc_two": "§7наполните жидкостью при помощи ведра",
   "item.jigsaw_pp.batch_size_card.desc": "§7Увеличивает размер порции §6Пургена",
@@ -270,8 +258,15 @@
   "item.jigsaw_pp.teapot_rifle": "Винтовчайник",
   "block.jigsaw_pp.nuclear_teapot": "Ядерный чайник",
   "item.jigsaw_pp.teapot_launcher": "Ракетница с ядерным чайником",
-  "item.jigsaw_pp.teapot_cannon": "Чайнейший-3000"
+  "item.jigsaw_pp.teapot_cannon": "Чайнейший-3000",
 
-
+  "block.jigsaw_pp.farfuhrer.desc": "§7Устраивает газовую атаку когда §3на костре",
+  "item.jigsaw_pp.fork.desc": "§7Что §6\"«чисти»\"§7, ёпта, как я буду §6вилкой§7-то чистить?! Чё, совсем мудак что ли, покажи мне, как я буду чистить-то, ёпта!",
+  "item.jigsaw_pp.nutcracker.desc": "§7Колет §3орешки§7 в левой руке",
+  "item.jigsaw_pp.teapot_cannon.desc": "§7Заряжается взрывчайниками",
+  "item.jigsaw_pp.teapot_launcher.desc": "§7Одноразовый",
+  "item.jigsaw_pp.tree_launcher.desc": "§7Заряжается любыми саженцами",
+  "item.jigsaw_pp.blab_egg.desc": "§7Декоративный трофей",
+  "item.jigsaw_pp.fat_block.desc": "§7Чтобы получить пролейте жир в мире и подождите пока он остынет"
 
 }

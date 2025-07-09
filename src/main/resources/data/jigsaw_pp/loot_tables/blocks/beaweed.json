@@ -19,7 +19,7 @@
                   "block": "jigsaw_pp:beaweed",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "5"
+                    "age": "4"
                   }
                 }
               ],

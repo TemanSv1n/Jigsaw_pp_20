@@ -29,7 +29,7 @@
   "item.jigsaw_pp.sweet_bread": "Sweet Bread",
   "item.jigsaw_pp.sweet_bread.desc": "§7Produced by the §aMoss Elephant§7 in a moment of fear",
 
-  "item.jigsaw_pp.drist_button": "Drist button",
+  "item.jigsaw_pp.drist_button": "Pristine Button of Console Spamming",
   "item.jigsaw_pp.extinguisher": "Extinguisher",
   "item.jigsaw_pp.marmoset": "Marmoset",
   "item.jigsaw_pp.nutcracker": "Nutcracker",
@@ -46,7 +46,7 @@
   "item.jigsaw_pp.beaweed_nut": "Beaweed nut",
 
   "item.jigsaw_pp.fork": "Fork",
-  "item.jigsaw_pp.ponos_bucket": "Ponos bucket",
+  "item.jigsaw_pp.ponos_bucket": "Fecal sludge bucket",
 
   "item.jigsaw_pp.batch_size_card": "Batch size expansion card",
   "item.jigsaw_pp.purgen_gun": "Purgen gun",
@@ -81,7 +81,7 @@
   "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result",
 
   "item.jigsaw_pp.zombie_beaver_spawn_egg": "Zombie Beaver spawn egg",
-  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "Zombie Beaver spawner spawn egg",
+  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "Zombie Beaver barrel spawn egg",
 
   "item.jigsaw_pp.beaver_spider_spawn_egg": "Beaver spider spawn egg",
 
@@ -128,8 +128,8 @@
   "item.jigsaw_pp.blabball": "Blabball",
   "block.jigsaw_pp.blabegg": "Blabbit Egg",
 
-  "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a useless pie",
-  "item.jigsaw_pp.useless_pie": "Useless pie",
+  "item.jigsaw_pp.useless_pie.desc": "§7Each one of us is a lame pirozhok",
+  "item.jigsaw_pp.useless_pie": "Lame pirozhok",
   "block.jigsaw_pp.yoba": "Snide dough ball",
   "block.jigsaw_pp.yoba_poop": "Malicious dough ball",
   "block.jigsaw_pp.pooped_bricks": "Pooped Bricks",
@@ -144,7 +144,7 @@
   "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod",
   "item.jigsaw_pp.tube_19": "Tube №19",
   "subtitles.clown_horn": "Clown noise",
-  "item.jigsaw_pp.eggs": "Eggs",
+  "item.jigsaw_pp.eggs": "Fortnite balls",
   "effect.jigsaw_pp.egged": "Egg magic",
   "item.jigsaw_pp.totem_of_shit": "Totem of shit",
 
@@ -159,7 +159,7 @@
   "painting.jigsaw_pp.dedsad.title": "Kindergarten",
   "painting.jigsaw_pp.dristpunk2.title": "Dristpunk 3",
   "painting.jigsaw_pp.pag.title": "Pag",
-  "painting.jigsaw_pp.potsight.title": "Potsight",
+  "painting.jigsaw_pp.potsight.title": "Potsight™",
   "painting.jigsaw_pp.pug.title": "Pug",
   "painting.jigsaw_pp.slonik.title": "Green elephant",
   "painting.jigsaw_pp.svyatostrun.title": "Svyatostrun",
@@ -189,7 +189,7 @@
   "item.jigsaw_pp.admin_stick": "Admin ♂anal♂ stick",
   "block.jigsaw_pp.pw_hat": "PWGood's tophat",
   "item.jigsaw_pp.tree_launcher": "Tree launcher",
-  "block.jigsaw_pp.lenin_bust.desc": "§7Bee careful with §ebees",
+  "block.jigsaw_pp.lenin_bust.desc": "§7If used as a beehive it can give thou §3Mold",
   "block.jigsaw_pp.purgen_factory.desc": "§7Should be placed onto §6Factory Heater",
   "block.jigsaw_pp.purgen_factory.desc_two": "§7Fill it with fluid using bucket",
   "item.jigsaw_pp.batch_size_card.desc": "§7Increases size of produced §6purgen§r's batch",
@@ -208,9 +208,9 @@
   "item.jigsaw_pp.ershik": "Toilet assistant",
   "item.jigsaw_pp.paddle": "Paddle",
   "item.jigsaw_pp.pirate_cutlass": "Pirate cutlass",
-  "item.jigsaw_pp.pizdoor": "Pizdoor",
-  "item.jigsaw_pp.ponos_cutlass": "Ponos cutlass",
-  "item.jigsaw_pp.pricel_rapier": "Pricel rapier",
+  "item.jigsaw_pp.pizdoor": "Wardoor",
+  "item.jigsaw_pp.ponos_cutlass": "Captain Brown Beard's cutlass",
+  "item.jigsaw_pp.pricel_rapier": "Potsight™'s rapier",
   "item.jigsaw_pp.road_sign": "Road sign",
   "item.jigsaw_pp.shishkin": "Sir John Phallustiff",
   "item.jigsaw_pp.shit_stick": "Shit stick",
@@ -219,11 +219,11 @@
   "item.jigsaw_pp.half_heart_of_the_sea": "Half heart of the sea",
   "item.jigsaw_pp.dellist": "Delete from jigsaw tier list",
   "item.jigsaw_pp.beaweed_checker": "Beaweed checker",
-  "block.jigsaw_pp.bottle_o_pricel": "Bottle of potsight",
+  "block.jigsaw_pp.bottle_o_pricel": "Bottle of Potsight™",
 
   "item.jigsaw_pp.plunger": "Plunger",
-  "block.jigsaw_pp.drist_tnt": "Drist TNT",
-  "item.jigsaw_pp.drist_tnt_stick": "Drist TNT stick",
+  "block.jigsaw_pp.drist_tnt": "Explosive diarrhea TNT",
+  "item.jigsaw_pp.drist_tnt_stick": "Explosive diarrhea TNT stick",
   "entity.jigsaw_pp.jetstream_chair": "Jetstream Chair",
   "item.jigsaw_pp.jetstream_chair": "Jetstream Chair",
   "entity.jigsaw_pp.moss_elephant": "Moss elephant",
@@ -235,7 +235,7 @@
 
   "item.jigsaw_pp.friendship_fan": "Friendship fan",
 
-  "fluid_type.jigsaw_pp.ponos": "Ponos",
+  "fluid_type.jigsaw_pp.ponos": "Fecal sludge",
   "fluid_type.jigsaw_pp.fat": "Fat",
   "item.jigsaw_pp.fat_bucket": "Fat bucket",
   "block.jigsaw_pp.fat_block": "Fat Block",
@@ -259,15 +259,24 @@
   "entity.jigsaw_pp.raw_teapod_spider": "Raw teapod",
   "item.jigsaw_pp.teapot_drill": "Teapot drill",
   "item.jigsaw_pp.teapot_drill.desc": "§7Feed with coal",
-  "block.jigsaw_pp.farfuhrer": "Farfuhrer",
+  "block.jigsaw_pp.farfuhrer": "Porce-fuhrer",
   "block.jigsaw_pp.randompot": "Teapot O'Chance",
-  "item.jigsaw_pp.teapot_hammer": "Teapot hammer",
+  "item.jigsaw_pp.teapot_hammer": "Kettle maul",
   "entity.jigsaw_pp.beaver_spider": "Beaver spider",
   "block.jigsaw_pp.tntpot": "TNTpot",
   "item.jigsaw_pp.teapot_rifle": "Teapot rifle",
   "block.jigsaw_pp.nuclear_teapot": "Nuclear teapot",
   "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher",
-  "item.jigsaw_pp.teapot_cannon": "Teapotest-3000",
+  "item.jigsaw_pp.teapot_cannon": "Teapoterminator-3000",
+
+  "block.jigsaw_pp.farfuhrer.desc": "§7Gasses it's surroundings when §3Heated with campfire",
+  "item.jigsaw_pp.fork.desc": "§7What do you mean \"clean\", damn it, how am I supposed to §l§6clean shit§r§7 with a fork?!",
+  "item.jigsaw_pp.nutcracker.desc": "§7Cracks §3Nuts§7 in your off-hand",
+  "item.jigsaw_pp.teapot_cannon.desc": "§7Uses TNTpots as an ammo",
+  "item.jigsaw_pp.teapot_launcher.desc": "§7Uses itself as an ammo",
+  "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings teapots as an ammo",
+  "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
+  "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get"
 
   "block.jigsaw_pp.shit_block": "Shit",
   "effect.jigsaw_pp.rectal_thrust": "Rectal thrust",
@@ -329,4 +338,5 @@
   "item.minecraft.potion.effect.poop_walking_potion": "Poop walking potion",
   "item.minecraft.splash_potion.effect.poop_walking_potion": "Splash poop walking potion",
   "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion"
+
 }

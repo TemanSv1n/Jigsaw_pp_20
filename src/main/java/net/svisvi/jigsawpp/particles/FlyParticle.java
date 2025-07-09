@@ -44,7 +44,7 @@ public class FlyParticle extends TextureSheetParticle {
 		this.xd = vx * 1;
 		this.yd = vy * 1;
 		this.zd = vz * 1;
-		this.angularVelocity = 0.314f;
+		this.angularVelocity = 0f;
 		this.angularAcceleration = 0f;
 		this.setSpriteFromAge(spriteSet);
 	}

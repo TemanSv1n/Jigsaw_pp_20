@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "DDg",
+        "BBC",
+        "BAB"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:lever"
+        },
+        "B": {
+            "item": "minecraft:blue_concrete"
+        },
+        "C": {
+            "item": "minecraft:dispenser"
+        },
+        "g": {
+            "item": "minecraft:water_bucket"
+        },
+        "D": {
+            "item": "minecraft:lapis_lazuli"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:slon_gun",
+        "count": 1
+    }
+}

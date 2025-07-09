@@ -46,9 +46,9 @@ public class DristTntStickItem extends Item {
             if (!pLevel.isClientSide) {
                 DristTntStickProjectile thrownegg = new DristTntStickProjectile(pLevel, pPlayer);
                 thrownegg.setItem(itemstack);
-                thrownegg.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 30.0F);
+                thrownegg.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 15.0F);
                 pLevel.addFreshEntity(thrownegg);
-                pPlayer.getCooldowns().addCooldown(itemstack.getItem(), 20);
+                pPlayer.getCooldowns().addCooldown(itemstack.getItem(), 10);
             }
 
             pPlayer.awardStat(Stats.ITEM_USED.get(this));

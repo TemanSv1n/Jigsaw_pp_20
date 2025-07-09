@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " 12",
+        "334",
+        "55 "
+    ],
+    "key": {
+        "1": {
+            "item": "jigsaw_pp:nuclear_teapot"
+        },
+        "2": {
+            "item": "jigsaw_pp:smart_beaweed_plate"
+        },
+        "3": {
+            "item": "minecraft:iron_bars"
+        },
+        "4": {
+            "item": "minecraft:piston"
+        },
+        "5": {
+            "item": "minecraft:lever"
+        }
+
+    },
+    "result": {
+        "item": "jigsaw_pp:teapot_launcher",
+        "count": 1
+    }
+}

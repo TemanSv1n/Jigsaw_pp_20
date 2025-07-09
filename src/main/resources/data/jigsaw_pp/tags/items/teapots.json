@@ -3,6 +3,9 @@
     "jigsaw_pp:teapot",
     "jigsaw_pp:black_teapot",
     "jigsaw_pp:raw_teapot",
+    "jigsaw_pp:nuclear_teapot",
+    "jigsaw_pp:tntpot",
+    "jigsaw_pp:randompot",
     "jigsaw_pp:farfuhrer"
   ]
 }

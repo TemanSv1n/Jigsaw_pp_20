@@ -10,10 +10,10 @@
       "item": "jigsaw_pp:blabball"
     },
     "C": {
-      "item": "minecraft:crying_obsidian"
+      "item": "minecraft:obsidian"
     },
     "D": {
-      "item": "minecraft:diamond"
+      "item": "minecraft:gold_ingot"
     },
     "/": {
       "item": "minecraft:stick"

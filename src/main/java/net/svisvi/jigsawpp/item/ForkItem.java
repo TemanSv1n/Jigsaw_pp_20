@@ -45,6 +45,7 @@ public class ForkItem extends ShovelItem {
         }, 3, -2f, new Item.Properties());
     }
 
+
     public void clear(ItemStack itemstack, LevelAccessor world, BlockPos pos){
         ItemStack _ist = itemstack;
         int a = PonosClear.clearPonosLiquid(world, pos.getX(), pos.getY(), pos.getZ(), 3);
@@ -54,6 +55,7 @@ public class ForkItem extends ShovelItem {
         }
 
     }
+
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
@@ -65,6 +67,7 @@ public class ForkItem extends ShovelItem {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.fork.desc"));
     }
 
     @Override

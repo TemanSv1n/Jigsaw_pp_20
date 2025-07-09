@@ -13,7 +13,7 @@ import java.util.List;
 
 public class PorkBlock extends Block {
     public PorkBlock() {
-        super(Properties.of().sound(SoundType.SHROOMLIGHT).strength(1.2f, 6f).speedFactor(0.4f));
+        super(Properties.of().sound(SoundType.SHROOMLIGHT).strength(1f, 6f).speedFactor(0.4f));
     }
 
     @Override

@@ -57,7 +57,7 @@ public class BeaverzookaItem extends Item implements CustomArmPoseItem {
 
     @Override
     public int getUseDuration(ItemStack itemstack) {
-        return 72000;
+        return 128;
     }
 
     @Override
@@ -97,7 +97,7 @@ public class BeaverzookaItem extends Item implements CustomArmPoseItem {
                         }
                     }
 
-                        entity.getCooldowns().addCooldown(itemstack.getItem(), 100);
+                        entity.getCooldowns().addCooldown(itemstack.getItem(), 20);
                 }
             }
         }
