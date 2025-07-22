@@ -20,6 +20,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
+import net.svisvi.jigsawpp.enchantment.ModEnchantments;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.projectile.PurgenPiluleProjectile;
 import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
@@ -109,8 +110,8 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
             if (randomValue < getMissfire()){ //осечка
                 missfire(pLevel, pPlayer, thisStack, purgenPilule);
             } else {
-
-                PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule);
+                boolean hasArmorPiercing = thisStack.getEnchantmentLevel(ModEnchantments.PURGEN_PIERCING.get()) >= 1;
+                PurgenPiluleProjectile.shoot(pLevel, pPlayer, 1.3f, inaccuracy, purgenPilule, hasArmorPiercing);
             }
         }
 

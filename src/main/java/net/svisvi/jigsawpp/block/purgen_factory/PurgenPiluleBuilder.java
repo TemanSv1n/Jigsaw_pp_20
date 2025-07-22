@@ -139,14 +139,14 @@ public class PurgenPiluleBuilder {
         dur_buff *= catalyst_recipe.getAdditionalTimeK(null);
         purity *= catalyst_recipe.getPurityK(null);
         efs = catalyst_recipe.getEffects();
-        System.out.println(efs);
+        //System.out.println(efs);
 
         AbstractPiluleItem.setDurationBuff((int) dur_buff, purgen_stack);
         AbstractPiluleItem.setPurity((int) purity, purgen_stack);
         if (efs != null) {
             PotionUtils.setCustomEffects(purgen_stack, efs);
         }
-        System.out.println(purgen_stack);
+        //System.out.println(purgen_stack);
         return purgen_stack;
 
 
