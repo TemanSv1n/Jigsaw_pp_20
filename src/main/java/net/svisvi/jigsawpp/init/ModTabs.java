@@ -25,7 +25,7 @@ public class ModTabs {
 						tabData.accept(ModItems.ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.MOSS_ELEPHANT_PICKAXE.get());
 						tabData.accept(ModItems.STRAWBERRY_ELEPHANT_PICKAXE.get());
-						tabData.accept(ModItems.COAL_FOSSIL.get());
+						//tabData.accept(ModItems.COAL_FOSSIL.get());
 						tabData.accept(ModItems.RAW_TEAPOT.get());
 						tabData.accept(ModItems.TEAPOT.get());
 						tabData.accept(ModItems.BLACK_TEAPOT.get());
@@ -143,7 +143,7 @@ public class ModTabs {
 						tabData.accept(ModItems.DELLIST.get());
 						tabData.accept(ModItems.BEAWEED_CHECKER.get());
 						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
-						tabData.accept(ModItems.FRIENDSHIP_FAN.get());
+						//tabData.accept(ModItems.FRIENDSHIP_FAN.get());
 						tabData.accept(ModItems.PLUNGER.get());
 				tabData.accept(ModItems.DRIST_TNT.get());
 				tabData.accept(ModItems.DRIST_TNT_STICK.get());
@@ -181,19 +181,4 @@ public class ModTabs {
 				tabData.accept(ModItems.GRUEL.get());
 
 			}).build());
-
-
-//	public static final RegistryObject<CreativeModeTab> JIGSAW_TAB_MATERIALS = REGISTRY.register("jigsaw_tab_materilas",
-//			() -> CreativeModeTab.builder().title(Component.translatable("item_group.jigsaw_pp.jigsaw_tab_materials")).icon(() -> new ItemStack(Items.FLOWER_POT)).displayItems((parameters, tabData) -> {
-//				tabData.accept(ModItems.FITTING.get());
-//				tabData.accept(ModItems.BEAWEED_DUST.get());
-//				tabData.accept(ModItems.BEAWEED_BLOCK.get());
-//				tabData.accept(ModItems.COAL_FOSSIL.get());
-//				tabData.accept(ModItems.CARROT_COIL.get());
-//				tabData.accept(ModItems.BEAWEED_PLATE.get());
-//				tabData.accept(ModItems.SMART_BEAWEED_PLATE.get());
-//				tabData.accept(ModItems.RADIATION_CATALYST_ACTIVATED.get());
-//				tabData.accept(ModItems.RADIATION_CATALYST_NON_ACTIVATED.get());
-//
-//			}).build());
 }

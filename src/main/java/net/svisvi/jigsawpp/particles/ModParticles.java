@@ -14,5 +14,9 @@ public class ModParticles {
 		event.registerSpriteSet(ModParticleTypes.POOP.get(), PoopParticle::provider);
 		event.registerSpriteSet(ModParticleTypes.POOP_BUBBLE.get(), PoopBubbleParticle::provider);
 		event.registerSpriteSet(ModParticleTypes.KEGA_BOOM.get(), KegaBoomParticle::provider);
+		event.registerSpriteSet(ModParticleTypes.POOP_CLOUD.get(), PoopCloudParticle::provider);
+		event.registerSpriteSet(ModParticleTypes.FART_CLOUD.get(), FartCloudParticle::provider);
+		event.registerSpriteSet(ModParticleTypes.PIG_CLOUD.get(), PigCloudParticle::provider);
+		event.registerSpriteSet(ModParticleTypes.PURGATIVE_CLOUD.get(), PurgativeCloudParticle::provider);
 	}
 }

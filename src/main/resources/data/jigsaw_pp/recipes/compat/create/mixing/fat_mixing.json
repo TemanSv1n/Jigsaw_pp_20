@@ -6,7 +6,7 @@
     }
   ],
   "type": "create:mixing",
-  "heatRequirement": "superheated",
+  "heatRequirement": "heated",
   "ingredients": [
     {
       "item": "jigsaw_pp:pork_block"

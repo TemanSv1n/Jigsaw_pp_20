@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
+
+  "type": "tconstruct:entity_melting",
+  "damage": 5,
+  "entity": {
+    "tag": "forge:villagers"
+  },
+  "result": {
+    "amount": 1000,
+    "fluid": "jigsaw_pp:fat"
+  }
+
+}
+

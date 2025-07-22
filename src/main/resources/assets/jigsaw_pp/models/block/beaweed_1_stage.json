@@ -1,7 +1,7 @@
 {
-	"parent": "block/crop",
+	"parent": "block/cross",
 	"textures": {
-		"crop": "jigsaw_pp:block/beaweed_stage0",
+		"cross": "jigsaw_pp:block/beaweed_stage_1",
 		"particle": "jigsaw_pp:block/shit_blossom"
 	}
 }

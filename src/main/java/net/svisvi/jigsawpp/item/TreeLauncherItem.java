@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.item;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
@@ -14,10 +15,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
@@ -30,6 +28,7 @@ import net.svisvi.jigsawpp.procedures.ut.TreeSaplingFinder;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TreeLauncherItem extends Item implements CustomArmPoseItem {
@@ -48,6 +47,11 @@ public class TreeLauncherItem extends Item implements CustomArmPoseItem {
     public static final int AMOUNT = 8;
     public static int getAmount(){return AMOUNT;}
 
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.tree_launcher.desc"));
+    }
 
     //@Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntity, int pTimeLeft) {
@@ -77,7 +81,7 @@ public class TreeLauncherItem extends Item implements CustomArmPoseItem {
                     pPlayer.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, pPlayer.inventoryMenu.getCraftSlots());
                 }
                 if (pEntity instanceof Player _player)
-                    _player.getCooldowns().addCooldown(pStack.getItem(), 160);
+                    _player.getCooldowns().addCooldown(pStack.getItem(), 40);
 
 
             } else {

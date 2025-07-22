@@ -19,4 +19,8 @@ public class ModParticleTypes {
 	public static final RegistryObject<SimpleParticleType> POOP = REGISTRY.register("poop", () -> new SimpleParticleType(false));
 	public static final RegistryObject<SimpleParticleType> POOP_BUBBLE = REGISTRY.register("poop_bubble", () -> new SimpleParticleType(false));
 	public static final RegistryObject<SimpleParticleType> KEGA_BOOM = REGISTRY.register("kega_boom", () -> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> POOP_CLOUD = REGISTRY.register("poop_cloud", () -> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> FART_CLOUD = REGISTRY.register("fart_cloud", () -> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> PIG_CLOUD = REGISTRY.register("pig_cloud", () -> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> PURGATIVE_CLOUD = REGISTRY.register("purgative_cloud", () -> new SimpleParticleType(false));
 }

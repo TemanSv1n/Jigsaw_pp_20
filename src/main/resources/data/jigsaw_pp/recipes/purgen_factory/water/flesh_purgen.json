@@ -1,0 +1,30 @@
+{
+  "type": "jigsaw_pp:purgen_factory",
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "jigsaw_pp:beaweed_block"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "jigsaw_pp:basic_purgen_pilule"
+  },
+  "fluid" : {
+    "fluid_name": "minecraft:water",
+    "amount": 1000
+  },
+  "purity": 50,
+  "additionalTime": 50,
+  "malChance": 0.07,
+
+  "potionStats": [
+    {
+      "potion": "minecraft:water",
+      "duration": 10,
+      "amplifier": 0
+    }
+  ]
+}

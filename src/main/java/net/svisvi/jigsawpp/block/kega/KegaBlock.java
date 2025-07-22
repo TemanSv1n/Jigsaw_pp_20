@@ -94,7 +94,7 @@ public class KegaBlock extends Block {
 
     @Override
     public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.literal("Custom Tooltip Text"));
+        tooltip.add(Component.literal("§7Really bad explosive, dev only 'cause it sucks ass"));
         super.appendHoverText(itemstack, world, tooltip, flag);
     }
 

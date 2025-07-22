@@ -14,6 +14,7 @@ public class NutcrackerItem extends Item {
         super(new Item.Properties().durability(228).rarity(Rarity.COMMON));
     }
 
+
     @Override
     public boolean hasCraftingRemainingItem() {
         return true;
@@ -37,6 +38,6 @@ public class NutcrackerItem extends Item {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-
+        list.add(Component.translatable("item.jigsaw_pp.nutcracker.desc"));
     }
 }

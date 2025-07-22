@@ -1,11 +1,4 @@
 {
-  "conditions": [
-    {
-      "type": "forge:tag_populated",
-     "tag": "forge:dusts/wood"
-    }
-  ],
-
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "#",
