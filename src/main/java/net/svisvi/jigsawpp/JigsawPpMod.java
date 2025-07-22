@@ -9,6 +9,7 @@ package net.svisvi.jigsawpp;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fluids.FluidInteractionRegistry;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -22,6 +23,7 @@ import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryScreen;
 import net.svisvi.jigsawpp.config.ModServerConfigs;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 
+import net.svisvi.jigsawpp.enchantment.ModEnchantments;
 import net.svisvi.jigsawpp.entity.drist_tnt.DristTntRenderer;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairRenderer;
@@ -105,6 +107,7 @@ public class JigsawPpMod {
 		ModPotions.register(bus);
 		ModMessages.register();
 		ModGameRules.register();
+		ModEnchantments.register(bus);
 		MinecraftForge.EVENT_BUS.register(this);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModServerConfigs.SPEC, "jigsaw-server.toml");
 
@@ -190,6 +193,9 @@ public class JigsawPpMod {
 			EntityRenderers.register(ModEntities.JETSTREAM_CHAIR.get(), (p_174090_) -> {
 				return new JetstreamChairRenderer(p_174090_, ModModelLayers.JETSTREAM_CHAIR_LAYER);
 			});
+
+			//Emitters
+			EntityRenderers.register(ModEntities.ABSTRACT_EMITTER.get(), NoopRenderer::new);
 
 
 

@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
+import net.svisvi.jigsawpp.entity.emitters.AbstractEmitterEntity;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
@@ -133,6 +134,11 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PoopisEntity>> POOPIS =
             ENTITY_TYPES.register("poopis", () -> EntityType.Builder.<PoopisEntity>of(PoopisEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("poopis"));
+
+    //Emitters Zone
+    public static final RegistryObject<EntityType<AbstractEmitterEntity>> ABSTRACT_EMITTER =
+            ENTITY_TYPES.register("abstract_emitter", () -> EntityType.Builder.<AbstractEmitterEntity>of(AbstractEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("abstract_emitter"));
 
 
 

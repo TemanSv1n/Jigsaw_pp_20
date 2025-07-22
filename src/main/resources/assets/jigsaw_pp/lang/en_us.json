@@ -328,5 +328,8 @@
   "item.minecraft.tipped_arrow.effect.poop_walking_potion": "Poop walking arrow",
   "item.minecraft.potion.effect.poop_walking_potion": "Poop walking potion",
   "item.minecraft.splash_potion.effect.poop_walking_potion": "Splash poop walking potion",
-  "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion"
+  "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion",
+
+  "enchantment.jigsaw_pp.purgen_armor_piercing": "Purgen Piercing",
+  "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Allows pilule to bypass hazmat"
 }
