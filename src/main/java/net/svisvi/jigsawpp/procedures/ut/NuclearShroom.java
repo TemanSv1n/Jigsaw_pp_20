@@ -68,7 +68,7 @@ public class NuclearShroom {
         }
     }
 
-    private static void sendFarParticles(ServerLevel level, ParticleOptions type,
+    public static void sendFarParticles(ServerLevel level, ParticleOptions type,
                                          double x, double y, double z,
                                          double xSpeed, double ySpeed, double zSpeed) {
         // Use the long-distance version for single particles
@@ -77,7 +77,7 @@ public class NuclearShroom {
         }
     }
 
-    private static void sendFarParticles(ServerLevel level, ParticleOptions type,
+    public static void sendFarParticles(ServerLevel level, ParticleOptions type,
                                          double x, double y, double z,
                                          double xd, double yd, double zd,
                                          int count, double speed) {

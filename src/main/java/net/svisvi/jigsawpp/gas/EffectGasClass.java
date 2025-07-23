@@ -22,9 +22,9 @@ public class EffectGasClass extends AbstractGasClass{
     public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>();
 
     public EffectGasClass(ParticleOptions pparticle, SoundEvent psound, List<MobEffectInstance> peffectlist){
-        effectList = peffectlist;
-        sound = psound;
-        particle = pparticle;
+        setEffectList(peffectlist);
+        setSound(psound);
+        setParticle(pparticle);
     }
 
     public EffectGasClass(List<MobEffectInstance> peffectlist){
@@ -34,10 +34,34 @@ public class EffectGasClass extends AbstractGasClass{
     @Override
     public void gasApplyEffect(Entity entity){
         super.gasApplyEffect(entity);
-        if (entity instanceof LivingEntity livingEntity && gasApplyCondition(entity)){
+        if (entity instanceof LivingEntity livingEntity && this.gasApplyCondition(entity)){
             for (MobEffectInstance mef : effectList){
                 livingEntity.addEffect(mef);
             }
         }
+    }
+
+    @Override
+    public SoundEvent getSound() {
+        return sound;
+    }
+    @Override
+    public void setSound(SoundEvent sound) {
+        this.sound = sound;
+    }
+    @Override
+    public ParticleOptions getParticle() {
+        return particle;
+    }
+    @Override
+    public void setParticle(ParticleOptions particle) {
+        this.particle = particle;
+    }
+
+    public List<MobEffectInstance> getEffectList() {
+        return effectList;
+    }
+    public void setEffectList(List<MobEffectInstance> effectList) {
+        this.effectList = effectList;
     }
 }
