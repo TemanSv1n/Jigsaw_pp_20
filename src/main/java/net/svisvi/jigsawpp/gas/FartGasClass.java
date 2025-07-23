@@ -20,12 +20,10 @@ public class FartGasClass extends EffectGasClass{
     public ParticleOptions particle = ParticleTypes.SNEEZE;
     public SoundEvent sound = SoundEvents.COW_MILK;
 
-    public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 2, false, false),
-            new MobEffectInstance(MobEffects.WITHER, 120, 0, false, false)));
+    public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 2, false, false)));
 
     public FartGasClass(){
-        this(ParticleTypes.SNEEZE, SoundEvents.COW_MILK, new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 2, false, false),
-                new MobEffectInstance(MobEffects.WITHER, 120, 0, false, false))));
+        this(ParticleTypes.SNEEZE, SoundEvents.COW_MILK, new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 2, false, false))));
     }
 
     public FartGasClass(MobEffectInstance poopEffect){
