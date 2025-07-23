@@ -24,6 +24,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
+import net.svisvi.jigsawpp.entity.emitters.FartGasEmitterEntity;
+import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 import java.util.Comparator;
@@ -45,20 +47,27 @@ public class FarFuhrerBlock extends TeapotBlock {
             } else {
                 level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.BLOCKS, 1, 1, false);
             }
+
+
+
         }
 
-        if (world instanceof ServerLevel _level)
-            _level.sendParticles(ParticleTypes.SNEEZE, x, y, z, 100, 4, 2, 4 , 0.1);
-
-        final Vec3 _center = new Vec3(x, y, z);
-        List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(8 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
-        for (Entity entityiterator : _entfound) {
-            if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
-                PurgativeEffect.addEffectGasWay(_entity, new MobEffectInstance(MobEffects.POISON, 120, 2, false, false));
-                PurgativeEffect.addEffectGasWay(_entity, new MobEffectInstance(MobEffects.WITHER, 120, 0, false, false));
+        if (world instanceof ServerLevel _level) {
+            _level.sendParticles(ParticleTypes.SNEEZE, x, y, z, 100, 4, 2, 4, 0.1);
+        }
+        if (world instanceof Level level) {
+            FartGasEmitterEntity farter = new FartGasEmitterEntity(ModEntities.FART_GAS_EMITTER.get(), level);
+            final Vec3 _center = new Vec3(x, y, z);
+            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(8 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+            for (Entity entityiterator : _entfound) {
+                if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
+//                PurgativeEffect.addEffectGasWay(_entity, new MobEffectInstance(MobEffects.POISON, 120, 2, false, false));
+//                PurgativeEffect.addEffectGasWay(_entity, new MobEffectInstance(MobEffects.WITHER, 120, 0, false, false));
+                    farter.effectForEach(_entity);
 //                _entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 60, 1, false, false));
-            }
+                }
 
+            }
         }
 
 

@@ -1,7 +1,5 @@
 package net.svisvi.jigsawpp.entity.emitters;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.logging.LogUtils;
@@ -10,176 +8,227 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.particles.ModParticleTypes;
+import net.svisvi.jigsawpp.procedures.ut.NuclearShroom;
 import org.slf4j.Logger;
 
 import javax.annotation.Nullable;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class AbstractEmitterEntity extends Entity implements TraceableEntity {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final int TIME_BETWEEN_APPLICATIONS = 5;
+
+    // Synced Data Definitions
     private static final EntityDataAccessor<Float> DATA_RADIUS = SynchedEntityData.defineId(AbstractEmitterEntity.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Integer> REMAINING_TIME = SynchedEntityData.defineId(AbstractEmitterEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> DATA_DURATION = SynchedEntityData.defineId(AbstractEmitterEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> DATA_WAITING = SynchedEntityData.defineId(AbstractEmitterEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<ParticleOptions> DATA_PARTICLE = SynchedEntityData.defineId(AbstractEmitterEntity.class, EntityDataSerializers.PARTICLE);
+    private static final EntityDataAccessor<Boolean> DEBUG_MODE = SynchedEntityData.defineId(AbstractEmitterEntity.class, EntityDataSerializers.BOOLEAN);
+
+    // Configuration
+    private static final float DEFAULT_RADIUS = 2.5F;
+    private static final int DEFAULT_DURATION = 20 * 60 * 5; // 5 minutes in ticks
+    private static final ParticleOptions DEFAULT_PARTICLE = ModParticleTypes.POOP.get();
+    private static final float MIN_RADIUS = 0.5F;
     private static final float MAX_RADIUS = 32.0F;
-    private static final float MINIMAL_RADIUS = 0.5F;
-    private static final float DEFAULT_RADIUS = 3.0F;
-    public static final float DEFAULT_WIDTH = 6.0F;
-    public static final float HEIGHT = 0.5F;
-    private int duration = 600;
-    public static int defaultLiveTime = 600;
-    private int waitTime = 20;
-    private int reapplicationDelay = 20;
-    private boolean fixedColor;
-    private int durationOnUse;
+    private static final float DEFAULT_DENSITY = 35;
+    //private static final int DEFAULT_EFFECT_APPLYING_COOLDOWN = 5;
+
+    // Runtime properties
+    private int waitTime = 0;
     private float radiusOnUse;
     private float radiusPerTick;
-    @Nullable
-    private LivingEntity owner;
-    @Nullable
-    private UUID ownerUUID;
+    public float particleSpeed = 0.01f;
+    public float density = DEFAULT_DENSITY;
+    //public int particleCount = (int) (DEFAULT_DENSITY * getRadius());
+    //public int effect_applying_cooldown
 
-    public AbstractEmitterEntity(EntityType<? extends AbstractEmitterEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+    @Nullable private LivingEntity owner;
+    @Nullable private UUID ownerUUID;
+
+    // ========== Constructors ==========
+    public AbstractEmitterEntity(EntityType<? extends AbstractEmitterEntity> type, Level level, ParticleOptions particleOptions, float radiuss, int durra) {
+        super(type, level);
         this.noPhysics = true;
+        this.setParticle(particleOptions);
+        this.setRadius(radiuss);
+        this.setDuration(durra);
+        this.setDebugMode(false); // Default to normal mode
     }
 
-    public AbstractEmitterEntity(Level pLevel, double pX, double pY, double pZ) {
-        this(ModEntities.ABSTRACT_EMITTER.get(), pLevel);
-        this.setPos(pX, pY, pZ);
+    public AbstractEmitterEntity(EntityType<? extends AbstractEmitterEntity> type, Level level) {
+        this(type, level, DEFAULT_PARTICLE, DEFAULT_RADIUS, DEFAULT_DURATION);
     }
 
+    public AbstractEmitterEntity(Level level, double x, double y, double z) {
+        this(level, x, y, z, DEFAULT_PARTICLE, DEFAULT_RADIUS, DEFAULT_DURATION);
+
+    }
+
+    public AbstractEmitterEntity(Level level, double x, double y, double z, ParticleOptions particleOptions, float radiuss, int durra){
+        this(ModEntities.ABSTRACT_EMITTER.get(), level, particleOptions, radiuss, durra);
+        this.setPos(x, y, z);
+    }
+
+    // ========== Synced Data Setup ==========
+    @Override
     protected void defineSynchedData() {
-        this.getEntityData().define(DATA_RADIUS, 3.0F);
-        this.getEntityData().define(DATA_WAITING, false);
-        this.getEntityData().define(REMAINING_TIME, defaultLiveTime);
-        this.getEntityData().define(DATA_PARTICLE, ParticleTypes.ENTITY_EFFECT);
+        this.entityData.define(DATA_RADIUS, DEFAULT_RADIUS);
+        this.entityData.define(DATA_DURATION, DEFAULT_DURATION);
+        this.entityData.define(DATA_WAITING, false);
+        this.entityData.define(DATA_PARTICLE, DEFAULT_PARTICLE);
+        this.entityData.define(DEBUG_MODE, false);
     }
 
-    public void setRadius(float pRadius) {
-        if (!this.level().isClientSide) {
-            this.getEntityData().set(DATA_RADIUS, Mth.clamp(pRadius, 0.0F, 32.0F));
+    // ========== Debug Mode ==========
+    public boolean isDebugMode() {
+        return this.entityData.get(DEBUG_MODE);
+    }
+
+    public void setDebugMode(boolean debug) {
+        this.entityData.set(DEBUG_MODE, debug);
+        if (debug) {
+            this.setDuration(Integer.MAX_VALUE); // Never expire in debug mode
+            LOGGER.info("Emitter debug mode enabled - will not despawn");
         }
-
     }
 
-    public void refreshDimensions() {
-        double d0 = this.getX();
-        double d1 = this.getY();
-        double d2 = this.getZ();
-        super.refreshDimensions();
-        this.setPos(d0, d1, d2);
+    // ========== Lifetime Management ==========
+    public int getDuration() {
+        return this.entityData.get(DATA_DURATION);
     }
 
-    public float getRadius() {
-        return this.getEntityData().get(DATA_RADIUS);
-    }
-
-    public ParticleOptions getParticle() {
-        return this.getEntityData().get(DATA_PARTICLE);
-    }
-
-    public void setParticle(ParticleOptions pParticleOption) {
-        this.getEntityData().set(DATA_PARTICLE, pParticleOption);
+    public void setDuration(int duration) {
+        if (!this.level().isClientSide) {
+            this.entityData.set(DATA_DURATION, Math.max(0, duration));
+        }
     }
 
     public int getRemainingTime() {
-        return this.getEntityData().get(REMAINING_TIME);
+        return isDebugMode() ? Integer.MAX_VALUE : (this.getDuration() - this.tickCount);
     }
 
-    public void setRemainingTime(int time) {
-        this.getEntityData().set(REMAINING_TIME, time);
-    }
-
-    /**
-     * Sets if the cloud is waiting. While waiting, the radius is ignored and the cloud shows fewer particles in its
-     * area.
-     */
-    protected void setWaiting(boolean pWaiting) {
-        this.getEntityData().set(DATA_WAITING, pWaiting);
-    }
-
-    /**
-     * Returns {@code true} if the cloud is waiting. While waiting, the radius is ignored and the cloud shows fewer
-     * particles in its area.
-     */
-    public boolean isWaiting() {
-        return this.getEntityData().get(DATA_WAITING);
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public void setDuration(int pDuration) {
-        this.duration = pDuration;
-    }
-
-    /**
-     * Called to update the entity's position/logic.
-     */
+    // ========== Core Logic ==========
+    @Override
     public void tick() {
         super.tick();
 
+        if (this.level().isClientSide) {
+            //spawnClientParticles();
+            return;
+        }
+
+        spawnParticles(getParticleCount(), particleSpeed);
+
+        // Skip lifetime checks in debug mode
+        if (!isDebugMode() && this.getRemainingTime() <= 0) {
+            this.discard();
+            return;
+        }
+
+        if (this.radiusPerTick != 0.0F) {
+            float newRadius = this.getRadius() + this.radiusPerTick;
+            if (newRadius < MIN_RADIUS) {
+                this.discard();
+                return;
+            }
+            this.setRadius(newRadius);
+        }
+
+        if (this.tickCount % 1 == 0) {
+            this.applyEffects();
+        }
     }
 
-    public float getRadiusOnUse() {
-        return this.radiusOnUse;
+
+    public void spawnParticles(int count, float speed){
+        if (this.level() instanceof ServerLevel serverLevel) {
+            NuclearShroom.sendFarParticles(serverLevel,
+                    this.getParticle(),
+                    this.getX(), this.getY(), this.getZ(),
+                    getRadius(),
+                    getRadius(),
+                    getRadius(),
+                    count, speed);
+        }
     }
 
-    public void setRadiusOnUse(float pRadiusOnUse) {
-        this.radiusOnUse = pRadiusOnUse;
+
+    protected void applyEffects() {
+        Level level = this.level();
+
+        final Vec3 _center = this.position();
+        List<Entity> _entfound = level.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(this.getRadius() * 2), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+        for (Entity entityiterator : _entfound) {
+            if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
+                effectForEach(_entity);
+            }
+        }
     }
 
-    public float getRadiusPerTick() {
-        return this.radiusPerTick;
+    protected void effectForEach(LivingEntity entity){
+
     }
 
-    public void setRadiusPerTick(float pRadiusPerTick) {
-        this.radiusPerTick = pRadiusPerTick;
+    // ========== Data Accessors ==========
+    public float getRadius() {
+        return this.entityData.get(DATA_RADIUS);
     }
 
-    public int getDurationOnUse() {
-        return this.durationOnUse;
+    public void setRadius(float radius) {
+        if (!this.level().isClientSide) {
+            this.entityData.set(DATA_RADIUS, Mth.clamp(radius, MIN_RADIUS, MAX_RADIUS));
+        }
     }
 
-    public void setDurationOnUse(int pDurationOnUse) {
-        this.durationOnUse = pDurationOnUse;
+    public ParticleOptions getParticle() {
+        return this.entityData.get(DATA_PARTICLE);
     }
 
-    public int getWaitTime() {
-        return this.waitTime;
+    public void setParticle(ParticleOptions particle) {
+        if (!this.level().isClientSide) {
+            this.entityData.set(DATA_PARTICLE, particle);
+        }
     }
 
-    public void setWaitTime(int pWaitTime) {
-        this.waitTime = pWaitTime;
+    public boolean isWaiting() {
+        return this.entityData.get(DATA_WAITING);
     }
 
-    public void setOwner(@Nullable LivingEntity pOwner) {
-        this.owner = pOwner;
-        this.ownerUUID = pOwner == null ? null : pOwner.getUUID();
+    public void setWaiting(boolean waiting) {
+        if (!this.level().isClientSide) {
+            this.entityData.set(DATA_WAITING, waiting);
+        }
     }
 
-    /**
-     * Returns null or the entityliving it was ignited by
-     */
+    public float getDensity() {
+        return density;
+    }
+
+    public void setDensity(float density) {
+        this.density = density;
+    }
+
+    public int getParticleCount(){
+        return (int) (getDensity() * getRadius());
+    }
+
+
+
+    // ========== Owner Handling ==========
     @Nullable
     public LivingEntity getOwner() {
         if (this.owner == null && this.ownerUUID != null && this.level() instanceof ServerLevel) {
@@ -188,67 +237,89 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
                 this.owner = (LivingEntity)entity;
             }
         }
-
         return this.owner;
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    protected void readAdditionalSaveData(CompoundTag pCompound) {
-        this.tickCount = pCompound.getInt("Age");
-        this.duration = pCompound.getInt("Duration");
-        this.waitTime = pCompound.getInt("WaitTime");
-        this.reapplicationDelay = pCompound.getInt("ReapplicationDelay");
-        this.durationOnUse = pCompound.getInt("DurationOnUse");
-        this.radiusOnUse = pCompound.getFloat("RadiusOnUse");
-        this.radiusPerTick = pCompound.getFloat("RadiusPerTick");
-        this.setRadius(pCompound.getFloat("Radius"));
-        this.setRemainingTime(pCompound.getInt("RemainingTime"));
-        if (pCompound.hasUUID("Owner")) {
-            this.ownerUUID = pCompound.getUUID("Owner");
-        }
+    public void setOwner(@Nullable LivingEntity owner) {
+        this.owner = owner;
+        this.ownerUUID = owner != null ? owner.getUUID() : null;
+    }
 
-        if (pCompound.contains("Particle", 8)) {
+    // ========== NBT Handling ==========
+    @Override
+    protected void readAdditionalSaveData(CompoundTag tag) {
+        // Read basic properties
+        this.setRadius(tag.getFloat("Radius"));
+        this.setDuration(tag.getInt("Duration"));
+        this.setDebugMode(tag.getBoolean("DebugMode"));
+
+        // Handle particle reading with proper error handling
+        if (tag.contains("Particle", 8)) { // 8 = String tag ID
             try {
-                this.setParticle(ParticleArgument.readParticle(new StringReader(pCompound.getString("Particle")), BuiltInRegistries.PARTICLE_TYPE.asLookup()));
-            } catch (CommandSyntaxException commandsyntaxexception) {
-                LOGGER.warn("Couldn't load custom particle {}", pCompound.getString("Particle"), commandsyntaxexception);
+                ParticleOptions particle = ParticleArgument.readParticle(
+                        new StringReader(tag.getString("Particle")),
+                        BuiltInRegistries.PARTICLE_TYPE.asLookup()
+                );
+                this.setParticle(particle);
+            } catch (CommandSyntaxException e) {
+                LOGGER.error("Failed to parse particle type: {}", tag.getString("Particle"), e);
+                // Fall back to default particle
+                this.setParticle(DEFAULT_PARTICLE);
             }
         }
 
+        // Handle owner UUID
+        if (tag.hasUUID("Owner")) {
+            this.ownerUUID = tag.getUUID("Owner");
+        }
     }
 
-    protected void addAdditionalSaveData(CompoundTag pCompound) {
-        pCompound.putInt("Age", this.tickCount);
-        pCompound.putInt("Duration", this.duration);
-        pCompound.putInt("WaitTime", this.waitTime);
-        pCompound.putInt("ReapplicationDelay", this.reapplicationDelay);
-        pCompound.putInt("DurationOnUse", this.durationOnUse);
-        pCompound.putFloat("RadiusOnUse", this.radiusOnUse);
-        pCompound.putFloat("RadiusPerTick", this.radiusPerTick);
-        pCompound.putFloat("Radius", this.getRadius());
-        pCompound.putString("Particle", this.getParticle().writeToString());
-        pCompound.putInt("RemainingTime", this.getRemainingTime());
+    @Override
+    protected void addAdditionalSaveData(CompoundTag tag) {
+        tag.putFloat("Radius", this.getRadius());
+        tag.putInt("Duration", this.getDuration());
+        tag.putString("Particle", this.getParticle().writeToString());
+        tag.putBoolean("DebugMode", this.isDebugMode());
+
         if (this.ownerUUID != null) {
-            pCompound.putUUID("Owner", this.ownerUUID);
+            tag.putUUID("Owner", this.ownerUUID);
         }
-
     }
 
-    public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
-        if (DATA_RADIUS.equals(pKey)) {
-            this.refreshDimensions();
-        }
-
-        super.onSyncedDataUpdated(pKey);
-    }
-
+    // ========== Entity Properties ==========
+    @Override
     public PushReaction getPistonPushReaction() {
         return PushReaction.IGNORE;
     }
 
-    public EntityDimensions getDimensions(Pose pPose) {
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
         return EntityDimensions.scalable(this.getRadius() * 2.0F, 0.5F);
+    }
+
+    @Override
+    public void refreshDimensions() {
+        double x = this.getX();
+        double y = this.getY();
+        double z = this.getZ();
+        super.refreshDimensions();
+        this.setPos(x, y, z);
+    }
+
+    @Override
+    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
+        if (DATA_RADIUS.equals(key)) {
+            this.refreshDimensions();
+        }
+        super.onSyncedDataUpdated(key);
+    }
+
+    // ========== Utility Methods ==========
+    public void setLifetimeSeconds(float seconds) {
+        this.setDuration((int)(seconds * 20));
+    }
+
+    public void setLifetimeMinutes(float minutes) {
+        this.setDuration((int)(minutes * 1200)); // 20 ticks * 60 seconds
     }
 }

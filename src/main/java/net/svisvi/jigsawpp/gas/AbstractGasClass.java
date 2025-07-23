@@ -19,6 +19,19 @@ public abstract class AbstractGasClass {
     public ParticleOptions particle;
     public SoundEvent sound;
 
+    public SoundEvent getSound() {
+        return sound;
+    }
+    public void setSound(SoundEvent sound) {
+        this.sound = sound;
+    }
+    public ParticleOptions getParticle() {
+        return particle;
+    }
+    public void setParticle(ParticleOptions particle) {
+        this.particle = particle;
+    }
+
     public float gasCloudSizeMultiplier = 1f;
     public int effectApplyingTiming = 0;
 
@@ -36,13 +49,13 @@ public abstract class AbstractGasClass {
     }
 
     public void gasApplyEffect(Entity entity){
-        if (entity instanceof LivingEntity livingEntity && gasApplyCondition(entity)){
+        if (entity instanceof LivingEntity livingEntity && this.gasApplyCondition(entity)){
             if (livingEntity instanceof Player player){
                 Level level = player.level();
                 if (!level.isClientSide()) {
-                    level.playSound(null, player.getOnPos(), sound, SoundSource.HOSTILE, 1, 1);
+                    level.playSound(null, player.getOnPos(), this.getSound(), SoundSource.HOSTILE, 0.5f, 1);
                 } else {
-                    level.playLocalSound(player.getOnPos(), sound, SoundSource.HOSTILE, 1, 1, false);
+                    level.playLocalSound(player.getOnPos(), this.getSound(), SoundSource.HOSTILE, 0.5f, 1, false);
                 }
             }
         } else {

@@ -196,6 +196,10 @@ public class JigsawPpMod {
 
 			//Emitters
 			EntityRenderers.register(ModEntities.ABSTRACT_EMITTER.get(), NoopRenderer::new);
+			EntityRenderers.register(ModEntities.GAS_EMITTER.get(), NoopRenderer::new);
+			EntityRenderers.register(ModEntities.POOP_GAS_EMITTER.get(), NoopRenderer::new);
+			EntityRenderers.register(ModEntities.PURGATIVE_GAS_EMITTER.get(), NoopRenderer::new);
+			EntityRenderers.register(ModEntities.FART_GAS_EMITTER.get(), NoopRenderer::new);
 
 
 
