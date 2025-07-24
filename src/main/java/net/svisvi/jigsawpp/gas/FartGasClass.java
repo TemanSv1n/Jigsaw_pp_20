@@ -4,6 +4,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -42,6 +43,13 @@ public class FartGasClass extends EffectGasClass{
                 livingEntity.addEffect(mef);
                 //PoopEffect.addEffectGasWay(livingEntity, mef);
             }
+            if (entity.level().isClientSide) return;
+            // Create damage source that shows "drowned by owner"
+            DamageSource damageSource = new DamageSource(entity.damageSources().drown().typeHolder(),entity, getOwner(entity.level()));
+            // Apply drowning damage (same amount as vanilla)
+            entity.hurt(damageSource, 2.0f);
+            // Force drowning animation if needed
+            entity.setAirSupply(-20);
 
         }
     }
