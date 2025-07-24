@@ -74,13 +74,7 @@ public class FartGasEmitterEntity extends GasEmitterEntity{
 
         if (gass.gasApplyCondition(entity)){
             gass.gasApplyEffect(entity);
-            if (entity.level().isClientSide) return;
-            // Create damage source that shows "drowned by owner"
-            DamageSource damageSource = new DamageSource(entity.damageSources().drown().typeHolder(),entity, getOwner());
-            // Apply drowning damage (same amount as vanilla)
-            entity.hurt(damageSource, 2.0f);
-            // Force drowning animation if needed
-            entity.setAirSupply(-20);
+
         }
 
 //        if (entity instanceof Player player) {
