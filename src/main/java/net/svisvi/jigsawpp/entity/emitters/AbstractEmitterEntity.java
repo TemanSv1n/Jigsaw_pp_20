@@ -159,27 +159,27 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
             NuclearShroom.sendFarParticles(serverLevel,
                     this.getParticle(),
                     this.getX(), this.getY(), this.getZ(),
-                    getRadius(),
-                    getRadius(),
-                    getRadius(),
+                    this.getRadius(),
+                    this.getRadius(),
+                    this.getRadius(),
                     count, speed);
         }
     }
 
 
-    protected void applyEffects() {
+    public void applyEffects() {
         Level level = this.level();
 
         final Vec3 _center = this.position();
         List<Entity> _entfound = level.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(this.getRadius() * 2), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
         for (Entity entityiterator : _entfound) {
             if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
-                effectForEach(_entity);
+                this.effectForEach(_entity);
             }
         }
     }
 
-    protected void effectForEach(LivingEntity entity){
+    public void effectForEach(LivingEntity entity){
 
     }
 
@@ -226,7 +226,13 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         return (int) (getDensity() * getRadius());
     }
 
+    public float getParticleSpeed() {
+        return particleSpeed;
+    }
 
+    public void setParticleSpeed(float particleSpeed) {
+        this.particleSpeed = particleSpeed;
+    }
 
     // ========== Owner Handling ==========
     @Nullable
