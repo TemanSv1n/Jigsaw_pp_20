@@ -1,0 +1,11 @@
+{
+  "name": "Purgen mass production",
+  "icon": "jigsaw_pp:teapot",
+  "category": "jigsaw_pp:svo_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Purgen factory..."
+    }
+  ]
+}
