@@ -55,6 +55,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
     public float density = DEFAULT_DENSITY;
     //public int particleCount = (int) (DEFAULT_DENSITY * getRadius());
     //public int effect_applying_cooldown
+    public boolean affectOwner = true;
 
     @Nullable private LivingEntity owner;
     @Nullable private UUID ownerUUID;
@@ -67,6 +68,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         this.setRadius(radiuss);
         this.setDuration(durra);
         this.setDebugMode(false); // Default to normal mode
+        this.setAffectOwner(true);
     }
 
     public AbstractEmitterEntity(EntityType<? extends AbstractEmitterEntity> type, Level level) {
@@ -179,7 +181,9 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         List<Entity> _entfound = level.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(this.getRadius() * 2), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
         for (Entity entityiterator : _entfound) {
             if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
-                this.effectForEach(_entity);
+                if (this.isAffectOwner() || _entity != this.getOwner()) {
+                    this.effectForEach(_entity);
+                }
             }
         }
     }
@@ -239,6 +243,13 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         this.particleSpeed = particleSpeed;
     }
 
+    public boolean isAffectOwner() {
+        return affectOwner;
+    }
+    public void setAffectOwner(boolean affectOwner) {
+        this.affectOwner = affectOwner;
+    }
+
     // ========== Owner Handling ==========
     @Nullable
     public LivingEntity getOwner() {
@@ -263,6 +274,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         this.setRadius(tag.getFloat("Radius"));
         this.setDuration(tag.getInt("Duration"));
         this.setDebugMode(tag.getBoolean("DebugMode"));
+        this.setAffectOwner(tag.getBoolean("AffectOwner"));
 
         // Handle particle reading with proper error handling
         if (tag.contains("Particle", 8)) { // 8 = String tag ID
@@ -291,6 +303,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         tag.putInt("Duration", this.getDuration());
         tag.putString("Particle", this.getParticle().writeToString());
         tag.putBoolean("DebugMode", this.isDebugMode());
+        tag.putBoolean("AffectOwner", this.isAffectOwner());
 
         if (this.ownerUUID != null) {
             tag.putUUID("Owner", this.ownerUUID);
