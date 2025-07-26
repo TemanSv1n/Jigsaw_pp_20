@@ -133,11 +133,6 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
 
         spawnParticles(getParticleCount(), particleSpeed);
 
-        // Skip lifetime checks in debug mode
-        if (!isDebugMode() && this.getRemainingTime() <= 0) {
-            this.discard();
-            return;
-        }
 
         if (this.radiusPerTick != 0.0F) {
             float newRadius = this.getRadius() + this.radiusPerTick;
@@ -151,6 +146,16 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         if (this.tickCount % 1 == 0) {
             this.applyEffects();
         }
+
+        // Skip lifetime checks in debug mode
+        if (!isDebugMode() && this.getRemainingTime() <= 0) {
+            this.die();
+        }
+    }
+
+    public void die(){
+        this.discard();
+        return;
     }
 
 
