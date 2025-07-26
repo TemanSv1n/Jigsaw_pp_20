@@ -57,6 +57,10 @@ public class GasEmitterEntity extends AbstractEmitterEntity{
         this(level, x, y, z, gassy.getParticle(), radiuss, durra, gassy);
     }
 
+    public GasEmitterEntity(Level level, double x, double y, double z, float radiuss, int durra){
+        this(level, x, y, z, DEFAULT_GAS.getParticle(), radiuss, durra, DEFAULT_GAS);
+    }
+
 
     public void setGas(AbstractGasClass gas) {
         this.gas = gas;
@@ -70,6 +74,8 @@ public class GasEmitterEntity extends AbstractEmitterEntity{
     public ParticleOptions getParticle() {
         return getGas().getParticle();
     }
+
+
 
     //    @Override
 //    public void applyEffects() {

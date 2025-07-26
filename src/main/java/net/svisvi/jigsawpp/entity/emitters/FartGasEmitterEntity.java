@@ -46,6 +46,10 @@ public class FartGasEmitterEntity extends GasEmitterEntity{
         this(level, x, y, z, gassy.getParticle(), radiuss, durra, gassy);
     }
 
+    public FartGasEmitterEntity(Level level, double x, double y, double z, float radiuss, int durra){
+        this(level, x, y, z, DEFAULT_GAS.getParticle(), radiuss, durra, DEFAULT_GAS);
+    }
+
 
     public void setGas(AbstractGasClass gas) {
         this.gas = gas;
