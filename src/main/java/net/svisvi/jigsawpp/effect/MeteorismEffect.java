@@ -31,10 +31,12 @@ public class MeteorismEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
 
         Level level = pLivingEntity.level();
-        FartGasEmitterEntity farter = new FartGasEmitterEntity(level, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), 1.5f * (pAmplifier / 4f + 1), 2);
-        farter.setOwner(pLivingEntity);
-        farter.setAffectOwner(false);
-        level.addFreshEntity(farter);
+        if (pLivingEntity.level().random.nextInt(30) >= 27 ) {
+            FartGasEmitterEntity farter = new FartGasEmitterEntity(level, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), 1.5f * (pAmplifier / 4f + 1), 30);
+            farter.setOwner(pLivingEntity);
+            farter.setAffectOwner(false);
+            level.addFreshEntity(farter);
+        }
 
 
 
