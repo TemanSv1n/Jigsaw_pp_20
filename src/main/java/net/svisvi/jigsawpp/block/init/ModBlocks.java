@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.block.init;
 
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -20,6 +22,8 @@ import net.svisvi.jigsawpp.block.PigTuffyak;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
+
+import net.minecraft.world.level.block.Block;
 
 import net.svisvi.jigsawpp.block.teapot.FarFuhrerBlock;
 import net.svisvi.jigsawpp.block.teapot.RawTeapotBlock;

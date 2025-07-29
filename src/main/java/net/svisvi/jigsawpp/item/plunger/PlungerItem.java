@@ -137,6 +137,7 @@ public class PlungerItem extends Item implements Vanishable {
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
         list.add(Component.translatable("item.jigsaw_pp.plunger.desc"));
+        list.add(Component.translatable("item.jigsaw_pp.plunger.desc"));
     }
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(1, pAttacker, (p_43414_) -> {
