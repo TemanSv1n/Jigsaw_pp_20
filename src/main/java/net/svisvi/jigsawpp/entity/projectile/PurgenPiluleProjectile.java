@@ -33,12 +33,19 @@ import java.util.stream.Collectors;
 
 //Procedures
 public class PurgenPiluleProjectile extends ThrowableItemProjectile implements ItemSupplier {
+
+    public boolean armor_piercing;
+
     public PurgenPiluleProjectile(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
     public PurgenPiluleProjectile(Level pLevel, LivingEntity pShooter) {
         super(ModEntities.PURGEN_PILULE_PROJECTILE.get(), pShooter, pLevel);
+    }
+    public PurgenPiluleProjectile(Level pLevel, LivingEntity pShooter, boolean ap) {
+        super(ModEntities.PURGEN_PILULE_PROJECTILE.get(), pShooter, pLevel);
+        armor_piercing = ap;
     }
 
     public PurgenPiluleProjectile(Level pLevel, double pX, double pY, double pZ) {
@@ -63,6 +70,12 @@ public class PurgenPiluleProjectile extends ThrowableItemProjectile implements I
 
     }
 
+    public void setArmor_piercing(boolean armor_piercing) {
+        this.armor_piercing = armor_piercing;
+    }
+
+    public boolean getArmor_piercing(){return armor_piercing;}
+
     /**
      * Called when the arrow hits an entity
      */
@@ -70,7 +83,7 @@ public class PurgenPiluleProjectile extends ThrowableItemProjectile implements I
         super.onHitEntity(pResult);
         pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.5F);
         if (pResult.getEntity() instanceof LivingEntity ent) {
-            if (PurgativeEffect.poopAdditionConditionLiquidWay(ent, new MobEffectInstance(ModEffects.PURGATIVE.get(), 21, 0))) {
+            if (PurgativeEffect.poopAdditionConditionLiquidWay(ent, new MobEffectInstance(ModEffects.PURGATIVE.get(), 21, 0)) || this.armor_piercing) {
                 this.getItem().getItem().finishUsingItem(this.getItem(), ent.level(), ent);
             }
         }
@@ -142,10 +155,13 @@ public class PurgenPiluleProjectile extends ThrowableItemProjectile implements I
         }
 
     }
-
     public static Projectile shoot (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy, ItemStack renderableItemStack){
+        return shoot(pLevel, pEntity, pVelocity, pInaccuracy, renderableItemStack, false);
+    }
+
+    public static Projectile shoot (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy, ItemStack renderableItemStack, boolean ap){
         if (!pLevel.isClientSide) {
-            PurgenPiluleProjectile thrownegg = new PurgenPiluleProjectile(pLevel, pEntity);
+            PurgenPiluleProjectile thrownegg = new PurgenPiluleProjectile(pLevel, pEntity, ap);
             thrownegg.setItem(renderableItemStack);
             thrownegg.shootFromRotation(pEntity, pEntity.getXRot(), pEntity.getYRot(), 0.0F, pVelocity, pInaccuracy);
             pLevel.addFreshEntity(thrownegg);

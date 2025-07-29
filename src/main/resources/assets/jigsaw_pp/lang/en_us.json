@@ -274,7 +274,7 @@
   "item.jigsaw_pp.nutcracker.desc": "§7Cracks §3Nuts§7 in your off-hand",
   "item.jigsaw_pp.teapot_cannon.desc": "§7Uses TNTpots as an ammo",
   "item.jigsaw_pp.teapot_launcher.desc": "§7Uses itself as an ammo",
-  "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings teapots as an ammo",
+  "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings as an ammo",
   "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
   "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get",
 
@@ -347,4 +347,6 @@
   "item.jigsaw_pp.fried_soup.desc": "§7Provokes your intestines, it will get §aGassy",
   "block.jigsaw_pp.poonami": "Poonami bucket",
   "item.jigsaw_pp.poonami.desc": "§7Insanely dangerous, §4WILL DESTROY YOUR WORLD"
+  "enchantment.jigsaw_pp.purgen_armor_piercing": "Purgen Piercing",
+  "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Allows pilule to bypass hazmat
 }
