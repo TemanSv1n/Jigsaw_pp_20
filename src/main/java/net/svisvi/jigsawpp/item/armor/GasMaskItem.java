@@ -24,6 +24,7 @@ import net.minecraft.client.Minecraft;
 import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.procedures.ut.IPoopProtective;
+import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 import java.util.function.Consumer;
 import java.util.Map;
@@ -35,7 +36,7 @@ public abstract class GasMaskItem extends ArmorItem implements IPoopProtective {
         super(new ArmorMaterial() {
             @Override
             public int getDurabilityForType(ArmorItem.Type type) {
-                return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 5;
+                return new int[]{13, 15, 16, 31}[type.getSlot().getIndex()] * 5;
             }
 
             @Override
@@ -73,6 +74,13 @@ public abstract class GasMaskItem extends ArmorItem implements IPoopProtective {
                 return 0f;
             }
         }, type, properties);
+    }
+
+    public void onGas(ItemStack itemStack, Entity entity){
+        PoopProtectionArmorConditions.defaultAction(entity, itemStack, "gas");
+    }
+    public void onLiquid(ItemStack itemStack, Entity entity){
+        PoopProtectionArmorConditions.defaultAction(entity, itemStack, "liquid");
     }
 
     public static class Helmet extends GasMaskItem implements IPoopProtective{
