@@ -281,7 +281,8 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
 	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
 	public static final RegistryObject<Item> GRUEL = REGISTRY.register("gruel", () -> new GruelItem());
-
+	public static final RegistryObject<Item> FRIED_SOUP = REGISTRY.register("fried_soup", () -> new FriedSoupItem());
+	public static final RegistryObject<Item> POONAMI = block(ModBlocks.POONAMI);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
