@@ -1,6 +1,8 @@
 package net.svisvi.jigsawpp.item.pspack;
 
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -55,6 +57,11 @@ public class RoadSignItem extends SwordItem {
         boolean retval = super.hurtEnemy(itemstack, entity, sourceentity);
         RoadSignEntitySwingsItemProcedure.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), sourceentity);
         return retval;
+    }
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.road_sign.desc"));
     }
     public class RoadSignEntitySwingsItemProcedure {
         public static void execute(LevelAccessor world, double x, double y, double z, Entity sourceentity) {

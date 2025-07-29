@@ -18,6 +18,7 @@ public class ModServerConfigs {
     public static final ForgeConfigSpec.ConfigValue<String> JIGSAW;
     public static final ForgeConfigSpec.ConfigValue<List<String>> EMPREGNATION_MOBS_LIST;
     public static final ForgeConfigSpec.ConfigValue<List<String>> PURGEN_EFFECTS_BLACK_LIST;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> GIVE_PATCHOULI_BOOK;
 
 
 
@@ -43,6 +44,10 @@ public class ModServerConfigs {
                 .define("PURGEN_EFFECTS_BLACK_LIST", Arrays.asList(
                         "jigsaw_pp:purgative"
                 ));
+
+        GIVE_PATCHOULI_BOOK = BUILDER.comment("Should player be given patchouli book on join")
+                .define("GIVE_PATCHOULI_BOOK", Boolean.TRUE
+                );
 
         BUILDER.pop();
         SPEC = BUILDER.build();
