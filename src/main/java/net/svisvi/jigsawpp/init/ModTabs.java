@@ -68,7 +68,6 @@ public class ModTabs {
 						tabData.accept(ModItems.PURGEN_MACHINE_GUN.get());
 
 						tabData.accept(ModItems.MARMOSET.get());
-						tabData.accept(Items.FURNACE);
 						tabData.accept(ModItems.CREATIVE_HEAT_SOURCE.get());
 						tabData.accept(ModItems.FACTORY_HEATER.get());
 						tabData.accept(ModItems.PURGEN_FACTORY.get());
@@ -143,7 +142,7 @@ public class ModTabs {
 						tabData.accept(ModItems.DELLIST.get());
 						tabData.accept(ModItems.BEAWEED_CHECKER.get());
 						tabData.accept(ModItems.BOTTLE_O_PRICEL.get());
-						//tabData.accept(ModItems.FRIENDSHIP_FAN.get());
+						tabData.accept(ModItems.FRIENDSHIP_FAN.get());
 						tabData.accept(ModItems.PLUNGER.get());
 				tabData.accept(ModItems.DRIST_TNT.get());
 				tabData.accept(ModItems.DRIST_TNT_STICK.get());
@@ -179,6 +178,8 @@ public class ModTabs {
 				tabData.accept(ModItems.SHIT_BLOCK.get());
 				tabData.accept(ModItems.DOCTOR_HELMET.get());
 				tabData.accept(ModItems.GRUEL.get());
+				tabData.accept(ModItems.POONAMI.get());
+				tabData.accept(ModItems.FRIED_SOUP.get());
 
 			}).build());
 }

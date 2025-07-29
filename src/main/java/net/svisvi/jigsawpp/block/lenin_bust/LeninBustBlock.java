@@ -74,10 +74,6 @@ public class LeninBustBlock extends BeehiveBlock {
     public VoxelShape getVisualShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return Shapes.empty();
     }
-    @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-        return box(3, 0, 3, 13, 13, 13);
-    }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
