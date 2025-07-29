@@ -141,7 +141,7 @@
   "item.jigsaw_pp.beaver_knife": "Beaver knife",
   "item.jigsaw_pp.beaver_axe": "Beaver axe",
   "item.jigsaw_pp.pigkaxe": "Pigkaxe",
-  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod",
+  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig with §6lightning rod",
   "item.jigsaw_pp.tube_19": "Tube №19",
   "subtitles.clown_horn": "Clown noise",
   "item.jigsaw_pp.eggs": "Fortnite balls",
@@ -337,6 +337,14 @@
   "item.minecraft.tipped_arrow.effect.poop_walking_potion": "Poop walking arrow",
   "item.minecraft.potion.effect.poop_walking_potion": "Poop walking potion",
   "item.minecraft.splash_potion.effect.poop_walking_potion": "Splash poop walking potion",
-  "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion"
+  "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion",
 
+  "item.jigsaw_pp.plunger.desc": "§7Poor man's trident",
+  "item.jigsaw_pp.slon_gun.desc": "§7Crouch + RMB on water to refill",
+  "item.jigsaw_pp.slon_gun_green.desc": "§7Crouch + RMB on poop to refill",
+
+  "item.jigsaw_pp.fried_soup": "Fried soup",
+  "item.jigsaw_pp.fried_soup.desc": "§7Provokes your intestines, it will get §aGassy",
+  "block.jigsaw_pp.poonami": "Poonami bucket",
+  "item.jigsaw_pp.poonami.desc": "§7Insanely dangerous, §4WILL DESTROY YOUR WORLD"
 }

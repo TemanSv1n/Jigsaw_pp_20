@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ShitBlock extends FallingBlock {
     public ShitBlock() {
-        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NYLIUM).strength(4f, 0f));
+        super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NYLIUM).strength(2f, 0f));
     }
 
     @Override
