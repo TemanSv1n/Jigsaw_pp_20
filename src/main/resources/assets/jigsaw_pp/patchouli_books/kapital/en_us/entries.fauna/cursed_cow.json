@@ -1,0 +1,11 @@
+{
+  "name": "Cursed cow",
+  "icon": "jigsaw_pp:teeth",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Really fucking cursed cow! made by feeding teeth to an average cow. It's absolutely chaotic and explodes sometimes, but it can be milked for fecal sludge."
+    }
+  ]
+}

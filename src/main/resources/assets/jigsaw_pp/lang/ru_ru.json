@@ -338,6 +338,7 @@
   "item.jigsaw_pp.fried_soup.desc": "§7Раздражает кишечник, могут пойти §aГазы",
   "block.jigsaw_pp.poonami": "Ведро Говнами",
   "item.jigsaw_pp.poonami.desc": "§7Невероятно опасное, §4ВЫ БУДЕТЕ ЖИТЬ В ЗАСРАННОМ МИРЕ В КОТОРОМ САМИ И НАСРАЛИ",
+  "item.jigsaw_pp.poonami.desc2": "§7/gamerule removePoonami false чтобы остановить рост",
   "enchantment.jigsaw_pp.purgen_armor_piercing": "Пургенопробитие",
 
   "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Позволяет вылетающей пилюле игнорировать броню",

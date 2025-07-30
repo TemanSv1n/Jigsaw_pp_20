@@ -180,6 +180,7 @@ public class ModTabs {
 				tabData.accept(ModItems.GRUEL.get());
 				tabData.accept(ModItems.POONAMI.get());
 				tabData.accept(ModItems.FRIED_SOUP.get());
+				tabData.accept(ModItems.CURSED_COW_SPAWN_EGG.get());
 
 			}).build());
 }

@@ -347,6 +347,8 @@
   "item.jigsaw_pp.fried_soup.desc": "§7Provokes your intestines, it will get §aGassy",
   "block.jigsaw_pp.poonami": "Poonami bucket",
   "item.jigsaw_pp.poonami.desc": "§7Insanely dangerous, §4WILL DESTROY YOUR WORLD",
+  "item.jigsaw_pp.poonami.desc2": "§7/gamerule removePoonami false to stop it from growing",
+
   "enchantment.jigsaw_pp.purgen_armor_piercing": "Purgen Piercing",
 
   "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Allows pilule to bypass hazmat",
@@ -362,5 +364,7 @@
   "item.jigsaw_pp.paddle.desc": "§7When equipped in both hands makes you swift in liquid",
   "item.jigsaw_pp.road_sign.desc": "§7Splash knockback",
   "item.jigsaw_pp.jetstream_chair.desc": "§7Feasts upon beaweed dust in astronaut's hands",
-  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that"
+  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that",
+
+  "item.jigsaw_pp.cursed_cow_spawn_egg": "§7Cursed cow §rspawn egg"
 }

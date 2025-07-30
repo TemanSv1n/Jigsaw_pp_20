@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:beef",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "jigsaw_pp:teeth",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

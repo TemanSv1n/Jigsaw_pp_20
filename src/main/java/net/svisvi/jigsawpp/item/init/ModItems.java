@@ -283,6 +283,9 @@ public class ModItems {
 	public static final RegistryObject<Item> GRUEL = REGISTRY.register("gruel", () -> new GruelItem());
 	public static final RegistryObject<Item> FRIED_SOUP = REGISTRY.register("fried_soup", () -> new FriedSoupItem());
 	public static final RegistryObject<Item> POONAMI = block(ModBlocks.POONAMI);
+	public static final RegistryObject<Item> CURSED_COW_SPAWN_EGG = REGISTRY.register("cursed_cow_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CURSED_COW, 0x3f3223, 0x808080, new Item.Properties()));
+
+
 
 
 	;

@@ -11,7 +11,7 @@ public class ModGameRules {
             String name, GameRules.Category category, GameRules.Type<T> type) {
         return GameRules.register(JigsawPpMod.MODID + "_" + name, category, type);
     }
-
+    public static final GameRules.Key<GameRules.BooleanValue> REMOVE_POONAMI = GameRules.register("removePoonami", GameRules.Category.MISC, GameRules.BooleanValue.create(false));
     public static void register() {
         // Called during mod initialization
     }
