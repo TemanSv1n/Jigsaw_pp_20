@@ -181,7 +181,6 @@ public class ModTabs {
 				tabData.accept(ModItems.POONAMI.get());
 				tabData.accept(ModItems.FRIED_SOUP.get());
 				tabData.accept(ModItems.CURSED_COW_SPAWN_EGG.get());
-
 				tabData.accept(ModItems.TEETH.get());
 				tabData.accept(ModItems.SUICIDE_VEST.get());
 				tabData.accept(ModItems.DETONATOR.get());
@@ -198,6 +197,5 @@ public class ModTabs {
 				tabData.accept(ModItems.UNDERWEAR.get());
 				tabData.accept(ModItems.EXPECTORATOR.get());
 				tabData.accept(ModItems.MILITARY_BOOTS.get());
-
 			}).build());
 }

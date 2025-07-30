@@ -284,7 +284,6 @@ public class ModItems {
 	public static final RegistryObject<Item> FRIED_SOUP = REGISTRY.register("fried_soup", () -> new FriedSoupItem());
 	public static final RegistryObject<Item> POONAMI = block(ModBlocks.POONAMI);
 	public static final RegistryObject<Item> CURSED_COW_SPAWN_EGG = REGISTRY.register("cursed_cow_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CURSED_COW, 0x3f3223, 0x808080, new Item.Properties()));
-
 	public static final RegistryObject<Item> TEETH = REGISTRY.register("teeth", () -> new TeethItem.Helmet());
 	public static final RegistryObject<Item> SUICIDE_VEST = REGISTRY.register("suicide_vest", () -> new SuicideVestItem.Chestplate());
 	public static final RegistryObject<Item> ONION = REGISTRY.register("onion", () -> new OnionItem.Helmet());
@@ -295,7 +294,6 @@ public class ModItems {
 	public static final RegistryObject<Item> CLOWN_NOSE = REGISTRY.register("clown_nose", () -> new ClownNoseItem.Helmet());
 	public static final RegistryObject<Item> BELLY = REGISTRY.register("belly", () -> new BellyItem.Chestplate());
 	public static final RegistryObject<Item> BELLYJUNK = REGISTRY.register("bellyjunk", () -> new BellyJunkItem.Chestplate());
-
 	public static final RegistryObject<Item> ALCOSHIRT = REGISTRY.register("alcoshirt", () -> new AlcoshirtItem.Chestplate());
 	public static final RegistryObject<Item> PUDGE_APRON = REGISTRY.register("pudge_apron", () -> new PudgeApronItem.Chestplate());
 	public static final RegistryObject<Item> UNDERWEAR = REGISTRY.register("underwear", () -> new UnderwearItem.Leggings());
