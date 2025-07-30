@@ -13,8 +13,7 @@ import net.minecraft.world.entity.Entity;
 
 public class SuicideVestModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "suicidevestmodel"), "main");
-	private final ModelPart body;
+	public final ModelPart body;
 	private final ModelPart resolver;
 	private final ModelPart bomb;
 	private final ModelPart bomb2;

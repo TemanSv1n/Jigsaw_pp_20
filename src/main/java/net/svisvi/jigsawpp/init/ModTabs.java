@@ -182,5 +182,22 @@ public class ModTabs {
 				tabData.accept(ModItems.FRIED_SOUP.get());
 				tabData.accept(ModItems.CURSED_COW_SPAWN_EGG.get());
 
+				tabData.accept(ModItems.TEETH.get());
+				tabData.accept(ModItems.SUICIDE_VEST.get());
+				tabData.accept(ModItems.DETONATOR.get());
+				tabData.accept(ModItems.ONION.get());
+				tabData.accept(ModItems.MERCHANT_MASK.get());
+				tabData.accept(ModItems.JUNK.get());
+				tabData.accept(ModItems.BELLY.get());
+				tabData.accept(ModItems.BELLYJUNK.get());
+				tabData.accept(ModItems.JOKER_NOSE.get());
+				tabData.accept(ModItems.HITLER_NOSE.get());
+				tabData.accept(ModItems.CLOWN_NOSE.get());
+				tabData.accept(ModItems.ALCOSHIRT.get());
+				tabData.accept(ModItems.PUDGE_APRON.get());
+				tabData.accept(ModItems.UNDERWEAR.get());
+				tabData.accept(ModItems.EXPECTORATOR.get());
+				tabData.accept(ModItems.MILITARY_BOOTS.get());
+
 			}).build());
 }

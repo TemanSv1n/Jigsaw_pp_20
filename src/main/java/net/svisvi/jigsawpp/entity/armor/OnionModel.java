@@ -16,9 +16,8 @@ import net.minecraft.world.entity.Entity;
 
 public class OnionModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "onionmodel"), "main");
-	private final ModelPart head;
-	private final ModelPart group;
+	public final ModelPart head;
+	public final ModelPart group;
 
 	public OnionModel(ModelPart root) {
 		this.head = root.getChild("head");

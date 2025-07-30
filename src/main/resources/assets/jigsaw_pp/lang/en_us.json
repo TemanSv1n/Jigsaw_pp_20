@@ -366,5 +366,27 @@
   "item.jigsaw_pp.jetstream_chair.desc": "§7Feasts upon beaweed dust in astronaut's hands",
   "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that",
 
-  "item.jigsaw_pp.cursed_cow_spawn_egg": "§7Cursed cow §rspawn egg"
+  "item.jigsaw_pp.cursed_cow_spawn_egg": "§7Cursed cow §rspawn egg",
+  "item.jigsaw_pp.teeth": "Teeth",
+  "item.jigsaw_pp.teeth.desc": "§7Don't feed to §6cows!",
+  "item.jigsaw_pp.suicide_vest": "Suicide vest",
+  "item.jigsaw_pp.suicide_vest.desc": "§7Binds with detonator, also goes off on death",
+  "item.jigsaw_pp.detonator": "Detonator",
+  "item.jigsaw_pp.detonator.desc": "§7To bind with another item rename both items in anvil to same name",
+  "item.jigsaw_pp.onion": "Grandfather's onion",
+  "item.jigsaw_pp.onion.desc": "§7Excites cows",
+  "item.jigsaw_pp.merchant_mask": "§eMerchant's mask",
+  "item.jigsaw_pp.junk": "Junk",
+  "item.jigsaw_pp.joker_nose": "Fools' nose",
+  "item.jigsaw_pp.hitler_nose": "Hitler's moustache",
+  "item.jigsaw_pp.clown_nose": "Clown's nose",
+  "item.jigsaw_pp.belly": "Belly",
+  "item.jigsaw_pp.bellyjunk": "Bellyjunk",
+  "item.jigsaw_pp.alcoshirt": "Alcoshirt",
+  "item.jigsaw_pp.pudge_apron": "Pudge apron",
+  "item.jigsaw_pp.underwear": "Underwear",
+  "item.jigsaw_pp.expectorator": "Expectorator",
+  "item.jigsaw_pp.expectorator.desc": "§7Expectorates high-velocity saliva upon your enemy's face!",
+  "item.jigsaw_pp.military_boots": "Military boots",
+  "item.jigsaw_pp.military_boots.desc": "§7Can get you through anything"
 }

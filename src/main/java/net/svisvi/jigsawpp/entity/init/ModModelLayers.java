@@ -49,4 +49,15 @@ public class ModModelLayers {
             new ResourceLocation(JigsawPpMod.MODID, "zombie_beaver"), "main");
     public static final ModelLayerLocation BEAVER_ZOMBIE_SPAWNER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "beaver_zombie_spawner_model"), "main");
+    public static final ModelLayerLocation TEETH_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "teethmodel"), "main");
+    public static final ModelLayerLocation SUICIDE_VEST_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "suicidevestmodel"), "main");
+    public static final ModelLayerLocation ONION_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "onionmodel"), "main");
+    public static final ModelLayerLocation MERCHANT_MASK_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "merchantmaskmodel"), "main");
+    public static final ModelLayerLocation JUNK_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "junkmodel"), "main");
+    public static final ModelLayerLocation JOKER_NOSE_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "jokernosemodel"), "main");
+    public static final ModelLayerLocation HITLER_NOSE_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "hitlernosemodel"), "main");
+    public static final ModelLayerLocation CLOWN_NOSE_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "clownnosemodel"), "main");
+    public static final ModelLayerLocation BELLY_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "bellymodel"), "main");
+    public static final ModelLayerLocation BELLYJUNK_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "bellyjunkmodel"), "main");
+
 }

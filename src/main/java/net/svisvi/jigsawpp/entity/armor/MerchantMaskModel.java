@@ -16,18 +16,17 @@ import net.minecraft.world.entity.Entity;
 
 public class MerchantMaskModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "merchantmaskmodel"), "main");
-	private final ModelPart Head;
+	public final ModelPart head;
 
 	public MerchantMaskModel(ModelPart root) {
-		this.Head = root.getChild("Head");
+		this.head = root.getChild("head");
 	}
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(7, 9).addBox(-4.0F, -6.0F, -4.0F, 8.0F, 6.0F, 1.0F, new CubeDeformation(0.0F))
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(7, 9).addBox(-4.0F, -6.0F, -4.0F, 8.0F, 6.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(8, 8).addBox(-3.0F, -7.0F, -4.0F, 6.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(32, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.5F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -35,12 +34,12 @@ public class MerchantMaskModel<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netheadYaw, float headPitch) {
 
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }
