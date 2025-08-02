@@ -286,12 +286,12 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
 	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
 	public static final RegistryObject<Item> GRUEL = REGISTRY.register("gruel", () -> new GruelItem());
-    public static final RegistryObject<Item> PURGEN_GRENADE = REGISTRY.register("purgen_smoke_grenade", () -> new PurgenGrenadeItem());
-    public static final RegistryObject<Item> PURGEN_GRENADE_USED = REGISTRY.register("purgen_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
-    public static final RegistryObject<Item> PONOS_GRENADE = REGISTRY.register("ponos_smoke_grenade", () -> new PonosGrenadeItem());
-    public static final RegistryObject<Item> PONOS_GRENADE_USED = REGISTRY.register("ponos_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
-    public static final RegistryObject<Item> GASSY_GRENADE = REGISTRY.register("gassy_smoke_grenade", () -> new GassyGrenadeItem());
-    public static final RegistryObject<Item> GASSY_GRENADE_USED = REGISTRY.register("gassy_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
+  public static final RegistryObject<Item> PURGEN_GRENADE = REGISTRY.register("purgen_smoke_grenade", () -> new PurgenGrenadeItem());
+  public static final RegistryObject<Item> PURGEN_GRENADE_USED = REGISTRY.register("purgen_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
+  public static final RegistryObject<Item> PONOS_GRENADE = REGISTRY.register("ponos_smoke_grenade", () -> new PonosGrenadeItem());
+  public static final RegistryObject<Item> PONOS_GRENADE_USED = REGISTRY.register("ponos_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
+  public static final RegistryObject<Item> GASSY_GRENADE = REGISTRY.register("gassy_smoke_grenade", () -> new GassyGrenadeItem());
+  public static final RegistryObject<Item> GASSY_GRENADE_USED = REGISTRY.register("gassy_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
 	public static final RegistryObject<Item> FRIED_SOUP = REGISTRY.register("fried_soup", () -> new FriedSoupItem());
 	public static final RegistryObject<Item> POONAMI = block(ModBlocks.POONAMI);
 
