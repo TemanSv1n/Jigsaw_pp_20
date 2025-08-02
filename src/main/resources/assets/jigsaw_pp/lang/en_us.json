@@ -141,7 +141,7 @@
   "item.jigsaw_pp.beaver_knife": "Beaver knife",
   "item.jigsaw_pp.beaver_axe": "Beaver axe",
   "item.jigsaw_pp.pigkaxe": "Pigkaxe",
-  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig by §6lightning rod",
+  "item.jigsaw_pp.pigkaxe.desc": "§7Hit pig with §6lightning rod",
   "item.jigsaw_pp.tube_19": "Tube №19",
   "subtitles.clown_horn": "Clown noise",
   "item.jigsaw_pp.eggs": "Fortnite balls",
@@ -242,10 +242,10 @@
   "block.jigsaw_pp.pork_block": "Pork block",
   "item.jigsaw_pp.hot_fat": "Hot fat",
   "item.jigsaw_pp.tallow": "Tallow",
-  "item.jigsaw_pp.poops": "Poops",
-  "entity.jigsaw_pp.poops": "Poops",
-  "item.jigsaw_pp.poopis": "Poopis",
-  "entity.jigsaw_pp.poopis": "Poopis",
+  "item.jigsaw_pp.poops": "Homing baby villager",
+  "entity.jigsaw_pp.poops": "Homing baby villager",
+  "item.jigsaw_pp.poopis": "Homing baby shitlager",
+  "entity.jigsaw_pp.poopis": "Homing baby shitlager",
   "item.jigsaw_pp.straps": "Colonel straps",
   "block.jigsaw_pp.pig_tuffyak": "Pig Tuffyak",
   "item.jigsaw_pp.beaver_staff.desc": "§7Can be used to incite §6Stone Beavers",
@@ -274,7 +274,7 @@
   "item.jigsaw_pp.nutcracker.desc": "§7Cracks §3Nuts§7 in your off-hand",
   "item.jigsaw_pp.teapot_cannon.desc": "§7Uses TNTpots as an ammo",
   "item.jigsaw_pp.teapot_launcher.desc": "§7Uses itself as an ammo",
-  "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings teapots as an ammo",
+  "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings as an ammo",
   "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
   "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get",
 
@@ -339,6 +339,28 @@
   "item.minecraft.splash_potion.effect.poop_walking_potion": "Splash poop walking potion",
   "item.minecraft.lingering_potion.effect.poop_walking_potion": "Lingering poop walking potion",
 
+  "item.jigsaw_pp.plunger.desc": "§7Poor man's trident",
+  "item.jigsaw_pp.slon_gun.desc": "§7Crouch + RMB on water to refill",
+  "item.jigsaw_pp.slon_gun_green.desc": "§7Crouch + RMB on poop to refill",
+
+  "item.jigsaw_pp.fried_soup": "Fried soup",
+  "item.jigsaw_pp.fried_soup.desc": "§7Provokes your intestines, it will get §aGassy",
+  "block.jigsaw_pp.poonami": "Poonami bucket",
+  "item.jigsaw_pp.poonami.desc": "§7Insanely dangerous, §4WILL DESTROY YOUR WORLD",
   "enchantment.jigsaw_pp.purgen_armor_piercing": "Purgen Piercing",
-  "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Allows pilule to bypass hazmat"
+
+  "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Allows pilule to bypass hazmat",
+
+  "effect.jigsaw_pp.meteorism": "Flatulence",
+  "item.minecraft.tipped_arrow.effect.meteorism_potion": "Flatulence arrow",
+  "item.minecraft.potion.effect.poop_meteorism_potion": "Flatulence potion",
+  "item.minecraft.splash_potion.effect.meteorism_potion": "Splash flatulence potion",
+  "item.minecraft.lingering_potion.effect.meteorism_potion": "Lingering flatulence potion",
+
+  "item.jigsaw_pp.purgen_smoke_grenade": "purgen smoke grenade",
+  "item.jigsaw_pp.purgen_smoke_grenade_empty": "empty purgen smoke grenade",
+  "item.jigsaw_pp.gassy_smoke_grenade": "gassy smoke grenade",
+  "item.jigsaw_pp.gassy_smoke_grenade_empty": "empty gassy smoke grenade",
+  "item.jigsaw_pp.ponos_smoke_grenade": "ponos smoke grenade",
+  "item.jigsaw_pp.ponos_smoke_grenade_empty": "empty ponos smoke grenade"
 }

@@ -41,6 +41,8 @@ public class ModEffects {
             () -> new PurgenManBlessingEffect(MobEffectCategory.HARMFUL, -12372212));
     public static final RegistryObject<MobEffect> POOP_WALKING = MOB_EFFECTS.register("poop_walking",
             () -> new PoopWalkingEffect(MobEffectCategory.BENEFICIAL, -12372212));
+    public static final RegistryObject<MobEffect> METEORISM = MOB_EFFECTS.register("meteorism",
+            () -> new MeteorismEffect(MobEffectCategory.HARMFUL, 6987972));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

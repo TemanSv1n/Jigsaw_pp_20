@@ -46,6 +46,7 @@ public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
         lifeTime++;
         super.tick();
     }
+
     @Override
     protected void onHitBlock(BlockHitResult blockHitResult) {
         if (this.level().isClientSide )

@@ -2,8 +2,11 @@ package net.svisvi.jigsawpp.entity.projectile.granadeProjectiles;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.svisvi.jigsawpp.entity.emitters.FartGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
@@ -27,11 +30,16 @@ public class GassyGrenadeProjectile extends AbstractGrenadeProjectile{
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.PURGEN_GRENADE.get(); 
+        return ModItems.GASSY_GRENADE_USED.get(); 
     }
 
     @Override
     protected void explode() {
+        FartGasEmitterEntity poopgas = new FartGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ()); 
+        poopgas.setDuration(600);
+        this.level().addFreshEntity(poopgas);
+        ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY() , this.getZ(), new ItemStack(ModItems.GASSY_GRENADE_USED.get(), 1));
+        this.level().addFreshEntity(item);
         super.explode();
     }
 }

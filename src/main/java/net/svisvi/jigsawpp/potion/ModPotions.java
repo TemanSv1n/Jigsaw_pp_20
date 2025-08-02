@@ -40,6 +40,9 @@ public class ModPotions {
     public static final RegistryObject<Potion> POOP_WALKING_POTION = POTIONS.register("poop_walking_potion",
             () -> new Potion(new MobEffectInstance(ModEffects.POOP_WALKING.get(), 8000, 0)));
 
+    public static final RegistryObject<Potion> METEORISM_POTION = POTIONS.register("meteorism_potion",
+            () -> new Potion(new MobEffectInstance(ModEffects.METEORISM.get(), 2000, 0)));
+
 
     public static void register(IEventBus eventBus) {
         POTIONS.register(eventBus);

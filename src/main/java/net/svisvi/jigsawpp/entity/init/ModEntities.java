@@ -8,7 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
-import net.svisvi.jigsawpp.entity.emitters.AbstractEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.*;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
@@ -153,6 +153,23 @@ public class ModEntities {
     public static final RegistryObject<EntityType<AbstractEmitterEntity>> ABSTRACT_EMITTER =
             ENTITY_TYPES.register("abstract_emitter", () -> EntityType.Builder.<AbstractEmitterEntity>of(AbstractEmitterEntity::new, MobCategory.MISC)
                     .sized(3f, 3f).build("abstract_emitter"));
+
+    public static final RegistryObject<EntityType<GasEmitterEntity>> GAS_EMITTER =
+            ENTITY_TYPES.register("gas_emitter", () -> EntityType.Builder.<GasEmitterEntity>of(GasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("gas_emitter"));
+
+    public static final RegistryObject<EntityType<PoopGasEmitterEntity>> POOP_GAS_EMITTER =
+            ENTITY_TYPES.register("poop_gas_emitter", () -> EntityType.Builder.<PoopGasEmitterEntity>of(PoopGasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("poop_gas_emitter"));
+
+    public static final RegistryObject<EntityType<PurgativeGasEmitterEntity>> PURGATIVE_GAS_EMITTER =
+            ENTITY_TYPES.register("purgative_gas_emitter", () -> EntityType.Builder.<PurgativeGasEmitterEntity>of(PurgativeGasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("purgative_gas_emitter"));
+
+    public static final RegistryObject<EntityType<FartGasEmitterEntity>> FART_GAS_EMITTER =
+            ENTITY_TYPES.register("fart_gas_emitter", () -> EntityType.Builder.<FartGasEmitterEntity>of(FartGasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("fart_gas_emitter"));
+
 
 
 

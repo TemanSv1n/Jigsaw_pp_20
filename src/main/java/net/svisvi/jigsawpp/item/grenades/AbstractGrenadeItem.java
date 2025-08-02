@@ -23,11 +23,6 @@ public abstract class AbstractGrenadeItem extends Item {
     protected abstract ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer);
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
-        return 72000;
-    }
-
-    @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack pStack = pPlayer.getItemInHand(pUsedHand);
         pPlayer.startUsingItem(pUsedHand);
@@ -35,7 +30,7 @@ public abstract class AbstractGrenadeItem extends Item {
         if (!pLevel.isClientSide) {
             ThrowableItemProjectile grenade = setProjectile(pLevel, pPlayer);
             grenade.setItem(pStack);
-            grenade.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
+            grenade.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.0F, 1.0F);
             pLevel.addFreshEntity(grenade);
         }
 

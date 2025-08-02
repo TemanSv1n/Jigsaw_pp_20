@@ -1,0 +1,11 @@
+{
+  "name": "Bucket of fecal sludge",
+  "icon": "jigsaw_pp:ponos_bucket",
+  "category": "jigsaw_pp:poop_basics_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bucket of feces..."
+    }
+  ]
+}
