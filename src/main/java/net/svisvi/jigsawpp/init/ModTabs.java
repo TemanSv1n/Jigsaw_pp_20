@@ -179,6 +179,7 @@ public class ModTabs {
 				tabData.accept(ModItems.SHIT_BLOCK.get());
 				tabData.accept(ModItems.DOCTOR_HELMET.get());
 				tabData.accept(ModItems.GRUEL.get());
+                tabData.accept(ModItems.PURGEN_GRENADE.get());
 
 			}).build());
 }
