@@ -119,11 +119,13 @@ public class PoonamiBlock extends Block {
             if (world.isEmptyBlock(BlockPos.containing(x, y, z - 1))) {
                 world.setBlock(BlockPos.containing(x, y, z - 1), ModBlocks.POONAMI.get().defaultBlockState(), 3);
             }
+            if (world.isEmptyBlock(BlockPos.containing(x, y - 1, z))) {
+                world.setBlock(BlockPos.containing(x, y - 1, z), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+            }
             world.setBlock(BlockPos.containing(x, y, z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
         }
 
 
-        world.scheduleTick(pos, this, 10);
+        world.scheduleTick(pos, this, world.getLevelData().getGameRules().getInt(ModGameRules.POONAMI_SPEED));
     }
-
 }

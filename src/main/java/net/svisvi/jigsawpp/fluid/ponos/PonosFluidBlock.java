@@ -60,9 +60,9 @@ public class PonosFluidBlock extends LiquidBlock {
             if (entity instanceof Player) {
                 if (world instanceof ServerLevel _level) {
                     if (!_level.isClientSide()) {
-                        _level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 1, 1);
+                        _level.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 0.1F, 1);
                     } else {
-                        _level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 1, 1, false);
+                        _level.playLocalSound((double) pos.getX(), pos.getY(), pos.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 0.1F, 1, false);
                     }
                 }
             }

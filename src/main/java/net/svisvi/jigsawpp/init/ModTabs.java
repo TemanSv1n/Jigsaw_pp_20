@@ -1,6 +1,6 @@
 
 /*
- *    MCreator note: This file will be REGENERATED on each build.
+ *    MCreator note: This file will be RAPED on each build.
  */
 package net.svisvi.jigsawpp.init;
 

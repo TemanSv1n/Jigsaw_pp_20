@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
@@ -109,6 +110,5 @@ public abstract class HitlerNoseItem extends ArmorItem {
         public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
             return "jigsaw_pp:textures/models/armor/hitler_nose.png";
         }
-
     }
 }

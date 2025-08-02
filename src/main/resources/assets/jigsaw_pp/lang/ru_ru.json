@@ -261,7 +261,7 @@
   "item.jigsaw_pp.teapot_cannon": "Чайнейший-3000",
 
   "block.jigsaw_pp.farfuhrer.desc": "§7Устраивает газовую атаку когда §3на костре",
-  "item.jigsaw_pp.fork.desc": "§7Что §6\"«чисти»\"§7, ёпта, как я буду §6вилкой§7-то чистить?! Чё, совсем мудак что ли, покажи мне, как я буду чистить-то, ёпта!",
+  "item.jigsaw_pp.fork.desc": "§7Что §6\"«чисти»\"§7, ёпта, как я буду §6вилкой§7-то чистить?! Чё, совсем мудак что ли, покажи мне, как я буду §6чистить говно§7-то, ёпта!",
   "item.jigsaw_pp.nutcracker.desc": "§7Колет §3орешки§7 в левой руке",
   "item.jigsaw_pp.teapot_cannon.desc": "§7Заряжается взрывчайниками",
   "item.jigsaw_pp.teapot_launcher.desc": "§7Одноразовый",
@@ -354,6 +354,30 @@
   "item.jigsaw_pp.paddle.desc": "§7Ускоряет вас в воде если взяты в обе руки",
   "item.jigsaw_pp.road_sign.desc": "§7Имеет отдачу по площади",
   "item.jigsaw_pp.jetstream_chair.desc": "§7Потчует боброжмыхом в культях космонавта",
-  "item.jigsaw_pp.ponos_cutlass.desc": "§7Отчищает ваших врагов от поноса, дает за это плюшки"
+  "item.jigsaw_pp.ponos_cutlass.desc": "§7Отчищает ваших врагов от поноса, дает за это плюшки",
+
+  "item.jigsaw_pp.cursed_cow_spawn_egg": "§rЯйцо призыва §7проклятой коровы",
+  "item.jigsaw_pp.teeth": "Зубы",
+  "item.jigsaw_pp.teeth.desc": "§7Не скармливать §6коровам!",
+  "item.jigsaw_pp.suicide_vest": "Жилет суицидника",
+  "item.jigsaw_pp.suicide_vest.desc": "§7Работает от детонатора, но бывает бумкает просто так",
+  "item.jigsaw_pp.detonator": "Детонатор",
+  "item.jigsaw_pp.detonator.desc": "§7Чтобы подвязать к предмету(например жилету) переименуйте оба предмета в наковальне",
+  "item.jigsaw_pp.onion": "Дедушкина луковица",
+  "item.jigsaw_pp.onion.desc": "§7Возбуждает коров",
+  "item.jigsaw_pp.merchant_mask": "§eМаска торгаша",
+  "item.jigsaw_pp.junk": "Хуй",
+  "item.jigsaw_pp.joker_nose": "Усики дурака",
+  "item.jigsaw_pp.hitler_nose": "Усики гитлера",
+  "item.jigsaw_pp.clown_nose": "Клоунский нос",
+  "item.jigsaw_pp.belly": "Пузо",
+  "item.jigsaw_pp.bellyjunk": "Пузочлен",
+  "item.jigsaw_pp.alcoshirt": "Майка алкашка",
+  "item.jigsaw_pp.pudge_apron": "Слюнявчик пуджа",
+  "item.jigsaw_pp.underwear": "Труселя",
+  "item.jigsaw_pp.expectorator": "Харчеватель",
+  "item.jigsaw_pp.expectorator.desc": "§7На кнопку способности выпускает высокоскоростную харчу на лица ваших врагов!",
+  "item.jigsaw_pp.military_boots": "Берцы",
+  "item.jigsaw_pp.military_boots.desc": "§7Позволяют ходить по любой §6грязи"
 
 }
