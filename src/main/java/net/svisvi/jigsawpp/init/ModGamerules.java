@@ -5,9 +5,5 @@ import net.minecraftforge.fml.common.Mod;
 
 public class ModGamerules {
 
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public class JigsawPpModGameRules {
-        public static final GameRules.Key<GameRules.BooleanValue> REMOVE_POONAMI = GameRules.register("removePoonami", GameRules.Category.MISC, GameRules.BooleanValue.create(false));
-    }
-
+// DO NOT FUCKING SHIT
 }
