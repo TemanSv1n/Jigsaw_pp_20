@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+    "type": "create:emptying",
+    "ingredients": [
+      {
+        "item": "jigsaw_pp:shit_cup"
+      }
+    ],
+    "results": [
+      {
+        "item": "jigsaw_pp:shit_cup"
+      },
+      {
+        "fluid": "jigsaw_pp:ponos",
+        "amount": 250
+      }
+    ]
+  }
