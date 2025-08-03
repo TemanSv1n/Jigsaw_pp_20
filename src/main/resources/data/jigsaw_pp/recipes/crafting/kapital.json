@@ -1,0 +1,12 @@
+{
+  "type": "patchouli:shapeless_book_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "jigsaw_pp:beaweed_nut"
+    }
+  ],
+  "book": "jigsaw_pp:kapital"
+}

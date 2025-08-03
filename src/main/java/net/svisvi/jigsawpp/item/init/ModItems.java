@@ -312,6 +312,9 @@ public class ModItems {
 	public static final RegistryObject<Item> MILITARY_BOOTS = REGISTRY.register("military_boots", () -> new MilitaryBootsItem.Boots());
 	public static final RegistryObject<Item> DETONATOR = REGISTRY.register("detonator", () -> new DetonatorItem());
 
+
+	;
+
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}

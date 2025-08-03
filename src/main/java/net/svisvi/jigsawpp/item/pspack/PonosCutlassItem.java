@@ -4,6 +4,7 @@ package net.svisvi.jigsawpp.item.pspack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -22,6 +24,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
+
+import java.util.List;
 
 public class PonosCutlassItem extends SwordItem {
     public PonosCutlassItem() {
@@ -59,6 +63,11 @@ public class PonosCutlassItem extends SwordItem {
 
         return retval;
     }
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.ponos_cutlass.desc"));
+    }
 
     public void drainPoop(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity){
         if (entity == null || sourceentity == null)
@@ -74,7 +83,7 @@ public class PonosCutlassItem extends SwordItem {
             if (entity instanceof LivingEntity _entity)
                 _entity.removeEffect(ModEffects.PURGATIVE.get());
             if (sourceentity instanceof LivingEntity _entity) {
-                _entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 1, (false), (true)));
+                _entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 400, 1, (false), (true)));
                 _entity.addEffect(new MobEffectInstance(ModEffects.GOOD_EFFECT.get(), 300, 1, (false), (true)));
             }
             if (world instanceof ServerLevel _level)
@@ -93,7 +102,7 @@ public class PonosCutlassItem extends SwordItem {
             if (entity instanceof LivingEntity _entity)
                 _entity.removeEffect(ModEffects.POOP.get());
             if (sourceentity instanceof LivingEntity _entity)
-                _entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 21, 0, (false), (true)));
+                _entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 2, (false), (true)));
             if (world instanceof ServerLevel _level)
                 _level.sendParticles((SimpleParticleType) (ModParticleTypes.POOP_BUBBLE.get()), (entity.getX()), (entity.getY()), (entity.getZ()), 20, 0.7, 0.7, 0.7, 0.2);
             if (world instanceof Level _level) {

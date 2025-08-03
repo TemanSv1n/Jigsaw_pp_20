@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "030",
+    "010",
+    "020"
+  ],
+  "key": {
+    "0": {
+      "item": "jigsaw_pp:crystal_purgen_pilule"
+    },
+    "1": {
+      "item": "jigsaw_pp:gas_mask_helmet"
+    },
+    "2": {
+      "item": "jigsaw_pp:batch_size_card"
+    },
+    "3": {
+      "item": "jigsaw_pp:blabball"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:doctor_helmet",
+    "count": 1
+  }
+}

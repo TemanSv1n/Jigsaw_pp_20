@@ -80,10 +80,10 @@
   "item.jigsaw_pp.moss_elephant_thumb": "Moss Elephant Thumb",
   "item.jigsaw_pp.moss_elephant_thumb.desc": "§7Give item to §aMoss Elephant§7 for the result",
 
-  "item.jigsaw_pp.zombie_beaver_spawn_egg": "Zombie Beaver spawn egg",
-  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "Zombie Beaver barrel spawn egg",
+  "item.jigsaw_pp.zombie_beaver_spawn_egg": "§2Zombie Beaver §rspawn egg",
+  "item.jigsaw_pp.zombie_beaver_spawner_spawn_egg": "§2Zombie Beaver barrel §rspawn egg",
 
-  "item.jigsaw_pp.beaver_spider_spawn_egg": "Beaver spider spawn egg",
+  "item.jigsaw_pp.beaver_spider_spawn_egg": "§6Beaver spider §rspawn egg",
 
   "item.jigsaw_pp.hazmat_helmet": "Hazmat helmet",
   "item.jigsaw_pp.hazmat_chestplate": "Hazmat chestplate",
@@ -273,7 +273,7 @@
   "item.jigsaw_pp.fork.desc": "§7What do you mean \"clean\", damn it, how am I supposed to §l§6clean shit§r§7 with a fork?!",
   "item.jigsaw_pp.nutcracker.desc": "§7Cracks §3Nuts§7 in your off-hand",
   "item.jigsaw_pp.teapot_cannon.desc": "§7Uses TNTpots as an ammo",
-  "item.jigsaw_pp.teapot_launcher.desc": "§7Uses itself as an ammo",
+  "item.jigsaw_pp.teapot_launcher.desc": "§7Disposable",
   "item.jigsaw_pp.tree_launcher.desc": "§7Uses any saplings as an ammo",
   "item.jigsaw_pp.blab_egg.desc": "§7Decorational use only",
   "item.jigsaw_pp.fat_block.desc": "§7Spill liquid fat and let it cool to get",
@@ -312,7 +312,7 @@
   "item.minecraft.splash_potion.effect.unlevitation_potion": "Splash unlevitation potion",
   "item.minecraft.lingering_potion.effect.unlevitation_potion": "Lingering unlevitation potion",
 
-  "block.jigsaw_pp.creative_heat_source.desc": "§7Infinity heat source for purgen factory",
+  "block.jigsaw_pp.creative_heat_source.desc": "§7Infinite heat source for purgen factory",
   "block.jigsaw_pp.creative_heat_source": "Creative heat source",
   "item.jigsaw_pp.pilule.god_visibility": "§7Creative visibility applied",
   "item.jigsaw_pp.pilule.doctor_visibility": "§7Doctor's view applied",
@@ -398,5 +398,6 @@
   "item.jigsaw_pp.gassy_smoke_grenade": "gassy smoke grenade",
   "item.jigsaw_pp.gassy_smoke_grenade_empty": "empty gassy smoke grenade",
   "item.jigsaw_pp.ponos_smoke_grenade": "ponos smoke grenade",
-  "item.jigsaw_pp.ponos_smoke_grenade_empty": "empty ponos smoke grenade"
+  "item.jigsaw_pp.ponos_smoke_grenade_empty": "empty ponos smoke grenade",
+  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that"
 }
