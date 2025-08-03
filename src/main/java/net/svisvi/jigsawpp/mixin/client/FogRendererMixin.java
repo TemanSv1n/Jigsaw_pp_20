@@ -31,6 +31,7 @@ public abstract class FogRendererMixin {
         if (shouldApplyPurgenEffects()) {
             // Directly override the fog color in the render system
             RenderSystem.clearColor(0.4f, 0.2f, 0.0f, 0.0f);
+            //RenderSystem.setShaderFogColor(0.4f, 0.2f, 0.0f, 0.0f);
         }
     }
 

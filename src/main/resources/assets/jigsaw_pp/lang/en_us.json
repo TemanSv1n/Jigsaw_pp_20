@@ -346,7 +346,7 @@
   "item.jigsaw_pp.fried_soup": "Fried soup",
   "item.jigsaw_pp.fried_soup.desc": "§7Provokes your intestines, it will get §aGassy",
   "block.jigsaw_pp.poonami": "Poonami bucket",
-  "item.jigsaw_pp.poonami.desc": "§7Insanely dangerous, §4WILL DESTROY YOUR WORLD"
+  "item.jigsaw_pp.poonami.desc": "§7Insanely dangerous, §4WILL DESTROY YOUR WORLD",
   "enchantment.jigsaw_pp.purgen_armor_piercing": "Purgen Piercing",
 
   "enchantment.jigsaw_pp.purgen_armor_piercing.desc": "§7Allows pilule to bypass hazmat",
@@ -355,5 +355,8 @@
   "item.minecraft.tipped_arrow.effect.meteorism_potion": "Flatulence arrow",
   "item.minecraft.potion.effect.poop_meteorism_potion": "Flatulence potion",
   "item.minecraft.splash_potion.effect.meteorism_potion": "Splash flatulence potion",
-  "item.minecraft.lingering_potion.effect.meteorism_potion": "Lingering flatulence potion"
+  "item.minecraft.lingering_potion.effect.meteorism_potion": "Lingering flatulence potion",
+
+  "item.jigsaw_pp.fart_bottle": "Bottle O'Fart",
+  "item.jigsaw_pp.poop_bottle": "Bottle O'Poop"
 }

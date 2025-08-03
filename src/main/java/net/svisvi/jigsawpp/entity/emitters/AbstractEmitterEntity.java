@@ -12,8 +12,16 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.AABB;
@@ -60,6 +68,10 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
     @Nullable private LivingEntity owner;
     @Nullable private UUID ownerUUID;
 
+    @Nullable public Item bottle;
+    public boolean suckable = true;
+    public boolean bottlePickable = true;
+
     // ========== Constructors ==========
     public AbstractEmitterEntity(EntityType<? extends AbstractEmitterEntity> type, Level level, ParticleOptions particleOptions, float radiuss, int durra) {
         super(type, level);
@@ -69,6 +81,8 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         this.setDuration(durra);
         this.setDebugMode(false); // Default to normal mode
         this.setAffectOwner(true);
+        this.setSuckable(true);
+        this.setBottlePickable(true);
     }
 
     public AbstractEmitterEntity(EntityType<? extends AbstractEmitterEntity> type, Level level) {
@@ -192,7 +206,59 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
 
     }
 
+    @Override
+    public InteractionResult interact(Player pPlayer, InteractionHand pHand) {
+        System.out.println("HITLE");
+        if (!this.level().isClientSide() && this.getBottle() != null && this.isBottlePickable() && this.isSuckable()) {
+            ItemStack itemstack = pPlayer.getItemInHand(pHand);
+            if (itemstack.is(Items.GLASS_BOTTLE)) {
+                pPlayer.playSound(SoundEvents.BOTTLE_FILL_DRAGONBREATH, 1.0F, 1.0F);
+                ItemStack itemstack1 = new ItemStack(this.getBottle(), 1);
+
+                itemstack.shrink(1);
+                pPlayer.addItem(itemstack1);
+
+                this.suckOver();
+                return InteractionResult.sidedSuccess(this.level().isClientSide);
+            }
+            return super.interact(pPlayer, pHand);
+        }
+        return super.interact(pPlayer, pHand);
+    }
+
+    public void suckOver(){
+        this.discard();
+    }
+
+    @Override
+    public boolean isPickable() {
+        return true; // Allows the entity to be interacted with
+    }
+
     // ========== Data Accessors ==========
+
+
+    public boolean isSuckable() {
+        return suckable;
+    }
+    public void setSuckable(boolean suckable) {
+        this.suckable = suckable;
+    }
+    public boolean isBottlePickable() {
+        return bottlePickable;
+    }
+    public void setBottlePickable(boolean bottlePickable) {
+        this.bottlePickable = bottlePickable;
+    }
+
+    @Nullable
+    public Item getBottle() {
+        return bottle;
+    }
+    public void setBottle(@Nullable Item bottle) {
+        this.bottle = bottle;
+    }
+
     public float getRadius() {
         return this.entityData.get(DATA_RADIUS);
     }

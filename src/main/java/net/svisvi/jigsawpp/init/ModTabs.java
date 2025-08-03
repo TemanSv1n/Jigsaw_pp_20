@@ -180,6 +180,8 @@ public class ModTabs {
 				tabData.accept(ModItems.GRUEL.get());
 				tabData.accept(ModItems.POONAMI.get());
 				tabData.accept(ModItems.FRIED_SOUP.get());
+				tabData.accept(ModItems.FART_BOTTLE.get());
+				tabData.accept(ModItems.POOP_BOTTLE.get());
 
 			}).build());
 }
