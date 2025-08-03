@@ -178,6 +178,12 @@ public class ModTabs {
 				tabData.accept(ModItems.SHIT_BLOCK.get());
 				tabData.accept(ModItems.DOCTOR_HELMET.get());
 				tabData.accept(ModItems.GRUEL.get());
+        tabData.accept(ModItems.PURGEN_GRENADE.get());
+        tabData.accept(ModItems.PURGEN_GRENADE_USED.get());
+        tabData.accept(ModItems.GASSY_GRENADE.get());
+        tabData.accept(ModItems.GASSY_GRENADE_USED.get());
+        tabData.accept(ModItems.PONOS_GRENADE.get());
+        tabData.accept(ModItems.PONOS_GRENADE_USED.get());
 				tabData.accept(ModItems.POONAMI.get());
 				tabData.accept(ModItems.FRIED_SOUP.get());
 				tabData.accept(ModItems.FART_BOTTLE.get());

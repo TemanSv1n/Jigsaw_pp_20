@@ -13,6 +13,8 @@ import net.svisvi.jigsawpp.entity.emitters.FartGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.emitters.PoopGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairItem;
+import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.GassyGrenadeProjectile;
+import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PurgenGrenadeProjectile;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.item.FriedBeaweedSeedsItem;
 import net.svisvi.jigsawpp.item.*;
@@ -30,7 +32,13 @@ import net.svisvi.jigsawpp.item.armor.*;
 import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
 import net.svisvi.jigsawpp.item.drist_tnt_stick.DristTntStickItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
+
+import net.svisvi.jigsawpp.item.grenades.GassyGrenadeItem;
+import net.svisvi.jigsawpp.item.grenades.PonosGrenadeItem;
+import net.svisvi.jigsawpp.item.grenades.PurgenGrenadeItem;
+
 import net.svisvi.jigsawpp.item.gas_bottle.AbstractGasBottleItem;
+
 import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
@@ -284,6 +292,12 @@ public class ModItems {
 	public static final RegistryObject<Item> TEAPOT_LAUNCHER = REGISTRY.register("teapot_launcher", () -> new TeapotLauncherItem());
 	public static final RegistryObject<Item> TEAPOT_CANNON = REGISTRY.register("teapot_cannon", () -> new TeapotCannonItem());
 	public static final RegistryObject<Item> GRUEL = REGISTRY.register("gruel", () -> new GruelItem());
+  public static final RegistryObject<Item> PURGEN_GRENADE = REGISTRY.register("purgen_smoke_grenade", () -> new PurgenGrenadeItem());
+  public static final RegistryObject<Item> PURGEN_GRENADE_USED = REGISTRY.register("purgen_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
+  public static final RegistryObject<Item> PONOS_GRENADE = REGISTRY.register("ponos_smoke_grenade", () -> new PonosGrenadeItem());
+  public static final RegistryObject<Item> PONOS_GRENADE_USED = REGISTRY.register("ponos_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
+  public static final RegistryObject<Item> GASSY_GRENADE = REGISTRY.register("gassy_smoke_grenade", () -> new GassyGrenadeItem());
+  public static final RegistryObject<Item> GASSY_GRENADE_USED = REGISTRY.register("gassy_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
 	public static final RegistryObject<Item> FRIED_SOUP = REGISTRY.register("fried_soup", () -> new FriedSoupItem());
 	public static final RegistryObject<Item> POONAMI = block(ModBlocks.POONAMI);
 	public static final RegistryObject<Item> FART_BOTTLE = REGISTRY.register("fart_bottle", () -> new AbstractGasBottleItem(FartGasEmitterEntity.class));

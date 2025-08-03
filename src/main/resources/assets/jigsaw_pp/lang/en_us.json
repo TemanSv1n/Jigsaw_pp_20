@@ -357,6 +357,14 @@
   "item.minecraft.splash_potion.effect.meteorism_potion": "Splash flatulence potion",
   "item.minecraft.lingering_potion.effect.meteorism_potion": "Lingering flatulence potion",
 
+  "item.jigsaw_pp.purgen_smoke_grenade": "purgen smoke grenade",
+  "item.jigsaw_pp.purgen_smoke_grenade_empty": "empty purgen smoke grenade",
+  "item.jigsaw_pp.gassy_smoke_grenade": "gassy smoke grenade",
+  "item.jigsaw_pp.gassy_smoke_grenade_empty": "empty gassy smoke grenade",
+  "item.jigsaw_pp.ponos_smoke_grenade": "ponos smoke grenade",
+  "item.jigsaw_pp.ponos_smoke_grenade_empty": "empty ponos smoke grenade",
+
   "item.jigsaw_pp.fart_bottle": "Bottle O'Fart",
   "item.jigsaw_pp.poop_bottle": "Bottle O'Poop"
+
 }
