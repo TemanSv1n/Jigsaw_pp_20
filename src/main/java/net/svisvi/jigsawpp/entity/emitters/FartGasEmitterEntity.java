@@ -11,6 +11,7 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.gas.AbstractGasClass;
 import net.svisvi.jigsawpp.gas.FartGasClass;
 import net.svisvi.jigsawpp.gas.PoopGasClass;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class FartGasEmitterEntity extends GasEmitterEntity{
     public static final AbstractGasClass DEFAULT_GAS = new FartGasClass();
@@ -25,6 +26,7 @@ public class FartGasEmitterEntity extends GasEmitterEntity{
         this.setRadius(radiuss);
         this.setDuration(durra);
         this.setGas(gassy);
+        this.setBottle(ModItems.FART_BOTTLE.get());
         this.setDebugMode(false); // Default to normal mode
     }
 

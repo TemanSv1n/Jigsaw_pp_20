@@ -186,6 +186,8 @@ public class ModTabs {
         tabData.accept(ModItems.PONOS_GRENADE_USED.get());
 				tabData.accept(ModItems.POONAMI.get());
 				tabData.accept(ModItems.FRIED_SOUP.get());
+				tabData.accept(ModItems.FART_BOTTLE.get());
+				tabData.accept(ModItems.POOP_BOTTLE.get());
 
 			}).build());
 }

@@ -104,7 +104,7 @@ public class PoopProtectionArmorConditions {
     public static void defaultAction(Entity entity, ItemStack itemStack, String type){
         //break for example ://
         if (type.equals("gas")) {
-            if (entity.level().random.nextInt(100) >= 88)
+            if (entity.level().random.nextInt(100) >= 96)
             {
                 ItemStack _ist = itemStack;
                 if (_ist.hurt(2, entity.level().random, null)) {

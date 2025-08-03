@@ -14,6 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.emitters.AbstractEmitterEntity;
 import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 import javax.annotation.Nullable;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public abstract class AbstractGasClass {
     public ParticleOptions particle;
     public SoundEvent sound;
+    public AbstractEmitterEntity emitter;
 
     @Nullable
     private LivingEntity owner;
@@ -39,6 +41,12 @@ public abstract class AbstractGasClass {
     }
     public void setParticle(ParticleOptions particle) {
         this.particle = particle;
+    }
+    public AbstractEmitterEntity getEmitter() {
+        return emitter;
+    }
+    public void setEmitter(AbstractEmitterEntity emitter) {
+        this.emitter = emitter;
     }
 
     public float gasCloudSizeMultiplier = 1f;

@@ -127,15 +127,18 @@ public class BeaverBombProjectile extends ThrowableItemProjectile {
         for (int i = 0; i < 4; i++) {
 
             if (!((entity instanceof LivingEntity _entGetArmor ? temp = _entGetArmor.getItemBySlot(slotNames.get(i)) : ItemStack.EMPTY).getItem() instanceof BeaverItem)) {
-                if (i != 1) {
+
                     if (temp.getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
                         ItemEntity entityToSpawn = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), temp);
                         entityToSpawn.setPickUpDelay(10);
                         level.addFreshEntity(entityToSpawn);
 
-                        ItemStack newStack = new ItemStack(beaverArmor.get(i));
-                        if (binding) {
-                            newStack.enchant(Enchantments.BINDING_CURSE, 1);
+                        ItemStack newStack = ItemStack.EMPTY;
+                        if (i != 1) {
+                            newStack = new ItemStack(beaverArmor.get(i));
+                            if (binding) {
+                                newStack.enchant(Enchantments.BINDING_CURSE, 1);
+                            }
                         }
                         if (entity instanceof Player _player) {
                             _player.getInventory().armor.set(i, newStack);
@@ -145,7 +148,7 @@ public class BeaverBombProjectile extends ThrowableItemProjectile {
                         }
 
                     }
-                }
+                //}
         }
 
         }
