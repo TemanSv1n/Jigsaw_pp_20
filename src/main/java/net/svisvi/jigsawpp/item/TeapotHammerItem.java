@@ -27,11 +27,6 @@ public class TeapotHammerItem extends RoadSignItem {
         entity.level().playSound(null, entity.getOnPos(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jigsaw_pp:whistle")), SoundSource.NEUTRAL, 1, 1);
         return super.hurtEnemy(itemstack, entity, sourceentity);
     }
-    @Override
-    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
-        super.appendHoverText(itemstack, world, list, flag);
-        list.add(Component.translatable("item.jigsaw_pp.road_sign.desc"));
-    }
 //    @Override
 //    public InteractionResult useOn(UseOnContext pContext) {
 //        BlockState pState = pContext.getLevel().getBlockState(pContext.getClickedPos());
