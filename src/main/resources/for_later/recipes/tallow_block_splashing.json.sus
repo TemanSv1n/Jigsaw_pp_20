@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "jigsaw:fat_block"
+    }
+  ],
+  "results": [
+    {
+      "item": "jigsaw:tallow_block"
+    }
+  ]
+}

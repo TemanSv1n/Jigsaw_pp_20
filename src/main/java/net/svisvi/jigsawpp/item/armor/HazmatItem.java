@@ -15,10 +15,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
+import net.svisvi.jigsawpp.procedures.ut.IPoopProtective;
+import net.svisvi.jigsawpp.procedures.ut.PoopProtectionArmorConditions;
 
 import java.util.List;
 
-public abstract class HazmatItem extends ArmorItem {
+public abstract class HazmatItem extends ArmorItem implements IPoopProtective {
     public HazmatItem(ArmorItem.Type type, Item.Properties properties) {
         super(new ArmorMaterial() {
             @Override
@@ -61,6 +63,14 @@ public abstract class HazmatItem extends ArmorItem {
                 return 0f;
             }
         }, type, properties);
+
+    }
+
+    public void onGas(ItemStack itemStack, Entity entity){
+        PoopProtectionArmorConditions.defaultAction(entity, itemStack, "gas");
+    }
+    public void onLiquid(ItemStack itemStack, Entity entity){
+        PoopProtectionArmorConditions.defaultAction(entity, itemStack, "liquid");
     }
 
     public static class Helmet extends HazmatItem {
@@ -77,7 +87,6 @@ public abstract class HazmatItem extends ArmorItem {
         public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
             return "jigsaw_pp:textures/models/armor/hazmat_layer_1.png";
         }
-
     }
 
     public static class Chestplate extends HazmatItem {

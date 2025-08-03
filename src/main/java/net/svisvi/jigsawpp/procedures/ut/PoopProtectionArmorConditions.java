@@ -91,7 +91,7 @@ public class PoopProtectionArmorConditions {
                         defaultAction(entity, it, "liquid");
                     }
                 } else if (type.equals("gas")) {
-                    if (it.getItem() instanceof IPoopProtective) {
+                    if (it.getItem() instanceof IPoopProtective && false) {
                         ((IPoopProtective) it.getItem()).onGas(it, entity);
                     } else {
                         defaultAction(entity, it, "gas");
@@ -103,6 +103,18 @@ public class PoopProtectionArmorConditions {
 
     public static void defaultAction(Entity entity, ItemStack itemStack, String type){
         //break for example ://
+        if (type.equals("gas")) {
+            if (entity.level().random.nextInt(100) >= 88)
+            {
+                ItemStack _ist = itemStack;
+                if (_ist.hurt(2, entity.level().random, null)) {
+                    _ist.shrink(1);
+                    _ist.setDamageValue(0);
+                }
+
+            }
+        }
+
     }
 
 }

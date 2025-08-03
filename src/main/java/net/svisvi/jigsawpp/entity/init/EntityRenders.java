@@ -38,6 +38,10 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.NUCLEAR_TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
 
+        EntityRenderers.register(ModEntities.PURGEN_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(ModEntities.PONOS_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(ModEntities.GASSY_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+
         EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
         EntityRenderers.register(ModEntities.BLACK_TEAPOD_SPIDER.get(), BlackTeapodSpiderRender::new);
         EntityRenderers.register(ModEntities.RAW_TEAPOD_SPIDER.get(), RawTeapodSpiderRender::new);

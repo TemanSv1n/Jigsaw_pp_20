@@ -3,7 +3,7 @@
   "experience": 1,
   "cookingtime": 500,
   "ingredient": {
-    "item": "jigsaw_pp:poops"
+    "item": "jigsaw:poops"
   },
-  "result": "jigsaw_pp:fat_block"
+  "result": "jigsaw:fat_block"
 }

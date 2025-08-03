@@ -73,7 +73,7 @@ public class SlonGunGreenProjectile extends ThrowableItemProjectile implements I
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), damage);
-        PoopEffect.addEffectLiquidWay(pResult.getEntity(),(new MobEffectInstance(ModEffects.POOP.get(), 240, 0, false, false)));
+        PoopEffect.addEffectLiquidWay(pResult.getEntity(),(new MobEffectInstance(ModEffects.POOP.get(), 120, 1, false, false)));
         //PurgativeEffect.addEffectLiquidWay(pResult.getEntity(), (new MobEffectInstance(ModEffects.PURGATIVE.get(), 40, 1, false, false)));
     }
     public static Projectile shoot (Level pLevel, LivingEntity pEntity, float pVelocity, float pInaccuracy){

@@ -1,0 +1,6 @@
+{
+    "parent": "jigsaw_pp:item/smoke_grenade",
+    "textures": {
+        "0": "jigsaw_pp:item/ponos_smoke_grenade"
+    }
+}

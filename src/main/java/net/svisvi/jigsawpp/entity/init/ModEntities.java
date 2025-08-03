@@ -21,6 +21,9 @@ import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZomb
 
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileEntity;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjectile;
+import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PurgenGrenadeProjectile;
+import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.GassyGrenadeProjectile;
+import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PonosGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
 import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
@@ -78,6 +81,16 @@ public class ModEntities {
             ENTITY_TYPES.register("teapot_missile_entity", () -> EntityType.Builder.<TeapotMissileEntity>of(TeapotMissileEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("teapot_missile_entity"));
 
+    public static final RegistryObject<EntityType<PurgenGrenadeProjectile>> PURGEN_GRENADE_PROJECTILE =
+            ENTITY_TYPES.register("purgen_grenade_projectile", () -> EntityType.Builder.<PurgenGrenadeProjectile>of(PurgenGrenadeProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("purgen_granade_projectile"));
+    public static final RegistryObject<EntityType<GassyGrenadeProjectile>> GASSY_GRENADE_PROJECTILE =
+            ENTITY_TYPES.register("gassy_grenade_projectile", () -> EntityType.Builder.<GassyGrenadeProjectile>of(GassyGrenadeProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("gassy_granade_projectile"));
+    public static final RegistryObject<EntityType<PonosGrenadeProjectile>> PONOS_GRENADE_PROJECTILE =
+            ENTITY_TYPES.register("ponos_grenade_projectile", () -> EntityType.Builder.<PonosGrenadeProjectile>of(PonosGrenadeProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("ponos_grenade_projectile"));
+
     public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("teapod_spider"));
@@ -87,6 +100,7 @@ public class ModEntities {
     public static final RegistryObject<EntityType<RawTeapodSpider>> RAW_TEAPOD_SPIDER =
             ENTITY_TYPES.register("raw_teapod_spider", () -> EntityType.Builder.of(RawTeapodSpider::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("raw_teapod_spider"));
+
 
   
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =

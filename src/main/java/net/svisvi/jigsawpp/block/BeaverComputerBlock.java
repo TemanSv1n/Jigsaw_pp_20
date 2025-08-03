@@ -1,12 +1,10 @@
 package net.svisvi.jigsawpp.block;
 
 
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -60,11 +58,6 @@ public class BeaverComputerBlock extends Block implements SimpleWaterloggedBlock
         return state.getFluidState().isEmpty();
     }
 
-    @Override
-    public void appendHoverText(ItemStack itemstack, BlockGetter level, List<Component> list, TooltipFlag flag) {
-        super.appendHoverText(itemstack, level, list, flag);
-        list.add(Component.translatable("block.jigsaw_pp.beaverhost.desc"));
-    }
     @Override
     public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return 0;
