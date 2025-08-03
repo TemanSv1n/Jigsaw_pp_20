@@ -393,11 +393,8 @@
   "key.jigsaw_pp.armor_ability": "Armor ability",
   "key.category.jigsaw_pp": "Jigsaw II",
 
-  "item.jigsaw_pp.purgen_smoke_grenade": "purgen smoke grenade",
-  "item.jigsaw_pp.purgen_smoke_grenade_empty": "empty purgen smoke grenade",
-  "item.jigsaw_pp.gassy_smoke_grenade": "gassy smoke grenade",
-  "item.jigsaw_pp.gassy_smoke_grenade_empty": "empty gassy smoke grenade",
-  "item.jigsaw_pp.ponos_smoke_grenade": "ponos smoke grenade",
-  "item.jigsaw_pp.ponos_smoke_grenade_empty": "empty ponos smoke grenade",
+  "item.jigsaw_pp.purgen_smoke_grenade": "Laxative smoke grenade",
+  "item.jigsaw_pp.gassy_smoke_grenade": "Gassy smoke grenade",
+  "item.jigsaw_pp.ponos_smoke_grenade": "Poop smoke grenade",
   "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that"
 }
