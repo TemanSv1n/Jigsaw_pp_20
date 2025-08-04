@@ -107,6 +107,7 @@ public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
+        pResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.5F);
         this.explode();
         super.onHitEntity(pResult);
     }

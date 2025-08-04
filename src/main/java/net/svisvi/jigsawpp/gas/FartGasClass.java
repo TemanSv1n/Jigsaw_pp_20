@@ -45,7 +45,8 @@ public class FartGasClass extends EffectGasClass{
             }
             if (entity.level().isClientSide) return;
             // Create damage source that shows "drowned by owner"
-            DamageSource damageSource = new DamageSource(entity.damageSources().drown().typeHolder(),entity, getOwner(entity.level()));
+            DamageSource damageSource = new DamageSource(entity.damageSources().drown().typeHolder(),entity, this.getOwner(entity.level()));
+            System.out.println(this.getOwner(entity.level()));
             // Apply drowning damage (same amount as vanilla)
             entity.hurt(damageSource, 2.0f);
             // Force drowning animation if needed
