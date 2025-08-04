@@ -41,7 +41,7 @@ public class EmpregnationEffect extends MobEffect {
     }
 
     public static EntityType<?> getRandomGonner(Level level){
-        List<String> gonners_ids = ModServerConfigs.EMPREGNATION_MOBS_LIST.get();
+        List<String> gonners_ids = new ArrayList<>(ModServerConfigs.EMPREGNATION_MOBS_LIST.get());
         EntityType<?> ret = EntityType.PIG;
         String conv = "minecraft:pig";
         if (gonners_ids == null || gonners_ids.isEmpty()) {

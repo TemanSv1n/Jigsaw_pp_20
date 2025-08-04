@@ -35,7 +35,7 @@ import java.util.stream.Stream;
 
 public class PurgenPiluleBuilder {
 
-    public static List<String> blacklist_effects = ModServerConfigs.PURGEN_EFFECTS_BLACK_LIST.get();
+    public static List<String> blacklist_effects = new ArrayList<> (ModServerConfigs.PURGEN_EFFECTS_BLACK_LIST.get());
 
     public static List <Item> PILULE_PROGRESSION = new ArrayList<Item>();
     static {

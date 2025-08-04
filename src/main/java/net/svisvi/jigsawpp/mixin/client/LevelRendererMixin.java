@@ -6,9 +6,7 @@ import com.mojang.math.Axis;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.client.renderer.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
@@ -77,6 +75,47 @@ public abstract class LevelRendererMixin {
             renderCustomSun(poseStack, partialTick);
         }
     }
+
+    @Inject(
+            method = "renderChunkLayer",
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderColor(FFFF)V"
+//            ),
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    public void renderCustomChunkLayer(RenderType pRenderType, PoseStack pPoseStack, double pCamX, double pCamY, double pCamZ, Matrix4f pProjectionMatrix, CallbackInfo ci){
+        //RenderSystem.setShaderColor((float)BROWN_SKY_COLOR.x, (float)BROWN_SKY_COLOR.y, (float)BROWN_SKY_COLOR.z, 1.0f);
+        if (shouldApplyPurgenEffects()) {
+            // Override the shader color (forces brown + disables fade)
+            RenderSystem.setShaderColor(
+                    (float)BROWN_SKY_COLOR.x,
+                    (float)BROWN_SKY_COLOR.y,
+                    (float)BROWN_SKY_COLOR.z,
+                    1.0f // Full opacity
+            );
+            // Re-apply the color to the shader (critical!)
+            ShaderInstance shader = RenderSystem.getShader();
+            if (shader.COLOR_MODULATOR != null) {
+                shader.COLOR_MODULATOR.set(
+                        (float)BROWN_SKY_COLOR.x,
+                        (float)BROWN_SKY_COLOR.y,
+                        (float)BROWN_SKY_COLOR.z,
+                        1.0f
+                );
+            }
+            if (shader.FOG_COLOR != null) {
+                shader.FOG_COLOR.set(
+                        (float)BROWN_SKY_COLOR.x,
+                        (float)BROWN_SKY_COLOR.y,
+                        (float)BROWN_SKY_COLOR.z,
+                        1.0f
+                );
+            }
+        }
+    }
+
 
     private void renderCustomSun(PoseStack poseStack, float partialTick) {
         poseStack.pushPose();

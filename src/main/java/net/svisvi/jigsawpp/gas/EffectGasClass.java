@@ -11,6 +11,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.svisvi.jigsawpp.entity.emitters.AbstractEmitterEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 public class EffectGasClass extends AbstractGasClass{
     public ParticleOptions particle = ParticleTypes.ENTITY_EFFECT;
     public SoundEvent sound = SoundEvents.FIRE_EXTINGUISH;
+
 
     public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>();
 

@@ -9,6 +9,8 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
+import net.svisvi.jigsawpp.entity.emitters.FartGasEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.PoopGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairItem;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.GassyGrenadeProjectile;
@@ -30,9 +32,13 @@ import net.svisvi.jigsawpp.item.armor.*;
 import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
 import net.svisvi.jigsawpp.item.drist_tnt_stick.DristTntStickItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
+
 import net.svisvi.jigsawpp.item.grenades.GassyGrenadeItem;
 import net.svisvi.jigsawpp.item.grenades.PonosGrenadeItem;
 import net.svisvi.jigsawpp.item.grenades.PurgenGrenadeItem;
+
+import net.svisvi.jigsawpp.item.gas_bottle.AbstractGasBottleItem;
+
 import net.svisvi.jigsawpp.item.materials.FittingItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystActivatedItem;
 import net.svisvi.jigsawpp.item.materials.RadiationCatalystNonActivatedItem;
@@ -314,7 +320,8 @@ public class ModItems {
 
 
 	;
-
+	public static final RegistryObject<Item> FART_BOTTLE = REGISTRY.register("fart_bottle", () -> new AbstractGasBottleItem(FartGasEmitterEntity.class));
+	public static final RegistryObject<Item> POOP_BOTTLE = REGISTRY.register("poop_bottle", () -> new AbstractGasBottleItem(PoopGasEmitterEntity.class));
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}

@@ -364,7 +364,6 @@
   "item.jigsaw_pp.paddle.desc": "§7When equipped in both hands makes you swift in liquid",
   "item.jigsaw_pp.road_sign.desc": "§7Splash knockback",
   "item.jigsaw_pp.jetstream_chair.desc": "§7Feasts upon beaweed dust in astronaut's hands",
-  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that",
 
   "item.jigsaw_pp.cursed_cow_spawn_egg": "§7Cursed cow §rspawn egg",
   "item.jigsaw_pp.teeth": "Teeth",
@@ -393,8 +392,13 @@
   "key.jigsaw_pp.armor_ability": "Armor ability",
   "key.category.jigsaw_pp": "Jigsaw II",
 
+  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that"
+
   "item.jigsaw_pp.purgen_smoke_grenade": "Laxative smoke grenade",
   "item.jigsaw_pp.gassy_smoke_grenade": "Gassy smoke grenade",
   "item.jigsaw_pp.ponos_smoke_grenade": "Poop smoke grenade",
-  "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that"
+
+  "item.jigsaw_pp.fart_bottle": "Bottle O'Fart",
+  "item.jigsaw_pp.poop_bottle": "Bottle O'Poop"
+
 }

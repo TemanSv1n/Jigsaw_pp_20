@@ -200,5 +200,8 @@ public class ModTabs {
 				tabData.accept(ModItems.UNDERWEAR.get());
 				tabData.accept(ModItems.EXPECTORATOR.get());
 				tabData.accept(ModItems.MILITARY_BOOTS.get());
+				tabData.accept(ModItems.FART_BOTTLE.get());
+				tabData.accept(ModItems.POOP_BOTTLE.get());
+
 			}).build());
 }
