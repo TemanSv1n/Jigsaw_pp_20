@@ -18,6 +18,7 @@ import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpiderRender;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpiderRender;
 import net.svisvi.jigsawpp.entity.tntpot.NuclearTeapotRenderer;
 import net.svisvi.jigsawpp.entity.tntpot.TntPotRenderer;
+import net.svisvi.jigsawpp.entity.cursed_cow.CursedCowRenderer;
 
 public class EntityRenders {
     public static void registerEntityRenders(){
@@ -66,6 +67,8 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.POOP_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.PURGATIVE_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.FART_GAS_EMITTER.get(), NoopRenderer::new);
+        EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
+
 
     }
 }

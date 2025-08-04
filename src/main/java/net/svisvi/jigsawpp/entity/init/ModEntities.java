@@ -30,6 +30,7 @@ import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpider;
 import net.svisvi.jigsawpp.entity.tntpot.PrimedNuclearTeapot;
 import net.svisvi.jigsawpp.entity.tntpot.PrimedTntPot;
+import net.svisvi.jigsawpp.entity.cursed_cow.CursedCowEntity;
 
 
 public class ModEntities {
@@ -169,6 +170,13 @@ public class ModEntities {
     public static final RegistryObject<EntityType<FartGasEmitterEntity>> FART_GAS_EMITTER =
             ENTITY_TYPES.register("fart_gas_emitter", () -> EntityType.Builder.<FartGasEmitterEntity>of(FartGasEmitterEntity::new, MobCategory.MISC)
                     .sized(3f, 3f).build("fart_gas_emitter"));
+
+    public static final RegistryObject<EntityType<CursedCowEntity>> CURSED_COW =
+            ENTITY_TYPES.register("cursed_cow", () -> EntityType.Builder.<CursedCowEntity>of(CursedCowEntity::new, MobCategory.MISC)
+                    .sized(0.9f, 1f)
+                    .clientTrackingRange(10)
+                    .build("cursed_cow"));
+
 
 
 

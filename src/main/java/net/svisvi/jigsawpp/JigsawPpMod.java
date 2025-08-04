@@ -7,7 +7,6 @@ package net.svisvi.jigsawpp;
 
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
@@ -85,7 +84,7 @@ public class JigsawPpMod {
 		MinecraftForge.EVENT_BUS.register(this);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModServerConfigs.SPEC, "jigsaw-server.toml");
 
-		//MinecraftForge.EVENT_BUS.register(PonosFluidInteractionHandler.class);
+
 
 
 	}
@@ -149,5 +148,9 @@ public class JigsawPpMod {
 				.anyMatch(m -> m.getModId().equals(modId));
 	}
 
+
+//private void clientSetup(final FMLClientSetupEvent event) {
+//	event.enqueueWork(ModKeyBinds::register);
+//}
 
 }

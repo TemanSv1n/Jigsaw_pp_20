@@ -71,7 +71,7 @@ public class PonosFluidType extends FluidType {
 
             @Override
             public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
-                return new Vector3f(98f / 255f, 42f / 255f, 15f / 255f);
+                return new Vector3f(56f / 255f, 30f / 255f, 05f / 255f);
             }
 
             @Override

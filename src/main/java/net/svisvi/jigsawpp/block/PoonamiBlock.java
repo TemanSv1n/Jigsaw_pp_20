@@ -40,6 +40,7 @@ import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.fluid.ponos.PonosFluid;
+import net.svisvi.jigsawpp.gamerules.ModGameRules;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -83,6 +84,7 @@ public class PoonamiBlock extends Block {
     public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
         list.add(Component.translatable("item.jigsaw_pp.poonami.desc"));
+        list.add(Component.translatable("item.jigsaw_pp.poonami.desc2"));
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -102,21 +104,28 @@ public class PoonamiBlock extends Block {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        if (world.isEmptyBlock(BlockPos.containing(x + 1, y, z))) {
-            world.setBlock(BlockPos.containing(x + 1, y, z), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+        if (world.getLevelData().getGameRules().getBoolean(ModGameRules.REMOVE_POONAMI) == true) {
+            world.setBlock(BlockPos.containing(x, y, z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
+        } else {
+            if (world.isEmptyBlock(BlockPos.containing(x + 1, y, z))) {
+                world.setBlock(BlockPos.containing(x + 1, y, z), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+            }
+            if (world.isEmptyBlock(BlockPos.containing(x - 1, y, z))) {
+                world.setBlock(BlockPos.containing(x - 1, y, z), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+            }
+            if (world.isEmptyBlock(BlockPos.containing(x, y, z + 1))) {
+                world.setBlock(BlockPos.containing(x, y, z + 1), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+            }
+            if (world.isEmptyBlock(BlockPos.containing(x, y, z - 1))) {
+                world.setBlock(BlockPos.containing(x, y, z - 1), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+            }
+            if (world.isEmptyBlock(BlockPos.containing(x, y - 1, z))) {
+                world.setBlock(BlockPos.containing(x, y - 1, z), ModBlocks.POONAMI.get().defaultBlockState(), 3);
+            }
+            world.setBlock(BlockPos.containing(x, y, z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
         }
-        if (world.isEmptyBlock(BlockPos.containing(x - 1, y, z))) {
-            world.setBlock(BlockPos.containing(x - 1, y, z), ModBlocks.POONAMI.get().defaultBlockState(), 3);
-        }
-        if (world.isEmptyBlock(BlockPos.containing(x, y, z + 1))) {
-            world.setBlock(BlockPos.containing(x, y, z + 1), ModBlocks.POONAMI.get().defaultBlockState(), 3);
-        }
-        if (world.isEmptyBlock(BlockPos.containing(x, y, z - 1))) {
-            world.setBlock(BlockPos.containing(x, y, z - 1), ModBlocks.POONAMI.get().defaultBlockState(), 3);
-        }
-        world.setBlock(BlockPos.containing(x, y, z), ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
 
-        world.scheduleTick(pos, this, 10);
+
+        world.scheduleTick(pos, this, world.getLevelData().getGameRules().getInt(ModGameRules.POONAMI_SPEED));
     }
-
 }

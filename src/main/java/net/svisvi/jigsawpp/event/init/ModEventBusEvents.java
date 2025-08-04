@@ -1,5 +1,6 @@
 package net.svisvi.jigsawpp.event.init;
 
+import net.minecraft.world.entity.animal.Cow;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -7,6 +8,7 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
+import net.svisvi.jigsawpp.entity.cursed_cow.CursedCowEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
@@ -28,6 +30,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.STONE_BEAVER.get(), StoneBeaverEntity.createAttributes().build());
         event.put(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieEntity.createAttributes().build());
         event.put(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), BeaverZombieSpawner.createAttributes().build());
+        event.put(ModEntities.CURSED_COW.get(), CursedCowEntity.createAttributes().build());
     }
 
 

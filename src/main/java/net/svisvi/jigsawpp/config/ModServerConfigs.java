@@ -18,9 +18,9 @@ public class ModServerConfigs {
 
     // Config values with proper typing
     public static final ForgeConfigSpec.ConfigValue<String> JIGSAW;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> GIVE_PATCHOULI_BOOK;
     public static final ForgeConfigSpec.ConfigValue<List<? extends String>> EMPREGNATION_MOBS_LIST;
     public static final ForgeConfigSpec.ConfigValue<List<? extends String>> PURGEN_EFFECTS_BLACK_LIST;
-
     // Default values
     private static final List<String> DEFAULT_EMPREGNATION_MOBS = Arrays.asList(
             "jigsaw_pp:beaver_spider",
@@ -50,6 +50,10 @@ public class ModServerConfigs {
                 .defineList("PURGEN_EFFECTS_BLACK_LIST",
                         DEFAULT_PURGEN_EFFECTS,
                         obj -> obj instanceof String
+                );
+
+        GIVE_PATCHOULI_BOOK = BUILDER.comment("Should player be given patchouli book on join")
+                .define("GIVE_PATCHOULI_BOOK", Boolean.TRUE
                 );
 
         BUILDER.pop();

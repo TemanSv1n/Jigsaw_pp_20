@@ -7,9 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.client.gui.BeaverSODOverlay;
 import net.svisvi.jigsawpp.client.gui.PoopOverlay;
-import net.svisvi.jigsawpp.entity.armor.DoctorHelmetModel;
-import net.svisvi.jigsawpp.entity.armor.GasMaskModel;
-import net.svisvi.jigsawpp.entity.armor.JotaroHatModel;
+import net.svisvi.jigsawpp.entity.armor.*;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverBodyModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverBootsModel;
 import net.svisvi.jigsawpp.entity.armor.beaver.BeaverHatModel;
@@ -50,6 +48,17 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.BEAVER_BOOTS_LAYER, BeaverBootsModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEAVER_BODY_LAYER, BeaverBodyModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEAVER_HAT_LAYER, BeaverHatModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.TEETH_LAYER, TeethModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.SUICIDE_VEST_LAYER, SuicideVestModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ONION_LAYER, OnionModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.MERCHANT_MASK_LAYER, MerchantMaskModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.JUNK_LAYER, JunkModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.JOKER_NOSE_LAYER , JokerNoseModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.HITLER_NOSE_LAYER, HitlerNoseModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.CLOWN_NOSE_LAYER, ClownNoseModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BELLY_LAYER, BellyModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BELLYJUNK_LAYER, BellyJunkModel::createBodyLayer);
     }
 
     @SubscribeEvent

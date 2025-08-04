@@ -1,6 +1,6 @@
 
 /*
- *    MCreator note: This file will be REGENERATED on each build.
+ *    MCreator note: This file will be RAPED on each build.
  */
 package net.svisvi.jigsawpp.item.init;
 
@@ -300,9 +300,28 @@ public class ModItems {
   public static final RegistryObject<Item> GASSY_GRENADE_USED = REGISTRY.register("gassy_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON))); 
 	public static final RegistryObject<Item> FRIED_SOUP = REGISTRY.register("fried_soup", () -> new FriedSoupItem());
 	public static final RegistryObject<Item> POONAMI = block(ModBlocks.POONAMI);
+	public static final RegistryObject<Item> CURSED_COW_SPAWN_EGG = REGISTRY.register("cursed_cow_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.CURSED_COW, 0x3f3223, 0x808080, new Item.Properties()));
+	public static final RegistryObject<Item> TEETH = REGISTRY.register("teeth", () -> new TeethItem.Helmet());
+	public static final RegistryObject<Item> SUICIDE_VEST = REGISTRY.register("suicide_vest", () -> new SuicideVestItem.Chestplate());
+	public static final RegistryObject<Item> ONION = REGISTRY.register("onion", () -> new OnionItem.Helmet());
+	public static final RegistryObject<Item> MERCHANT_MASK= REGISTRY.register("merchant_mask", () -> new MerchantMaskItem.Helmet());
+	public static final RegistryObject<Item> JUNK = REGISTRY.register("junk", () -> new JunkItem.Chestplate());
+	public static final RegistryObject<Item> JOKER_NOSE  = REGISTRY.register("joker_nose", () -> new JokerNoseItem.Helmet());
+	public static final RegistryObject<Item> HITLER_NOSE = REGISTRY.register("hitler_nose", () -> new HitlerNoseItem.Helmet());
+	public static final RegistryObject<Item> CLOWN_NOSE = REGISTRY.register("clown_nose", () -> new ClownNoseItem.Helmet());
+	public static final RegistryObject<Item> BELLY = REGISTRY.register("belly", () -> new BellyItem.Chestplate());
+	public static final RegistryObject<Item> BELLYJUNK = REGISTRY.register("bellyjunk", () -> new BellyJunkItem.Chestplate());
+	public static final RegistryObject<Item> ALCOSHIRT = REGISTRY.register("alcoshirt", () -> new AlcoshirtItem.Chestplate());
+	public static final RegistryObject<Item> PUDGE_APRON = REGISTRY.register("pudge_apron", () -> new PudgeApronItem.Chestplate());
+	public static final RegistryObject<Item> UNDERWEAR = REGISTRY.register("underwear", () -> new UnderwearItem.Leggings());
+	public static final RegistryObject<Item> EXPECTORATOR = REGISTRY.register("expectorator", () -> new ExpectoratorItem.Helmet());
+	public static final RegistryObject<Item> MILITARY_BOOTS = REGISTRY.register("military_boots", () -> new MilitaryBootsItem.Boots());
+	public static final RegistryObject<Item> DETONATOR = REGISTRY.register("detonator", () -> new DetonatorItem());
+
+
+	;
 	public static final RegistryObject<Item> FART_BOTTLE = REGISTRY.register("fart_bottle", () -> new AbstractGasBottleItem(FartGasEmitterEntity.class));
 	public static final RegistryObject<Item> POOP_BOTTLE = REGISTRY.register("poop_bottle", () -> new AbstractGasBottleItem(PoopGasEmitterEntity.class));
-
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}
