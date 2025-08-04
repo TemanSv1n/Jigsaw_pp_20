@@ -75,6 +75,7 @@ public class ModItems {
 	public static final RegistryObject<Item> LENIN_BUST = block(ModBlocks.LENIN_BUST);
 	public static final RegistryObject<Item> MOLD_BLOCK = block(ModBlocks.MOLD_BLOCK);
 	public static final RegistryObject<Item> BEAVER_COMPUTER = block(ModBlocks.BEAVER_COMPUTER);
+	public static final RegistryObject<Item> THRON = block(ModBlocks.THRON);
 	public static final RegistryObject<Item> PW_HAT = block(ModBlocks.PW_HAT);
 	public static final RegistryObject<Item> PLATE_EMPTY = block(ModBlocks.PLATE_EMPTY);
 	public static final RegistryObject<Item> PLATE_BREAD = block(ModBlocks.PLATE_BREAD);
@@ -214,6 +215,7 @@ public class ModItems {
 	public static final RegistryObject<Item> MOLD = REGISTRY.register("mold", () -> new MoldItem());
 	public static final RegistryObject<Item> BEAVER_KNIFE = REGISTRY.register("beaver_knife", () -> new BeaverKnifeItem());
 	public static final RegistryObject<Item> BEAVER_AXE = REGISTRY.register("beaver_axe", () -> new BeaverAxeItem());
+	public static final RegistryObject<Item> SAPPER_SHOVEL = REGISTRY.register("sapper_shovel", () -> new SapperShovelItem());
 	public static final RegistryObject<Item> PIGKAXE = REGISTRY.register("pigkaxe", () -> new PigkaxeItem());
 	public static final RegistryObject<Item> TUBE_19 = REGISTRY.register("tube_19", () -> new Tube19Item());
 	public static final RegistryObject<Item> EGGS = REGISTRY.register("eggs", () -> new EggsItem());
