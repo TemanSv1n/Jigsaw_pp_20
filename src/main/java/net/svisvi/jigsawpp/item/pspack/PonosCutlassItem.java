@@ -69,6 +69,7 @@ public class PonosCutlassItem extends SwordItem {
         list.add(Component.translatable("item.jigsaw_pp.ponos_cutlass.desc"));
     }
 
+    //ACHTUNG !!! MCREATOR SHITTY CODE !!!
     public void drainPoop(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity){
         if (entity == null || sourceentity == null)
             return;

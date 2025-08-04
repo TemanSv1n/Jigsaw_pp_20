@@ -137,7 +137,7 @@
   "block.jigsaw_pp.mold_block": "Mold block",
   "item.jigsaw_pp.mold": "Mold",
   "block.jigsaw_pp.beaver_computer": "Beaverhost",
-  "block.jigsaw_pp.thron": "The wood thron (awful)",
+  "block.jigsaw_pp.thron": "The wooden throne (awful)",
   "effect.jigsaw.beaver_so_deffect": "Brown screen of Death",
   "item.jigsaw_pp.beaver_knife": "Beaver knife",
   "item.jigsaw_pp.beaver_axe": "Beaver axe",
@@ -385,7 +385,7 @@
   "item.jigsaw_pp.bellyjunk": "Bellyjunk",
   "item.jigsaw_pp.alcoshirt": "Alcoshirt",
   "item.jigsaw_pp.pudge_apron": "Pudge apron",
-  "item.jigsaw_pp.underwear": "Underwear",
+  "item.jigsaw_pp.underwear": "Panties",
   "item.jigsaw_pp.expectorator": "Expectorator",
   "item.jigsaw_pp.expectorator.desc": "DISCARDED",
   "item.jigsaw_pp.military_boots": "Military boots",
@@ -401,6 +401,7 @@
   "item.jigsaw_pp.ponos_smoke_grenade": "Poop smoke grenade",
 
   "item.jigsaw_pp.fart_bottle": "Bottle O'Fart",
-  "item.jigsaw_pp.poop_bottle": "Bottle O'Poop"
+  "item.jigsaw_pp.poop_bottle": "Bottle O'Poop",
+  "item.jigsaw_pp.brown_cutlass.desc": "§7You are PotSight now"
 
 }

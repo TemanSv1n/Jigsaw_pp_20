@@ -6,11 +6,18 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.svisvi.jigsawpp.entity.emitters.GasEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.PoopGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.emitters.PurgativeGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class PurgenGrenadeProjectile extends AbstractGrenadeProjectile{
+
+    @Override
+    public Class<? extends GasEmitterEntity> getEmitterClass() {
+        return PurgativeGasEmitterEntity.class;
+    }
 
     public PurgenGrenadeProjectile(EntityType<? extends PurgenGrenadeProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -33,13 +40,13 @@ public class PurgenGrenadeProjectile extends AbstractGrenadeProjectile{
         return ModItems.PURGEN_GRENADE_USED.get(); 
     }
 
-    @Override
-    protected void explode() {
-        PurgativeGasEmitterEntity poopgas = new PurgativeGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ()); 
-        poopgas.setDuration(300);
-        this.level().addFreshEntity(poopgas);
-        ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY() , this.getZ(), new ItemStack(ModItems.PURGEN_GRENADE_USED.get(), 1));
-        this.level().addFreshEntity(item);
-        super.explode();
-    }
+//    @Override
+//    protected void explode() {
+//        PurgativeGasEmitterEntity poopgas = new PurgativeGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ());
+//        poopgas.setDuration(300);
+//        this.level().addFreshEntity(poopgas);
+//        ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY() , this.getZ(), new ItemStack(ModItems.PURGEN_GRENADE_USED.get(), 1));
+//        this.level().addFreshEntity(item);
+//        super.explode();
+//    }
 }

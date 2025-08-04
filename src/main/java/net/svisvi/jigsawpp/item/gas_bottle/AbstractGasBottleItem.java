@@ -30,6 +30,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.svisvi.jigsawpp.entity.emitters.AbstractEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.EmitterUtils;
 import net.svisvi.jigsawpp.entity.emitters.GasEmitterEntity;
 import net.svisvi.jigsawpp.gas.AbstractGasClass;
 
@@ -63,15 +64,15 @@ public class AbstractGasBottleItem extends Item {
         this.duration = duration;
     }
 
-    public GasEmitterEntity createEmitter(Level level, double x, double y, double z, float radiuss, int durra) throws NoSuchMethodException,
-            IllegalAccessException, InvocationTargetException, InstantiationException {
-        if (emitterClass == null) {
-            throw new IllegalStateException("Emitter class not set!");
-        }
-        // Use getConstructor() if you need to pass arguments
-        Constructor<? extends GasEmitterEntity> constructor = this.emitterClass.getConstructor(Level.class, double.class, double.class, double.class, float.class, int.class);
-        return constructor.newInstance(level, x, y, z, radiuss, durra);
-    }
+//    public GasEmitterEntity createEmitter(Level level, double x, double y, double z, float radiuss, int durra) throws NoSuchMethodException,
+//            IllegalAccessException, InvocationTargetException, InstantiationException {
+//        if (emitterClass == null) {
+//            throw new IllegalStateException("Emitter class not set!");
+//        }
+//        // Use getConstructor() if you need to pass arguments
+//        Constructor<? extends GasEmitterEntity> constructor = this.emitterClass.getConstructor(Level.class, double.class, double.class, double.class, float.class, int.class);
+//        return constructor.newInstance(level, x, y, z, radiuss, durra);
+//    }
 
     public AbstractGasBottleItem() {
         this(GasEmitterEntity.class, 1f, 140);
@@ -99,8 +100,9 @@ public class AbstractGasBottleItem extends Item {
     public boolean emptyContents(@Nullable Player pPlayer, Level pLevel, BlockPos pPos, @Nullable BlockHitResult pResult, @Nullable ItemStack container) {
         if (emitterClass != null) {
             try {
-                GasEmitterEntity gassy = this.createEmitter(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), this.getRadius(), this.getDuration());
+                GasEmitterEntity gassy = EmitterUtils.createEmitter(this.getEmitterClass(), pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), this.getRadius(), this.getDuration());
                 gassy.setPos(pPos.getX(), pPos.above().getY(), pPos.getZ());
+                gassy.setOwner(pPlayer);
                 pLevel.addFreshEntity(gassy);
                 this.playEmptySound(pPlayer, pLevel, pPos);
                 return true;

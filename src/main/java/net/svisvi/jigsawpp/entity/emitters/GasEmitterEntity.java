@@ -18,6 +18,7 @@ import net.svisvi.jigsawpp.effect.init.ModEffects;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.gas.AbstractGasClass;
 import net.svisvi.jigsawpp.gas.EffectGasClass;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -102,5 +103,11 @@ public class GasEmitterEntity extends AbstractEmitterEntity{
 //                }
 //            }
 //        }
+    }
+
+    @Override
+    public void setOwner(@Nullable LivingEntity owner) {
+        this.getGas().setOwner(owner);
+        super.setOwner(owner);
     }
 }

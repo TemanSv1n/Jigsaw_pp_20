@@ -21,6 +21,7 @@ public abstract class AbstractGrenadeItem extends Item {
     }
 
     protected abstract ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer);
+    public abstract ItemStack getUsedItem();
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
@@ -29,7 +30,8 @@ public abstract class AbstractGrenadeItem extends Item {
 
         if (!pLevel.isClientSide) {
             ThrowableItemProjectile grenade = setProjectile(pLevel, pPlayer);
-            grenade.setItem(pStack);
+            grenade.setItem(this.getUsedItem());
+            grenade.setOwner(pPlayer);
             grenade.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.0F, 1.0F);
             pLevel.addFreshEntity(grenade);
         }
