@@ -4,17 +4,25 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.svisvi.jigsawpp.entity.emitters.AbstractEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.EmitterUtils;
+import net.svisvi.jigsawpp.entity.emitters.FartGasEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.GasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
     private int maxLifeTime = 80;
     private int lifeTime = 0;
+    public abstract Class<? extends GasEmitterEntity> getEmitterClass();
 
     public AbstractGrenadeProjectile(EntityType<? extends AbstractGrenadeProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -34,16 +42,39 @@ public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
         super(pEntityType, pShooter, pLevel);
     }
 
+    public GasEmitterEntity getEmitter(){
+        try {
+            return EmitterUtils.createEmitter(this.getEmitterClass(), this.level(), this.getX(), this.getY(), this.getZ(), 2.5f, 600);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 
     protected void explode() {
-        this.discard();
+        try {
+            GasEmitterEntity poopgas = this.getEmitter(); //new FartGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ());
+            //poopgas.setDuration(600);
+            if (this.getOwner() instanceof LivingEntity le) {
+                poopgas.setOwner(le);
+            }
+            this.level().explode(this.getOwner(), this.getX(), this.getY(), this.getZ(), 0.5f, Level.ExplosionInteraction.NONE);
+            this.level().addFreshEntity(poopgas);
+            //ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY() , this.getZ(), new ItemStack(ModItems.GASSY_GRENADE_USED.get(), 1));
+            //this.level().addFreshEntity(item);
+            this.discard();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //return null;
     }
 
     @Override
     public void tick() {
-        if(lifeTime >= maxLifeTime)
-            explode();
-        lifeTime++;
+        if(this.lifeTime >= this.maxLifeTime)
+            this.explode();
+        this.lifeTime++;
         super.tick();
     }
 
@@ -73,5 +104,10 @@ public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
         }
         this.setDeltaMovement(x, y, z);
     }
-    
+
+    @Override
+    protected void onHitEntity(EntityHitResult pResult) {
+        this.explode();
+        super.onHitEntity(pResult);
+    }
 }
