@@ -41,6 +41,8 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.PURGEN_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.PONOS_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.GASSY_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(ModEntities.SMOKE_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
+
 
         EntityRenderers.register(ModEntities.TEAPOD_SPIDER.get(), TeapodSpiderRender::new);
         EntityRenderers.register(ModEntities.BLACK_TEAPOD_SPIDER.get(), BlackTeapodSpiderRender::new);
@@ -67,6 +69,7 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.POOP_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.PURGATIVE_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.FART_GAS_EMITTER.get(), NoopRenderer::new);
+        EntityRenderers.register(ModEntities.SMOKE_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
 
 

@@ -1,5 +1,6 @@
 package net.svisvi.jigsawpp.procedures.ut;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -69,5 +70,13 @@ public class PiluleStyles {
             }
         }
         return ret;
+    }
+
+    public static final String[] PURGEN = {"item.jigsaw_pp.basic_purgen_pilule",
+            "item.jigsaw_pp.advanced_purgen_pilule",
+            "item.jigsaw_pp.crystal_purgen_pilule"} ;
+    public static final String[] PURGEN_COLORS = {"#3b2c1d", "#b04c2a", "#52abab"};
+    public static Component getPurgenLocalisationFromAmp(int amp){
+        return Component.translatable(PURGEN[amp]).setStyle(Style.EMPTY.withColor(TextColor.parseColor(PURGEN_COLORS[amp])));
     }
 }

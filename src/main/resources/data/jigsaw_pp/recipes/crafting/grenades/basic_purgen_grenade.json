@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:basic_purgen_pilule"
+    },
+    {
+      "item": "jigsaw_pp:ponos_smoke_grenade"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_pp:purgen_smoke_grenade",
+    "count": 1
+  }
+}

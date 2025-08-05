@@ -147,7 +147,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
             return;
         }
 
-        spawnParticles(getParticleCount(), particleSpeed);
+        this.spawnParticles(this.getParticleCount(), particleSpeed);
 
 
         if (this.radiusPerTick != 0.0F) {
@@ -208,7 +208,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
 
     @Override
     public InteractionResult interact(Player pPlayer, InteractionHand pHand) {
-        System.out.println("HITLE");
+        //System.out.println("HITLE");
         if (!this.level().isClientSide() && this.getBottle() != null && this.isBottlePickable() && this.isSuckable()) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             if (itemstack.is(Items.GLASS_BOTTLE)) {
@@ -290,7 +290,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
     }
 
     public float getDensity() {
-        return density;
+        return this.density;
     }
 
     public void setDensity(float density) {
@@ -298,7 +298,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
     }
 
     public int getParticleCount(){
-        return (int) (getDensity() * getRadius());
+        return (int) (this.getDensity() * this.getRadius());
     }
 
     public float getParticleSpeed() {

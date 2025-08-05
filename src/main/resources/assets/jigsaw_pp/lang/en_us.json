@@ -402,6 +402,8 @@
 
   "item.jigsaw_pp.fart_bottle": "Bottle O'Fart",
   "item.jigsaw_pp.poop_bottle": "Bottle O'Poop",
-  "item.jigsaw_pp.brown_cutlass.desc": "§7You are PotSight now"
+  "item.jigsaw_pp.brown_cutlass.desc": "§7You are PotSight now",
 
+  "item.jigsaw_pp.grenade_launcher": "Grenade Launcher",
+  "item.jigsaw_pp.smoke_smoke_grenade": "Smoke grenade"
 }

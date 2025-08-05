@@ -24,6 +24,7 @@ import net.svisvi.jigsawpp.entity.projectile.floppa_missile.SlonGunGreenProjecti
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PurgenGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.GassyGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PonosGrenadeProjectile;
+import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.SmokeGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
 import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
@@ -90,6 +91,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PonosGrenadeProjectile>> PONOS_GRENADE_PROJECTILE =
             ENTITY_TYPES.register("ponos_grenade_projectile", () -> EntityType.Builder.<PonosGrenadeProjectile>of(PonosGrenadeProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("ponos_grenade_projectile"));
+    public static final RegistryObject<EntityType<SmokeGrenadeProjectile>> SMOKE_GRENADE_PROJECTILE =
+            ENTITY_TYPES.register("smoke_grenade_projectile", () -> EntityType.Builder.<SmokeGrenadeProjectile>of(SmokeGrenadeProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("smoke_grenade_projectile"));
 
     public static final RegistryObject<EntityType<TeapodSpider>> TEAPOD_SPIDER =
             ENTITY_TYPES.register("teapod_spider", () -> EntityType.Builder.of(TeapodSpider::new, MobCategory.MONSTER)
@@ -170,6 +174,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<FartGasEmitterEntity>> FART_GAS_EMITTER =
             ENTITY_TYPES.register("fart_gas_emitter", () -> EntityType.Builder.<FartGasEmitterEntity>of(FartGasEmitterEntity::new, MobCategory.MISC)
                     .sized(3f, 3f).build("fart_gas_emitter"));
+
+    public static final RegistryObject<EntityType<SmokeGasEmitterEntity>> SMOKE_GAS_EMITTER =
+            ENTITY_TYPES.register("smoke_gas_emitter", () -> EntityType.Builder.<SmokeGasEmitterEntity>of(SmokeGasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("smoke_gas_emitter"));
 
     public static final RegistryObject<EntityType<CursedCowEntity>> CURSED_COW =
             ENTITY_TYPES.register("cursed_cow", () -> EntityType.Builder.<CursedCowEntity>of(CursedCowEntity::new, MobCategory.MISC)

@@ -20,6 +20,7 @@ public class PurgativeGasClass extends EffectGasClass{
     public ParticleOptions particle = ModParticleTypes.PURGATIVE_CLOUD.get();
     public SoundEvent sound = SoundEvents.COW_MILK;
 
+
     public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(ModEffects.PURGATIVE.get(), 60, 0)));
 
     public PurgativeGasClass(){

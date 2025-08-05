@@ -183,6 +183,7 @@ public class ModTabs {
         tabData.accept(ModItems.PURGEN_GRENADE.get());
         tabData.accept(ModItems.GASSY_GRENADE.get());
         tabData.accept(ModItems.PONOS_GRENADE.get());
+				tabData.accept(ModItems.SMOKE_GRENADE.get());
 				tabData.accept(ModItems.POONAMI.get());
 				tabData.accept(ModItems.FRIED_SOUP.get());
 				tabData.accept(ModItems.CURSED_COW_SPAWN_EGG.get());
@@ -204,6 +205,7 @@ public class ModTabs {
 				tabData.accept(ModItems.MILITARY_BOOTS.get());
 				tabData.accept(ModItems.FART_BOTTLE.get());
 				tabData.accept(ModItems.POOP_BOTTLE.get());
+				tabData.accept(ModItems.GRENADE_LAUNCHER.get());
 
 			}).build());
 }

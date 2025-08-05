@@ -33,9 +33,7 @@ import net.svisvi.jigsawpp.item.beaver_bomb.BeaverBombItem;
 import net.svisvi.jigsawpp.item.drist_tnt_stick.DristTntStickItem;
 import net.svisvi.jigsawpp.item.extinguisher.ExtinguisherItem;
 
-import net.svisvi.jigsawpp.item.grenades.GassyGrenadeItem;
-import net.svisvi.jigsawpp.item.grenades.PonosGrenadeItem;
-import net.svisvi.jigsawpp.item.grenades.PurgenGrenadeItem;
+import net.svisvi.jigsawpp.item.grenades.*;
 
 import net.svisvi.jigsawpp.item.gas_bottle.AbstractGasBottleItem;
 
@@ -319,6 +317,12 @@ public class ModItems {
 	public static final RegistryObject<Item> EXPECTORATOR = REGISTRY.register("expectorator", () -> new ExpectoratorItem.Helmet());
 	public static final RegistryObject<Item> MILITARY_BOOTS = REGISTRY.register("military_boots", () -> new MilitaryBootsItem.Boots());
 	public static final RegistryObject<Item> DETONATOR = REGISTRY.register("detonator", () -> new DetonatorItem());
+	public static final RegistryObject<Item> GRENADE_LAUNCHER = REGISTRY.register("grenade_launcher", () -> new GrenadeLauncherItem());
+	public static final RegistryObject<Item> SMOKE_GRENADE = REGISTRY.register("smoke_smoke_grenade", () -> new SmokeGrenadeItem());
+	public static final RegistryObject<Item> SMOKE_GRENADE_USED = REGISTRY.register("smoke_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
+
+
+
 
 
 	;
