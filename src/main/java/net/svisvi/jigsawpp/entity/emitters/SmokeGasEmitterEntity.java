@@ -7,44 +7,45 @@ import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.gas.AbstractGasClass;
 import net.svisvi.jigsawpp.gas.PoopGasClass;
-import net.svisvi.jigsawpp.gas.PurgativeGasClass;
+import net.svisvi.jigsawpp.gas.SmokeGasClass;
+import net.svisvi.jigsawpp.item.init.ModItems;
 
-public class PurgativeGasEmitterEntity extends GasEmitterEntity{
-    public static final AbstractGasClass DEFAULT_GAS = new PurgativeGasClass();
+public class SmokeGasEmitterEntity extends GasEmitterEntity{
+    public static final AbstractGasClass DEFAULT_GAS = new SmokeGasClass();
     public AbstractGasClass gas = DEFAULT_GAS;
     private static final float DEFAULT_RADIUS = 2.5F;
     private static final int DEFAULT_DURATION = 20 * 60 * 5;
 
-    public PurgativeGasEmitterEntity(EntityType<? extends PurgativeGasEmitterEntity> type, Level level, ParticleOptions particleOptions, float radiuss, int durra, AbstractGasClass gassy) {
+    public SmokeGasEmitterEntity(EntityType<? extends SmokeGasEmitterEntity> type, Level level, ParticleOptions particleOptions, float radiuss, int durra, AbstractGasClass gassy) {
         super(type, level);
         this.noPhysics = true;
         this.setParticle(gassy.getParticle());
         this.setRadius(radiuss);
         this.setDuration(durra);
         this.setGas(gassy);
+        //this.setBottle(ModItems.POOP_BOTTLE.get());
         this.setDebugMode(false); // Default to normal mode
-        this.setDensity(15f);
     }
 
-    public PurgativeGasEmitterEntity(EntityType<? extends PurgativeGasEmitterEntity> type, Level level) {
+    public SmokeGasEmitterEntity(EntityType<? extends SmokeGasEmitterEntity> type, Level level) {
         this(type, level, DEFAULT_GAS.particle, DEFAULT_RADIUS, DEFAULT_DURATION, DEFAULT_GAS);
     }
 
-    public PurgativeGasEmitterEntity(Level level, double x, double y, double z) {
+    public SmokeGasEmitterEntity(Level level, double x, double y, double z) {
         this(level, x, y, z, DEFAULT_GAS.particle, DEFAULT_RADIUS, DEFAULT_DURATION, DEFAULT_GAS);
 
     }
 
-    public PurgativeGasEmitterEntity(Level level, double x, double y, double z, ParticleOptions particleOptions, float radiuss, int durra, AbstractGasClass gassy){
-        this(ModEntities.PURGATIVE_GAS_EMITTER.get(), level, particleOptions, radiuss, durra, gassy);
+    public SmokeGasEmitterEntity(Level level, double x, double y, double z, ParticleOptions particleOptions, float radiuss, int durra, AbstractGasClass gassy){
+        this(ModEntities.SMOKE_GAS_EMITTER.get(), level, particleOptions, radiuss, durra, gassy);
         this.setPos(x, y, z);
     }
 
-    public PurgativeGasEmitterEntity(Level level, double x, double y, double z, float radiuss, int durra, AbstractGasClass gassy){
+    public SmokeGasEmitterEntity(Level level, double x, double y, double z, float radiuss, int durra, AbstractGasClass gassy){
         this(level, x, y, z, gassy.getParticle(), radiuss, durra, gassy);
     }
 
-    public PurgativeGasEmitterEntity(Level level, double x, double y, double z, float radiuss, int durra){
+    public SmokeGasEmitterEntity(Level level, double x, double y, double z, float radiuss, int durra){
         this(level, x, y, z, DEFAULT_GAS.getParticle(), radiuss, durra, DEFAULT_GAS);
     }
 
@@ -59,7 +60,7 @@ public class PurgativeGasEmitterEntity extends GasEmitterEntity{
 
     @Override
     public ParticleOptions getParticle() {
-        return getGas().getParticle();
+        return this.getGas().getParticle();
     }
 
     //    @Override
@@ -68,12 +69,6 @@ public class PurgativeGasEmitterEntity extends GasEmitterEntity{
 //        AbstractGasClass gass = this.getGas();
 //
 //    }
-
-
-    @Override
-    public float getDensity() {
-        return 3f;
-    }
 
     @Override
     public void effectForEach(LivingEntity entity) {

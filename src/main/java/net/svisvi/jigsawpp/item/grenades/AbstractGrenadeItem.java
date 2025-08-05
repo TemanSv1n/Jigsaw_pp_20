@@ -1,5 +1,7 @@
 package net.svisvi.jigsawpp.item.grenades;
 
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.server.level.ChunkTaskPriorityQueueSorter.Release;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,14 +15,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
+import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
+import org.jetbrains.annotations.Nullable;
 
-public abstract class AbstractGrenadeItem extends Item {
+public abstract class AbstractGrenadeItem extends Item implements CustomArmPoseItem {
 
     public AbstractGrenadeItem() {
         super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON));
     }
 
-    protected abstract ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer);
+    protected abstract ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack);
     public abstract ItemStack getUsedItem();
 
     @Override
@@ -29,7 +33,7 @@ public abstract class AbstractGrenadeItem extends Item {
         pPlayer.startUsingItem(pUsedHand);
 
         if (!pLevel.isClientSide) {
-            ThrowableItemProjectile grenade = setProjectile(pLevel, pPlayer);
+            ThrowableItemProjectile grenade = this.setProjectile(pLevel, pPlayer, pPlayer.getItemInHand(pUsedHand));
             grenade.setItem(this.getUsedItem());
             grenade.setOwner(pPlayer);
             grenade.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.0F, 1.0F);
@@ -44,5 +48,14 @@ public abstract class AbstractGrenadeItem extends Item {
         }
         pPlayer.getCooldowns().addCooldown(this, 20);
         return InteractionResultHolder.consume(pStack);
+    }
+
+    @Override
+    @Nullable
+    public HumanoidModel.@Nullable ArmPose getArmPose(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {
+        if (!player.swinging) {
+            return HumanoidModel.ArmPose.TOOT_HORN;
+        }
+        return null;
     }
 }
