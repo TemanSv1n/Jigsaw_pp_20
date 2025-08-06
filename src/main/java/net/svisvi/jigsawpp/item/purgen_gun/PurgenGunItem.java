@@ -53,10 +53,12 @@ public class PurgenGunItem extends Item implements CustomArmPoseItem {
             if (purgen_pilule != ItemStack.EMPTY) {
                 pPlayer.getCooldowns().addCooldown(this, this.getCooldown());
                 //ExtinguisherUse.Useclick(pPlayer);
-                ItemStack _ist = pStack;
-                if (_ist.hurt(1, RandomSource.create(), null)) {
-                    _ist.shrink(1);
-                    _ist.setDamageValue(0);
+                if (!pPlayer.getAbilities().instabuild) {
+                    ItemStack _ist = pStack;
+                    if (_ist.hurt(1, RandomSource.create(), null)) {
+                        _ist.shrink(1);
+                        _ist.setDamageValue(0);
+                    }
                 }
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.COW_MILK, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.PISTON_EXTEND, SoundSource.PLAYERS, 1F, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));

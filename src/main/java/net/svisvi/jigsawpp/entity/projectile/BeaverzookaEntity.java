@@ -65,7 +65,7 @@ public class BeaverzookaEntity extends AbstractArrow implements ItemSupplier {
     @Override
     @OnlyIn(Dist.CLIENT)
     public ItemStack getItem() {
-        return new ItemStack(ModBlocks.BEAWEED_BLOCK.get());
+        return new ItemStack(ModItems.BEAWEED_NUT.get());
     }
 
     @Override

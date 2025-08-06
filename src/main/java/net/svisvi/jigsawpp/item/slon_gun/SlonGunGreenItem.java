@@ -11,10 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -99,7 +96,13 @@ public class SlonGunGreenItem extends Item implements CustomArmPoseItem {
                 //buse(pPlayer);
                 pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.FIRE_EXTINGUISH, SoundSource.PLAYERS, 0.5f, 2f);
                 pPlayer.getCooldowns().addCooldown(this, 10);
+                pPlayer.startUsingItem(pUsedHand);
             }
         }
         return interact;
-    }}
+    }
+
+    public UseAnim getUseAnimation(ItemStack pStack) {
+        return UseAnim.BOW;
+    }
+}
