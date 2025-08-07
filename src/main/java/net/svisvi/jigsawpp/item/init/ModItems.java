@@ -280,6 +280,7 @@ public class ModItems {
 	public static final RegistryObject<Item> DIAMOND_IRON_BLOCK = block(ModBlocks.DIAMOND_IRON_BLOCK);
 	public static final RegistryObject<Item> PLUNGER = REGISTRY.register("plunger", () -> new PlungerItem((new Item.Properties()).durability(250)));
 	public static final RegistryObject<Item> DRIST_TNT = block(ModBlocks.DRIST_TNT);
+	public static final RegistryObject<Item> POOCLEAR_TNT = block(ModBlocks.POOCLEAR_TNT);
 	public static final RegistryObject<Item> DRIST_TNT_STICK = REGISTRY.register("drist_tnt_stick", () -> new DristTntStickItem());
 	public static final RegistryObject<Item> JETSTREAM_CHAIR = REGISTRY.register("jetstream_chair", () -> new JetstreamChairItem(new Item.Properties().stacksTo(1)));
 	public static final RegistryObject<Item> HOT_FAT = REGISTRY.register("hot_fat", () -> new HotFatItem(new Item.Properties().stacksTo(16), 0.9f));
