@@ -7,6 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.svisvi.jigsawpp.JigsawPpMod;
+import net.svisvi.jigsawpp.entity.drist_tnt.PooclearTnt;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.entity.emitters.*;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
@@ -188,6 +189,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<EmitterProjectile>> EMITTER_PROJECTILE =
             ENTITY_TYPES.register("emitter_projectile", () -> EntityType.Builder.<EmitterProjectile>of(EmitterProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("emitter_projectile"));
+
+    public static final RegistryObject<EntityType<PooclearTnt>> POOCLEAR_TNT =
+            ENTITY_TYPES.register("pooclear_tnt",() -> EntityType.Builder.<PooclearTnt>of(PooclearTnt::new, MobCategory.MISC)
+                    .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("pooclear_tnt"));
 
 
 

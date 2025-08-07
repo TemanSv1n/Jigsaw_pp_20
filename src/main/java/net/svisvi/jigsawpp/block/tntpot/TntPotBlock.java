@@ -100,13 +100,13 @@ public class TntPotBlock extends Block {
 
     }
 
-    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        if (!pLevel.isClientSide() && !pPlayer.isCreative() && (Boolean)pState.getValue(UNSTABLE)) {
-            this.onCaughtFire(pState, pLevel, pPos, (Direction)null, (LivingEntity)null);
-        }
-
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-    }
+//    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+//        if (!pLevel.isClientSide() && !pPlayer.isCreative() && (Boolean)pState.getValue(UNSTABLE)) {
+//            this.onCaughtFire(pState, pLevel, pPos, (Direction)null, (LivingEntity)null);
+//        }
+//
+//        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+//    }
 
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {

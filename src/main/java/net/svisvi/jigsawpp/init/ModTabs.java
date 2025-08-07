@@ -207,6 +207,7 @@ public class ModTabs {
 				tabData.accept(ModItems.POOP_BOTTLE.get());
 				tabData.accept(ModItems.GRENADE_LAUNCHER.get());
 				tabData.accept(ModItems.FART_GUN.get());
+				tabData.accept(ModItems.POOCLEAR_TNT.get());
 
 			}).build());
 }

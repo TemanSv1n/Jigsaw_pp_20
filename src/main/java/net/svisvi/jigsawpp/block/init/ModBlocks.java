@@ -7,6 +7,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.block.*;
 import net.svisvi.jigsawpp.block.drist_tnt.DristTntBlock;
+import net.svisvi.jigsawpp.block.drist_tnt.PooclearTntBlock;
 import net.svisvi.jigsawpp.block.kega.KegaBlock;
 import net.svisvi.jigsawpp.block.kega.KegaNullBlock;
 import net.svisvi.jigsawpp.block.crops.Beaweed;
@@ -77,4 +78,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> SHIT_BLOCK = REGISTRY.register("shit_block", () -> new ShitBlock());
     public static final RegistryObject<Block> CREATIVE_HEAT_SOURCE = REGISTRY.register("creative_heat_source", () -> new CreativeHeatSourceBlock());
     public static final RegistryObject<Block> POONAMI = REGISTRY.register("poonami", () -> new PoonamiBlock());
+    public static final RegistryObject<Block> POOCLEAR_TNT = REGISTRY.register("pooclear_tnt", () -> new PooclearTntBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).sound(SoundType.NETHERITE_BLOCK).strength(1.2f, 10f).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
+
 }
