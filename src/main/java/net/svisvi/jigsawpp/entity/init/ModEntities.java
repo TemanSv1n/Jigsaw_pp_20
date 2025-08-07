@@ -185,6 +185,10 @@ public class ModEntities {
                     .clientTrackingRange(10)
                     .build("cursed_cow"));
 
+    public static final RegistryObject<EntityType<EmitterProjectile>> EMITTER_PROJECTILE =
+            ENTITY_TYPES.register("emitter_projectile", () -> EntityType.Builder.<EmitterProjectile>of(EmitterProjectile::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("emitter_projectile"));
+
 
 
 
