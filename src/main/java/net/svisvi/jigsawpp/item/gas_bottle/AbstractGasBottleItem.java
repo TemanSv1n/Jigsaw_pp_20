@@ -93,22 +93,31 @@ public class AbstractGasBottleItem extends Item {
         super.appendHoverText(itemstack, world, list, flag);
     }
 
-    public static ItemStack getEmptySuccessItem(ItemStack pBucketStack, Player pPlayer) {
-        return !pPlayer.getAbilities().instabuild ? new ItemStack(Items.GLASS_BOTTLE) : pBucketStack;
+    public ItemStack getEmptySuccessItem(ItemStack pBucketStack, Player pPlayer) {
+        return !pPlayer.getAbilities().instabuild ? new ItemStack(this.getUsedItem()) : pBucketStack;
+    }
+    public Item getUsedItem(){
+        return Items.GLASS_BOTTLE;
+    }
+
+    public GasEmitterEntity createEmitter(Level pLevel, BlockPos pPos){
+        try {
+            GasEmitterEntity gassy = EmitterUtils.createEmitter(this.getEmitterClass(), pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), this.getRadius(), this.getDuration());
+            return gassy;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public boolean emptyContents(@Nullable Player pPlayer, Level pLevel, BlockPos pPos, @Nullable BlockHitResult pResult, @Nullable ItemStack container) {
         if (emitterClass != null) {
-            try {
-                GasEmitterEntity gassy = EmitterUtils.createEmitter(this.getEmitterClass(), pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), this.getRadius(), this.getDuration());
+                GasEmitterEntity gassy = this.createEmitter(pLevel, pPos);
                 gassy.setPos(pPos.getX(), pPos.above().getY(), pPos.getZ());
                 gassy.setOwner(pPlayer);
                 pLevel.addFreshEntity(gassy);
                 this.playEmptySound(pPlayer, pLevel, pPos);
                 return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return false;
     }
@@ -142,7 +151,7 @@ public class AbstractGasBottleItem extends Item {
                         }
 
                         pPlayer.awardStat(Stats.ITEM_USED.get(this));
-                        ItemStack itemstack1 = getEmptySuccessItem(itemstack, pPlayer);
+                        ItemStack itemstack1 = this.getEmptySuccessItem(itemstack, pPlayer);
                         itemstack.shrink(1);
                         pPlayer.addItem(itemstack1);
 

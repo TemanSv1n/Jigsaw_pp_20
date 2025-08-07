@@ -46,7 +46,7 @@ public class GasBottleDispenserExtension {
             if (level.isEmptyBlock(blockpos) && stack.getItem() instanceof AbstractGasBottleItem bottle) {
                 bottle.emptyContents(null, level, blockpos, null, null);
                 this.setSuccess(true);
-                return this.takeGasBottle(source, stack, new ItemStack(Items.GLASS_BOTTLE));
+                return this.takeGasBottle(source, stack, new ItemStack(bottle.getUsedItem()));
             }
             return stack;
         }

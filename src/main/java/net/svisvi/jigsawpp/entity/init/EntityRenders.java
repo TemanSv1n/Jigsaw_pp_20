@@ -37,6 +37,7 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.BEAVERZOOKA_ENTITY.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.NUCLEAR_TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.TEAPOT_MISSILE_ENTITY.get(), ThrownItemRenderer::new);
+        EntityRenderers.register(ModEntities.EMITTER_PROJECTILE.get(), ThrownItemRenderer::new);
 
         EntityRenderers.register(ModEntities.PURGEN_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.PONOS_GRENADE_PROJECTILE.get(), ThrownItemRenderer::new);
@@ -62,6 +63,7 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.JETSTREAM_CHAIR.get(), (p_174090_) -> {
             return new JetstreamChairRenderer(p_174090_, ModModelLayers.JETSTREAM_CHAIR_LAYER);
         });
+        EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
 
         //Emitters
         EntityRenderers.register(ModEntities.ABSTRACT_EMITTER.get(), NoopRenderer::new);
@@ -70,7 +72,6 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.PURGATIVE_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.FART_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.SMOKE_GAS_EMITTER.get(), NoopRenderer::new);
-        EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
 
 
     }

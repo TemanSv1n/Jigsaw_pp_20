@@ -320,6 +320,8 @@ public class ModItems {
 	public static final RegistryObject<Item> GRENADE_LAUNCHER = REGISTRY.register("grenade_launcher", () -> new GrenadeLauncherItem());
 	public static final RegistryObject<Item> SMOKE_GRENADE = REGISTRY.register("smoke_smoke_grenade", () -> new SmokeGrenadeItem());
 	public static final RegistryObject<Item> SMOKE_GRENADE_USED = REGISTRY.register("smoke_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
+	public static final RegistryObject<Item> FART_GUN = REGISTRY.register("fart_gun", () -> new FartGunItem());
+
 
 
 
