@@ -230,10 +230,15 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         this.discard();
     }
 
-    @Override
-    public boolean isPickable() {
-        return true; // Allows the entity to be interacted with
-    }
+//    @Override
+//    public boolean isPickable() {
+//        return true; // Allows the entity to be interacted with
+//    }
+
+//    @Override
+//    public boolean canBeCollidedWith() {
+//        return false;
+//    }
 
     // ========== Data Accessors ==========
 
