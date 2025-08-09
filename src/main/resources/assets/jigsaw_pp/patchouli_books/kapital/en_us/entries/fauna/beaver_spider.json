@@ -1,0 +1,19 @@
+{
+  "name": "Beaver spider",
+  "icon": "minecraft:cobweb",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:beaver_spider",
+      "name": "Beaver Spider",
+      "scale": 0.7
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Beaver spider",
+      "text": "BEAVER SPIDER!!! NOOOO!!! Another weird experiment of PurgenMan. This is a spider... Or a beaver... fuck... We surely don't know where this devil spawns, but if he spawns - it s a nightmare. It makes terrible sounds and has all of the spider features. But also it has the Beaver Bomb that it can shoot into its enemies. Also the bomb drops from the defeated.",
+      "item": "jigsaw_pp:beaver_bomb"
+    }
+  ]
+}

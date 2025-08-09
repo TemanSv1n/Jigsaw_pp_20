@@ -1,0 +1,31 @@
+{
+  "name": "Moss Elephant",
+  "icon": "jigsaw_pp:moss_elephant_thumb",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:moss_elephant",
+      "name": "Moss Elephant",
+      "scale": 0.8
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Moss Elephant",
+      "text": "Living moss that has taken the form of an Elephant. It typically stands lonely on the beaches or swamps. Actually it's a representative of the Svyatostroone, one of the Elephant Gods. It's afraid of no one but the Beaver Zombies. Drops Sweet Bread in a moment of fear and runs away. But the elephant can award you, check the next page."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Blessing",
+      "item": "jigsaw_pp:moss_elephant_thumb",
+      "text": "Moss elephant can slap a sprinkle of its mighty power onto your stuff! Check JEI of the item above for more information."
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Reference",
+      "images": [
+        "jigsaw_pp:textures/painting/svyatostrun.png"
+      ]
+    }
+  ]
+}

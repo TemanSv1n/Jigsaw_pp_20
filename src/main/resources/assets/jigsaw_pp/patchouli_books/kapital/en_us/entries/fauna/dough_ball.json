@@ -1,0 +1,32 @@
+{
+  "name": "Dough balls",
+  "icon": "jigsaw_pp:yoba",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:multiblock",
+      "name": "Dough balls",
+      "multiblock": {
+        "mapping": {
+          "Y": "jigsaw_pp:yoba[facing=east]",
+          "P": "jigsaw_pp:yoba_poop[facing=east]"
+        },
+        "pattern": [
+          ["Y0P"]
+        ]
+      }
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Dough balls",
+      "text": "Gloopy, sentient lumps of unbaked destiny, rollin’ wherever their squishy little ‘eyes’ take ‘em. These yeasty yeeters don’t stop for nobody—tables, chairs, porce-fuhrers. Bowled over. Shitty variant has uncontrollable diarrhea btw. Their only fear is the fox - it can devour them. By the time they harden, check the next page about it.",
+      "item": "jigsaw_pp:yoba,jigsaw_pp:yoba_poop"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Nutritional blocks",
+      "text": "To prevent dough balls from hardening you can use nutritional blocks. While dough balls are rollin' on them - they won't die.",
+      "item": "jigsaw_pp:fat_block,jigsaw_pp:pork_block"
+    }
+  ]
+}
