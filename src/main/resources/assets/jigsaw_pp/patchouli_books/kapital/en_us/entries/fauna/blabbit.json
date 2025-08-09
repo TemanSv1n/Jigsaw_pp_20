@@ -1,0 +1,31 @@
+{
+  "name": "Blabbit",
+  "icon": "jigsaw_pp:blabball",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:blabbit",
+      "name": "Blabbit",
+      "scale": 0.9
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Blabbit",
+      "text": "The Blabbit – a chthonic creep lurkin’ in the murky depths of underground caves. Only crawls out on Easter. These dudes have serious balls. They hum their weird little tunes while boppin’ around the caverns. Now, don’t mess with a Blabbit’s balls—unless you fancy a royal beatdown. But if things get too spicy, he’ll yeet himself outta there faster than you can scrumble your balls. Check the next page about balls."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Castration",
+      "item": "jigsaw_pp:blabball,jigsaw_pp:blabegg",
+      "text": "You can use a leash to immobilise a heavily beaten blabbit. Then you will be able to cut his balls using shears. Also you can just kill him even without leashing, but you will got only an egg from his back. His balls are very valuable, while his egg is just a trophy."
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Reference",
+      "images": [
+        "jigsaw_pp:textures/painting/blabbit.png"
+      ]
+    }
+  ]
+}

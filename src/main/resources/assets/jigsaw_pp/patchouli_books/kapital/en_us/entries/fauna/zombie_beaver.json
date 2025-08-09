@@ -1,0 +1,24 @@
+{
+  "name": "Zombie beaver",
+  "icon": "jigsaw_pp:beaweed_checker",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:zombie_beaver",
+      "name": "Zombie beaver",
+      "scale": 0.9
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Zombie beavers",
+      "text": "Zombified remnants of the beaver. Horrifying creation of the unknown, based on the beavers of PurgenMan. Sunlight is harmful for their skin. Their most preferred meal is tree, so they will eat ANYTHING that contains some tree. They drop beaweed and rotten flesh after death. They appear in the world from the terrible big barrel (check the next page), this just screams that they were made in a lab!"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:zombie_beaver_spawner",
+      "name": "Zombie beaver spawner",
+      "scale": 0.8
+    }
+  ]
+}
