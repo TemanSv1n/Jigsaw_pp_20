@@ -17,17 +17,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SmokeGasClass extends EffectGasClass{
-    public ParticleOptions particle = ParticleTypes.CAMPFIRE_COSY_SMOKE;
+    public ParticleOptions particle = ParticleTypes.LARGE_SMOKE;
     public SoundEvent sound = SoundEvents.SMOKER_SMOKE;
 
     public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.DARKNESS, 21, 0)));// = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(ModEffects.POOP.get(), 60, 0)));
 
     public SmokeGasClass(){
-        this(ParticleTypes.CAMPFIRE_COSY_SMOKE, SoundEvents.SMOKER_SMOKE, new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.DARKNESS, 21, 0))));
+        this(ParticleTypes.LARGE_SMOKE, SoundEvents.SMOKER_SMOKE, new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.DARKNESS, 21, 0))));
     }
 
     public SmokeGasClass(MobEffectInstance poopEffect){
-        this(ParticleTypes.CAMPFIRE_COSY_SMOKE, SoundEvents.SMOKER_SMOKE, new ArrayList<MobEffectInstance>(Arrays.asList(poopEffect)));
+        this(ParticleTypes.LARGE_SMOKE, SoundEvents.SMOKER_SMOKE, new ArrayList<MobEffectInstance>(Arrays.asList(poopEffect)));
     }
 
     public SmokeGasClass(ParticleOptions partcl, SoundEvent soundd, List<MobEffectInstance> effectList){

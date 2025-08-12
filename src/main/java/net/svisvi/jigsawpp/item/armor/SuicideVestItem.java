@@ -5,9 +5,11 @@ package net.svisvi.jigsawpp.item.armor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,19 +18,22 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.svisvi.jigsawpp.entity.armor.JotaroHatModel;
 import net.svisvi.jigsawpp.entity.armor.SuicideVestModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
+import net.svisvi.jigsawpp.procedures.ut.DristExplosion;
+import net.svisvi.jigsawpp.procedures.radio.IRadioActivatable;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public abstract class SuicideVestItem extends ArmorItem {
+public abstract class SuicideVestItem extends ArmorItem implements IRadioActivatable {
     public SuicideVestItem(Type type, Properties properties) {
         super(new ArmorMaterial() {
             @Override
@@ -71,6 +76,23 @@ public abstract class SuicideVestItem extends ArmorItem {
                 return 0f;
             }
         }, type, properties);
+    }
+
+    @Override
+    public void activate(@Nullable Level level, @Nullable BlockPos pos, @Nullable Entity entity, @Nullable Entity owner, @Nullable Entity activator, @Nullable ItemStack thisStack) {
+        LivingEntity ownere = null;
+        if (owner instanceof LivingEntity) {
+            ownere = (LivingEntity) owner;
+        }
+        DristExplosion.harmfulDristExplode(level, pos, 5, Level.ExplosionInteraction.NONE, ownere);
+        if (thisStack != null) {
+            thisStack.shrink(1);
+        }
+        if (owner != null) {
+            DamageSource damageSource = new DamageSource(owner.damageSources().explosion(activator, owner).typeHolder(), entity, activator);
+            owner.hurt(damageSource, 32500);
+        }
+
     }
 
     public static class Chestplate extends SuicideVestItem {
