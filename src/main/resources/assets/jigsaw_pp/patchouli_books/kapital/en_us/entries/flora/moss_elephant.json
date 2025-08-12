@@ -1,7 +1,7 @@
 {
   "name": "Moss Elephant",
   "icon": "jigsaw_pp:moss_elephant_thumb",
-  "category": "jigsaw_pp:fauna_category",
+  "category": "jigsaw_pp:flora_category",
   "pages": [
     {
       "type": "patchouli:entity",

@@ -1,0 +1,47 @@
+{
+  "name": "Purgen Factory",
+  "icon": "jigsaw_pp:purgen_factory",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:multiblock",
+      "name": "Purgen Factory",
+      "multiblock": {
+        "mapping": {
+          "F": "jigsaw_pp:purgen_factory[facing=east]",
+          "H": "jigsaw_pp:factory_heater[facing=east,is_furnaced=1]",
+          "0": "minecraft:furnace[facing=east]"
+        },
+        "pattern": [
+          ["F"],
+          ["H"],
+          ["0"]
+        ]
+      }
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Factory Heater",
+      "item": "jigsaw_pp:factory_heater",
+      "text": "Purgen Factory consists of several parts:$(br)Inductional heater. Converts power of heat sources like furnace to electricity. Then via induction this energy heats Purgen Factory.$(br)Check the next page..."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Purgen Factory",
+      "item": "jigsaw_pp:purgen_factory",
+      "text": "The factory itself. Can cook the purgative when heated and all necessaryingredients present. It has slots for ingredients:$(br)$(li)2 slots for recipe-ingredients on the left side . Here should be placed certified items defined in the recipes.$(li)2 slots for ANY food. The better food is - the purer purgen will be. But don't put equal food in both slots.$(br)$(li)Top right slot with a diamond - catalyst. Check separate article.$(li)Below - slot for empty pilules.$(li)Brown output slot for ready pilules.$(li)Batch-size card. Read separate article."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Cookin' right",
+      "item": "jigsaw_pp:basic_purgen_pilule",
+      "text": "And of course there is a fluid tank inside. You can fill it by right-clicking with a liquid bucket, as recipe says.$(br)As mentioned before, process of cooking purgen is defined in the recipes. You can check them with JEI. The recipe consists of two ingredients and some amount of liquid. Other components you can add by yourself, making purgen unique.$(br)The factory creates pilules based on recipe parameters. Recipes have its own parameters, like average purity of product, bonus duration and chance of malfunction."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Malfunction",
+      "item": "minecraft:tnt",
+      "text":  "During the process, a malfunction can occur. Its chance is defined in recipe (with TNT item in preview), and also can be modified by catalysts. It's closely never a default explosion. Often, the malfunction is kinda poopy.$(br)$(bold)About automatising.$(reset) The factory can't be automatic in vanilla. But as this is mod, we guess you have other.$(br)Fluid can be inserted using pipe from any side. Ingredients can be inserted from any horizontal side, even with hoppers. Empty pilules and catalysts are meant to be inserted from the top only. And the most important - output. As bottom is obstructed, you can get ready pilules from any horizontal side (e.g. using 'create' funnels)"
+    }
+  ]
+}

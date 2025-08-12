@@ -1,0 +1,13 @@
+{
+  "name": "Batch-size card",
+  "icon": "jigsaw_pp:batch_size_card",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "Batch-size card",
+      "item": "jigsaw_pp:batch_size_card",
+      "text": "Batch-size card is an item that allows to produce big batches of identical purgen. By default factory creates one pilule. With every card quantity of pilules grow. One reaction - several identical pilules. Of course, reaction will need as many ingredients as for producing same count of pilules independently. But, you win time.$(br)Also catalysts are consumed one for reaction. So if you use expensive catalyst - you can create much more pilules before it ends."
+    }
+  ]
+}

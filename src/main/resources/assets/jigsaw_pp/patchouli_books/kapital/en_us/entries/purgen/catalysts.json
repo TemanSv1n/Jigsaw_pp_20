@@ -1,0 +1,13 @@
+{
+  "name": "Catalysts",
+  "icon": "minecraft:diamond",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "Catalysts",
+      "item": "tag:jigsaw_pp:purgen_catalysts",
+      "text": "Catalysts are special items, affecting the purgen synthesis reaction. They can modify all reaction parameters: purity, bonus duration, additional effects and even chance of malfunction. For more information - look into JEI.$(br)Also catalysts are consumed one for reaction. Important when you use batch-size cards."
+    }
+  ]
+}

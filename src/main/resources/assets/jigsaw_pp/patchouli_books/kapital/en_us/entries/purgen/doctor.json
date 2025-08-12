@@ -1,0 +1,13 @@
+{
+  "name": "Doctor's outfit",
+  "icon": "jigsaw_pp:doctor_helmet",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "Dr. Govnarius' outfit",
+      "item": "jigsaw_pp:doctor_helmet",
+      "text": "Purgen pilules can have (and usually the have) hidden effects but the purgative. If purity of the product is low - you can't see the effects, if you are not in creative mode. But doctors can. Wearing this stuff - you can see the hidden truth about purgen contents."
+    }
+  ]
+}

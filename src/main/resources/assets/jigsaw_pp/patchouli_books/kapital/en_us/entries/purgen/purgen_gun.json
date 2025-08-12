@@ -1,0 +1,19 @@
+{
+  "name": "Purgen Gun",
+  "icon": "jigsaw_pp:purgen_gun",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "Purgen gun",
+      "item": "jigsaw_pp:purgen_gun",
+      "text": "If the patient doesn't want do take the curative, the doctor is permit to use additional instruments...$(br)Purgen gun accelerates pilule directly into the patient's mouth. Of course, works with bundle."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Purgen machine-gun",
+      "item": "jigsaw_pp:purgen_machine_gun",
+      "text": "If you want to protect yourself from being 'cured' - you can use hazmat suit (link to poop basics hazmat entry).$(br)Also there is a small chance of a misfire - pilule will fly directly into shooter's mouth :3"
+    }
+  ]
+}
