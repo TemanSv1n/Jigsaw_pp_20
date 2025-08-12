@@ -31,6 +31,10 @@ public class PurgativeGasClass extends EffectGasClass{
         this(ModParticleTypes.PURGATIVE_CLOUD.get(), SoundEvents.COW_MILK, new ArrayList<MobEffectInstance>(Arrays.asList(purgativeEffect)));
     }
 
+    public PurgativeGasClass(List<MobEffectInstance> purgativeEffectList){
+        this(ModParticleTypes.PURGATIVE_CLOUD.get(), SoundEvents.COW_MILK, purgativeEffectList);
+    }
+
     public PurgativeGasClass(ParticleOptions partcl, SoundEvent soundd, List<MobEffectInstance> effectList){
         super(partcl, soundd, effectList);
     }

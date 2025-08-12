@@ -20,6 +20,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -31,7 +32,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.procedures.ut.IPoopProtective;
 
-public class DristTntBlock extends Block implements IPoopExplosive {
+public class DristTntBlock extends TntBlock implements IPoopExplosive {
     public static final BooleanProperty UNSTABLE;
 
     public DristTntBlock(BlockBehaviour.Properties pProperties) {

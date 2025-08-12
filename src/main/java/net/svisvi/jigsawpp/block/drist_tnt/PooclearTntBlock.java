@@ -18,6 +18,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -33,7 +34,7 @@ import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 
-public class PooclearTntBlock extends Block implements IPoopExplosive {
+public class PooclearTntBlock extends TntBlock implements IPoopExplosive {
     public static final BooleanProperty UNSTABLE;
 
     public PooclearTntBlock(Properties pProperties) {
