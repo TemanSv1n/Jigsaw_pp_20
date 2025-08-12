@@ -1,0 +1,24 @@
+{
+  "name": "P.U.R.G.E.N.",
+  "icon": "jigsaw_pp:basic_purgen_pilule",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Diarrhea",
+      "text": "$(br2)$(bold)P.U.R.G.E.N.$() - $(italic)is a very strong purgative, provokes insane diarrhea when consumpted.$() $(#f00)Can be used as cough-cure btw.$()$(br2)$(li)Pilules vary across three main tiers:$(li2)basic - allows to shit only in the overworld,$(li2)advanced - allows to shit in the nether,$(li2)and crystal - allows to shit anywhere.$(br)$(li)Tiers depend on purity of the obtained product.$(br)$(li)Also Purgen pilules vary by diarrhea duration.$(br)$(li)Besides that pilules may contain impurities granting other effects.$(br2)$(reset)"
+
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "P.U.R.G.E.N.",
+      "item": "tag:jigsaw_pp:pilules",
+      "text": "$(br2)$(bold)Diarrhea$() is an effect during which an entity begins to $(#f00)spew forth cubic meters of liquid shit from itself$().$(br)$(li)Diarrhea can be so intense that you'll have to $(#490)prep a fucking patch for your underpants$().$(br)$(li)Varies by $(bold)severity levels$().$(br2)$(reset)"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Reference",
+      "text": "$(br2)*$(bold)A medical student $(o)(S)$() was doing an internship at a pharmacy. After a couple of days, the old pharmacist $(o)(P)$() left to pick up supplies and gave the student strict instructions:$(br)*– $(italic)\"I'm begging you—don't sell anything to anyone! Just ask them to come back later! I'll be back in an hour or two.\"$()$(br2)*$(bold)The pharmacist left, returned, and asked:$(br)*– $(italic)\"So, how did it go?\"$()$(br)*– $(o)(S)$() $(italic)\"Well... I kind of had to sell a man some cough medicine. He begged me... Took it right here on the spot.\"$()$(br)*– $(o)(P)$() $(italic)\"And what did you give him?\"$()$(br)*– $(o)(S)$() $(italic)\"Purgen.\"$()$(br)*– $(o)(P)$() $(#f00)WHAT THE ACTUAL FUCK?!?! HAVE YOU LOST YOUR GODDAMN MIND?!?! PURGEN IS A LAXATIVE!!! WHAT THE HELL DOES IT HAVE TO DO WITH A COUGH?!?!?$()$(br)*– $(o)(S)$() $(italic)\"Oh, come on! Of course it's for cough! Look at him over there by the pharmacy—too scared to even cough now...\"$()$(br2)*$(reset)"
+    }
+  ]
+}
