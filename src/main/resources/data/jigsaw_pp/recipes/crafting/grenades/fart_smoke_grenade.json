@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    " 0 ",
+    " 2 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:barrel"
+    },
+    "1": {
+      "item": "jigsaw_pp:fart_bottle"
+    },
+    "2": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:gassy_smoke_grenade",
+    "count": 1
+  }
+}

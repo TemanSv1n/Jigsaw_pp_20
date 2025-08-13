@@ -29,12 +29,12 @@ public abstract class ExpectoratorItem extends ArmorItem {
         super(new ArmorMaterial() {
             @Override
             public int getDurabilityForType(Type type) {
-                return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 5;
+                return new int[]{0, 621, 0, 0}[type.getSlot().getIndex()];
             }
 
             @Override
             public int getDefenseForType(Type type) {
-                return new int[]{0, 0, 0, 1}[type.getSlot().getIndex()];
+                return new int[]{0, 2, 0, 0}[type.getSlot().getIndex()];
             }
 
             @Override
@@ -69,16 +69,11 @@ public abstract class ExpectoratorItem extends ArmorItem {
         }, type, properties);
     }
 
-    public static class Helmet extends HazmatItem {
-        public Helmet() {
-            super(ArmorItem.Type.HELMET, new Item.Properties());
+    public static class Leggings extends HazmatItem {
+        public Leggings() {
+            super(Type.LEGGINGS, new Item.Properties());
         }
 
-        @Override
-        public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
-            super.appendHoverText(itemstack, world, list, flag);
-            list.add(Component.translatable("item.jigsaw_pp.expectorator.desc"));
-        }
 
         @Override
         public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {

@@ -208,6 +208,7 @@ public class ModTabs {
 				tabData.accept(ModItems.GRENADE_LAUNCHER.get());
 				tabData.accept(ModItems.FART_GUN.get());
 				tabData.accept(ModItems.POOCLEAR_TNT.get());
+				tabData.accept(ModItems.COPROLITE.get());
 
 			}).build());
 }

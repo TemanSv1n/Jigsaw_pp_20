@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jigsaw_pp:belly"
+    },
+    {
+      "item": "jigsaw_pp:junk"
+    }
+  ],
+  "result": {
+    "item": "jigsaw_pp:bellyjunk",
+    "count": 1
+  }
+}

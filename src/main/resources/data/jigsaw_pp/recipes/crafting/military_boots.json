@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "131",
+    "2 2"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:string"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "jigsaw_pp:slave_boots"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:military_boots",
+    "count": 1
+  }
+}
