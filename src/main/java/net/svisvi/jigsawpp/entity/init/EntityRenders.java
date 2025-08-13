@@ -13,6 +13,7 @@ import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairRenderer;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileRenderer;
+import net.svisvi.jigsawpp.entity.rocket.RocketRenderer;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverRenderer;
 import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpiderRender;
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpiderRender;
@@ -64,6 +65,9 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.BEAVER_SPIDER.get(), BeaverSpiderRenderer::new);
         EntityRenderers.register(ModEntities.JETSTREAM_CHAIR.get(), (p_174090_) -> {
             return new JetstreamChairRenderer(p_174090_, ModModelLayers.JETSTREAM_CHAIR_LAYER);
+        });
+        EntityRenderers.register(ModEntities.ROCKET.get(), (p_174090_) -> {
+            return new RocketRenderer(p_174090_, ModModelLayers.ROCKET_LAYER);
         });
         EntityRenderers.register(ModEntities.CURSED_COW.get(), CursedCowRenderer::new);
 
