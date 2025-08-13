@@ -385,7 +385,7 @@
   "key.category.jigsaw_pp": "Цыганские фокусы",
   "item.jigsaw_pp.purgen_smoke_grenade": "Дымовая граната с пургеном",
   "item.jigsaw_pp.gassy_smoke_grenade": "Пердёжная граната",
-  "item.jigsaw_pp.ponos_smoke_grenade": "Говняная граната",
+  "item.jigsaw_pp.ponos_smoke_grenade": "Говняная дымовуха",
   "item.jigsaw_pp.fart_bottle": "Бутылочка с пердежом",
   "item.jigsaw_pp.poop_bottle": "Бутылочка с дерьмецом",
   "item.jigsaw_pp.brown_cutlass.desc": "§7Теперь вы блядский Горшок-Прицел",
@@ -393,5 +393,10 @@
   "subtitles.fart": "Пердеж",
   "item.jigsaw_pp.bottles": "Имеет механики дыхания дракона",
   "block.jigsaw_pp.coprolite": "Копролит",
-  "item.jigsaw_pp.grenade_launcher.desc": "Работает на гранатах"
+  "item.jigsaw_pp.grenade_launcher.desc": "Работает на гранатах",
+  "item.jigsaw_pp.brown_cutlass.desc": "§7Вы теперь прицел",
+
+  "item.jigsaw_pp.grenade_launcher": "Гранатомёт",
+  "item.jigsaw_pp.smoke_smoke_grenade": "Дымовуха",
+  "item.jigsaw_pp.fart_gun": "Пушка-пердушка"
 }

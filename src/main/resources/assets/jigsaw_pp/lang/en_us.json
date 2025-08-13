@@ -406,10 +406,10 @@
   "item.jigsaw_pp.grenade_launcher": "Grenade Launcher",
   "item.jigsaw_pp.smoke_smoke_grenade": "Smoke grenade",
   "item.jigsaw_pp.fart_gun": "Fart gun",
-  "item.jigsaw_pp.fart_gun.desc": "Requires gas bottles",
+  "item.jigsaw_pp.fart_gun.desc": "§7Requires gas bottles",
   "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb",
   "subtitles.fart": "Fart",
   "item.jigsaw_pp.bottles": "Works like dragon's breath",
   "block.jigsaw_pp.coprolite": "Coprolite",
-  "item.jigsaw_pp.grenade_launcher.desc": "Runs off grenades"
+  "item.jigsaw_pp.grenade_launcher.desc": "§7Runs off grenades"
 }
