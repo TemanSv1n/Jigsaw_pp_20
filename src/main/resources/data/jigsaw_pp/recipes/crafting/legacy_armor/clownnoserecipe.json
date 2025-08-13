@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:string"
+    },
+    "1": {
+      "item": "minecraft:red_wool"
+    },
+    "2": {
+      "item": "minecraft:string"
+    },
+    "4": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:clown_nose",
+    "count": 1
+  }
+}

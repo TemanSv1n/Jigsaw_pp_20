@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "121",
+    "131",
+    "1 1"
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw_pp:drist_tnt_stick"
+    },
+    "2": {
+      "item": "jigsaw_pp:detonator"
+    },
+    "3": {
+      "item": "jigsaw_pp:slave_chestplate"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:suicide_vest",
+    "count": 1
+  }
+}

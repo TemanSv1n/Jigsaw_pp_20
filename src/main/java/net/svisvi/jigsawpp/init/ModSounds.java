@@ -26,4 +26,5 @@ public class ModSounds {
         public static final RegistryObject<SoundEvent> ZOMBIE_BEAVER_AMBIENT_3 = REGISTRY.register("beaverzombie_ambient_3", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "beaverzombie_ambient_3")));
         public static final RegistryObject<SoundEvent> ZOMBIE_BEAVER_AMBIENT_4 = REGISTRY.register("beaverzombie_ambient_4", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "beaverzombie_ambient_4")));
         public static final RegistryObject<SoundEvent> ZOMBIE_BEAVER_AMBIENT_5 = REGISTRY.register("beaverzombie_ambient_5", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "beaverzombie_ambient_5")));
+        public static final RegistryObject<SoundEvent> FART = REGISTRY.register("fart", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("jigsaw_pp", "fart")));
 }

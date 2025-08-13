@@ -386,8 +386,7 @@
   "item.jigsaw_pp.alcoshirt": "Alcoshirt",
   "item.jigsaw_pp.pudge_apron": "Pudge apron",
   "item.jigsaw_pp.underwear": "Panties",
-  "item.jigsaw_pp.expectorator": "Expectorator",
-  "item.jigsaw_pp.expectorator.desc": "DISCARDED",
+  "item.jigsaw_pp.expectorator": "Thigh highs",
   "item.jigsaw_pp.military_boots": "Military boots",
   "item.jigsaw_pp.military_boots.desc": "§7Can get you through any§6mud",
   "entity.jigsaw_pp.cursed_cow": "Cursed cow",
@@ -407,5 +406,10 @@
   "item.jigsaw_pp.grenade_launcher": "Grenade Launcher",
   "item.jigsaw_pp.smoke_smoke_grenade": "Smoke grenade",
   "item.jigsaw_pp.fart_gun": "Fart gun",
-  "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb"
+  "item.jigsaw_pp.fart_gun.desc": "Requires gas bottles",
+  "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb",
+  "subtitles.fart": "Fart",
+  "item.jigsaw_pp.bottles": "Works like dragon's breath",
+  "block.jigsaw_pp.coprolite": "Coprolite",
+  "item.jigsaw_pp.grenade_launcher.desc": "Runs off grenades"
 }

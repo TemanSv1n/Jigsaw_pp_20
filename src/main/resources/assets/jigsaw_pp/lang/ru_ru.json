@@ -29,7 +29,7 @@
   "item.jigsaw_pp.sweet_bread": "Сладкий хлеб",
   "item.jigsaw_pp.sweet_bread.desc": "§7Создан §aМшистым слоном§7 в момент страха",
 
-  "item.jigsaw_pp.drist_button": "Дрист кнопка",
+  "item.jigsaw_pp.drist_button": "Великая кнопка засирания консоли сервера",
   "item.jigsaw_pp.extinguisher": "Огнеборец",
   "item.jigsaw_pp.marmoset": "Мармозетка",
   "item.jigsaw_pp.nutcracker": "Щелкунчик",
@@ -377,8 +377,7 @@
   "item.jigsaw_pp.alcoshirt": "Майка алкашка",
   "item.jigsaw_pp.pudge_apron": "Слюнявчик пуджа",
   "item.jigsaw_pp.underwear": "Труселя",
-  "item.jigsaw_pp.expectorator": "Харчеватель",
-  "item.jigsaw_pp.expectorator.desc": "§7На кнопку способности выпускает высокоскоростную харчу на лица ваших врагов!",
+  "item.jigsaw_pp.expectorator": "Чулки",
   "item.jigsaw_pp.military_boots": "Берцы",
   "item.jigsaw_pp.military_boots.desc": "§7Позволяют ходить по любой §6грязи",
   "entity.jigsaw_pp.cursed_cow": "Проклятая корова",
@@ -389,5 +388,10 @@
   "item.jigsaw_pp.ponos_smoke_grenade": "Говняная граната",
   "item.jigsaw_pp.fart_bottle": "Бутылочка с пердежом",
   "item.jigsaw_pp.poop_bottle": "Бутылочка с дерьмецом",
-  "item.jigsaw_pp.brown_cutlass.desc": "§7Теперь вы блядский Горшок-Прицел"
+  "item.jigsaw_pp.brown_cutlass.desc": "§7Теперь вы блядский Горшок-Прицел",
+  "item.jigsaw_pp.fart_gun.desc": "Требует баночек с газом",
+  "subtitles.fart": "Пердеж",
+  "item.jigsaw_pp.bottles": "Имеет механики дыхания дракона",
+  "block.jigsaw_pp.coprolite": "Копролит",
+  "item.jigsaw_pp.grenade_launcher.desc": "Работает на гранатах"
 }

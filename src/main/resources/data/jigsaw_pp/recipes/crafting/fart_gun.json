@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1 2",
+    "314",
+    "156"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:iron_ingot"
+    },
+    "2": {
+      "item": "jigsaw_pp:fart_bottle"
+    },
+    "3": {
+      "item": "minecraft:iron_bars"
+    },
+    "4": {
+      "item": "minecraft:dispenser"
+    },
+    "5": {
+      "item": "minecraft:lever"
+    },
+    "6": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:fart_gun"
+    ,
+    "count": 1
+  }
+}

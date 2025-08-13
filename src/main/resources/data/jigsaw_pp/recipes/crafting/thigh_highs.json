@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1 1",
+    "2 2",
+    "3 3"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:gold_nugget"
+    },
+    "2": {
+      "item": "minecraft:white_wool"
+    },
+    "3": {
+      "item": "minecraft:light_blue_wool"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:expectorator",
+    "count": 1
+  }
+}

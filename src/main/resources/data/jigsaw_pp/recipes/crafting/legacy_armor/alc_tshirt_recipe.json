@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1 1",
+    "222",
+    "232"
+  ],
+  "key": {
+
+    "1": {
+      "item": "minecraft:string"
+    },
+    "2": {
+      "item": "minecraft:white_carpet"
+    },
+    "3": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:alcoshirt",
+    "count": 1
+  }
+}

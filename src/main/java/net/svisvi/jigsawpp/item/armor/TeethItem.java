@@ -33,12 +33,12 @@ public abstract class TeethItem extends ArmorItem {
         super(new ArmorMaterial() {
             @Override
             public int getDurabilityForType(Type type) {
-                return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 5;
+                return new int[]{13, 15, 16, 156}[type.getSlot().getIndex()];
             }
 
             @Override
             public int getDefenseForType(Type type) {
-                return new int[]{0, 0, 0, 1}[type.getSlot().getIndex()];
+                return new int[]{0, 0, 0, 2}[type.getSlot().getIndex()];
             }
 
             @Override
