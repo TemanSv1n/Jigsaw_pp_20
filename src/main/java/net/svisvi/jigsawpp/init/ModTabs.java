@@ -209,6 +209,8 @@ public class ModTabs {
 				tabData.accept(ModItems.FART_GUN.get());
 				tabData.accept(ModItems.POOCLEAR_TNT.get());
 				tabData.accept(ModItems.ROCKET.get());
+				tabData.accept(ModItems.EMPTY_ROCKET.get());
+				tabData.accept(ModItems.UNFUELED_ROCKET.get());
 
 			}).build());
 }

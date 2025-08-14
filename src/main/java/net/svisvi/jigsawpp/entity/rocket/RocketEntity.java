@@ -34,6 +34,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
@@ -52,10 +53,16 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.IMinecartCollisionHandler;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
+import net.svisvi.jigsawpp.networking.ModMessages;
+import net.svisvi.jigsawpp.networking.packet.SyncRocketDataPacket;
 import net.svisvi.jigsawpp.particles.ModParticleTypes;
+import net.svisvi.jigsawpp.procedures.radio.IRadioActivatable;
+import net.svisvi.jigsawpp.procedures.ut.NuclearShroom;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -63,7 +70,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-public class RocketEntity extends Entity {
+public class RocketEntity extends Entity implements IRadioActivatable {
     private static final EntityDataAccessor<Integer> DATA_ID_HURT;
     private static final EntityDataAccessor<Integer> DATA_ID_HURTDIR;
     private static final EntityDataAccessor<Float> DATA_ID_DAMAGE;
@@ -72,6 +79,7 @@ public class RocketEntity extends Entity {
     private static final EntityDataAccessor<Boolean> DATA_ID_CUSTOM_DISPLAY;
     private static final EntityDataAccessor<ItemStack> DATA_ID_POOPS = SynchedEntityData.defineId(RocketEntity.class, EntityDataSerializers.ITEM_STACK);
     private static final EntityDataAccessor<ItemStack> DATA_ID_BOMB = SynchedEntityData.defineId(RocketEntity.class, EntityDataSerializers.ITEM_STACK);
+    private static final EntityDataAccessor<ItemStack> DATA_ID_NAMETAG = SynchedEntityData.defineId(RocketEntity.class, EntityDataSerializers.ITEM_STACK);
     private static final ImmutableMap<Pose, ImmutableList<Integer>> POSE_DISMOUNT_HEIGHTS;
     protected static final float WATER_SLOWDOWN_FACTOR = 0.95F;
     private boolean flipped;
@@ -132,7 +140,7 @@ public class RocketEntity extends Entity {
         // POOPS Interaction
         if (handStack.is(ModItems.POOPS.get())) {
             if (this.getPoops().isEmpty()) {
-                System.out.println("POOPS TIME!!!");
+                //System.out.println("POOPS TIME!!!");
                 String poopsName = getItemStackName(handStack);
                 if (validatePoopsName(poopsName)) {
                     if (!level.isClientSide()) {
@@ -146,7 +154,7 @@ public class RocketEntity extends Entity {
                     }
                     return InteractionResult.sidedSuccess(level.isClientSide());
                 } else {
-                    System.out.println("WRONG POOPS");
+                    //System.out.println("WRONG POOPS");
                     if (!level.isClientSide()) incorrectReaction();
                     return InteractionResult.FAIL;
                 }
@@ -179,6 +187,17 @@ public class RocketEntity extends Entity {
                 }
                 return InteractionResult.sidedSuccess(level.isClientSide());
             }
+
+            if (!this.getNameTagItem().isEmpty()) {
+                if (!level.isClientSide()) {
+                    handStack.hurtAndBreak(1, pPlayer, (player) -> player.broadcastBreakEvent(pHand));
+                    pPlayer.addItem(this.getNameTagItem().copy());
+                    this.setNameTagItem(ItemStack.EMPTY);
+                    shears();
+                    syncEntity();
+                }
+                return InteractionResult.sidedSuccess(level.isClientSide());
+            }
         }
 
         // TNT Interaction
@@ -188,6 +207,24 @@ public class RocketEntity extends Entity {
                     ItemStack tntStack = new ItemStack(blockItem);
                     handStack.shrink(1);
                     this.setBomb(tntStack);
+                    correctReaction();
+                    syncEntity();
+                }
+                return InteractionResult.sidedSuccess(level.isClientSide());
+            } else {
+                if (!level.isClientSide()) incorrectReaction();
+                return InteractionResult.FAIL;
+            }
+        } // NameTag interaction
+        else if (handStack.is(Items.NAME_TAG)) {
+            if (this.getNameTagItem().isEmpty()) {
+                if (!level.isClientSide()) {
+                    String poopsName = getItemStackName(handStack);
+                    ItemStack poopsCopy = new ItemStack(Items.NAME_TAG);
+                    poopsCopy.setHoverName(Component.literal(poopsName)); // Preserve name
+
+                    handStack.shrink(1);
+                    this.setNameTagItem(poopsCopy);
                     correctReaction();
                     syncEntity();
                 }
@@ -213,6 +250,7 @@ public class RocketEntity extends Entity {
             // Force data sync of both items
             this.getEntityData().set(DATA_ID_POOPS, this.getPoops());
             this.getEntityData().set(DATA_ID_BOMB, this.getBomb());
+            this.getEntityData().set(DATA_ID_NAMETAG, this.getNameTagItem());
 
             // Send update packet
             Packet<?> packet = this.getAddEntityPacket();
@@ -227,6 +265,7 @@ public class RocketEntity extends Entity {
             // Force all data to sync
             this.getEntityData().set(DATA_ID_POOPS, this.getPoops());
             this.getEntityData().set(DATA_ID_BOMB, this.getBomb());
+            this.getEntityData().set(DATA_ID_NAMETAG, this.getNameTagItem());
 
             // Send position update too
             this.hasImpulse = true;
@@ -237,7 +276,7 @@ public class RocketEntity extends Entity {
     public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
         super.onSyncedDataUpdated(key);
 
-        if (DATA_ID_POOPS.equals(key) || DATA_ID_BOMB.equals(key)) {
+        if (DATA_ID_POOPS.equals(key) || DATA_ID_BOMB.equals(key) || DATA_ID_NAMETAG.equals(key)) {
             // Force render update
             if (this.level().isClientSide) {
                 this.level().sendBlockUpdated(this.blockPosition(),
@@ -266,6 +305,7 @@ public class RocketEntity extends Entity {
         this.entityData.define(DATA_ID_CUSTOM_DISPLAY, false);
         this.entityData.define(DATA_ID_POOPS, ItemStack.EMPTY);
         this.entityData.define(DATA_ID_BOMB, ItemStack.EMPTY);
+        this.entityData.define(DATA_ID_NAMETAG, ItemStack.EMPTY);
     }
 
     public boolean canCollideWith(Entity pEntity) {
@@ -406,8 +446,13 @@ public class RocketEntity extends Entity {
                 this.spawnAtLocation(this.getBomb().copy()); // Always use copy() to avoid reference issues
             }
 
+            if (!this.getNameTagItem().isEmpty()) {
+                this.spawnAtLocation(this.getNameTagItem().copy()); // Always use copy() to avoid reference issues
+            }
+
             this.setPoops(ItemStack.EMPTY);
             this.setBomb(ItemStack.EMPTY);
+            this.setNameTagItem(ItemStack.EMPTY);
         }
     }
 
@@ -446,12 +491,13 @@ public class RocketEntity extends Entity {
 
     public void tick() {
 
+        legacyTick();
 //        System.out.println(this.getPoops().toString());
 //        System.out.println(this.getBomb().toString());
-        if (!this.level().isClientSide()) {
-            System.out.println("Server (tick) Poops - start: " + this.getPoops());
-            System.out.println("Server (tick) Bomb - start: " + this.getBomb());
-        }
+//        if (!this.level().isClientSide()) {
+//            System.out.println("Server (tick) Poops - start: " + this.getPoops());
+//            System.out.println("Server (tick) Bomb - start: " + this.getBomb());
+//        }
 
         if (this.getHurtTime() > 0) {
             this.setHurtTime(this.getHurtTime() - 1);
@@ -494,14 +540,14 @@ public class RocketEntity extends Entity {
 
             BlockPos blockpos = new BlockPos(k, i, j);
             BlockState blockstate = this.level().getBlockState(blockpos);
-//            this.onRails = BaseRailBlock.isRail(blockstate);
-//            if (this.canUseRail() && this.onRails) {
-//                if (blockstate.getBlock() instanceof PoweredRailBlock && ((PoweredRailBlock)blockstate.getBlock()).isActivatorRail()) {
-//                    this.activateMinecart(k, i, j, (Boolean)blockstate.getValue(PoweredRailBlock.POWERED));
-//                }
-//            } else {
-//                this.comeOffTrack();
-//            }
+            this.onRails = BaseRailBlock.isRail(blockstate);
+            if (this.canUseRail() && this.onRails) {
+                if (blockstate.getBlock() instanceof PoweredRailBlock && ((PoweredRailBlock)blockstate.getBlock()).isActivatorRail()) {
+                    this.activateMinecart(k, i, j, (Boolean)blockstate.getValue(PoweredRailBlock.POWERED));
+                }
+            } else {
+                this.comeOffTrack();
+            }
 
             this.checkInsideBlocks();
             this.setXRot(0.0F);
@@ -561,6 +607,124 @@ public class RocketEntity extends Entity {
         }
 
     }
+
+    public void explode(){
+        if (!this.level().isClientSide()){
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 3, Level.ExplosionInteraction.TNT);
+            if (this.level() instanceof ServerLevel slevel){
+                NuclearShroom.sendFarParticles(slevel,
+                        ParticleTypes.EXPLOSION,
+                        this.getX(), this.getY(), this.getZ(),
+                        7,
+                        7,
+                        7,
+                        100, 0);
+            }
+            if (!this.getBomb().isEmpty()){
+                if (this.getBomb().getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof TntBlock tnt){
+                    tnt.onCaughtFire(blockItem.getBlock().defaultBlockState(), this.level(), this.getOnPos().above(), null, null);
+                }
+            }
+        }
+        this.discard();
+    }
+
+    public void land(){
+        if (!this.getBomb().isEmpty()){
+            this.explode();
+            return;
+        }
+        if (!this.level().isClientSide) {
+            this.getPersistentData().putBoolean("fused", false);
+            this.getPersistentData().putBoolean("fall_rocket", false);
+            this.getPersistentData().putDouble("rocket_counter1", 0);
+
+            ModMessages.sendToTrackingEntity(
+                    new SyncRocketDataPacket(getId(), getPersistentData()),
+                    this
+            );
+        }
+    }
+
+    public void legacyTick() {
+        if (this == null)
+            return;
+        double x = this.getX();
+        double y = this.getY();
+        double z = this.getZ();
+        BlockPos thisPos = BlockPos.containing(x,y,z);
+
+        //EXPLOSION IF BLOCKED
+        if (this.getDeltaMovement().y() == 0 && this.getPersistentData().getBoolean("fused") && this.getPersistentData().getDouble("rocket_counter1") > 210) {
+            this.explode();
+        }
+        if (this.getPersistentData().getBoolean("fused") == true && this.getPersistentData().getBoolean("fall_rocket") == false) {
+            this.getPersistentData().putDouble("rocket_counter1", (this.getPersistentData().getDouble("rocket_counter1") + 1));
+            if (this.getPersistentData().getDouble("rocket_counter1") >= 200) {
+                this.setDeltaMovement(new Vec3((this.getDeltaMovement().x()), 0.4, (this.getDeltaMovement().z())));
+                if (this.level() instanceof ServerLevel _level)
+                    _level.sendParticles(ParticleTypes.FLAME, x, (y - 2.8), z, 60, 0.1, 1.4, 0.1, 0.1);
+                if (this.level() instanceof ServerLevel _level)
+                    _level.sendParticles((SimpleParticleType) (ModParticleTypes.POOP.get()), x, (y - 4), z, 80, 0.3, 2, 0.3, 0.1);
+                if (this.getPersistentData().getDouble("rocket_counter1") % 5 == 0) {
+                        if (!this.level().isClientSide()) {
+                            this.level().playSound(null, thisPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 1, -1);
+                        } else {
+                            this.level().playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.milk")), SoundSource.BLOCKS, 1, -1, false);
+                        }
+
+                    if ((this.level().getBlockState(thisPos)).getBlock() instanceof AirBlock) {
+                        if (this.getDeltaMovement().y() > 0 && this.getPersistentData().getBoolean("fall_rocket") == false) {
+                            if (this.level() instanceof ServerLevel _level){
+                                _level.setBlock(thisPos, ModBlocks.PONOS_FLUID_BLOCK.get().defaultBlockState(), 3);
+                            }
+                        }
+                    }
+                }
+                if (y >= 319) {
+                    ItemStack poops = this.getPoops();
+                    if (!poops.isEmpty()) {
+                        {
+                            BlockPos tpPos = parsePoopsCoords(getItemStackName(poops));
+                            if (this.getFirstPassenger() instanceof Player player){
+                                this.ejectPassengers();
+                                if (player instanceof ServerPlayer splayer) {
+                                    splayer.connection.teleport((double)tpPos.getX(), this.getY()-1, (double)tpPos.getZ(), splayer.getYRot(), splayer.getXRot());
+                                } else {
+                                    player.teleportTo(tpPos.getX(), this.getY()-1, tpPos.getZ());
+                                }
+                                player.startRiding(this, true);
+                            }
+                            this.teleportTo(tpPos.getX(), this.getY()-1, tpPos.getZ());
+                        }
+                        this.getPersistentData().putBoolean("fall_rocket", (true));
+                    } else {
+                        this.explode();
+                    }
+                }
+            } else {
+                if (this.level() instanceof ServerLevel _level)
+                    _level.sendParticles(ParticleTypes.POOF, x, y, z, 60, 2, 0.4, 2, 0.1);
+                if (this.getPersistentData().getDouble("rocket_counter1") % 5 == 0) {
+                        if (!this.level().isClientSide()) {
+                            this.level().playSound(null, thisPos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.wool.break")), SoundSource.BLOCKS, 1, -1);
+                        } else {
+                            this.level().playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.wool.break")), SoundSource.BLOCKS, 1, -1, false);
+                        }
+
+                }
+            }
+        } else if (this.getPersistentData().getBoolean("fused") == true && this.getPersistentData().getBoolean("fall_rocket") == true) {
+            this.setDeltaMovement(new Vec3((this.getDeltaMovement().x()), (-1.4), (this.getDeltaMovement().z())));
+            this.setSecondsOnFire(1);
+            if (this.level() instanceof ServerLevel _level)
+                _level.sendParticles(ParticleTypes.FLAME, x, (y + 2.3), z, 30, 0.1, 1.4, 0.1, 0.1);
+            if (this.onGround()) {
+                this.land();
+            }
+        }
+    }
+
     protected void checkFallDamage(double pY, boolean pOnGround, BlockState pState, BlockPos pPos) {
         this.lastYd = this.getDeltaMovement().y;
         if (!this.isPassenger()) {
@@ -643,6 +807,9 @@ public class RocketEntity extends Entity {
         if (pCompound.contains("Bomb")) {
             this.setBomb(ItemStack.of(pCompound.getCompound("Bomb")));
         }
+        if (pCompound.contains("Nametag")) {
+            this.setNameTagItem(ItemStack.of(pCompound.getCompound("Nametag")));
+        }
 
     }
 
@@ -657,6 +824,9 @@ public class RocketEntity extends Entity {
         }
         if (!this.getBomb().isEmpty()) {
             pCompound.put("Bomb", this.getBomb().save(new CompoundTag()));
+        }
+        if (!this.getNameTagItem().isEmpty()) {
+            pCompound.put("Nametag", this.getNameTagItem().save(new CompoundTag()));
         }
 
     }
@@ -796,6 +966,18 @@ public class RocketEntity extends Entity {
         return name;
     }
 
+    public String getNameTag(){
+        if (this.getNameTagItem().isEmpty()){
+            return null;
+        }
+        return getItemStackName(this.getNameTagItem());
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.literal(this.getNameTag() != null ? this.getNameTag(): "Rocket");
+    }
+
     public static boolean validatePoopsName(String string){
         return parsePoopsCoords(string) != null;
     }
@@ -806,9 +988,9 @@ public class RocketEntity extends Entity {
 
         // Remove all whitespace and split by comma
         String clean = poopsName.replaceAll("\\s+", "");
-        System.out.println(clean);
+        //System.out.println(clean);
         String[] parts = clean.split(",");
-        System.out.println(parts.toString());
+        //System.out.println(parts.toString());
 
         // Must have exactly 2 parts (x and z)
         if (parts.length != 2) {
@@ -817,8 +999,8 @@ public class RocketEntity extends Entity {
         try {
             int x = Integer.parseInt(parts[0]);
             int z = Integer.parseInt(parts[1]);
-            System.out.println(x);
-            System.out.println(z);
+            //System.out.println(x);
+            //System.out.println(z);
 
             // Optional: Validate coordinate ranges
             // Minecraft's world border is at ±30,000,000
@@ -889,6 +1071,17 @@ public class RocketEntity extends Entity {
         this.syncEntity();
     }
 
+    public ItemStack getNameTagItem() {
+        return this.entityData.get(DATA_ID_NAMETAG);
+    }
+
+    public void setNameTagItem(ItemStack stack) {
+        ItemStack copy = stack.copy();
+        copy.setCount(1); // Ensure single item
+        this.entityData.set(DATA_ID_NAMETAG, copy);
+        this.syncEntity();
+    }
+
     public boolean canUseRail() {
         return this.canUseRail;
     }
@@ -943,6 +1136,13 @@ public class RocketEntity extends Entity {
         POSE_DISMOUNT_HEIGHTS = ImmutableMap.of(Pose.STANDING, ImmutableList.of(0, 1, -1), Pose.CROUCHING, ImmutableList.of(0, 1, -1), Pose.SWIMMING, ImmutableList.of(0, 1));
         ;
         COLLISIONS = null;
+    }
+
+    @Override
+    public void activate(@Nullable Level level, @Nullable BlockPos pos, @Nullable Entity entity, @Nullable Entity owner, @Nullable Entity activator, ItemStack thisStack) {
+        if (!this.getPersistentData().getBoolean("fused")) {
+            this.getPersistentData().putBoolean("fused", (true));
+        }
     }
 
 }

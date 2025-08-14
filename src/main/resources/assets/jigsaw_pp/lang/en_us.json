@@ -407,5 +407,10 @@
   "item.jigsaw_pp.grenade_launcher": "Grenade Launcher",
   "item.jigsaw_pp.smoke_smoke_grenade": "Smoke grenade",
   "item.jigsaw_pp.fart_gun": "Fart gun",
-  "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb"
+  "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb",
+
+  "item.jigsaw_pp.rocket": "Rocket",
+  "item.jigsaw_pp.empty_rocket": "Rocket: (EMPTY)",
+  "item.jigsaw_pp.unfueled_rocket": "Rocket: (FUELING IN PROCESS)",
+  "entity.jigsaw_pp.rocket": "Rocket"
 }

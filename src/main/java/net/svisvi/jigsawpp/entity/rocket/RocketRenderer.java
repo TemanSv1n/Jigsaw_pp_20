@@ -3,6 +3,8 @@ package net.svisvi.jigsawpp.entity.rocket;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -10,8 +12,10 @@ import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.RenderShape;
@@ -19,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.ForgeHooksClient;
 
 @OnlyIn(Dist.CLIENT)
 public class RocketRenderer extends EntityRenderer<RocketEntity> {
@@ -35,10 +40,31 @@ public class RocketRenderer extends EntityRenderer<RocketEntity> {
         this.blockRenderer = pContext.getBlockRenderDispatcher();
     }
 
+    public boolean isShaking(Entity pEntity){
+        return (pEntity.getPersistentData().getBoolean("fused"));
+    }
+
     public void render(RocketEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+        // ===== NAMETAG RENDERING WITH DISTANCE CHECK =====
+        String nametag = pEntity.getNameTag();
+        if (nametag != null && !nametag.isEmpty()) {
+            double distanceSqr = this.entityRenderDispatcher.distanceToSqr(pEntity);
+            if (distanceSqr <= 15) {
+                pPoseStack.pushPose();
+                // Position 4.5 blocks higher (using 0.1 as in your working version)
+                pPoseStack.translate(0.0, 0.1, 0.0);
+                // Vanilla handles orientation automatically
+                this.renderNameTag(pEntity, Component.literal(nametag), pPoseStack, pBuffer, pPackedLight);
+                pPoseStack.popPose();
+            }
+        }
+
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
-        System.out.println("Client Poops: " + pEntity.getPoops());
-        System.out.println("Client Bomb: " + pEntity.getBomb());
+        if (this.isShaking(pEntity)) {
+            pEntityYaw += (float)(Math.cos((double)pEntity.tickCount * (double)3.25F) * Math.PI * (double)0.4F);
+        }
+//        System.out.println("Client Poops: " + pEntity.getPoops());
+//        System.out.println("Client Bomb: " + pEntity.getBomb());
         pPoseStack.pushPose();
         long $$6 = (long)pEntity.getId() * 493286711L;
         $$6 = $$6 * $$6 * 4392167121L + $$6 * 98761L;
@@ -128,6 +154,7 @@ public class RocketRenderer extends EntityRenderer<RocketEntity> {
         pPoseStack.popPose();
     }
 
+
     public ResourceLocation getTextureLocation(RocketEntity pEntity) {
         return pEntity.getPoops().isEmpty() ? MINECART_LOCATION : MINECART_LOCATION_CLOSED;
     }
@@ -135,4 +162,6 @@ public class RocketRenderer extends EntityRenderer<RocketEntity> {
     protected void renderMinecartContents(RocketEntity pEntity, float pPartialTicks, BlockState pState, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         this.blockRenderer.renderSingleBlock(pState, pPoseStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY);
     }
+
+
 }
