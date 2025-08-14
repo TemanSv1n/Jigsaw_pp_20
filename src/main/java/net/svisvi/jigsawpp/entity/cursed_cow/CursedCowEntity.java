@@ -140,7 +140,7 @@ public class CursedCowEntity extends Cow {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (itemstack.is(Items.BUCKET) && !this.isBaby()) {
             pPlayer.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
-            ItemStack itemstack1 = ItemUtils.createFilledResult(itemstack, pPlayer, ModItems.PONOS_BUCKET.get().getDefaultInstance());
+            ItemStack itemstack1 = ItemUtils.createFilledResult(itemstack, pPlayer, pPlayer.level().random.nextFloat() >= 0.2 ? ModItems.PONOS_BUCKET.get().getDefaultInstance() : Items.MILK_BUCKET.getDefaultInstance());
             pPlayer.setItemInHand(pHand, itemstack1);
             return InteractionResult.sidedSuccess(this.level().isClientSide);
 

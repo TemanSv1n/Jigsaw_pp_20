@@ -43,12 +43,22 @@ public class RadioUtils {
 
     }
 
-    public static String getItemStackName(ItemStack stack){
-        return stack.getDisplayName().getString();
+    public static String getItemStackName(ItemStack stack) {
+        String name = stack.getDisplayName().getString();
+        // Remove square brackets if present
+        if (name.startsWith("[") && name.endsWith("]")) {
+            name = name.substring(1, name.length() - 1);
+        }
+        return name;
     }
 
     public static String getEntityName(Entity entity){
-        return entity.getDisplayName().getString();
+        String name = entity.getDisplayName().getString();
+        // Remove square brackets if present
+        if (name.startsWith("[") && name.endsWith("]")) {
+            name = name.substring(1, name.length() - 1);
+        }
+        return name;
     }
 
     public static void activatePlayer(Player player, Level level, Entity activator){
