@@ -79,5 +79,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> CREATIVE_HEAT_SOURCE = REGISTRY.register("creative_heat_source", () -> new CreativeHeatSourceBlock());
     public static final RegistryObject<Block> POONAMI = REGISTRY.register("poonami", () -> new PoonamiBlock());
     public static final RegistryObject<Block> POOCLEAR_TNT = REGISTRY.register("pooclear_tnt", () -> new PooclearTntBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).sound(SoundType.NETHERITE_BLOCK).strength(1.2f, 10f).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)));
-
+    public static final RegistryObject<Block> COPROLITE = REGISTRY.register("coprolite", () -> new CoproliteBlock());
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 2 ",
+    "212",
+    " 2 "
+  ],
+  "key": {
+    "1": {
+      "item": "jigsaw_pp:alcoshirt"
+    },
+    "2": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:pudge_apron",
+    "count": 1
+  }
+}

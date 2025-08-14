@@ -82,6 +82,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PIG_TUFFYAK = block(ModBlocks.PIG_TUFFYAK);
 	public static final RegistryObject<Item> PSYCHO_STONE = block(ModBlocks.PSYCHO_STONE);
 	public static final RegistryObject<Item> SHIT_BLOCK = block(ModBlocks.SHIT_BLOCK);
+	public static final RegistryObject<Item> COPROLITE = block(ModBlocks.COPROLITE);
 	public static final RegistryObject<Item> CREATIVE_HEAT_SOURCE = block(ModBlocks.CREATIVE_HEAT_SOURCE);
 
 
@@ -316,7 +317,7 @@ public class ModItems {
 	public static final RegistryObject<Item> ALCOSHIRT = REGISTRY.register("alcoshirt", () -> new AlcoshirtItem.Chestplate());
 	public static final RegistryObject<Item> PUDGE_APRON = REGISTRY.register("pudge_apron", () -> new PudgeApronItem.Chestplate());
 	public static final RegistryObject<Item> UNDERWEAR = REGISTRY.register("underwear", () -> new UnderwearItem.Leggings());
-	public static final RegistryObject<Item> EXPECTORATOR = REGISTRY.register("expectorator", () -> new ExpectoratorItem.Helmet());
+	public static final RegistryObject<Item> EXPECTORATOR = REGISTRY.register("expectorator", () -> new ExpectoratorItem.Leggings());
 	public static final RegistryObject<Item> MILITARY_BOOTS = REGISTRY.register("military_boots", () -> new MilitaryBootsItem.Boots());
 	public static final RegistryObject<Item> DETONATOR = REGISTRY.register("detonator", () -> new DetonatorItem());
 	public static final RegistryObject<Item> GRENADE_LAUNCHER = REGISTRY.register("grenade_launcher", () -> new GrenadeLauncherItem());

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:brown_wool"
+    },
+    "1": {
+      "item": "jigsaw_pp:clown_nose"
+    },
+    "2": {
+      "item": "minecraft:brown_wool"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:joker_nose",
+    "count": 1
+  }
+}

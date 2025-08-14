@@ -2,6 +2,7 @@ package net.svisvi.jigsawpp.item.grenades;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -11,10 +12,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.effect.PurgativeEffect;
 import net.svisvi.jigsawpp.effect.init.ModEffects;
@@ -26,6 +24,7 @@ import net.svisvi.jigsawpp.procedures.ut.GrenadeFinder;
 import net.svisvi.jigsawpp.procedures.ut.PurgenPiluleFinder;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Random;
 
 public class GrenadeLauncherItem extends Item implements CustomArmPoseItem {
@@ -35,9 +34,9 @@ public class GrenadeLauncherItem extends Item implements CustomArmPoseItem {
     public GrenadeLauncherItem(int dur){
         super(new Properties().stacksTo(1).rarity(Rarity.COMMON).durability(dur));
     }
-    public static final int COOLDOWN = 40;
+    public static final int COOLDOWN = 20;
     public int getCooldown(){return COOLDOWN;}
-    public static final int COOLDOWN_BREAK = 120;
+    public static final int COOLDOWN_BREAK = 60;
     public int getCooldownBreak(){return COOLDOWN_BREAK;}
     public static float SPREAD = 0f;
     public float getSpread(){return SPREAD;}
@@ -133,6 +132,11 @@ public class GrenadeLauncherItem extends Item implements CustomArmPoseItem {
         return UseAnim.BOW;
     }
 
+    @Override
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+        super.appendHoverText(itemstack, world, list, flag);
+        list.add(Component.translatable("item.jigsaw_pp.grenade_launcher.desc"));
+    }
 
     @Override
     @Nullable
