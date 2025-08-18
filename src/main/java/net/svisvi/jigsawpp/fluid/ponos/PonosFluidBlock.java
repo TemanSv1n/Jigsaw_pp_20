@@ -31,12 +31,12 @@ public class PonosFluidBlock extends LiquidBlock {
     }
     @Override
     public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 1;
+        return -1;
     }
 
     @Override
     public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 1;
+        return -1;
     }
 
     public boolean isRandomlyTicking(BlockState pState) {

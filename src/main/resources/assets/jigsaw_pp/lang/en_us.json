@@ -388,7 +388,7 @@
   "item.jigsaw_pp.underwear": "Panties",
   "item.jigsaw_pp.expectorator": "Thigh highs",
   "item.jigsaw_pp.military_boots": "Military boots",
-  "item.jigsaw_pp.military_boots.desc": "§7Can get you through any§6mud",
+  "item.jigsaw_pp.military_boots.desc": "§7Can get you through any §6mud",
   "entity.jigsaw_pp.cursed_cow": "Cursed cow",
   "key.jigsaw_pp.armor_ability": "Armor ability",
   "key.category.jigsaw_pp": "Jigsaw II",
@@ -412,11 +412,12 @@
   "item.jigsaw_pp.empty_rocket": "Rocket: (EMPTY)",
   "item.jigsaw_pp.unfueled_rocket": "Rocket: (FUELING IN PROCESS)",
   "entity.jigsaw_pp.rocket": "Rocket",
-  "item.jigsaw_pp.fart_gun.desc": "Requires gas bottles",
+  "item.jigsaw_pp.fart_gun.desc": "§7Requires gas bottles",
   "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb",
   "subtitles.fart": "Fart",
-  "item.jigsaw_pp.bottles": "Works like dragon's breath",
+  "item.jigsaw_pp.bottles": "§7Works like dragon's breath",
   "block.jigsaw_pp.coprolite": "Coprolite",
-  "item.jigsaw_pp.grenade_launcher.desc": "Runs off grenades"
-
+  "item.jigsaw_pp.grenade_launcher.desc": "§7Runs off grenades",
+  "entity.jigsaw_pp.sweet_bread": "Sweet bread",
+  "block.jigsaw_pp.chocolate_block": "Block of bitter chocolate"
 }

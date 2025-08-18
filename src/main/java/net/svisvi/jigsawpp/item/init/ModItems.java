@@ -83,6 +83,7 @@ public class ModItems {
 	public static final RegistryObject<Item> PSYCHO_STONE = block(ModBlocks.PSYCHO_STONE);
 	public static final RegistryObject<Item> SHIT_BLOCK = block(ModBlocks.SHIT_BLOCK);
 	public static final RegistryObject<Item> COPROLITE = block(ModBlocks.COPROLITE);
+	public static final RegistryObject<Item> CHOCOLATE_BLOCK = block(ModBlocks.CHOCOLATE_BLOCK);
 	public static final RegistryObject<Item> CREATIVE_HEAT_SOURCE = block(ModBlocks.CREATIVE_HEAT_SOURCE);
 
 

@@ -212,6 +212,7 @@ public class ModTabs {
 				tabData.accept(ModItems.EMPTY_ROCKET.get());
 				tabData.accept(ModItems.UNFUELED_ROCKET.get());
 				tabData.accept(ModItems.COPROLITE.get());
+				tabData.accept(ModItems.CHOCOLATE_BLOCK.get());
 
 
 			}).build());

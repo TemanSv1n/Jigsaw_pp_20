@@ -181,6 +181,10 @@ public class ModEntities {
             ENTITY_TYPES.register("smoke_gas_emitter", () -> EntityType.Builder.<SmokeGasEmitterEntity>of(SmokeGasEmitterEntity::new, MobCategory.MISC)
                     .sized(3f, 3f).build("smoke_gas_emitter"));
 
+    public static final RegistryObject<EntityType<BrownHoleGasEmitterEntity>> BROWNHOLE_GAS_EMITTER =
+            ENTITY_TYPES.register("brownhole_gas_emitter", () -> EntityType.Builder.<BrownHoleGasEmitterEntity>of(BrownHoleGasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("brownhole_gas_emitter"));
+
     public static final RegistryObject<EntityType<CursedCowEntity>> CURSED_COW =
             ENTITY_TYPES.register("cursed_cow", () -> EntityType.Builder.<CursedCowEntity>of(CursedCowEntity::new, MobCategory.MISC)
                     .sized(0.9f, 1f)
