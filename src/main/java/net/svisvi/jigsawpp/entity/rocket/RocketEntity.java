@@ -655,7 +655,7 @@ public class RocketEntity extends Entity implements IRadioActivatable {
         BlockPos thisPos = BlockPos.containing(x,y,z);
 
         //EXPLOSION IF BLOCKED
-        if (this.getDeltaMovement().y() == 0 && this.getPersistentData().getBoolean("fused") && this.getPersistentData().getDouble("rocket_counter1") > 210) {
+        if (this.getDeltaMovement().y() == 0 && this.getPersistentData().getBoolean("fused") && !this.getPersistentData().getBoolean("fall_rocket") && this.getPersistentData().getDouble("rocket_counter1") > 210) {
             this.explode();
         }
         if (this.getPersistentData().getBoolean("fused") == true && this.getPersistentData().getBoolean("fall_rocket") == false) {

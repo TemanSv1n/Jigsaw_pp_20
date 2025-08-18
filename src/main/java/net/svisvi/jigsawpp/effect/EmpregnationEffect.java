@@ -53,7 +53,7 @@ public class EmpregnationEffect extends MobEffect {
 
     }
 
-    public void born(Level level, BlockPos pos){
+    public static void born(Level level, BlockPos pos){
         if (!level.isClientSide()) {
             level.playSound(null, pos, SoundEvents.RAVAGER_DEATH, SoundSource.NEUTRAL, 1, 1);
             level.playSound(null, pos, SoundEvents.ZOMBIE_CONVERTED_TO_DROWNED, SoundSource.NEUTRAL, 1, 1);

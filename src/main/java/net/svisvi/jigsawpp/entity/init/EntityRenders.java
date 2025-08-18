@@ -78,6 +78,7 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.PURGATIVE_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.FART_GAS_EMITTER.get(), NoopRenderer::new);
         EntityRenderers.register(ModEntities.SMOKE_GAS_EMITTER.get(), NoopRenderer::new);
+        EntityRenderers.register(ModEntities.BROWNHOLE_GAS_EMITTER.get(), NoopRenderer::new);
 
 
     }

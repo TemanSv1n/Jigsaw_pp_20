@@ -99,6 +99,7 @@ public class PooclearTnt extends Entity implements TraceableEntity {
 
         });
         JigsawPpMod.queueServerWork(10, () -> {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 32, ExplosionInteraction.TNT);
             DristExplosion.harmfulDristExplode(this.level(), this.getOnPos(), 10 , ExplosionInteraction.TNT, this.owner);
         });
         for (int i = 0; i < 20; i++){

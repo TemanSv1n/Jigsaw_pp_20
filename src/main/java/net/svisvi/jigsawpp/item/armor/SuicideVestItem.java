@@ -95,6 +95,9 @@ public abstract class SuicideVestItem extends ArmorItem implements IRadioActivat
 
     }
 
+
+
+
     public static class Chestplate extends SuicideVestItem {
         public Chestplate() {
             super(Type.CHESTPLATE, new Properties());

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1,
+  "cookingtime": 1500,
+  "ingredient": {
+    "item": "jigsaw_pp:coprolite"
+  },
+  "result": "jigsaw_pp:chocolate_block"
+}
