@@ -9,6 +9,10 @@ import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZomb
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitRenderer;
 import net.svisvi.jigsawpp.entity.drist_tnt.DristTntRenderer;
 import net.svisvi.jigsawpp.entity.drist_tnt.PooclearTntRenderer;
+import net.svisvi.jigsawpp.entity.gentleman.model.AbstractGentleManRenderer;
+import net.svisvi.jigsawpp.entity.gentleman.model.GentleManRenderer;
+import net.svisvi.jigsawpp.entity.gentleman.model.GentleManWatchingRenderer;
+import net.svisvi.jigsawpp.entity.gentleman.model.GentlemanModel;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairRenderer;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantRenderer;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerRenderer;
@@ -53,6 +57,9 @@ public class EntityRenders {
         EntityRenderers.register(ModEntities.STONE_BEAVER.get(), StoneBeaverRenderer::new);
         EntityRenderers.register(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieRenderer::new);
         EntityRenderers.register(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), BeaverZombieSpawnerRenderer::new);
+
+        EntityRenderers.register(ModEntities.GENTLEMAN.get(), GentleManRenderer::new);
+        EntityRenderers.register(ModEntities.GENTLEMAN_WATCHING.get(), GentleManWatchingRenderer::new);
 
         EntityRenderers.register(ModEntities.TREE_PROJECTILE.get(), ThrownItemRenderer::new);
         EntityRenderers.register(ModEntities.THROWN_PLUNGER.get(), ThrownPlungerRenderer::new);

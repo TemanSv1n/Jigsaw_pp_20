@@ -1,5 +1,7 @@
 package net.svisvi.jigsawpp.event.init;
 
+import com.google.common.eventbus.Subscribe;
+
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
@@ -10,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
+import net.svisvi.jigsawpp.entity.gentleman.GentleManWatchingEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
 
@@ -32,5 +35,11 @@ public class ModEvents {
 
         event.register(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 BeaverZombieSpawner::init, SpawnPlacementRegisterEvent.Operation.REPLACE);
+
+        event.register(ModEntities.GENTLEMAN_WATCHING.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                GentleManWatchingEntity::init, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        
     }
+
+
 }

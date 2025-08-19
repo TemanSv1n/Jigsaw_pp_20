@@ -9,6 +9,8 @@ import net.svisvi.jigsawpp.entity.beaver_zombie.BeaverZombieEntity;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawner;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitEntity;
 import net.svisvi.jigsawpp.entity.cursed_cow.CursedCowEntity;
+import net.svisvi.jigsawpp.entity.gentleman.GentleManEntity;
+import net.svisvi.jigsawpp.entity.gentleman.GentleManWatchingEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
@@ -18,7 +20,6 @@ import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpider;
 
 @Mod.EventBusSubscriber(modid = JigsawPpMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
-
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.MOSS_ELEPHANT.get(), MossElephantEntity.createAttributes().build());
@@ -31,7 +32,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.ZOMBIE_BEAVER.get(), BeaverZombieEntity.createAttributes().build());
         event.put(ModEntities.ZOMBIE_BEAVER_SPAWNER.get(), BeaverZombieSpawner.createAttributes().build());
         event.put(ModEntities.CURSED_COW.get(), CursedCowEntity.createAttributes().build());
+        event.put(ModEntities.GENTLEMAN.get(), GentleManEntity.createAttributes().build());
+        event.put(ModEntities.GENTLEMAN_WATCHING.get(), GentleManWatchingEntity.createAttributes().build());
     }
-
-
 }

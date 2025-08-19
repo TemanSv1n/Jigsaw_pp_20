@@ -14,6 +14,7 @@ import net.svisvi.jigsawpp.entity.armor.beaver.BeaverHatModel;
 import net.svisvi.jigsawpp.entity.beaverSpider.BeaverSpiderModel;
 import net.svisvi.jigsawpp.entity.beaver_zombie.beaver_zombie_spawner.BeaverZombieSpawnerModel;
 import net.svisvi.jigsawpp.entity.blabbit.BlabbitModel;
+import net.svisvi.jigsawpp.entity.gentleman.model.GentlemanModel;
 import net.svisvi.jigsawpp.entity.init.ModModelLayers;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairModel;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;

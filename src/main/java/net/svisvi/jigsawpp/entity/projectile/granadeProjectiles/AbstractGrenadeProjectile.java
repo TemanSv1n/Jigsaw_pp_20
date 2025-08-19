@@ -22,6 +22,7 @@ import net.svisvi.jigsawpp.item.init.ModItems;
 public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
     private int maxLifeTime = 80;
     private int lifeTime = 0;
+    public boolean affectOwner = true;
     public boolean instaboom = false;
     public abstract Class<? extends GasEmitterEntity> getEmitterClass();
 
@@ -56,19 +57,16 @@ public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
     public void explode() {
         try {
             GasEmitterEntity poopgas = this.getEmitter(); //new FartGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ());
-            //poopgas.setDuration(600);
             if (this.getOwner() instanceof LivingEntity le) {
                 poopgas.setOwner(le);
+                poopgas.setAffectOwner(affectOwner);
             }
             this.level().explode(this.getOwner(), this.getX(), this.getY(), this.getZ(), 0.5f, Level.ExplosionInteraction.NONE);
             this.level().addFreshEntity(poopgas);
-            //ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY() , this.getZ(), new ItemStack(ModItems.GASSY_GRENADE_USED.get(), 1));
-            //this.level().addFreshEntity(item);
             this.discard();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //return null;
     }
 
     @Override
@@ -130,4 +128,9 @@ public abstract class AbstractGrenadeProjectile extends ThrowableItemProjectile{
     public boolean isInstaboom() {
         return instaboom;
     }
+
+    public void setAffectOwner(boolean pAffectOwner) {
+        this.affectOwner = pAffectOwner;
+    }
+
 }
