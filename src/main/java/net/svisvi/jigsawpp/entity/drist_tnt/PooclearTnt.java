@@ -87,16 +87,20 @@ public class PooclearTnt extends Entity implements TraceableEntity {
         float $$0 = 16.0F;
         //this.level().explode(this, this.getX(), this.getY(0.0625), this.getZ(), 64.0F, ExplosionInteraction.TNT);
 
-        if (this.level() instanceof ServerLevel _level)
-            for (int i = 0; i < 400; i++){
-                PrimedDristTnt primedtnt = new PrimedDristTnt(this.level(), (double)this.getX() + (-2 + random.nextFloat() * (4)), (double)this.getY() + (-2 + random.nextFloat() * (4)), (double)this.getZ() + (-2 + random.nextFloat() * (4)), this.getOwner());
-                primedtnt.setFuse((primedtnt.getFuse()-random.nextInt(primedtnt.getFuse()))/2);
-                this.level().addFreshEntity(primedtnt);
 
-            }
-        JigsawPpMod.queueServerWork(100, () -> {
-            DristExplosion.harmfulDristExplode(this.level(), this.getOnPos(), 10 , ExplosionInteraction.NONE, this.owner);
+        JigsawPpMod.queueServerWork(15, () -> {
+            if (this.level() instanceof ServerLevel _level)
+                for (int i = 0; i < 400; i++){
+                    PrimedDristTnt primedtnt = new PrimedDristTnt(this.level(), (double)this.getX() + (-2 + random.nextFloat() * (4)), (double)this.getY() + (-2 + random.nextFloat() * (4)), (double)this.getZ() + (-2 + random.nextFloat() * (4)), this.getOwner());
+                    primedtnt.setFuse((primedtnt.getFuse()-random.nextInt(primedtnt.getFuse()))/2);
+                    this.level().addFreshEntity(primedtnt);
 
+                }
+
+        });
+        JigsawPpMod.queueServerWork(10, () -> {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 32, ExplosionInteraction.TNT);
+            DristExplosion.harmfulDristExplode(this.level(), this.getOnPos(), 10 , ExplosionInteraction.TNT, this.owner);
         });
         for (int i = 0; i < 20; i++){
             JigsawPpMod.queueServerWork(i*10 + 1, () -> {

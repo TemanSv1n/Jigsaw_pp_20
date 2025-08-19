@@ -15,7 +15,7 @@ public class PonosFluidInteractionHandler {
                         ForgeMod.LAVA_TYPE.get(),
                         fluidState -> {
                             if (fluidState.isSource()) {
-                                return ModBlocks.COAL_FOSSIL.get().defaultBlockState();
+                                return ModBlocks.COPROLITE.get().defaultBlockState();
                             } else {
                                 return ModBlocks.SHIT_BLOCK.get().defaultBlockState();
                             }
@@ -30,7 +30,7 @@ public class PonosFluidInteractionHandler {
                         ModFluidTypes.PONOS_TYPE.get(),
                         fluidState -> {
                             if (fluidState.isSource()) {
-                                return ModBlocks.COAL_FOSSIL.get().defaultBlockState();
+                                return ModBlocks.COPROLITE.get().defaultBlockState();
                             } else {
                                 return ModBlocks.SHIT_BLOCK.get().defaultBlockState();
                             }

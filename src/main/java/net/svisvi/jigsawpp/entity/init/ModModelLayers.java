@@ -61,5 +61,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation BELLYJUNK_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "bellyjunkmodel"), "main");
 
     public static final ModelLayerLocation GENTLEMAN_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "gentleman"), "main");
+    public static final ModelLayerLocation ROCKET_LAYER = new ModelLayerLocation(new ResourceLocation(JigsawPpMod.MODID, "rocket"), "main");
+
 
 }

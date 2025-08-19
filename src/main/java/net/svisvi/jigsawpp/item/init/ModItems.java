@@ -15,6 +15,7 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairItem;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.GassyGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PurgenGrenadeProjectile;
+import net.svisvi.jigsawpp.entity.rocket.RocketItem;
 import net.svisvi.jigsawpp.fluid.init.ModFluids;
 import net.svisvi.jigsawpp.item.FriedBeaweedSeedsItem;
 import net.svisvi.jigsawpp.item.*;
@@ -81,6 +82,8 @@ public class ModItems {
 	public static final RegistryObject<Item> PIG_TUFFYAK = block(ModBlocks.PIG_TUFFYAK);
 	public static final RegistryObject<Item> PSYCHO_STONE = block(ModBlocks.PSYCHO_STONE);
 	public static final RegistryObject<Item> SHIT_BLOCK = block(ModBlocks.SHIT_BLOCK);
+	public static final RegistryObject<Item> COPROLITE = block(ModBlocks.COPROLITE);
+	public static final RegistryObject<Item> CHOCOLATE_BLOCK = block(ModBlocks.CHOCOLATE_BLOCK);
 	public static final RegistryObject<Item> CREATIVE_HEAT_SOURCE = block(ModBlocks.CREATIVE_HEAT_SOURCE);
 
 
@@ -315,13 +318,17 @@ public class ModItems {
 	public static final RegistryObject<Item> ALCOSHIRT = REGISTRY.register("alcoshirt", () -> new AlcoshirtItem.Chestplate());
 	public static final RegistryObject<Item> PUDGE_APRON = REGISTRY.register("pudge_apron", () -> new PudgeApronItem.Chestplate());
 	public static final RegistryObject<Item> UNDERWEAR = REGISTRY.register("underwear", () -> new UnderwearItem.Leggings());
-	public static final RegistryObject<Item> EXPECTORATOR = REGISTRY.register("expectorator", () -> new ExpectoratorItem.Helmet());
+	public static final RegistryObject<Item> EXPECTORATOR = REGISTRY.register("expectorator", () -> new ExpectoratorItem.Leggings());
 	public static final RegistryObject<Item> MILITARY_BOOTS = REGISTRY.register("military_boots", () -> new MilitaryBootsItem.Boots());
 	public static final RegistryObject<Item> DETONATOR = REGISTRY.register("detonator", () -> new DetonatorItem());
 	public static final RegistryObject<Item> GRENADE_LAUNCHER = REGISTRY.register("grenade_launcher", () -> new GrenadeLauncherItem());
 	public static final RegistryObject<Item> SMOKE_GRENADE = REGISTRY.register("smoke_smoke_grenade", () -> new SmokeGrenadeItem());
 	public static final RegistryObject<Item> SMOKE_GRENADE_USED = REGISTRY.register("smoke_smoke_grenade_empty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
 	public static final RegistryObject<Item> FART_GUN = REGISTRY.register("fart_gun", () -> new FartGunItem());
+	public static final RegistryObject<Item> ROCKET = REGISTRY.register("rocket", () -> new RocketItem(new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> EMPTY_ROCKET = REGISTRY.register("empty_rocket", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+	public static final RegistryObject<Item> UNFUELED_ROCKET = REGISTRY.register("unfueled_rocket", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON)));
+
 
 
 

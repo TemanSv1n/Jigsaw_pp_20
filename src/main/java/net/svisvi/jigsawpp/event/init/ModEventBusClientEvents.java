@@ -20,6 +20,7 @@ import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairModel;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantModel;
 import net.svisvi.jigsawpp.entity.plunger.PlungerModel;
 import net.svisvi.jigsawpp.entity.projectile.floppa_missile.FloppaMissileModel;
+import net.svisvi.jigsawpp.entity.rocket.RocketModel;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverModel;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpiderModel;
 
@@ -45,6 +46,8 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.FLOPPA_MISSILE_LAYER, FloppaMissileModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.PLUNGER, PlungerModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JETSTREAM_CHAIR_LAYER, JetstreamChairModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ROCKET_LAYER, RocketModel::createBodyLayer);
+
 
         event.registerLayerDefinition(ModModelLayers.BEAVER_BOOTS_LAYER, BeaverBootsModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BEAVER_BODY_LAYER, BeaverBodyModel::createBodyLayer);

@@ -28,6 +28,7 @@ import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PurgenGrenadePro
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.GassyGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.PonosGrenadeProjectile;
 import net.svisvi.jigsawpp.entity.projectile.granadeProjectiles.SmokeGrenadeProjectile;
+import net.svisvi.jigsawpp.entity.rocket.RocketEntity;
 import net.svisvi.jigsawpp.entity.stone_beaver.StoneBeaverEntity;
 import net.svisvi.jigsawpp.entity.teapod.blackTeapodSpider.BlackTeapodSpider;
 import net.svisvi.jigsawpp.entity.teapod.rawTeapodSpider.RawTeapodSpider;
@@ -190,6 +191,10 @@ public class ModEntities {
             ENTITY_TYPES.register("smoke_gas_emitter", () -> EntityType.Builder.<SmokeGasEmitterEntity>of(SmokeGasEmitterEntity::new, MobCategory.MISC)
                     .sized(3f, 3f).build("smoke_gas_emitter"));
 
+    public static final RegistryObject<EntityType<BrownHoleGasEmitterEntity>> BROWNHOLE_GAS_EMITTER =
+            ENTITY_TYPES.register("brownhole_gas_emitter", () -> EntityType.Builder.<BrownHoleGasEmitterEntity>of(BrownHoleGasEmitterEntity::new, MobCategory.MISC)
+                    .sized(3f, 3f).build("brownhole_gas_emitter"));
+
     public static final RegistryObject<EntityType<CursedCowEntity>> CURSED_COW =
             ENTITY_TYPES.register("cursed_cow", () -> EntityType.Builder.<CursedCowEntity>of(CursedCowEntity::new, MobCategory.MISC)
                     .sized(0.9f, 1f)
@@ -203,6 +208,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PooclearTnt>> POOCLEAR_TNT =
             ENTITY_TYPES.register("pooclear_tnt",() -> EntityType.Builder.<PooclearTnt>of(PooclearTnt::new, MobCategory.MISC)
                     .fireImmune().sized(0.98f,0.98f).clientTrackingRange(10).updateInterval(10).build("pooclear_tnt"));
+
+    public static final RegistryObject<EntityType<RocketEntity>> ROCKET =
+            ENTITY_TYPES.register("rocket",() -> EntityType.Builder.<RocketEntity>of(RocketEntity::new, MobCategory.MISC)
+                    .sized(1f,4f).setTrackingRange(64).setUpdateInterval(3).setShouldReceiveVelocityUpdates(true).build("rocket"));
 
 
 

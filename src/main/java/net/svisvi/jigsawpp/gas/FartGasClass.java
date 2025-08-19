@@ -21,10 +21,10 @@ public class FartGasClass extends EffectGasClass{
     public ParticleOptions particle = ParticleTypes.SNEEZE;
     public SoundEvent sound = SoundEvents.COW_MILK;
 
-    public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 2, false, false)));
+    public List<MobEffectInstance> effectList = new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 1, false, false)));
 
     public FartGasClass(){
-        this(ParticleTypes.SNEEZE, SoundEvents.COW_MILK, new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 2, false, false))));
+        this(ParticleTypes.SNEEZE, SoundEvents.COW_MILK, new ArrayList<MobEffectInstance>(Arrays.asList(new MobEffectInstance(MobEffects.POISON, 120, 1, false, false))));
     }
 
     public FartGasClass(MobEffectInstance poopEffect){
@@ -48,7 +48,7 @@ public class FartGasClass extends EffectGasClass{
             DamageSource damageSource = new DamageSource(entity.damageSources().drown().typeHolder(),entity, this.getOwner(entity.level()));
             //System.out.println(this.getOwner(entity.level()));
             // Apply drowning damage (same amount as vanilla)
-            entity.hurt(damageSource, 2.0f);
+            entity.hurt(damageSource, 1.0f);
             // Force drowning animation if needed
             entity.setAirSupply(-20);
 

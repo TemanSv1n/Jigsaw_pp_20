@@ -9,7 +9,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.BossEvent.BossBarColor;
@@ -34,11 +36,21 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.svisvi.jigsawpp.entity.emitters.BrownHoleGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.emitters.PoopGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
+import net.svisvi.jigsawpp.gamerules.ModGameRules;
 
 public class GentleManEntity extends Monster{
     protected byte phase = 1;
+
+    public static final Component spawnTntAtPlayerComponent = Component.translatable("entity.gentleman.chat.spawntnt");
+    public static final Component shootPurgenPiluleComponent = Component.translatable("entity.gentleman.chat.pilule_shoot");
+    public static final Component purgenManSummonComponent = Component.translatable("entity.gentleman.chat.phase1");
+    public static final Component purgenmanphase2component = Component.translatable("entity.gentleman.chat.phase2");
+    public static final Component purgenmanphase3component = Component.translatable("entity.gentleman.chat.phase3");
+    public static final Component purgenmanDeathcomponent = Component.translatable("entity.gentleman.chat.death");
+
     private final ServerBossEvent bossEvent =
         new ServerBossEvent(this.getDisplayName(),
             BossBarColor.RED,
@@ -74,6 +86,22 @@ public class GentleManEntity extends Monster{
         return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.ravager.death"));
     }
 
+                
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+
+        if (!this.level().isClientSide()) {
+            MinecraftServer server = this.level().getServer();
+            if (server != null) {
+
+                server.getPlayerList().broadcastSystemMessage(
+                    purgenManSummonComponent, false
+                );
+            }
+        }
+    }
+
     @Override
     public boolean hurt(DamageSource source, float amount) {
         return super.hurt(source, amount);
@@ -90,9 +118,18 @@ public class GentleManEntity extends Monster{
         builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.5);
         return builder;
     }
+
     @Override
     public void die(DamageSource pDamageSource) {
         super.die(pDamageSource);
+        if(!this.level().isClientSide()) {
+            this.level().getGameRules().getRule(ModGameRules.APOOCALYPSE).set(true, this.level().getServer());
+            BrownHoleGasEmitterEntity bHGasEmitter = new BrownHoleGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ(), 2, 6000);
+            this.level().addFreshEntity(bHGasEmitter);
+
+            MinecraftServer server = this.level().getServer();
+            if (server != null) { server.getPlayerList().broadcastSystemMessage(purgenmanDeathcomponent, false); }
+        }
     }
 
     @Override
@@ -186,10 +223,16 @@ public class GentleManEntity extends Monster{
     @Override
     public void tick() {
         super.tick();
-        if (this.getHealth() < this.getMaxHealth() / 1.5f && phase < 2)
-        phase = 2;
-        else if (this.getHealth() < this.getMaxHealth() / 3f && phase < 3) 
-        phase = 3;
+        if (this.getHealth() < this.getMaxHealth() / 1.5f && phase < 2) {
+            phase = 2;
+            MinecraftServer server = this.level().getServer();
+            if (server != null) { server.getPlayerList().broadcastSystemMessage(purgenmanphase2component, false); }
+        }
+        else if (this.getHealth() < this.getMaxHealth() / 3f && phase < 3) { 
+            phase = 3;
+            MinecraftServer server = this.level().getServer();
+            if (server != null) { server.getPlayerList().broadcastSystemMessage(purgenmanphase3component, false); }
+        }
         if (this.getTarget() != null && this.isInFluidType()) {
             if(!this.level().isClientSide())
             this.level().addFreshEntity(new PoopGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ(), 2, 60));

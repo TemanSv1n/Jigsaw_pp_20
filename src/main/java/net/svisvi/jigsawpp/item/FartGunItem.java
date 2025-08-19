@@ -4,6 +4,7 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.svisvi.jigsawpp.entity.emitters.EmitterProjectile;
 import net.svisvi.jigsawpp.entity.emitters.GasEmitterEntity;
 import net.svisvi.jigsawpp.entity.projectile.TeapotMissileEntity;
+import net.svisvi.jigsawpp.init.ModSounds;
 import net.svisvi.jigsawpp.item.gas_bottle.AbstractGasBottleItem;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.ut.CustomArmPoseItem;
@@ -46,7 +48,7 @@ public class FartGunItem extends Item implements CustomArmPoseItem {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-        //list.add(Component.translatable("item.jigsaw_pp.teapot_cannon.desc"));
+        list.add(Component.translatable("item.jigsaw_pp.fart_gun.desc"));
     }
 
     @Override
@@ -99,7 +101,8 @@ public class FartGunItem extends Item implements CustomArmPoseItem {
                         if (stack.isEmpty())
                             entity.getInventory().removeItem(stack);
                     }
-
+                    Random random = new Random();
+                    entityLiving.level().playSound(null, entityLiving.getOnPos(), ModSounds.FART.get(), SoundSource.BLOCKS, 0.3F, random.nextFloat(-1, 1));
                     entity.getCooldowns().addCooldown(itemstack.getItem(), 2);
                 }
                 }

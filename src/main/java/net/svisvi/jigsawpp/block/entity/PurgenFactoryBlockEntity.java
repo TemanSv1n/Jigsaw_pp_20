@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.*;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -18,6 +19,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -40,8 +42,12 @@ import net.svisvi.jigsawpp.block.init.ModBlocks;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenCatalystRecipeReader;
 import net.svisvi.jigsawpp.block.purgen_factory.PurgenPiluleBuilder;
 import net.svisvi.jigsawpp.client.screen.purgen_factory.PurgenFactoryMenu;
+import net.svisvi.jigsawpp.effect.init.ModEffects;
+import net.svisvi.jigsawpp.entity.emitters.PoopGasEmitterEntity;
+import net.svisvi.jigsawpp.entity.emitters.PurgativeGasEmitterEntity;
 import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.entity.teapod.teapodSpider.TeapodSpider;
+import net.svisvi.jigsawpp.gas.PurgativeGasClass;
 import net.svisvi.jigsawpp.item.init.ModItems;
 import net.svisvi.jigsawpp.item.pilule.AbstractPiluleItem;
 import net.svisvi.jigsawpp.networking.ModMessages;
@@ -323,12 +329,14 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
             }
             this.itemHandler.extractItem(5, partenSize(), false);
             this.FLUID_TANK.drain(recipe.get().getFluidStack().getAmount() * partenSize(), IFluidHandler.FluidAction.EXECUTE);
-            this.itemHandler.setStackInSlot(OUTPUT_SLOT, built_purgen.copyWithCount(pu_count));
 
+            ItemStack retStack = built_purgen.copyWithCount(pu_count);
             Random random = new Random();
             if (random.nextFloat() < malChance){
-                badEventHandler(pLevel, pPos, malChance, catalyst_);
+                retStack = badEventHandler(pLevel, pPos, malChance, catalyst_, built_purgen, recipe);
             }
+            this.itemHandler.setStackInSlot(OUTPUT_SLOT, retStack.copyWithCount(pu_count));
+
             return true;
         } else {
             // KA BOOM
@@ -375,6 +383,8 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
         badEvents.put("big_poop_leak", 30);
         badEvents.put("teapodification", 3);
         badEvents.put("teapotification", 6);
+        badEvents.put("poop_gas", 45); //45
+        badEvents.put("purgen_gas", 31); //26
         badEvents.put("explosion", 1);
     }
     public static final Map<Item, String> catalystEvents = new HashMap<Item, String>(); //Name of event, weight
@@ -382,24 +392,24 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
         catalystEvents.put(Items.GUNPOWDER, "explosion");
     }
 
-    public void badEventHandler(Level world, BlockPos pPos, float malChance, ItemStack catalyst){
+    public ItemStack badEventHandler(Level world, BlockPos pPos, float malChance, ItemStack catalyst, ItemStack builtPurgen, Optional<PurgenFactoryRecipe> recipe){
         if (world instanceof ServerLevel _level && !_level.isClientSide()) {
-            int totalSum = sumMapValues(badEvents);
-            int random = world.random.nextInt(totalSum) + 1;
-            int sum = 0;
-            int counter = 0;
             String event = "";
-            if (catalystEvents.containsKey(catalyst.getItem())){
+
+            // Check for catalyst events first
+            if (!catalyst.isEmpty() && catalystEvents.containsKey(catalyst.getItem())) {
                 event = catalystEvents.get(catalyst.getItem());
-            }
-            // 3. Iterate through the map, decrementing the randomWeight
-            // and selecting the key once randomWeight becomes less than zero
-            int currentWeight = 0;
-            if (event.equals("")) {
+            } else {
+                // Do weighted random selection
+                int totalSum = sumMapValues(badEvents);
+                int random = world.random.nextInt(totalSum);
+                int cumulativeWeight = 0;
+
                 for (Map.Entry<String, Integer> entry : badEvents.entrySet()) {
-                    currentWeight += entry.getValue();
-                    if (random < currentWeight) {
+                    cumulativeWeight += entry.getValue();
+                    if (random < cumulativeWeight) {
                         event = entry.getKey();
+                        break;  // Important: break once we find our event
                     }
                 }
             }
@@ -441,11 +451,30 @@ public class PurgenFactoryBlockEntity extends BaseContainerBlockEntity implement
                     eentityToSpawn.setPickUpDelay(10);
                     _level.addFreshEntity(eentityToSpawn);
                     break;
+                case "poop_gas":
+                    PoopGasEmitterEntity emitter = new PoopGasEmitterEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), 5f, 700);
+                    _level.addFreshEntity(emitter);
+                    break;
+                case "purgen_gas":
+                    List<MobEffectInstance> eflist = PotionUtils.getMobEffects(builtPurgen);
+                    eflist.add(new MobEffectInstance(ModEffects.PURGATIVE.get(), 200, 2));
+                    PurgativeGasClass gassy = new PurgativeGasClass(eflist);
+                    PurgativeGasEmitterEntity purgen_emitter = new PurgativeGasEmitterEntity(_level, pPos.getX(), pPos.getY(), pPos.getZ(), 5f, 700, gassy);
+                    _level.addFreshEntity(purgen_emitter);
+                    break;
                 default:
                     System.out.println("Invalid purgen factory malfunction.");
                     break;
             }
+            ItemStack ret = builtPurgen.copy();
+            Random rand = new Random();
+            //if (rand.nextFloat(malChance < 1f ? 1f : malChance + 0.2f) > malChance){
+                ret = PurgenPiluleBuilder.build_main(recipe, new ItemStack(ModItems.SWEET_BREAD.get()), new ItemStack(ModItems.SWEET_BREAD.get()), ItemStack.EMPTY, world, pPos, world.getBlockState(pPos));
+                ret.setCount(builtPurgen.getCount());
+            //}
+            return ret;
         }
+        return ItemStack.EMPTY;
         //FOR NOW IT's ONLY AN EXPLOSION. LATER... LATER THERE WILL BE... OH FCK....
 //        if (world instanceof ServerLevel _level && !_level.isClientSide()) {
 //            float rand = world.random.nextFloat();

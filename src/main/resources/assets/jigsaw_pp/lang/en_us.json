@@ -386,13 +386,20 @@
   "item.jigsaw_pp.alcoshirt": "Alcoshirt",
   "item.jigsaw_pp.pudge_apron": "Pudge apron",
   "item.jigsaw_pp.underwear": "Panties",
-  "item.jigsaw_pp.expectorator": "Expectorator",
-  "item.jigsaw_pp.expectorator.desc": "DISCARDED",
+  "item.jigsaw_pp.expectorator": "Thigh highs",
   "item.jigsaw_pp.military_boots": "Military boots",
-  "item.jigsaw_pp.military_boots.desc": "§7Can get you through any§6mud",
+  "item.jigsaw_pp.military_boots.desc": "§7Can get you through any §6mud",
   "entity.jigsaw_pp.cursed_cow": "Cursed cow",
   "key.jigsaw_pp.armor_ability": "Armor ability",
   "key.category.jigsaw_pp": "Jigsaw II",
+
+  "entity.jigsaw_pp.gentleman": "gentleman",
+  "entity.gentleman.chat.phase1": "You have crossed the road to the wrong god.",
+  "entity.gentleman.chat.phase2": "Is it everything you got?",
+  "entity.gentleman.chat.phase3": "Enough!",
+  "entity.gentleman.chat.pilule_shoot": "Do you like taste of my medicine?",
+  "entity.gentleman.chat.spawntnt": "You got a surprize.",
+  "entity.gentleman.chat.death": "You doomed yourself to a fate worse than death...",
 
   "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that",
 
@@ -407,5 +414,19 @@
   "item.jigsaw_pp.grenade_launcher": "Grenade Launcher",
   "item.jigsaw_pp.smoke_smoke_grenade": "Smoke grenade",
   "item.jigsaw_pp.fart_gun": "Fart gun",
-  "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb"
+
+
+  "item.jigsaw_pp.rocket": "Rocket",
+  "item.jigsaw_pp.empty_rocket": "Rocket: (EMPTY)",
+  "item.jigsaw_pp.unfueled_rocket": "Rocket: (FUELING IN PROCESS)",
+  "entity.jigsaw_pp.rocket": "Rocket",
+  "item.jigsaw_pp.fart_gun.desc": "§7Requires gas bottles",
+  "block.jigsaw_pp.pooclear_tnt": "Pooclear Bomb",
+  "subtitles.fart": "Fart",
+  "item.jigsaw_pp.bottles": "§7Works like dragon's breath",
+  "block.jigsaw_pp.coprolite": "Coprolite",
+  "item.jigsaw_pp.grenade_launcher.desc": "§7Runs off grenades",
+  "entity.jigsaw_pp.sweet_bread": "Sweet bread",
+  "block.jigsaw_pp.chocolate_block": "Block of bitter chocolate"
+
 }

@@ -5,7 +5,7 @@
       "modid": "create"
     }
   ],
-  "type": "create:milling",
+  "type": "create:crushing",
   "ingredients": [
     {
       "item": "jigsaw_pp:fried_beaweed_seeds"

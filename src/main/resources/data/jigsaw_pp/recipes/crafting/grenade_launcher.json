@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "123",
+    "445",
+    "687"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:flower_pot"
+    },
+    "2": {
+      "item": "minecraft:magenta_dye"
+    },
+    "3": {
+      "item": "jigsaw_pp:pw_hat"
+    },
+    "4": {
+      "item": "minecraft:polished_deepslate_wall"
+    },
+    "5": {
+      "item": "minecraft:piston"
+    },
+    "6": {
+      "item": "minecraft:redstone_torch"
+    },
+    "7": {
+      "item": "jigsaw_pp:smart_beaweed_plate"
+    },
+    "8": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:grenade_launcher"
+    ,
+    "count": 1
+  }
+}

@@ -20,6 +20,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -31,7 +32,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.procedures.ut.IPoopProtective;
 
-public class DristTntBlock extends Block implements IPoopExplosive {
+public class DristTntBlock extends TntBlock implements IPoopExplosive {
     public static final BooleanProperty UNSTABLE;
 
     public DristTntBlock(BlockBehaviour.Properties pProperties) {
@@ -86,6 +87,18 @@ public class DristTntBlock extends Block implements IPoopExplosive {
     /** @deprecated */
     @Deprecated
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
+        if (!pLevel.isClientSide) {
+            PrimedDristTnt primedtnt = new PrimedDristTnt(pLevel, (double)pPos.getX() + 0.5, (double)pPos.getY(), (double)pPos.getZ() + 0.5, pEntity);
+//            int i = primedtnt.getFuse();
+//            primedtnt.setFuse((short)(pLevel.random.nextInt(i / 4) + i / 8));
+            pLevel.addFreshEntity(primedtnt);
+            pLevel.playSound((Player)null, primedtnt.getX(), primedtnt.getY(), primedtnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+            pLevel.gameEvent(pEntity, GameEvent.PRIME_FUSE, pPos);
+        }
+
+    }
+
+    private static void explodeWithCooldown(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!pLevel.isClientSide) {
             PrimedDristTnt primedtnt = new PrimedDristTnt(pLevel, (double)pPos.getX() + 0.5, (double)pPos.getY(), (double)pPos.getZ() + 0.5, pEntity);
             int i = primedtnt.getFuse();
@@ -146,7 +159,7 @@ public class DristTntBlock extends Block implements IPoopExplosive {
 
     @Override
     public void poopChainReactionExplode(Level world, BlockPos pos, LivingEntity igniter) {
-        explode(world, pos, igniter);
+       explodeWithCooldown(world, pos, igniter);
         world.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
     }
 }

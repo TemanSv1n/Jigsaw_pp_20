@@ -1,0 +1,13 @@
+{
+  "name": "Purgen Bundle",
+  "icon": "jigsaw_pp:purgen_bundle",
+  "category": "jigsaw_pp:purgen_category",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "Purgen Bundle",
+      "item": "jigsaw_pp:purgen_bundle",
+      "text": "As purgen pilules typically don't stack, as they are all unique - meet the bundle! It allows to store up to 32 pilules inside. You can even eat the pilule without taking it from the bundle. Also the bundle is connected to most of the purgen interactions, like guns, so it's highly recommended to use it."
+    }
+  ]
+}

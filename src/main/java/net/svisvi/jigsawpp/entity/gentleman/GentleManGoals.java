@@ -4,6 +4,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Random;
 
+import net.createmod.ponder.foundation.registration.GenericMultiTagBuilder.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -34,12 +36,13 @@ import net.svisvi.jigsawpp.item.sweet_bread.SweetBreadItem;
 
 public class GentleManGoals {
 
-
     public abstract static class AbstractGentlemanPhase extends MeleeAttackGoal {
         protected final GentleManEntity gentleman;
         protected byte canUsePhase;  
         protected static final Random random = new Random();
         protected static int ticksTillNextMagicNumber;
+        protected static Component phaseComponent; 
+        protected static boolean ifPhaseComponentWasUsed;
 
 
         public AbstractGentlemanPhase(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen, byte pCanUsePhase) {
@@ -52,6 +55,14 @@ public class GentleManGoals {
         @Override
         public boolean canUse() {
             return this.getCanUsePhase() == this.gentleman.getPhase() && super.canUse();
+        }
+
+        public static void setPhaseComponent(Component phaseComponent) {
+            AbstractGentlemanPhase.phaseComponent = phaseComponent;
+        }
+
+        public static Component getPhaseComponent() {
+            return phaseComponent;
         }
 
         public void teleportToTarget() {
@@ -99,7 +110,6 @@ public class GentleManGoals {
             super.tick();
         }
 
-
         protected Item grenadeItem(AbstractGrenadeProjectile pGrenade) {
             Item gItem = null;
             if(pGrenade instanceof  GassyGrenadeProjectile)
@@ -136,6 +146,8 @@ public class GentleManGoals {
                 AABB box = new AABB(this.gentleman.getX() - radius, this.gentleman.getY() - radius, this.gentleman.getZ() - radius,
                     this.gentleman.getX() + radius, this.gentleman.getY() + radius, this.gentleman.getZ() + radius);
                 List<Player> players = this.gentleman.level().getEntitiesOfClass(Player.class, box);
+                MinecraftServer server = this.gentleman.level().getServer();
+                if (server != null) { server.getPlayerList().broadcastSystemMessage(this.gentleman.spawnTntAtPlayerComponent, false); }
                 for (Player player : players) {
                     PrimedDristTnt tnt = new PrimedDristTnt(this.gentleman.level(), player.getX() + 0.5, player.getY() + 0.5, player.getZ() + 0.5, this.gentleman);
                     tnt.setFuse(40);
@@ -199,6 +211,10 @@ public class GentleManGoals {
                 gassyAttackCouldown++;
 
             if(random.nextDouble() <= 0.005d && !this.gentleman.level().isClientSide()) {
+                if(!this.gentleman.level().isClientSide()) {
+                    MinecraftServer server = this.gentleman.level().getServer();
+                    if (server != null) { server.getPlayerList().broadcastSystemMessage(this.gentleman.shootPurgenPiluleComponent, false); }
+                }
                 PurgenPiluleProjectile bombr = new PurgenPiluleProjectile(this.gentleman.level());
                 bombr.setArmor_piercing(true);
                 bombr.shoot(this.gentleman.level(), this.gentleman, (float) (3 * 1.5), 0.0f, new ItemStack(ModItems.CRYSTAL_PURGEN_PILULE.get()));
@@ -244,23 +260,4 @@ public class GentleManGoals {
 
         }
     }
-    public static class PurgenmanRangedAttackGoal extends RangedAttackGoal {
-        private static byte phase;
-        private static GentleManEntity gentleman;
-
-        public PurgenmanRangedAttackGoal(RangedAttackMob pRangedAttackMob, double pSpeedModifier, int pAttackInterval,
-                float pAttackRadius, byte pPhase) {
-            super(pRangedAttackMob, pSpeedModifier, pAttackInterval, pAttackRadius);
-            phase = pPhase;
-            gentleman = (GentleManEntity) pRangedAttackMob;
-            
-        }
-
-        @Override
-        public boolean canUse() {
-            return phase == this.gentleman.phase &&  super.canUse();
-        }
-
-    }
-
 }

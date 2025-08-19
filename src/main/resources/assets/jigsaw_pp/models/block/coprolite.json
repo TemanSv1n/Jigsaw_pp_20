@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "jigsaw_pp:block/coprolite_top",
+    "side": "jigsaw_pp:block/coprolite_side",
+    "top": "jigsaw_pp:block/coprolite_top"
+  }
+}

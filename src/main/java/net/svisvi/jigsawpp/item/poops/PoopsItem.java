@@ -6,6 +6,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.level.Level;
@@ -28,6 +30,7 @@ import net.minecraft.server.level.ServerPlayer;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.ImmutableMultimap;
 import net.svisvi.jigsawpp.entity.projectile.PoopsEntity;
+import net.svisvi.jigsawpp.entity.rocket.RocketEntity;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 import java.util.Random;
@@ -41,11 +44,11 @@ public class PoopsItem extends Item {
         super(new Item.Properties().stacksTo(16));
     }
 
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
-        entity.startUsingItem(hand);
-        return new InteractionResultHolder(InteractionResult.SUCCESS, entity.getItemInHand(hand));
-    }
+//    @Override
+//    public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
+//        entity.startUsingItem(hand);
+//        return new InteractionResultHolder(InteractionResult.SUCCESS, entity.getItemInHand(hand));
+//    }
 
     @Override
     public UseAnim getUseAnimation(ItemStack itemstack) {
@@ -75,8 +78,25 @@ public class PoopsItem extends Item {
     }
 
     @Override
+    public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
+        if (entity.isShiftKeyDown()){
+            //return InteractionResultHolder.pass(entity.getItemInHand(hand));
+            return super.use(world, entity, hand);
+        }
+
+        // Original behavior if not targeting a rocket
+        entity.startUsingItem(hand);
+        return new InteractionResultHolder(InteractionResult.SUCCESS, entity.getItemInHand(hand));
+    }
+
+    @Override
     public void releaseUsing(ItemStack itemstack, Level world, LivingEntity entityLiving, int timeLeft) {
         if (!world.isClientSide() && entityLiving instanceof ServerPlayer entity) {
+
+            if (entity.isShiftKeyDown()){
+                return;
+            }
+
             double x = entity.getX();
             double y = entity.getY();
             double z = entity.getZ();

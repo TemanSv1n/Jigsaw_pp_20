@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import java.util.Collections;
 import java.util.List;
 
-public class ShitBlock extends FallingBlock {
+public class ShitBlock extends Block {
     public ShitBlock() {
         super(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NYLIUM).strength(2f, 0f));
     }
