@@ -171,7 +171,6 @@ public class PurgenPiluleProjectile extends ThrowableItemProjectile implements I
     }
 
 
-
     public void setItem(ItemStack pStack) {
         super.setItem(pStack);
 

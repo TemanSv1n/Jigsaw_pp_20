@@ -10,6 +10,8 @@ import net.svisvi.jigsawpp.JigsawPpMod;
 import net.svisvi.jigsawpp.entity.drist_tnt.PooclearTnt;
 import net.svisvi.jigsawpp.entity.drist_tnt.PrimedDristTnt;
 import net.svisvi.jigsawpp.entity.emitters.*;
+import net.svisvi.jigsawpp.entity.gentleman.GentleManEntity;
+import net.svisvi.jigsawpp.entity.gentleman.GentleManWatchingEntity;
 import net.svisvi.jigsawpp.entity.jetstream_chair.JetstreamChairEntity;
 import net.svisvi.jigsawpp.entity.moss_elephant.MossElephantEntity;
 import net.svisvi.jigsawpp.entity.plunger.ThrownPlungerEntity;
@@ -109,6 +111,14 @@ public class ModEntities {
 
 
   
+    public static final RegistryObject<EntityType<GentleManEntity>> GENTLEMAN =
+            ENTITY_TYPES.register("gentleman",() -> EntityType.Builder.<GentleManEntity>of(GentleManEntity::new, MobCategory.MONSTER)
+                    .sized(0.6f,2f).fireImmune().setTrackingRange(64).setShouldReceiveVelocityUpdates(true).setUpdateInterval(3).build("gentleman"));
+
+    public static final RegistryObject<EntityType<GentleManWatchingEntity>> GENTLEMAN_WATCHING =
+            ENTITY_TYPES.register("gentleman_watching",() -> EntityType.Builder.<GentleManWatchingEntity>of(GentleManWatchingEntity::new, MobCategory.MONSTER)
+                    .sized(0.6f,2f).fireImmune().setTrackingRange(64).setShouldReceiveVelocityUpdates(true).setUpdateInterval(3).build("gentleman_watching"));
+
     public static final RegistryObject<EntityType<TreeProjectile>> TREE_PROJECTILE =
             ENTITY_TYPES.register("tree_projectile", () -> EntityType.Builder.<TreeProjectile>of(TreeProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("tree_projectile"));

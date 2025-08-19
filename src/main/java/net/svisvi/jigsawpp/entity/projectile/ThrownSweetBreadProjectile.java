@@ -18,6 +18,8 @@ import net.svisvi.jigsawpp.entity.init.ModEntities;
 import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class ThrownSweetBreadProjectile extends ThrowableItemProjectile {
+    private boolean armor_piercing;
+
     public ThrownSweetBreadProjectile(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -26,14 +28,27 @@ public class ThrownSweetBreadProjectile extends ThrowableItemProjectile {
         super(ModEntities.SWEET_BREAD.get(), pShooter, pLevel);
     }
 
+    public ThrownSweetBreadProjectile(Level pLevel, LivingEntity pShooter, boolean pArmorPiercing) {
+        super(ModEntities.SWEET_BREAD.get(), pShooter, pLevel);
+        this.armor_piercing = pArmorPiercing;
+    }
+
     public ThrownSweetBreadProjectile(Level pLevel, double pX, double pY, double pZ) {
         super(ModEntities.SWEET_BREAD.get(), pX, pY, pZ, pLevel);
+    }
+
+    public ThrownSweetBreadProjectile(Level pLevel, double pX, double pY, double pZ, boolean pArmorPiercing) {
+        super(ModEntities.SWEET_BREAD.get(), pX, pY, pZ, pLevel);
+        this.armor_piercing = pArmorPiercing;
     }
 
     public ThrownSweetBreadProjectile(Level pLevel){
         super(ModEntities.SWEET_BREAD.get(), pLevel);
     }
 
+    public boolean getArmorPiercing() { return armor_piercing; }
+
+    public void setArmorPiercing(boolean pArmorPiercing) { this.armor_piercing = pArmorPiercing; };
     /**
      * Handles an entity event received from a {@link net.minecraft.network.protocol.game.ClientboundEntityEventPacket}.
      */
