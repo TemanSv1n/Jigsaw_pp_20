@@ -4,7 +4,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Random;
 
-import net.createmod.ponder.foundation.registration.GenericMultiTagBuilder.Component;
+//import net.createmod.ponder.foundation.registration.GenericMultiTagBuilder.Component;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -41,7 +42,7 @@ public class GentleManGoals {
         protected byte canUsePhase;  
         protected static final Random random = new Random();
         protected static int ticksTillNextMagicNumber;
-        protected static Component phaseComponent; 
+        protected static Component phaseComponent;
         protected static boolean ifPhaseComponentWasUsed;
 
 
@@ -147,7 +148,7 @@ public class GentleManGoals {
                     this.gentleman.getX() + radius, this.gentleman.getY() + radius, this.gentleman.getZ() + radius);
                 List<Player> players = this.gentleman.level().getEntitiesOfClass(Player.class, box);
                 MinecraftServer server = this.gentleman.level().getServer();
-                if (server != null) { server.getPlayerList().broadcastSystemMessage(this.gentleman.spawnTntAtPlayerComponent, false); }
+                if (server != null && this.gentleman.level().random.nextFloat() >= 0.7) { server.getPlayerList().broadcastSystemMessage(this.gentleman.spawnTntAtPlayerComponent, false); }
                 for (Player player : players) {
                     PrimedDristTnt tnt = new PrimedDristTnt(this.gentleman.level(), player.getX() + 0.5, player.getY() + 0.5, player.getZ() + 0.5, this.gentleman);
                     tnt.setFuse(40);

@@ -32,6 +32,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
@@ -124,11 +125,28 @@ public class GentleManEntity extends Monster{
         super.die(pDamageSource);
         if(!this.level().isClientSide()) {
             this.level().getGameRules().getRule(ModGameRules.APOOCALYPSE).set(true, this.level().getServer());
-            BrownHoleGasEmitterEntity bHGasEmitter = new BrownHoleGasEmitterEntity(this.level(), this.getX(), this.getY(), this.getZ(), 2, 6000);
+
+            // Get random radius between 15 and 25 blocks
+            double radius = 15 + this.random.nextDouble() * 10;
+
+            // Get random angle for circular distribution
+            double angle = this.random.nextDouble() * Math.PI * 2;
+
+            // Calculate random X and Z coordinates within the circle
+            double randomX = this.getX() + radius * Math.cos(angle);
+            double randomZ = this.getZ() + radius * Math.sin(angle);
+
+            // Get the highest solid block position at the calculated X/Z
+            double randomY = this.level().getHeight(Heightmap.Types.MOTION_BLOCKING, (int)Math.floor(randomX), (int)Math.floor(randomZ));
+
+            // Spawn the BrownHole entity at the random position
+            BrownHoleGasEmitterEntity bHGasEmitter = new BrownHoleGasEmitterEntity(this.level(), randomX, randomY, randomZ, 2, 32400);
             this.level().addFreshEntity(bHGasEmitter);
 
             MinecraftServer server = this.level().getServer();
-            if (server != null) { server.getPlayerList().broadcastSystemMessage(purgenmanDeathcomponent, false); }
+            if (server != null) {
+                server.getPlayerList().broadcastSystemMessage(purgenmanDeathcomponent, false);
+            }
         }
     }
 

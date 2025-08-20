@@ -1,0 +1,31 @@
+{
+  "name": "Слон из мха",
+  "icon": "jigsaw_pp:moss_elephant_thumb",
+  "category": "jigsaw_pp:flora_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:moss_elephant",
+      "name": "Слон из мха",
+      "scale": 0.8
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Слон из мха",
+      "text": "Оживший мох принявший форму слона. Обычно просто стоит рядом с водой. На самом деле это посланник Святоструна, одного из Слоновых Богов. Он не боится никого, но боброзомби и коровы его пугают. В случае страха убегает роняя сладкий хлеб. Но слон может и вознаградить, см. след. стр"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Благословение",
+      "item": "jigsaw_pp:moss_elephant_thumb",
+      "text": "Слон может наделить ваши вещи частичкой своей силы. Посмотрите в JEI о предмете выше, ради подробностей."
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Справка",
+      "images": [
+        "jigsaw_pp:textures/painting/svyatostrun.png"
+      ]
+    }
+  ]
+}

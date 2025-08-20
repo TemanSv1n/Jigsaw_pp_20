@@ -393,13 +393,13 @@
   "key.jigsaw_pp.armor_ability": "Armor ability",
   "key.category.jigsaw_pp": "Jigsaw II",
 
-  "entity.jigsaw_pp.gentleman": "gentleman",
-  "entity.gentleman.chat.phase1": "You have crossed the road to the wrong god.",
-  "entity.gentleman.chat.phase2": "Is it everything you got?",
-  "entity.gentleman.chat.phase3": "Enough!",
-  "entity.gentleman.chat.pilule_shoot": "Do you like taste of my medicine?",
-  "entity.gentleman.chat.spawntnt": "You got a surprize.",
-  "entity.gentleman.chat.death": "You doomed yourself to a fate worse than death...",
+  "entity.jigsaw_pp.gentleman": "Purgen Man",
+  "entity.gentleman.chat.phase1": "<Purgen Man> You have crossed the road to the wrong god.",
+  "entity.gentleman.chat.phase2": "<Purgen Man> Is it everything you got?",
+  "entity.gentleman.chat.phase3": "<Purgen Man> Enough!",
+  "entity.gentleman.chat.pilule_shoot": "<Purgen Man> Do you like taste of my medicine?",
+  "entity.gentleman.chat.spawntnt": "<Purgen Man> You got a surprize.",
+  "entity.gentleman.chat.death": "<Purgen Man> You doomed yourself to a fate worse than death...",
 
   "item.jigsaw_pp.ponos_cutlass.desc": "§7Cleans poop from enemies, grants advantages to wielder for that",
 
@@ -427,6 +427,28 @@
   "block.jigsaw_pp.coprolite": "Coprolite",
   "item.jigsaw_pp.grenade_launcher.desc": "§7Runs off grenades",
   "entity.jigsaw_pp.sweet_bread": "Sweet bread",
-  "block.jigsaw_pp.chocolate_block": "Block of bitter chocolate"
+  "block.jigsaw_pp.chocolate_block": "Block of bitter chocolate",
+
+  "entity.jigsaw_pp.abstract_emitter": "Abstract emitter",
+  "entity.jigsaw_pp.gas_emitter": "Gas emitter",
+  "entity.jigsaw_pp.poop_gas_emitter": "Poop gas emitter",
+  "entity.jigsaw_pp.purgative_gas_emitter": "Purgative gas emitter",
+  "entity.jigsaw_pp.fart_gas_emitter": "Fart gas emitter",
+  "entity.jigsaw_pp.smoke_gas_emitter": "Smoke gas emitter",
+  "entity.jigsaw_pp.brownhole_gas_emitter": "Browhnole gas emitter",
+  "entity.jigsaw_pp.emitter_projectile": "Emitter projectile",
+  "entity.jigsaw_pp.pooclear_tnt": "Pooclear tnt",
+  "entity.jigsaw_pp.nuclear_teapot": "Nuclear teapot",
+  "entity.jigsaw_pp.tntpot": "TNTpot",
+  "entity.jigsaw_pp.drist_tnt": "Drist TNT",
+
+  "item.jigsaw_pp.rocket.desc1": "§7Use poops with name-format <x,z> to set destination",
+  "item.jigsaw_pp.rocket.desc2": "§7Use any TNT as explosive",
+  "item.jigsaw_pp.rocket.desc3": "§7Use nametag to bind rocket with detonator having same name",
+
+  "entity.jigsaw_pp.purgen_grenade_projectile": "Purgen grenade",
+  "entity.jigsaw_pp.gassy_grenade_projectile": "Gassy grenade",
+  "entity.jigsaw_pp.ponos_grenade_projectile": "Poop grenade",
+  "entity.jigsaw_pp.smoke_grenade_projectile": "Smoke grenade"
 
 }
