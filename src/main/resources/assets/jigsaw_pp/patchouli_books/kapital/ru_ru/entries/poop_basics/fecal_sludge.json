@@ -1,0 +1,11 @@
+{
+  "name": "Ведро говна",
+  "icon": "jigsaw_pp:ponos_bucket",
+  "category": "jigsaw_pp:poop_basics_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Я ХРАНЮ ВЕДРО ГОВНА! У СЕБЯ В ЧУЛАНЕ !"
+    }
+  ]
+}

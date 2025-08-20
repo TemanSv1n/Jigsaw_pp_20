@@ -88,10 +88,10 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<PurgenGrenadeProjectile>> PURGEN_GRENADE_PROJECTILE =
             ENTITY_TYPES.register("purgen_grenade_projectile", () -> EntityType.Builder.<PurgenGrenadeProjectile>of(PurgenGrenadeProjectile::new, MobCategory.MISC)
-                    .sized(0.5f, 0.5f).build("purgen_granade_projectile"));
+                    .sized(0.5f, 0.5f).build("purgen_grenade_projectile"));
     public static final RegistryObject<EntityType<GassyGrenadeProjectile>> GASSY_GRENADE_PROJECTILE =
             ENTITY_TYPES.register("gassy_grenade_projectile", () -> EntityType.Builder.<GassyGrenadeProjectile>of(GassyGrenadeProjectile::new, MobCategory.MISC)
-                    .sized(0.5f, 0.5f).build("gassy_granade_projectile"));
+                    .sized(0.5f, 0.5f).build("gassy_grenade_projectile"));
     public static final RegistryObject<EntityType<PonosGrenadeProjectile>> PONOS_GRENADE_PROJECTILE =
             ENTITY_TYPES.register("ponos_grenade_projectile", () -> EntityType.Builder.<PonosGrenadeProjectile>of(PonosGrenadeProjectile::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).build("ponos_grenade_projectile"));

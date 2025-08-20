@@ -1,0 +1,19 @@
+{
+  "name": "Каменный бобрик",
+  "icon": "jigsaw_pp:beaver_staff",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:stone_beaver",
+      "name": "Каменный бобрик",
+      "scale": 0.7
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Каменный бобрик",
+      "text": "Ужасающее творение ПургенМена. Тыгыдыкает по самым мрачным шахтам и пожирает блестящие вкусные руда. Неимоверное ТУПОЕ существо. Их можно подстрекать атаковать любых существ при помочи бобрового посоха. Shift-ЛКМ(стукнуть) по существу чтобы отметить его как обед. Далее ПКМ посохом, чтобы подначить каменных сожрать бедное существо.",
+      "item": "jigsaw_pp:beaver_staff,jigsaw_pp:beaver_staff_honey"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Колобки",
+  "icon": "jigsaw_pp:yoba",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:multiblock",
+      "name": "Колобки",
+      "multiblock": {
+        "mapping": {
+          "Y": "jigsaw_pp:yoba[facing=east]",
+          "P": "jigsaw_pp:yoba_poop[facing=east]"
+        },
+        "pattern": [
+          ["Y0P"]
+        ]
+      }
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Колобки",
+      "text": "Упоротые комки недопеченного теста, катящиеся куда глаза глядят. Они сметают всё на своём пути — столы, стулья, фарфюреры. У дерьмового кАлобка кстати неконтроллируемая диарея). Они боятся лишь лисы, ведь та в состоянии их перехитрить. Со временем они черствеют - см. след. стр.",
+      "item": "jigsaw_pp:yoba,jigsaw_pp:yoba_poop"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Питательная среда",
+      "text": "Чтобы колобки не зачерствели - поставьте под ними питательные блоки. Пока колобки катаются по ним - они будут молоды и счастливы",
+      "item": "jigsaw_pp:fat_block,jigsaw_pp:pork_block"
+    }
+  ]
+}

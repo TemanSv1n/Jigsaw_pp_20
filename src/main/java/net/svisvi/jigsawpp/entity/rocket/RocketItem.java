@@ -42,7 +42,9 @@ public class RocketItem extends Item {
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-        //list.add(Component.translatable("item.jigsaw_pp.jetstream_chair.desc"));
+        list.add(Component.translatable("item.jigsaw_pp.rocket.desc1"));
+        list.add(Component.translatable("item.jigsaw_pp.rocket.desc2"));
+        list.add(Component.translatable("item.jigsaw_pp.rocket.desc3"));
     }
     public InteractionResult useOn(UseOnContext pContext) {
         Direction $$1 = pContext.getClickedFace();

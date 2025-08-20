@@ -1,0 +1,19 @@
+{
+  "name": "Бобёр паук",
+  "icon": "minecraft:cobweb",
+  "category": "jigsaw_pp:fauna_category",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "jigsaw_pp:beaver_spider",
+      "name": "Beaver Spider",
+      "scale": 0.7
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Beaver spider",
+      "text": "БОБЁР ПАУК!!! НЕТ!!! Очередной дурацкий эксперимент ПургенМена. Это паук... Или бобр... блять... Мы не знаем, где этот чертила обитает, но если обитает - это ужас. Оно издает ужасающие звуки и обладает всеми паучьими фишками. Также оно харкает Бобробомбой, которую также можно отобрать у побежденной особи.",
+      "item": "jigsaw_pp:beaver_bomb"
+    }
+  ]
+}
