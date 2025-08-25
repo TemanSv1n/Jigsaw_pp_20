@@ -435,5 +435,7 @@
 
   "item.jigsaw_pp.grenade_launcher": "Гранатомет",
   "item.jigsaw_pp.smoke_smoke_grenade": "Дымовая граната",
-  "item.jigsaw_pp.fart_gun": "Пушка-пердушка"
+  "item.jigsaw_pp.fart_gun": "Пушка-пердушка",
+  "entity.jigsaw_pp.zombie_beaver": "Боброзомби",
+  "entity.jigsaw_pp.gentleman_watching": "Пурген мен"
 }

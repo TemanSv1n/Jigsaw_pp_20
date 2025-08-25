@@ -45,12 +45,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class TntPotBlock extends TntBlock {
-    public static final BooleanProperty UNSTABLE;
+    //public static final BooleanProperty UNSTABLE;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public TntPotBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState((BlockState)this.defaultBlockState().setValue(UNSTABLE, false));
+        //this.registerDefaultState((BlockState)this.defaultBlockState().setValue(UNSTABLE, false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -101,13 +101,13 @@ public class TntPotBlock extends TntBlock {
 
     }
 
-//    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-//        if (!pLevel.isClientSide() && !pPlayer.isCreative() && (Boolean)pState.getValue(UNSTABLE)) {
-//            this.onCaughtFire(pState, pLevel, pPos, (Direction)null, (LivingEntity)null);
-//        }
-//
-//        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-//    }
+    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+        if (!pLevel.isClientSide() && !pPlayer.isCreative() && (Boolean)pState.getValue(UNSTABLE)) {
+            return;
+        }
+
+        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+    }
 
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {
@@ -180,10 +180,6 @@ public class TntPotBlock extends TntBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(new Property[]{UNSTABLE});
         pBuilder.add(FACING);
-    }
-
-    static {
-        UNSTABLE = BlockStateProperties.UNSTABLE;
     }
 
 //    @Override
