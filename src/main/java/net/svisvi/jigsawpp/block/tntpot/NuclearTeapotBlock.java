@@ -44,12 +44,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class NuclearTeapotBlock extends TntBlock {
-    public static final BooleanProperty UNSTABLE;
+    //public static final BooleanProperty UNSTABLE;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public NuclearTeapotBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState((BlockState)this.defaultBlockState().setValue(UNSTABLE, false));
+        //this.registerDefaultState((BlockState)this.defaultBlockState().setValue(UNSTABLE, false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
@@ -100,6 +100,14 @@ public class NuclearTeapotBlock extends TntBlock {
 
     }
 
+
+    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+        if (!pLevel.isClientSide() && !pPlayer.isCreative() && (Boolean)pState.getValue(UNSTABLE)) {
+            return;
+        }
+
+        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+    }
 //    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
 //        if (!pLevel.isClientSide() && !pPlayer.isCreative() && (Boolean)pState.getValue(UNSTABLE)) {
 //            this.onCaughtFire(pState, pLevel, pPos, (Direction)null, (LivingEntity)null);
@@ -181,9 +189,6 @@ public class NuclearTeapotBlock extends TntBlock {
         pBuilder.add(FACING);
     }
 
-    static {
-        UNSTABLE = BlockStateProperties.UNSTABLE;
-    }
 
 //    @Override
 //    public void poopChainReactionExplode(Level world, BlockPos pos, LivingEntity igniter) {

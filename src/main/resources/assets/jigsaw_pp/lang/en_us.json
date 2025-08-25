@@ -449,6 +449,8 @@
   "entity.jigsaw_pp.purgen_grenade_projectile": "Purgen grenade",
   "entity.jigsaw_pp.gassy_grenade_projectile": "Gassy grenade",
   "entity.jigsaw_pp.ponos_grenade_projectile": "Poop grenade",
-  "entity.jigsaw_pp.smoke_grenade_projectile": "Smoke grenade"
+  "entity.jigsaw_pp.smoke_grenade_projectile": "Smoke grenade",
+  "entity.jigsaw_pp.zombie_beaver": "Zombie beaver",
+  "entity.jigsaw_pp.gentleman_watching": "PurgenMan"
 
 }
