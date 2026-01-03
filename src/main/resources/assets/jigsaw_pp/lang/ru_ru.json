@@ -437,5 +437,7 @@
   "item.jigsaw_pp.smoke_smoke_grenade": "Дымовая граната",
   "item.jigsaw_pp.fart_gun": "Пушка-пердушка",
   "entity.jigsaw_pp.zombie_beaver": "Боброзомби",
-  "entity.jigsaw_pp.gentleman_watching": "Пурген мен"
+  "entity.jigsaw_pp.gentleman_watching": "Пурген мен",
+
+  "goon.separator.version.4": "biden"
 }

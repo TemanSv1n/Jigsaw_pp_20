@@ -127,6 +127,7 @@ public class ModItems {
 
 	public static final RegistryObject<Item> GAS_MASK_HELMET = REGISTRY.register("gas_mask_helmet", () -> new GasMaskItem.Helmet());
 	public static final RegistryObject<Item> JOTARO_HAT = REGISTRY.register("jotaro_hat", () -> new JotaroHatItem.Helmet());
+	public static final RegistryObject<Item> CHICK_MASK = REGISTRY.register("chick_mask", () -> new ChickMaskItem.Helmet());
 	public static final RegistryObject<Item> STRAPS = REGISTRY.register("straps", () -> new StrapsItem.Chestplate());
 	public static final RegistryObject<Item> DOCTOR_HELMET = REGISTRY.register("doctor_helmet", () -> new DoctorHelmetItem.Helmet());
 
@@ -218,6 +219,7 @@ public class ModItems {
 	public static final RegistryObject<Item> BEAVER_AXE = REGISTRY.register("beaver_axe", () -> new BeaverAxeItem());
 	public static final RegistryObject<Item> SAPPER_SHOVEL = REGISTRY.register("sapper_shovel", () -> new SapperShovelItem());
 	public static final RegistryObject<Item> PIGKAXE = REGISTRY.register("pigkaxe", () -> new PigkaxeItem());
+	public static final RegistryObject<Item> POO_PICKAXE = REGISTRY.register("poo_pickaxe", () -> new PooPickaxeItem());
 	public static final RegistryObject<Item> TUBE_19 = REGISTRY.register("tube_19", () -> new Tube19Item());
 	public static final RegistryObject<Item> EGGS = REGISTRY.register("eggs", () -> new EggsItem());
 	public static final RegistryObject<Item> TOTEM_OF_SHIT = REGISTRY.register("totem_of_shit", () -> new TotemOfShitItem());

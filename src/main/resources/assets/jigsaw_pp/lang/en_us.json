@@ -269,7 +269,7 @@
   "item.jigsaw_pp.teapot_rifle": "Teapot rifle",
   "block.jigsaw_pp.nuclear_teapot": "Nuclear teapot",
   "item.jigsaw_pp.teapot_launcher": "Teapot-Nuke launcher",
-  "item.jigsaw_pp.teapot_cannon": "Teapoterminator-3000",
+  "item.jigsaw_pp.teapot_cannon": "Flock O'matic-3000",
 
   "block.jigsaw_pp.farfuhrer.desc": "§7Gasses it's surroundings when §3Heated with campfire",
   "item.jigsaw_pp.fork.desc": "§7What do you mean \"clean\", damn it, how am I supposed to §l§6clean shit§r§7 with a fork?!",
@@ -451,6 +451,10 @@
   "entity.jigsaw_pp.ponos_grenade_projectile": "Poop grenade",
   "entity.jigsaw_pp.smoke_grenade_projectile": "Smoke grenade",
   "entity.jigsaw_pp.zombie_beaver": "Zombie beaver",
-  "entity.jigsaw_pp.gentleman_watching": "PurgenMan"
+  "entity.jigsaw_pp.gentleman_watching": "PurgenMan",
+
+  "goon.separator.version.4": "biden",
+  "item.jigsaw_pp.poo_pickaxe": "Poockaxe",
+  "item.jigsaw_pp.chick_mask": "Chick mask"
 
 }

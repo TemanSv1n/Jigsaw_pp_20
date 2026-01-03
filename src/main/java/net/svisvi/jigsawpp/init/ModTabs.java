@@ -213,6 +213,8 @@ public class ModTabs {
 				tabData.accept(ModItems.UNFUELED_ROCKET.get());
 				tabData.accept(ModItems.COPROLITE.get());
 				tabData.accept(ModItems.CHOCOLATE_BLOCK.get());
+				tabData.accept(ModItems.POO_PICKAXE.get());
+				tabData.accept(ModItems.CHICK_MASK.get());
 
 
 			}).build());

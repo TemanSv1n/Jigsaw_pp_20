@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "#": {
+      "item": "jigsaw_pp:sweet_bread"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "jigsaw_pp:poo_pickaxe",
+    "count": 1
+  }
+}

@@ -5,6 +5,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -45,6 +47,12 @@ import net.svisvi.jigsawpp.particles.ModParticleTypes;
 import net.svisvi.jigsawpp.particles.ModParticles;
 
 public class EggsItem extends Item {
+
+    private static final float BASE_KINETIC_MULTIPLIER = 2.0F;
+    private static final float MAX_KINETIC_MULTIPLIER = 15.0F;
+    private static final float VELOCITY_THRESHOLD = 0.3F; // Minimum velocity to apply bonus
+    private static final float FALL_DAMAGE_MULTIPLIER = 4.7F; // Extra multiplier for fall damage conversion
+
     public EggsItem() {
         super(new Item.Properties().durability(128));
     }
@@ -62,8 +70,74 @@ public class EggsItem extends Item {
 
     @Override
     public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
+        double speed = 0;
+        double Yaw = 0;
+        double xRadius = 0;
+        double loop = 0;
+        double zRadius = 0;
+        double particleAmount = 0;
+        double loop_big = 0;
+        double speed2 = 0;
+
         itemstack.hurtAndBreak(2, entity, i -> i.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        //if (entity.level() instanceof ServerLevel _level) {
+            DamageSource egged = new DamageSource(entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC), sourceentity);
+        //}
+
+        Vec3 velocity = sourceentity.getDeltaMovement();
+        double horizontalVelocity = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z);
+        double verticalVelocity = Math.abs(velocity.y);
+        double totalVelocity = velocity.length();
+        float coeff = 0F;
+
+        float fallBonus = (float) (Math.max(verticalVelocity - 0.5, 0) * FALL_DAMAGE_MULTIPLIER);
+        coeff = 1.0F + Math.min(fallBonus, MAX_KINETIC_MULTIPLIER - 1.0F);
+        if (totalVelocity < VELOCITY_THRESHOLD) {
+            coeff =  0F; // No bonus
+        }
+
+        if (coeff != 0) {
+            loop = 0;
+            particleAmount = 64;
+            xRadius = 2;
+            zRadius = 2;
+            Level world = entity.level();
+            double x = entity.getX();
+            double y = entity.getY();
+            double z = entity.getZ();
+            while (loop < particleAmount) {
+                world.addParticle((SimpleParticleType) (ModParticleTypes.POOP.get()), (x + Math.cos(((Math.PI * 2) / particleAmount) * loop) * xRadius), (entity.getY() + 0.02), (z + Math.sin(((Math.PI * 2) / particleAmount) * loop) * zRadius),
+                        0, 0.15, 0);
+                loop = loop + 1;
+            }
+            if (!world.isClientSide()) {
+                world.playSound(null, new BlockPos((int) x, (int) y, (int) z), SoundEvents.SHIELD_BLOCK, SoundSource.PLAYERS, 2, -1);
+            } else {
+                world.playLocalSound(x, y, z, SoundEvents.SHIELD_BLOCK, SoundSource.PLAYERS, 2, -1, false);
+            }
+        }
+
+        float damagee = 6;
+        damagee = (damagee * coeff);
+        entity.hurt(egged, damagee);
+        applyKineticKnockback(entity, sourceentity);
         return true;
+    }
+
+    private static void applyKineticKnockback(LivingEntity target, LivingEntity attacker) {
+        Vec3 attackerVelocity = attacker.getDeltaMovement();
+
+        // Scale knockback based on velocity
+        double knockbackStrength = Math.min(attackerVelocity.length() * 0.5, 2.0);
+
+        if (knockbackStrength > 0.1) {
+            // Apply knockback in the direction of attacker's velocity
+            target.knockback(
+                    knockbackStrength,
+                    -attackerVelocity.x,
+                    -attackerVelocity.z
+            );
+        }
     }
 
     @Override
@@ -84,7 +158,7 @@ public class EggsItem extends Item {
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             builder.putAll(super.getDefaultAttributeModifiers(equipmentSlot));
             builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 2f, AttributeModifier.Operation.ADDITION));
-            builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -3.2, AttributeModifier.Operation.ADDITION));
+            builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.2, AttributeModifier.Operation.ADDITION));
             return builder.build();
         }
         return super.getDefaultAttributeModifiers(equipmentSlot);

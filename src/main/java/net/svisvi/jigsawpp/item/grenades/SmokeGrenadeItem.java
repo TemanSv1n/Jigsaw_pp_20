@@ -11,7 +11,7 @@ import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class SmokeGrenadeItem extends AbstractGrenadeItem{
     @Override
-    protected ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack) {
+    public ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack) {
         return new SmokeGrenadeProjectile(pLevel, pPlayer);
     }
 

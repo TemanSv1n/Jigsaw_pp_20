@@ -10,7 +10,7 @@ import net.svisvi.jigsawpp.item.init.ModItems;
 
 public class PonosGrenadeItem extends AbstractGrenadeItem{
     @Override
-    protected ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack) {
+    public ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack) {
         return new PonosGrenadeProjectile(pLevel, pPlayer);
     }
 

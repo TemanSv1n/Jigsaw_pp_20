@@ -42,6 +42,7 @@ public class ModEventBusClientEvents {
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.GAS_MASK_LAYER, GasMaskModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JOTARO_HAT_LAYER, JotaroHatModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.CHICK_MASK_LAYER, ChickMaskModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.DOCTOR_HELMET_LAYER, DoctorHelmetModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.FLOPPA_MISSILE_LAYER, FloppaMissileModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.PLUNGER, PlungerModel::createBodyLayer);

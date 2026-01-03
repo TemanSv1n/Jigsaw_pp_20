@@ -18,7 +18,7 @@ import static net.svisvi.jigsawpp.procedures.ut.PiluleStyles.getPurgenLocalisati
 
 public class PurgenGrenadeItem extends AbstractGrenadeItem{
     @Override
-    protected ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack) {
+    public ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack) {
         PurgenGrenadeProjectile grenade = new PurgenGrenadeProjectile(pLevel, pPlayer);
         grenade.setAmplifier(getAmplifier(stack));
         return grenade;
