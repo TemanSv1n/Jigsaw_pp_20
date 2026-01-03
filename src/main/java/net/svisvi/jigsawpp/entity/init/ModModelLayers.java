@@ -17,6 +17,8 @@ public class ModModelLayers {
             new ResourceLocation(JigsawPpMod.MODID, "blabbit"), "main");
     public static final ModelLayerLocation JOTARO_HAT_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "jotaro_hat_model"), "main");
+    public static final ModelLayerLocation CHICK_MASK_LAYER = new ModelLayerLocation(
+            new ResourceLocation(JigsawPpMod.MODID, "chick_mask_model"), "main");
     public static final ModelLayerLocation DOCTOR_HELMET_LAYER = new ModelLayerLocation(
             new ResourceLocation(JigsawPpMod.MODID, "doctor_helmet_model"), "main");
 

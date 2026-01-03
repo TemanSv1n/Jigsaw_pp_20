@@ -40,7 +40,7 @@ import java.util.List;
 
 public class FarFuhrerBlock extends TeapotBlock {
 
-    public AbstractEmitterEntity farter;
+    //public AbstractEmitterEntity farter;
 
     public FarFuhrerBlock() {
         super();
@@ -65,16 +65,24 @@ public class FarFuhrerBlock extends TeapotBlock {
 
 
         }
+        if (world instanceof ServerLevel _level) {
+
+
+            _level.sendParticles(ParticleTypes.SNEEZE, x, y, z, 100, 4, 2, 4, 0.1);
+
+
+        }
 
 
         if (world instanceof Level level) {
-            if (this.farter == null) {
-                farter = new FartGasEmitterEntity(level, x, y, z, 2f, 21);
-            }
-            if (world instanceof ServerLevel _level) {
-                //_level.sendParticles(ParticleTypes.SNEEZE, x, y, z, 100, 4, 2, 4, 0.1);
-                farter.spawnParticles(farter.getParticleCount(), farter.getParticleSpeed());
-            }
+            FartGasEmitterEntity farter = new FartGasEmitterEntity(ModEntities.FART_GAS_EMITTER.get(), level);
+//            if (this.farter == null) {
+//                farter = new FartGasEmitterEntity(level, x, y, z, 2f, 21);
+//            }
+//            if (world instanceof ServerLevel _level) {
+//                //_level.sendParticles(ParticleTypes.SNEEZE, x, y, z, 100, 4, 2, 4, 0.1);
+//                farter.spawnParticles(farter.getParticleCount(), farter.getParticleSpeed());
+//            }
 
 
             final Vec3 _center = new Vec3(x, y, z);

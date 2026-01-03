@@ -24,7 +24,7 @@ public abstract class AbstractGrenadeItem extends Item implements CustomArmPoseI
         super(new Item.Properties().stacksTo(16).rarity(Rarity.COMMON));
     }
 
-    protected abstract ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack);
+    public abstract ThrowableItemProjectile setProjectile(Level pLevel, Player pPlayer, ItemStack stack);
     public abstract ItemStack getUsedItem();
 
     @Override

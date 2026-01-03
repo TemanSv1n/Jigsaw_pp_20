@@ -12,6 +12,7 @@ import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.resources.ResourceLocation;
+import net.svisvi.jigsawpp.JigsawPpMod;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
@@ -61,13 +62,13 @@ public class PonosFluidType extends FluidType {
 
 //            @Override
 //            public int getTintColor() {
-//                return tintColor;
+//                return 0xFFFFFF;
 //            }
 //
-//            @Override
-//            public ResourceLocation getOverlayTexture() {
-//                return overlayTexture;
-//            }
+            @Override
+            public ResourceLocation getOverlayTexture() {
+                return new ResourceLocation("minecraft", "textures/misc/underwater.png");
+            }
 
             @Override
             public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
@@ -76,8 +77,10 @@ public class PonosFluidType extends FluidType {
 
             @Override
             public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape) {
-                RenderSystem.setShaderFogStart(1f); //Это короче когда затемнение воды начинается нахой
-                RenderSystem.setShaderFogEnd(4f); //Это короче когда затемнение воды заканчивается нахой
+                RenderSystem.setShaderFogStart(0.0f);   // сразу начинается туман
+                RenderSystem.setShaderFogEnd(3.0f);     // очень близко → непрозрачность
+                RenderSystem.setShaderFogShape(FogShape.SPHERE);
+                //индусы братья человеков
             }
         });
     }

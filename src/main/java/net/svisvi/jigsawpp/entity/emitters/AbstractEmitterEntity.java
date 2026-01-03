@@ -194,7 +194,7 @@ public class AbstractEmitterEntity extends Entity implements TraceableEntity {
         final Vec3 _center = this.position();
         List<Entity> _entfound = level.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(this.getRadius() * 2), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
         for (Entity entityiterator : _entfound) {
-            if (entityiterator instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
+            if (entityiterator instanceof LivingEntity _entity) { // && !_entity.level().isClientSide()
                 if (this.isAffectOwner() || _entity != this.getOwner()) {
                     this.effectForEach(_entity);
                 }

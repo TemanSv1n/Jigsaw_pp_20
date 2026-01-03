@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraftforge.fml.common.Mod;
+//import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.svisvi.jigsawpp.block.drist_tnt.IPoopExplosive;
 import net.svisvi.jigsawpp.block.init.ModBlocks;
