@@ -29,10 +29,10 @@ public class RadioUtils {
             }
             //HANDLING ENTITIES WITH ARMOR: PLAYERS
             if (entityiterator instanceof Player player){
-                activatePlayer(player, level, activator);
+                activatePlayer(player, level, activator, code);
             } else if (entityiterator instanceof LivingEntity living) {
                 //NON PLAYER
-                activateArmoredEntity(living, level, activator);
+                activateArmoredEntity(living, level, activator, code);
             }
 
         }
@@ -61,17 +61,17 @@ public class RadioUtils {
         return name;
     }
 
-    public static void activatePlayer(Player player, Level level, Entity activator){
+    public static void activatePlayer(Player player, Level level, Entity activator, String code){
         for (ItemStack stack :player.getInventory().armor){
-            if (stack.getItem() instanceof IRadioActivatable radiostack){
+            if (stack.getItem() instanceof IRadioActivatable radiostack && getItemStackName(stack).equals(code)){
                 radiostack.activate(level, player.getOnPos(), null, player, activator, stack);
             }
         }
     }
 
-    public static void activateArmoredEntity(LivingEntity living, Level level, Entity activator){
+    public static void activateArmoredEntity(LivingEntity living, Level level, Entity activator, String code){
         for (ItemStack stack : living.getArmorSlots()){
-            if (stack.getItem() instanceof IRadioActivatable radiostack){
+            if (stack.getItem() instanceof IRadioActivatable radiostack && getItemStackName(stack).equals(code)){
                 radiostack.activate(level, living.getOnPos(), null, living, activator, stack);
             }
         }

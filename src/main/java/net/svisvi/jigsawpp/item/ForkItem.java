@@ -20,7 +20,7 @@ public class ForkItem extends ShovelItem {
     public ForkItem() {
         super(new Tier() {
             public int getUses() {
-                return 1488;
+                return 4488;
             }
 
             public float getSpeed() {
@@ -48,7 +48,7 @@ public class ForkItem extends ShovelItem {
 
     public void clear(ItemStack itemstack, LevelAccessor world, BlockPos pos){
         ItemStack _ist = itemstack;
-        int a = PonosClear.clearPonosLiquid(world, pos.getX(), pos.getY(), pos.getZ(), 3);
+        int a = PonosClear.clearPonosLiquid(world, pos.getX(), pos.getY(), pos.getZ(), 5);
         if (_ist.hurt(a, RandomSource.create(), null)) {
             _ist.shrink(1);
             _ist.setDamageValue(0);
@@ -74,7 +74,8 @@ public class ForkItem extends ShovelItem {
     public InteractionResult useOn(UseOnContext context) {
         super.useOn(context);
         Player p = context.getPlayer();
-        clear(p.getItemInHand(context.getHand()), context.getLevel(), new BlockPos(p.getBlockX(), p.getBlockY(), p.getBlockZ()));
+        BlockPos pos = context.getClickedPos();
+        clear(p.getItemInHand(context.getHand()), context.getLevel(), pos);
         return InteractionResult.SUCCESS;
     }
 }
