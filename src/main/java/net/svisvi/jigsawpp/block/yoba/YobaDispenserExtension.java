@@ -37,7 +37,12 @@ public class YobaDispenserExtension {
             }
             if (level.isEmptyBlock(blockpos)) {
                 if (!level.isClientSide) {
-                    level.setBlock(blockpos, carvedpumpkinblock.defaultBlockState().setValue(YobaBlock.REAL_FACING, p_123437_.getBlockState().getValue(DispenserBlock.FACING)), 3);
+                    Direction facing = p_123437_.getBlockState().getValue(DispenserBlock.FACING); //костыльчик, потом надо пофиксить up & down колобку
+                    if (facing == Direction.UP || facing == Direction.DOWN) {
+                        Direction[] horizontalDirs = {Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
+                        facing = horizontalDirs[level.random.nextInt(horizontalDirs.length)];
+                    }
+                    level.setBlock(blockpos, carvedpumpkinblock.defaultBlockState().setValue(YobaBlock.REAL_FACING, facing), 3);
                     level.gameEvent((Entity)null, GameEvent.BLOCK_PLACE, blockpos);
                 }
 

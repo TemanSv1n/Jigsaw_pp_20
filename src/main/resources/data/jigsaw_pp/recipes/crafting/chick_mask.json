@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "EGE",
+        " F "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:redstone"
+        },
+        "E": {
+            "item": "minecraft:egg"
+        },
+        "G": {
+            "item": "minecraft:gold_block"
+        },
+        "F": {
+            "item": "minecraft:feather"
+        }
+    },
+    "result": {
+        "item": "jigsaw_pp:chick_mask",
+        "count": 1
+    }
+}

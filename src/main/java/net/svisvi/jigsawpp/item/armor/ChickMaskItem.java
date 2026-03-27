@@ -120,6 +120,21 @@ public abstract class ChickMaskItem extends ArmorItem {
             Level world = pEntity.level();
             if (!world.isClientSide()) {
                 boolean enable = false;
+
+                // ========== mask is on head? ==========
+                boolean isWorn = false;
+                if (pEntity instanceof LivingEntity living) {
+                    ItemStack headStack = living.getItemBySlot(EquipmentSlot.HEAD);
+                    if (headStack.getItem() == this) {
+                        isWorn = true;
+                    }
+                }
+
+                if (!isWorn) {
+                    return;
+                }
+                // =========== niggaz
+
                 if (itemstack.getOrCreateTag().getDouble("penis") < 120) {
                     itemstack.getOrCreateTag().putDouble("penis", (itemstack.getOrCreateTag().getDouble("penis") + 1));
                 }
